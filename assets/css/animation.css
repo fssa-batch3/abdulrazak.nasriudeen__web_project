@@ -1,0 +1,27 @@
+.mobile {
+  animation: slim;
+  animation-duration: 3s;
+}
+@keyframes slim {
+  0% {
+    transform: translateX(-500px);
+  }
+}
+.images {
+  animation: car;
+  animation-duration: 3s;
+}
+@keyframes car {
+  0% {
+    transform: translateX(-500px);
+  }
+}
+button {
+  animation: sig;
+  animation-duration: 2s;
+}
+@keyframes sig {
+  0% {
+    transform: translateX(100px);
+  }
+}
