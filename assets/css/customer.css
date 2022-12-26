@@ -1,8 +1,8 @@
 :root {
-  --sand-tan: #e1b382;
+  --sand-tan: #ffdbac;
   --sand-tan-shadow: #c89666;
-  --night-blue: #2d545e;
-  --night-blue-shadow: #12343b;
+  --night-blue: rgb(25, 24, 24);
+  --night-blue-shadow: black;
   --background: linear-gradient(
     var(--night-blue),
     var(--sand-tan),
@@ -13,6 +13,7 @@
 * {
   margin: 0px;
   padding: 0px;
+  font-family: solway;
 }
 body {
   background-color: #fad1a5;
@@ -24,21 +25,21 @@ header {
   gap: 1%;
   padding: 5px;
   z-index: 3;
-  background-color: var(--lightestblue);
+  background-color: var(--night-blue-shadow);
 }
 .srch {
   width: 100%;
   display: flex;
   padding: 5px;
   flex: 2;
-  border: 2px solid var(--darkestblue);
+  border: 2px solid var(--sand-tan);
   border-radius: 10px;
 }
 header input {
   width: 100%;
   border: none;
-  background-color: var(--lightestblue);
-  color: var(--darkestblue);
+  background-color: var(--night-blue-shadow);
+  color: var(--sand-tan);
   outline: none;
   font-size: 1.1em;
   flex: 1;
@@ -76,11 +77,14 @@ section img {
 }
 h2 {
   position: absolute;
-  bottom: 4%;
+  bottom: 8%;
   right: 3%;
-  color: var(--lightestblue);
+  color: var(--sand-tan);
+  background-color: var(--night-blue-shadow);
   /* opacity: 0.5; */
   font-size: 4em;
+  padding: 10px;
+  border-radius: 20px;
 }
 /* .................................................................section-service */
 .serv-img {

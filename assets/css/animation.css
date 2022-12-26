@@ -1,11 +1,11 @@
-.mobile {
+/* .mobile {
   animation: slim;
   animation-duration: 3s;
 }
 @keyframes slim {
   0% {
     transform: translateX(-500px);
-  }
+  } */
 }
 .images {
   animation: car;
