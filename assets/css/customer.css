@@ -1,225 +1,317 @@
 :root {
-  --sand-tan: #ffdbac;
-  --sand-tan-shadow: #c89666;
-  --night-blue: rgb(25, 24, 24);
-  --night-blue-shadow: black;
-  --background: linear-gradient(
-    var(--night-blue),
-    var(--sand-tan),
-    var(--sand-tan),
-    var(--night-blue)
-  );
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
 }
 * {
   margin: 0px;
   padding: 0px;
   font-family: solway;
 }
-body {
-  background-color: #fad1a5;
-}
 header {
   display: flex;
-  position: fixed;
+  align-items: center;
+  background-color: var(--red);
   width: 100%;
+  height: 80px;
   gap: 1%;
-  padding: 5px;
-  z-index: 3;
-  background-color: var(--night-blue-shadow);
+  position: fixed;
+  margin-top: -80px;
+  border: 2px solid black;
+}
+header img {
+  width: 5%;
+  height: 100%;
+  background-color: var(--light);
+  /* padding: 1%; */
+  border-top-right-radius: 50px;
+  border: 2px solid black;
+  border-bottom-right-radius: 50px;
+  padding-right: 2%;
+}
+.menu-cont {
+  display: flex;
+  width: 95%;
+  height: 100%;
+  align-items: center;
+  gap: 1%;
+}
+.menu-cont span {
+  color: black;
+  font-size: 48px;
+  font-weight: bold;
+  transition: all 0.8s;
+}
+.menu-cont span:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  color: var(--light);
 }
 .srch {
-  width: 100%;
+  width: 95%;
   display: flex;
-  padding: 5px;
-  flex: 2;
-  border: 2px solid var(--sand-tan);
-  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+  height: 70%;
+  background-color: var(--light);
+  border-radius: 40px;
+  border: 2px solid black;
+  /* padding: 1%; */
 }
-header input {
-  width: 100%;
+
+.srch input {
+  width: 90%;
+  height: 60%;
   border: none;
-  background-color: var(--night-blue-shadow);
-  color: var(--sand-tan);
+  padding: 10px;
+  color: var(--pink);
+  background-color: var(--light);
   outline: none;
-  font-size: 1.1em;
-  flex: 1;
+  font-size: 18px;
+}
+.srch ::placeholder {
+  color: black;
 }
 
-::placeholder {
-  color: var(--darkestblue);
+.srch span {
+  color: black;
 }
-
-.h-img {
-  transition: 0.5s;
+.srch span:hover {
+  color: var(--danger);
 }
-.h-img:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-}
-/* ..............................................................................section-1 */
+/* ------header--ends------ */
+/* ------------map - section- starts----- */
 section {
+  width: 100%;
+  height: 780px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* background-image: linear-gradient(
-    var(--night-blue),
-    var(--sand-tan),
-    var(--sand-tan-shadow)
-  ); */
-  height: 800px;
-  /* overflow: hidden; */
 }
-section img {
-  width: 98%;
-  height: 98%;
-  margin-top: 2%;
-  border-radius: 30px;
+.map {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--danger);
 }
-h2 {
+
+/* ------------------arrow------------------ */
+.arrow {
+  width: 5%;
+  height: 10%;
+  padding: 2px;
   position: absolute;
-  bottom: 8%;
-  right: 3%;
-  color: var(--sand-tan);
-  background-color: var(--night-blue-shadow);
-  /* opacity: 0.5; */
-  font-size: 4em;
-  padding: 10px;
-  border-radius: 20px;
+  border-radius: 50%;
+  border: 3px solid black;
+  left: 20%;
+  bottom: 40%;
 }
-/* .................................................................section-service */
-.serv-img {
-  width: 85%;
-  height: 70%;
-  border: 2px solid var(--sand-tan);
-}
-.services {
+/* ------------------arrow------------------ */
+/* --------intro----cont------ */
+.intro-container {
+  width: 43%;
+  height: 75%;
+  position: absolute;
+  background-color: var(--red);
+  padding-top: 1%;
+  right: 1%;
+  bottom: 3%;
+  border-radius: 50px;
+  border: 5px solid black;
   display: flex;
   flex-direction: column;
-  background-image: var(--background);
-
   align-items: center;
-  border-radius: 30px;
-  height: 500px;
-  transition: all 1.3s;
+  gap: 3%;
 }
-.services:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-.services h3 {
-  color: var(--lightestblue);
-  font-size: 2em;
-}
-.serv {
-  display: grid;
-  grid-template-columns: 25% 25% 25%;
-  height: auto;
-  gap: 5%;
-  margin-top: 3%;
-  height: 1100px;
-}
-button {
-  padding: 10px 30px;
-  background-color: lightgreen;
-  border-radius: 30px;
-  margin-top: 3%;
-  box-shadow: 2px 2px var(--blue);
-  font-size: 20px;
-}
-button:hover {
-  transform: scale(1.1);
+.intro-container h2 {
+  color: var(--light);
+  font-size: 30px;
   font-weight: bold;
 }
-/*.................................................... location(1)............................................................................. */
-.mec-img {
-  width: auto;
+.service-cont {
+  border: 5px solid black;
+  width: 85%;
+  height: 85%;
 
-  position: absolute;
+  background-color: var(--light);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
-.img-position {
-  display: flex;
-
-  gap: 50%;
-
-  width: 300%;
-}
-.img-size {
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  z-index: 2;
-  border: 2px solid var(--sand-tan);
-  box-shadow: 3px 3px var(--sand-tan-shadow);
-}
-.img-size:hover {
-  transform: scale(1.2);
-  border: 2px solid var(--lightblue);
-}
-/* ........................................................Location....................................................... */
-.map {
-  width: 95%;
-  height: 90%;
-  margin-top: 7%;
-  border-radius: 30px;
-  border: 10px solid var(--night-blue);
-}
-.available {
-  height: 65%;
-  width: 40%;
-  position: absolute;
-  background-color: var(--night-blue);
-  border-radius: 30px;
-  right: 5%;
-  bottom: 10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-.mec-avail {
-  height: 90%;
-  width: 95%;
-  background-color: #fad1a5;
-  border-radius: 30px;
+.service-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
-  gap: 4%;
-  padding: 10px;
-}
-.mec-avail h4 {
-  font-size: 1.5em;
-}
-.avail-list {
-  width: 95%;
-  height: auto;
-  display: flex;
-  background-color: var(--sand-tan);
-  border-radius: 30px;
-  padding: 5px 15px;
-  transition: all 1.2s;
-  border: 2px solid var(--night-blue-shadow);
-}
-.avail-list:hover {
-  background-color: var(--sand-tan-shadow);
-  cursor: pointer;
-  box-shadow: 1px 1px var(--night-blue-shadow);
-  transform: scale(1.04);
-}
-.mec-profile {
-  width: 30%;
-  height: 90%;
-}
-/* /* .................................................booking...................................  */
-.book {
   width: 100%;
+  height: 98%;
+  gap: 6%;
+  padding-top: 5px;
+  /* padding-left: 10px; */
 
-  display: flex;
-  gap: 3%;
-  height: 50%;
-  background-color: var(--blue);
+  overflow-y: scroll;
+}
+.service-list a {
+  width: 98%;
+  margin-left: 2%;
+}
+.services {
+  width: 95%;
+  height: 300px;
   border-radius: 30px;
+  position: relative;
+}
+.services:hover {
+  transform: scale(1.01);
+  /* transition: all 0.8s; */
+  cursor: pointer;
+  border-left: 5px solid var(--danger);
+  border-bottom: 5px solid var(--danger);
+}
+.serv-img {
+  width: 100%;
+  height: 100%;
+  /* filter: brightness(0.7); */
+  border-radius: 30px;
+  border: 3px solid black;
+  /* position: relative; */
+}
+/* -----------------content-------------------- */
+.serv-content {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 1%;
+  left: 1.5%;
+
+  border-radius: 20px;
+  background-color: black;
+  padding: 2% 4%;
+}
+.serv-content p {
+  background-color: black;
+  font-weight: bold;
+
+  color: var(--light);
+}
+/* ------------profile----------- */
+.profile-container {
+  width: 30%;
+  height: 650px;
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  border-radius: 50px;
+  background-color: var(--light);
+  border: 5px solid var(--danger);
+}
+.h-1-pro {
+  display: flex;
+  height: 5%;
+  align-items: center;
+}
+.pro-h {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3%;
+}
+#exit {
+  font-size: 40px;
+  color: var(--danger);
+  font-weight: bold;
+}
+
+#exit:hover {
+  padding: 10px;
+  background-color: var(--danger);
+  color: black;
+  border-radius: 50%;
+}
+.profile-mid {
+  display: flex;
+  height: 40%;
+  width: 100%;
+  justify-content: center;
+  gap: 4%;
+}
+.mid {
+  width: 45%;
+  height: 100%;
+  gap: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mid span {
+  font-size: 100px;
+}
+/* editing---------- profile */
+.edit-profile {
+  width: 100%;
+  height: 15%;
+  border-radius: 30px;
+  border: 2px solid var(--danger);
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+}
+.edit-profile input {
+  width: 90%;
+  height: 60%;
+  background: none;
+  outline: none;
+  border: none;
+  padding-left: 5px;
+}
+h5 {
+  margin-top: -10px;
+
+  background-color: var(--light);
+}
+hr {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 3%;
+  border: 1px solid var(--dark);
+  background-color: var(--dark);
+}
+.pro-foot {
+  display: flex;
+  justify-content: center;
+}
+.pro-foot a button {
+  width: 200%;
+
+  background-color: var(--teal);
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: -2%;
+}
+.pro-foot button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: var(--light);
+  background-color: var(--info);
 }

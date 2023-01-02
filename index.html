@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link rel="stylesheet" href="./assets/css/Animation.css">
   </head>
   <body>
     <header>
@@ -28,7 +29,7 @@
             <p>24/7 services... Customer Care Available...</p>
           </div>
           <div class="h-conact-info">
-            <span class="material-symbols-outlined"> call </span>
+            <span class="material-symbols-outlined" class="ani-icon"> call </span>
             +91 8124311602
           </div>
         </div>
@@ -72,28 +73,29 @@
         </p>
         <p>Press the book service button to book a service</p>
       </div>
-      <a href="#book"><button>Book a Service</button></a>
-      <a href="./pages/Home/Sign-up.html"><button id="sign-up">Sign-up</button></a>
+      <a href="#book"><button class="Animate" style="right: 20%;bottom: 20%;">Book a Service</button></a>
+      <a href="./pages/Home/Sign-up.html"><button  id="sign-up">Sign-up</button></a>
       
     </section>
     <section>
       <div class="vehicle-cont">
-        <div class="vehicle">
-          <img src="./assets/images/home/bike.png" alt="bike" />
+        <div class="vehicle" class="Animate-veh-cont">
+          <img src="./assets/images/home/bike.png" class="animate-vehicle"
+          alt="bike" />
           <h2>Bike General Service</h2>
-          <h2 style="color: var(--pink)">Starts @ 1500</h2>
+          <h2 style="color: var(--red)">Starts @ 1500</h2>
           <h2>Only/-</h2>
         </div>
         <div class="vehicle">
-          <img src="./assets/images/home/car.png" alt="car" />
+          <img src="./assets/images/home/car.png"  class="animate-vehicle" alt="car" />
           <h2>Car General Service</h2>
-          <h2 style="color: var(--pink)">Starts @ 3000</h2>
+          <h2 style="color: var(--red)">Starts @ 3000</h2>
           <h2>Only/-</h2>
         </div>
         <div class="vehicle">
-          <img src="./assets/images/home/ricksaw.png" alt="ricksaw" />
+          <img src="./assets/images/home/ricksaw.png"  class="animate-vehicle" alt="ricksaw" />
           <h2>Auto General Service</h2>
-          <h2 style="color: var(--pink)">Starts @ 2000</h2>
+          <h2 style="color: var(--red)">Starts @ 2000</h2>
           <h2>Only/-</h2>
         </div>
       </div>
@@ -103,6 +105,7 @@
           alt="bike-car service"
           width="60%"
           height="100%"
+          class="sec-2-animate"
         />
         <div>
           <h2>Our Main Perspective:</h2>
@@ -153,6 +156,7 @@
                 <img
                   src="./assets/images/home/services/breakdown.png"
                   alt="breakdown"
+                  class="serv-img-animate"
                 />
                 <div>
                   <h3>Breakdown</h3>
@@ -163,7 +167,8 @@
               <div class="service-list">
                 <img
                   src="./assets/images/home/services/engine.png"
-                  alt="breakdown"
+                  alt="eng"
+                    class="serv-img-animate"
                 />
                 <div>
                   <h3>Engine Malfunction</h3>
@@ -174,7 +179,8 @@
               <div class="service-list">
                 <img
                   src="./assets/images/home/services/accumulator.png"
-                  alt="breakdown"
+                  alt="battery"
+                    class="serv-img-animate"
                 />
                 <div>
                   <h3>Battery Works</h3>
@@ -184,7 +190,8 @@
               <div class="service-list">
                 <img
                   src="./assets/images/home/services/car-wash.png"
-                  alt="breakdown"
+                  alt="wash"
+                    class="serv-img-animate"
                 />
                 <div>
                   <h3>Wash</h3>
@@ -197,7 +204,8 @@
               <div class="service-list">
                 <img
                   src="./assets/images/home/services/tyre.png"
-                  alt="breakdown"
+                  alt="tyre"
+                    class="serv-img-animate"
                 />
                 <div>
                   <h3>Wheel alignment</h3>
@@ -214,6 +222,7 @@
         src="./assets/images/home/services/schedule-apointment.png"
         alt="car-service"
         id="car-serv"
+        class="sec-2-animate"
       />
     </section>
     <div class="acheivements">
@@ -225,8 +234,8 @@
         <h3>Happy Customers</h3>
       </div>
       <div class="a-cont">
-        <div class="acheivement-list" style="background-color: var(--pink)">
-          <img src="./assets/images/home/services/goal.png" alt="people" />
+        <div class="acheivement-list"  style="background-color: var(--pink)">
+          <img src="./assets/images/home/services/goal.png" alt="people"  />
         </div>
         <h3>
           Achieived <br />
@@ -255,7 +264,7 @@
               >Comments <input type="text" id="comments"
             /></label>
           </form>
-          <button>Book service</button>
+          <button><a href="./pages/Customer/booking/booking-searching.html">Book service</a></button>
         </div>
         <div>
           <img
@@ -353,16 +362,12 @@
                 <p><span class="material-symbols-outlined">settings_suggest</span>Wheel laser alignment</p>
             </div>
             <div>
-                 <h3>Our Services</h3>
-                <p><span class="material-symbols-outlined">settings_suggest</span>Wheel laser alignment</p>
-                <p><span class="material-symbols-outlined">settings_suggest</span>New tires installation</p>
-                <p><span class="material-symbols-outlined">settings_suggest</span>Car safety inspection</p>
-                <p><span class="material-symbols-outlined">settings_suggest</span>Rear brakes services</p>
-                <p><span class="material-symbols-outlined">settings_suggest</span>Batteries and electrical system</p>
-                <p><span class="material-symbols-outlined">settings_suggest</span>Oil and filter change</p>
-                <p><span class="material-symbols-outlined">settings_suggest</span>Air conditioning & heater services</p>
-                <p><span class="material-symbols-outlined">settings_suggest</span>Wheel laser alignment</p>
-
+                 <h3>Our Links</h3>
+                <p><span class="material-symbols-outlined">settings_suggest</span>Home</p>
+                <p><span class="material-symbols-outlined">settings_suggest</span>About</p>
+                <p><span class="material-symbols-outlined">settings_suggest</span>Services</p>
+                <p><span class="material-symbols-outlined">settings_suggest</span>Reviews</p>
+                
             </div>
             </div>
             <div class="last-foot">

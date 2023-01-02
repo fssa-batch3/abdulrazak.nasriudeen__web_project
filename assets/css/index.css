@@ -43,11 +43,13 @@ header {
   border-bottom-right-radius: 50px;
 
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .logo-cont img {
   width: 60%;
   height: 100%;
-  margin-left: 10%;
 }
 .h-container {
   width: 95%;
@@ -132,6 +134,21 @@ span {
   transition: all 1s;
   cursor: pointer;
 }
+@media screen and (max-width: 480px) {
+  header {
+    height: 8%;
+  }
+  .logo-cont {
+    width: 8%;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 100%;
+  }
+  .logo-cont img {
+    width: 80%;
+    height: 80%;
+  }
+}
 /* ............................................................header closed .......................................... */
 /* ......................................section-1.................................... */
 section {
@@ -172,6 +189,7 @@ h1 {
 /*------------------------------ sign-up button------------------------- */
 #sign-up {
   right: 40%;
+  bottom: 20%;
   background-color: var(--teal);
 }
 button {
@@ -183,8 +201,6 @@ button {
   font-size: 1em;
   box-shadow: 1px 1px var(--pink);
   position: absolute;
-  bottom: 20%;
-  right: 20%;
 }
 button:hover {
   transform: scale(1.1);
@@ -208,6 +224,9 @@ button:hover {
   align-items: center;
   gap: 5%;
 }
+.vehicle h2 {
+  font-size: 20px;
+}
 
 .vehicle-cont {
   display: flex;
@@ -222,12 +241,12 @@ button:hover {
   gap: 3%;
 }
 .sec-2 h2 {
-  font-size: 40px;
-  color: var(--pink);
+  font-size: 30px;
+  color: var(--red);
   font-weight: bolder;
 }
 .sec-2 p {
-  font-size: 20px;
+  font-size: 15px;
 }
 .feed span {
   color: var(--pink);
@@ -291,7 +310,7 @@ button:hover {
   color: var(--info);
 }
 .service-list p {
-  font-size: 15px;
+  font-size: 13px;
 }
 #car-serv {
   width: 40%;
@@ -527,8 +546,13 @@ footer {
   font-weight: bolder;
 }
 .info img {
-  height: 50px;
-  width: 40px;
+  height: 50%;
+  width: 40%;
+  background-color: var(--light);
+  border-radius: 30px;
+}
+.info {
+  width: 20%;
 }
 .info-cont {
   display: flex;
@@ -570,7 +594,7 @@ footer {
 /* -------------------sign-up page starts------------------ */
 .sign-up {
   width: 30%;
-  height: 75%;
+  height: 80%;
   position: absolute;
   background-color: var(--light);
   top: 15%;
@@ -625,11 +649,12 @@ form label {
   height: 40px;
 }
 .submit {
-  width: 55%;
+  width: 75%;
   height: 50px;
   border-radius: 30px;
   background-color: var(--teal);
-  bottom: 20%;
+  bottom: 23%;
+  left: 13%;
 }
 .form-foot {
   display: flex;
@@ -650,7 +675,7 @@ form label {
 #login {
   left: 50%;
   border-bottom-left-radius: 50px;
-  height: 70%;
+  height: 80%;
   padding-bottom: 15px;
 }
 .login-mid {
@@ -680,7 +705,7 @@ h3 a:hover {
   justify-content: center;
   width: 100%;
   gap: 8%;
-  margin-left: 40%;
+  margin-left: 10%;
 }
 .button-cont button {
   background-color: var(--teal);
