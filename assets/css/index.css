@@ -1,0 +1,713 @@
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: solway;
+}
+/* ..........................header.......................... */
+header {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: black;
+  position: fixed;
+  margin-top: -100px;
+  z-index: 3;
+}
+.logo-cont {
+  width: 10%;
+  background-color: var(--light);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-cont img {
+  width: 60%;
+  height: 100%;
+}
+.h-container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+.h-contact {
+  width: 100%;
+  background-color: black;
+  color: var(--light);
+  font-size: 14px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.h-contact-info {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  margin-right: 10%;
+}
+
+.h-nav {
+  background-color: var(--red);
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: -5%;
+  padding-right: 5%;
+
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+ul {
+  display: flex;
+  width: 98%;
+  justify-content: flex-end;
+  gap: 8%;
+}
+li {
+  list-style: none;
+  color: var(--light);
+  font-weight: bolder;
+}
+li:hover {
+  color: black;
+  transform: scale(1.1);
+  transition: all 1s;
+}
+a {
+  text-decoration: none;
+}
+ul input {
+  width: 90%;
+
+  background-color: var(--red);
+  border: none;
+  color: var(--light);
+  outline: none;
+  /* font-size: 18px; */
+}
+::placeholder {
+  color: var(--light);
+}
+.in-cont {
+  border-bottom: 2px solid var(--light);
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5px;
+}
+span {
+  color: var(--light);
+}
+.h-nav span:hover {
+  color: black;
+  transform: scale(1.1);
+  transition: all 1s;
+  cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  header {
+    height: 8%;
+  }
+  .logo-cont {
+    width: 8%;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 100%;
+  }
+  .logo-cont img {
+    width: 80%;
+    height: 80%;
+  }
+}
+/* ............................................................header closed .......................................... */
+/* ......................................section-1.................................... */
+section {
+  width: 100%;
+  height: 800px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  gap: 1%;
+}
+
+.sec-1-cont {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 10px 20px;
+}
+h1 {
+  color: var(--white);
+  font-size: 70px;
+  font-weight: bolder;
+}
+.sec-1-img {
+  height: 100%;
+  width: 100%;
+  filter: brightness(0.3);
+}
+.sec-1-cont p {
+  font-size: 25px;
+  color: var(--white);
+  font-weight: bold;
+}
+/*------------------------------ sign-up button------------------------- */
+#sign-up {
+  right: 40%;
+  bottom: 20%;
+  background-color: var(--teal);
+}
+button {
+  padding: 15px 30px;
+  background-color: var(--pink);
+  border-radius: 20px;
+  /* color: var(--pink); */
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 1px 1px var(--pink);
+  position: absolute;
+}
+button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  /*-------------------- end --------------- */
+}
+/* ........................................section -1 ...........................end  */
+/* section -2.................................................................................. */
+.vehicle {
+  width: 20%;
+  height: 400px;
+  background-color: var(--light);
+  margin-top: -100px;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  box-shadow: 4px 4px var(--gray);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+}
+.vehicle h2 {
+  font-size: 20px;
+}
+
+.vehicle-cont {
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+}
+.sec-2 {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  gap: 3%;
+}
+.sec-2 h2 {
+  font-size: 30px;
+  color: var(--red);
+  font-weight: bolder;
+}
+.sec-2 p {
+  font-size: 15px;
+}
+.feed span {
+  color: var(--pink);
+  font-size: 40px;
+}
+.feed {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  /* gap: 3%; */
+  margin-top: 7%;
+}
+.feed-1 {
+  display: flex;
+  align-items: center;
+}
+/* .........................................................sec-3......................................................... */
+#sec-3 {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  align-items: center;
+}
+#sec-3 h2 {
+  font-size: 40px;
+  font-weight: bolder;
+}
+.service-cont {
+  width: 99%;
+  height: 99%;
+  background-color: var(--light);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
+}
+.service-cont h2 {
+  color: var(--red);
+}
+.services {
+  width: 98%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 4%;
+  margin-top: 4%;
+}
+.service-list {
+  display: flex;
+  width: 95%;
+  height: 100px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5%;
+  border-radius: 10px;
+  border: 2px solid var(--pink);
+  padding: 5px;
+}
+.service-list h3 {
+  font-size: 20px;
+  color: var(--info);
+}
+.service-list p {
+  font-size: 13px;
+}
+#car-serv {
+  width: 40%;
+  height: 60%;
+  position: absolute;
+  right: 10%;
+  top: 10%;
+}
+#sec-3 h3 {
+  position: absolute;
+  right: 7%;
+  font-size: 40px;
+  bottom: 15%;
+  color: var(--info);
+}
+/* ..........................................section ends ................................ */
+.acheivements {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 5%;
+  height: 300px;
+  margin-bottom: 5%;
+}
+.acheivement-list {
+  padding: 20px;
+  border: 3px solid var(--pink);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.a-cont {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  align-items: center;
+  gap: 3%;
+  padding: 20px;
+  background-color: var(--light);
+  border-radius: 30px;
+}
+/* /* ..................................................Acheivements ends................................... * */
+/* -------------------------------Booking -------starts------ */
+#book {
+  display: flex;
+  width: 100%;
+}
+.b-cont {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  gap: 2%;
+  margin-left: 5%;
+  justify-content: center;
+  margin-top: 3%;
+}
+.b-cont button {
+  left: 20%;
+  right: 60%;
+  bottom: 3%;
+  background-color: var(--teal);
+}
+.b-cont h2 {
+  font-size: 60px;
+  margin-left: 20%;
+  margin-top: -10%;
+}
+label {
+  font-size: 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+  width: 90%;
+  gap: 1%;
+
+  margin-top: 3%;
+  border: 2px solid var(--pink);
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 10px;
+}
+label input {
+  width: 70%;
+  height: 30px;
+  border: none;
+  background-color: var(--light);
+  border-left: 2px solid var(--pink);
+  outline: none;
+  font-size: 20px;
+  color: var(--pink);
+  padding: 10px;
+}
+.input-cont {
+  gap: 3%;
+  height: 500px;
+}
+.b-img {
+  margin-top: 12%;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 5px solid var(--pink);
+}
+/* --------------------section --- end ----------------- */
+/* ----------------------reveiw start-------------------- */
+.c-m-review {
+  display: flex;
+  width: 30%;
+
+  height: 20%;
+  /* align-items: center; */
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: 3px solid var(--pink);
+  /* justify-content: center; */
+  margin-left: 35%;
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.c-m-review h3 {
+  font-size: 30px;
+}
+.review-h2 {
+  margin-top: 2%;
+  font-size: 50px;
+  margin-left: 38%;
+}
+.c-review {
+  border-right: 3px solid var(--pink);
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.m-review {
+  /* border-right: 2px solid var(--pink); */
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.review-list {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  /* gap: 5%; */
+  justify-content: space-evenly;
+  margin-bottom: 20%;
+}
+.review {
+  width: 25%;
+  height: 98%;
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1%;
+  padding: 1%;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border: 3px solid black;
+  box-shadow: 3px 3px var(--gray);
+}
+.review img {
+  height: 65%;
+  width: 95%;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.review h3 {
+  font-size: 25px;
+}
+/* -----------------------section ends ----------------- */
+/* ---------------Footer--------starts------------------- */
+footer {
+  width: 100%;
+  height: 500px;
+  background-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mail {
+  width: 70%;
+  background-color: var(--red);
+  height: 150px;
+  margin-top: -5%;
+  border-radius: 50px;
+  display: flex;
+  box-shadow: 2px 2px var(--light);
+  align-items: center;
+}
+.mail input {
+  width: 60%;
+  height: 35%;
+  font-size: 20px;
+  color: var(--red);
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+.mail h3 {
+  color: var(--light);
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+#mail {
+  color: var(--red);
+  position: absolute;
+  font-size: 40px;
+  right: 29%;
+}
+#mail:hover {
+  cursor: pointer;
+  color: black;
+}
+#mail:active {
+  transform: translateX(10px);
+}
+.mail ::placeholder {
+  color: var(--dark);
+}
+#mail-box {
+  font-size: 70px;
+  margin-left: 5%;
+  font-weight: bolder;
+}
+.info img {
+  height: 50%;
+  width: 40%;
+  background-color: var(--light);
+  border-radius: 30px;
+}
+.info {
+  width: 20%;
+}
+.info-cont {
+  display: flex;
+  width: 90%;
+  height: 65%;
+  align-items: center;
+  padding-top: 3%;
+  gap: 15%;
+  justify-content: center;
+  border-bottom: 2px solid var(--gray);
+  padding-bottom: 5%;
+}
+.info-cont span {
+  color: var(--red);
+  font-weight: bold;
+  font-size: 18px;
+}
+.info-cont p {
+  color: var(--light);
+  padding: 5px;
+}
+.info-cont h3 {
+  color: var(--white);
+  font-size: 30px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid var(--red);
+}
+.last-foot {
+  display: flex;
+  width: 90%;
+
+  justify-content: space-between;
+  margin-top: 1%;
+  color: var(--light);
+}
+/* -------------------footer-ends--------- */
+/* -------------------home page enndsssss------------ */
+
+/* -------------------sign-up page starts------------------ */
+.sign-up {
+  width: 30%;
+  height: 80%;
+  position: absolute;
+  background-color: var(--light);
+  top: 15%;
+  left: 20%;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.sign-up-section {
+  filter: blur(10px);
+}
+.h-sign-up {
+  display: flex;
+  padding: 10px;
+
+  justify-content: end;
+}
+.h-sign-up span {
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+  /* margin-left: 35%; */
+}
+.h-sign-up span:hover {
+  color: black;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: red;
+  padding: 5px;
+}
+.h-sign-up h2 {
+  font-size: 30px;
+  margin-right: 32%;
+}
+/* ----------------Form starts--------- */
+#customer {
+  width: 20%;
+  margin-left: 3%;
+}
+.tick {
+  width: 30%;
+}
+.tick-container {
+  display: flex;
+  gap: 10%;
+  justify-content: center;
+}
+form {
+  margin-left: 5%;
+}
+form label {
+  border-bottom-right-radius: 30px;
+  height: 40px;
+}
+.submit {
+  width: 75%;
+  height: 50px;
+  border-radius: 30px;
+  background-color: var(--teal);
+  bottom: 23%;
+  left: 13%;
+}
+.form-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25%;
+  color: var(--pink);
+  font-weight: bold;
+}
+.icon-cont {
+  display: flex;
+  gap: 15%;
+  width: 80%;
+  justify-content: center;
+  margin-top: 5%;
+}
+/* ------------------login-starts------------ */
+#login {
+  left: 50%;
+  border-bottom-left-radius: 50px;
+  height: 80%;
+  padding-bottom: 15px;
+}
+.login-mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30%;
+  height: 20%;
+  margin-top: 3%;
+}
+
+.login-mid h3 {
+  color: var(--dark);
+  font-size: 15px;
+}
+h3 a {
+  color: var(--danger);
+  font-size: 20px;
+  border-bottom: 2px solid var(--cyan);
+}
+
+h3 a:hover {
+  color: var(--teal);
+}
+.button-cont {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 8%;
+  margin-left: 10%;
+}
+.button-cont button {
+  background-color: var(--teal);
+  position: relative;
+}
