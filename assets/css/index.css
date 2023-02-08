@@ -37,18 +37,18 @@ header {
   z-index: 3;
 }
 .logo-cont {
-  width: 10%;
+  width: 8%;
   background-color: var(--light);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 
   z-index: 3;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 .logo-cont img {
-  width: 60%;
+  width: 80%;
   height: 100%;
 }
 .h-container {
@@ -102,6 +102,7 @@ li:hover {
   color: black;
   transform: scale(1.1);
   transition: all 1s;
+  cursor: pointer;
 }
 a {
   text-decoration: none;
@@ -153,10 +154,11 @@ span {
 /* ......................................section-1.................................... */
 section {
   width: 100%;
-  height: 800px;
+  height: 900px;
   position: relative;
   display: flex;
   flex-direction: column;
+  /* flex-wrap: wrap; */
 
   gap: 1%;
 }
@@ -199,7 +201,7 @@ button {
   /* color: var(--pink); */
   font-weight: bold;
   font-size: 1em;
-  box-shadow: 1px 1px var(--pink);
+  /* box-shadow: 1px 1px var(--pink); */
   position: absolute;
 }
 button:hover {
@@ -211,9 +213,9 @@ button:hover {
 /* section -2.................................................................................. */
 .vehicle {
   width: 20%;
-  height: 400px;
+  height: 350px;
   background-color: var(--light);
-  margin-top: -100px;
+  margin-top: -120px;
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
 
@@ -222,14 +224,72 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 5%;
 }
 .vehicle h2 {
   font-size: 20px;
 }
+.card {
+  /* width: 190px;
+  height: 254px; */
+  /* border-radius: 20px; */
+  background: #f5f5f5;
+  position: relative;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
+}
+
+.card-details {
+  color: black;
+  height: 100%;
+  gap: 0.5em;
+  display: grid;
+  place-content: center;
+}
+
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--pink);
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+
+.text-body {
+  color: rgb(134, 134, 134);
+}
+
+/*Text*/
+.text-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/*Hover*/
+.card:hover {
+  border-color: var(--pink);
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
 
 .vehicle-cont {
   display: flex;
+  flex-wrap: wrap;
   gap: 5%;
   justify-content: center;
 }
@@ -379,7 +439,7 @@ button:hover {
   margin-left: 20%;
   margin-top: -10%;
 }
-label {
+.formlabel {
   font-size: 20px;
   height: 50px;
   display: flex;
@@ -394,7 +454,7 @@ label {
   border-bottom-left-radius: 30px;
   padding: 10px;
 }
-label input {
+.formlabelinput {
   width: 70%;
   height: 30px;
   border: none;
@@ -592,122 +652,201 @@ footer {
 /* -------------------home page enndsssss------------ */
 
 /* -------------------sign-up page starts------------------ */
-.sign-up {
-  width: 30%;
-  height: 80%;
-  position: absolute;
+.signup {
   background-color: var(--light);
-  top: 15%;
-  left: 20%;
-  border-top-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-}
-.sign-up-section {
-  filter: blur(10px);
-}
-.h-sign-up {
+  height: 650px;
+  gap: 2%;
+  width: 380px;
+  border: 3px solid var(--dark);
   display: flex;
-  padding: 10px;
-
-  justify-content: end;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  display: none;
+  position: absolute;
+  right: 20%;
+  top: 20%;
+  z-index: 2;
 }
-.h-sign-up span {
-  color: red;
-  font-size: 30px;
-  font-weight: bold;
-  /* margin-left: 35%; */
+.sign_h {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 98%;
+  gap: 30%;
+  padding-left: 60%;
+  height: 7%;
 }
-.h-sign-up span:hover {
-  color: black;
+.sign_h span:hover {
   cursor: pointer;
-  border-radius: 50%;
-  background-color: red;
-  padding: 5px;
+  transform: scale(1.1);
 }
-.h-sign-up h2 {
-  font-size: 30px;
-  margin-right: 32%;
+.sign_m {
+  width: 80%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 4%;
+  /* align-self: center; */
 }
-/* ----------------Form starts--------- */
-#customer {
-  width: 20%;
-  margin-left: 3%;
+.input-group {
+  position: relative;
+  width: 100%;
 }
-.tick {
-  width: 30%;
+
+.input {
+  justify-self: center;
+  width: 88%;
+  border: solid 1.5px var(--dark);
+  border-radius: 1rem;
+  background: none;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--dark);
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.tick-container {
+
+.user-label {
+  position: absolute;
+  left: 15px;
+  color: var(--dark);
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:focus,
+.input:valid {
+  outline: none;
+  border: 1.5px solid var(--teal);
+}
+
+.input:focus ~ label,
+.input:valid ~ label {
+  transform: translateY(-50%) scale(0.8);
+  background-color: var(--light);
+  padding: 0 0.2em;
+  color: var(--teal);
+}
+/* checkbox */
+.checkbox-cont {
   display: flex;
   gap: 10%;
   justify-content: center;
 }
-form {
-  margin-left: 5%;
-}
-form label {
-  border-bottom-right-radius: 30px;
-  height: 40px;
-}
-.submit {
-  width: 75%;
-  height: 50px;
-  border-radius: 30px;
-  background-color: var(--teal);
-  bottom: 23%;
-  left: 13%;
-}
-.form-foot {
+.checkbox-cont div {
   display: flex;
-  flex-direction: column;
+  gap: 8%;
   align-items: center;
-  margin-top: 25%;
-  color: var(--pink);
-  font-weight: bold;
+  font-size: 20px;
 }
-.icon-cont {
-  display: flex;
-  gap: 15%;
-  width: 80%;
-  justify-content: center;
-  margin-top: 5%;
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background: black;
+  border-radius: 50px;
+  transition: all 0.7s;
+  --spread: 20px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background: black;
+  box-shadow: 1px px var(--info);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid #f0f0f0;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+/*----------------------- button-------------------- */
+.button {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: #3d3a4e;
+  background-size: 400%;
+  color: #fff;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(82.3deg, var(--teal) 10.8%, var(--info) 94.3%);
+  transition: all 0.5s;
 }
 /* ------------------login-starts------------ */
-#login {
-  left: 50%;
-  border-bottom-left-radius: 50px;
-  height: 80%;
-  padding-bottom: 15px;
+#log_popup {
+  height: 500px;
+  width: 370px;
+  gap: 3%;
+  left: 20%;
 }
-.login-mid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30%;
-  height: 20%;
-  margin-top: 3%;
+#log_popup .sign_m {
+  height: 40%;
 }
-
-.login-mid h3 {
-  color: var(--dark);
-  font-size: 15px;
+#log_popup .sign_h {
+  height: 8%;
+  padding-top: 2%;
 }
-h3 a {
-  color: var(--danger);
-  font-size: 20px;
-  border-bottom: 2px solid var(--cyan);
-}
-
-h3 a:hover {
-  color: var(--teal);
-}
-.button-cont {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 8%;
-  margin-left: 10%;
-}
-.button-cont button {
-  background-color: var(--teal);
-  position: relative;
+#log_popup button {
+  background-color: var(--pink);
 }

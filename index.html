@@ -38,7 +38,7 @@
             <a href="./index.html"><li>Home</li></a>
             <a href=""><li>About</li></a>
             <a href="#sec-3"><li>Services</li></a>
-            <a href="./pages/Home/login.html"><li>Login</li></a>
+            <li onclick=" log_openPopup()">Login</li>
             <a href="#foot"><li>Contact</li></a>
             <div class="in-cont">
               <input
@@ -56,6 +56,134 @@
         </div>
       </div>
     </header>
+    <!-- sign_up page starts  -->
+        <div id="sign_popup" class="signup">
+      <div class="sign_h">
+        <h2>Sign-up</h2><span onclick="Sign_closePopup() " style="color:red" class="material-symbols-outlined"> logout</span>
+      </div>
+      <form class="sign_m" id="sign_form">
+        <div class="input-group">
+          <input
+            required=""
+            type="text"
+            autocomplete="off"
+            
+            class="input"
+            id = "userName"
+          />
+          <label class="user-label"> Name</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="email"
+            
+            autocomplete="off"
+            class="input"
+            id = "userEmail"
+          />
+          <label class="user-label">Email-id</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="number"
+            
+            autocomplete="off"
+            class="input"
+            id ="userPhone"
+          />
+          <label class="user-label">Phone-Number</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="password"
+            
+            autocomplete="off"
+            class="input"
+            id = "userPassword"
+          />
+          <label class="user-label">create-password</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="password"
+            
+            autocomplete="off"
+            class="input"
+            id = "confirmPassword"
+          />
+          <label class="user-label">confirm-password</label>
+        </div>
+        <div class="checkbox-cont">
+          <div>
+            <span style="color:var(--dark)">Customer</span>
+            <label class="container">
+              <input type="checkbox" id="customerCheck"  />
+              <div class="checkmark"></div>
+            </label>
+          </div>
+          <div>
+            <span style="color:var(--dark)">Mechanic</span>
+            <label class="container">
+              <input type="checkbox" id="mechanicCheck" />
+              <div class="checkmark"></div>
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="button" id="submit" >
+       <span class="button-content">Create account</span>
+   </button>
+      </form>
+      <p>Or</p>
+       <button style="background-color:var(--pink)" class="button" >
+    <span class="button-content">Continue with Google </span></button>
+    </div>
+    <!-- sign_in page ends -->
+    <!-- login page starts -->
+        <div id="log_popup"  class="signup">
+      <div class="sign_h">
+        <h2>Login</h2><span onclick="log_closePopup()" style="color:red"  class="material-symbols-outlined"> logout</span>
+      </div>
+      <form class="sign_m" id="Log_form">
+      
+        <div class="input-group">
+          <input
+            required=""
+            type="number"
+            name="text"
+            autocomplete="off"
+            class="input"
+            id="Number"
+          />
+          <label class="user-label">Phone-Number</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="password"
+            name="text"
+            autocomplete="off"
+            class="input"
+            id="Pass"
+          />
+          <label class="user-label">password</label>
+        </div>
+        
+        <button class="button" type="submit">
+          <span class="button-content">login</span>
+      </button>
+      </form>
+     <button class="button" onclick="open_mechanic()">
+    <span class="button-content">Login as Mechanic</span>
+</button>
+      <p>Or</p>
+       <button style="background-color:var(--indigo)" class="button" onclick="closePopup()">
+    <span class="button-content">Continue with Google </span></button>
+    </div>
+<!-- login page ends  -->
     <section style="margin-top: 100px">
       <img src="./assets/images/home/car -1.jpg " class="sec-1-img" alt="car" />
 
@@ -74,30 +202,39 @@
         <p>Press the book service button to book a service</p>
       </div>
       <a href="#book"><button class="Animate" style="right: 20%;bottom: 20%;">Book a Service</button></a>
-      <a href="./pages/Home/Sign-up.html"><button  id="sign-up">Sign-up</button></a>
+   <button  onclick=" Sign_openPopup()" id="sign-up">Sign-up</button>
       
     </section>
+<!-- -----------------section-1 ends-------- -->
     <section>
       <div class="vehicle-cont">
-        <div class="vehicle" class="Animate-veh-cont">
-          <img src="./assets/images/home/bike.png" class="animate-vehicle"
+       <div class="card vehicle">
+  <div class="card-details">
+    <img src="./assets/images/home/bike.png" class="animate-vehicle"
           alt="bike" />
-          <h2>Bike General Service</h2>
-          <h2 style="color: var(--red)">Starts @ 1500</h2>
-          <h2>Only/-</h2>
-        </div>
-        <div class="vehicle">
-          <img src="./assets/images/home/car.png"  class="animate-vehicle" alt="car" />
-          <h2>Car General Service</h2>
-          <h2 style="color: var(--red)">Starts @ 3000</h2>
-          <h2>Only/-</h2>
-        </div>
-        <div class="vehicle">
-          <img src="./assets/images/home/ricksaw.png"  class="animate-vehicle" alt="ricksaw" />
-          <h2>Auto General Service</h2>
-          <h2 style="color: var(--red)">Starts @ 2000</h2>
-          <h2>Only/-</h2>
-        </div>
+    <p class="text-title">Bike service </p>
+    <p class="text-body">Starts Only @ 1000</p>
+  </div>
+  <button class="card-button">More info</button>
+</div>
+       <div class="card vehicle">
+  <div class="card-details">
+    <img src="./assets/images/home/car.png" class="animate-vehicle"
+          alt="bike" />
+    <p class="text-title">Car service </p>
+    <p class="text-body">Starts Only @ 2000</p>
+  </div>
+  <button class="card-button">More info</button>
+</div>
+       <div class="card vehicle">
+  <div class="card-details">
+    <img src="./assets/images/home/ricksaw.png" class="animate-vehicle"
+          alt="bike" />
+    <p class="text-title">Auto service </p>
+    <p class="text-body">Starts Only @ 1500</p>
+  </div>
+  <button class="card-button">More info</button>
+</div>
       </div>
       <div class="sec-2">
         <img
@@ -151,68 +288,8 @@
           <div class="service-cont">
             <h2>For all Vehicles</h2>
 
-            <div class="services">
-              <div class="service-list">
-                <img
-                  src="./assets/images/home/services/breakdown.png"
-                  alt="breakdown"
-                  class="serv-img-animate"
-                />
-                <div>
-                  <h3>Breakdown</h3>
-                  <p>your vehicle is breakdown suddenly</p>
-                  <p>Don't worry about that we are here .</p>
-                </div>
-              </div>
-              <div class="service-list">
-                <img
-                  src="./assets/images/home/services/engine.png"
-                  alt="eng"
-                    class="serv-img-animate"
-                />
-                <div>
-                  <h3>Engine Malfunction</h3>
-                  <p>Your Engine is Malfunctioned suddenly</p>
-                  <p>Don't worry about that we are here .</p>
-                </div>
-              </div>
-              <div class="service-list">
-                <img
-                  src="./assets/images/home/services/accumulator.png"
-                  alt="battery"
-                    class="serv-img-animate"
-                />
-                <div>
-                  <h3>Battery Works</h3>
-                  <p>We can recharge or change the battery for you</p>
-                </div>
-              </div>
-              <div class="service-list">
-                <img
-                  src="./assets/images/home/services/car-wash.png"
-                  alt="wash"
-                    class="serv-img-animate"
-                />
-                <div>
-                  <h3>Wash</h3>
-                  <p>
-                    We can also take apointment for cleaning and washing your
-                    vehicle
-                  </p>
-                </div>
-              </div>
-              <div class="service-list">
-                <img
-                  src="./assets/images/home/services/tyre.png"
-                  alt="tyre"
-                    class="serv-img-animate"
-                />
-                <div>
-                  <h3>Wheel alignment</h3>
-                  <p>your vehicle is punchered suddenly</p>
-                  <p>Don't worry about that we are here .</p>
-                </div>
-              </div>
+            <div class="services  ">
+            
             </div>
           </div>
         </div>
@@ -256,15 +333,15 @@
         <div class="b-cont">
           <h2>Book a Service</h2>
           <form action="">
-            <label for="name">Name <input type="text" id="name" /></label>
-            <label for="Phn">Phone number <input type="num" id="phn" /></label>
-            <label for="e-mail">E-mail id <input type="email" /></label>
-            <label for="service">Service for <input type="dropdown" /></label>
-            <label for="message"
-              >Comments <input type="text" id="comments"
+            <label class="formlabel" for="name">Name <input class="formlabelinput" type="text" id="name" /></label>
+            <label class="formlabel" for="Phn">Phone number <input class="formlabelinput" type="num" id="phn" /></label>
+            <label class="formlabel" for="e-mail">E-mail id <input class="formlabelinput" type="email" /></label>
+            <label class="formlabel" for="service">Service for <input class="formlabelinput" type="dropdown" /></label>
+            <label class="formlabel" for="message"
+              >Comments <input class="formlabelinput" type="text" id="comments"
             /></label>
+            <button><a href="./pages/Customer/booking/booking-searching.html">Book service</a></button>
           </form>
-          <button><a href="./pages/Customer/booking/booking-searching.html">Book service</a></button>
         </div>
         <div>
           <img
@@ -378,5 +455,162 @@
             </div>
 
     </footer>
+
+    <script>
+    
+      function Sign_openPopup() {
+        document.getElementById("sign_popup").style.display = "flex";;
+      }
+
+      function Sign_closePopup() {
+        document.getElementById("sign_popup").style.display = "none";
+      }
+      function log_openPopup() {
+        document.getElementById("log_popup").style.display = "flex";;
+      }
+
+      function log_closePopup() {
+        document.getElementById("log_popup").style.display = "none";
+      }
+      function open_customer(){
+        window.location.href = "./pages/Customer/Customer.html";
+      }
+      function open_mechanic(){
+        window.location.href = "./pages/Mechanic/Mechanic.html";
+      }
+       let service_lists = [
+      {
+        Service_name : "Breakdown ",
+        image : "./assets/images/home/services/breakdown.png" ,
+        image_alt :" breakdown",
+        description : "your vehicle is breakdown suddenly  Don't worry about that we are here ."
+      },
+      {
+        Service_name : "Engine Malfunction",
+        image : "./assets/images/home/services/engine.png" ,
+        image_alt :" Engine Malfunction",
+        description : "Your Engine is Malfunctioned suddenly Don't worry about that we are here . "
+      },
+      {
+        Service_name : "Battery Works",
+        image : "./assets/images/home/services/accumulator.png" ,
+        image_alt :" battery ",
+        description : "We can recharge or change the battery. "
+      },
+      {
+        Service_name : "Wash ",
+        image : "./assets/images/home/services/car-wash.png" ,
+        image_alt :"wash",
+        description : "We can also take the appointment to clean and and wash your vehicle  "
+      },
+      {
+        Service_name : "Wheel Alignment  ",
+        image : "./assets/images/home/services/tyre.png" ,
+        image_alt :" wheel alignment ",
+        description : "If your vehicle punchered suddenly dont worry about that we are here !.  "
+      },
+
+
+    ]
+
+   for(let  i =0; i<=4 ;i++){
+let  service_div = document.createElement("div");
+    service_div.setAttribute("class","service-list");
+    let service_img = document.createElement("img");
+    service_img.setAttribute("src", service_lists[i].image);
+    service_img.setAttribute("alt",service_lists[i].image_alt);
+    service_img.setAttribute("class","serv-img-animate");
+    service_div.append(service_img);
+    let service_cont_div = document.createElement("div");
+    service_div.append(service_cont_div);
+    let service_cont_h3 = document.createElement("h3")
+    service_cont_h3.innerText = service_lists[i].Service_name;
+    service_cont_div.append(service_cont_h3);
+    let service_cont_p = document.createElement("p")
+    service_cont_p.innerText = service_lists[i].description;
+    service_cont_div.append(service_cont_p);
+const service_append = document.querySelector("div .services"  );
+service_append.append(service_div);
+}
+
+
+const signupForm = document.getElementById("sign_form")
+
+
+
+signupForm.addEventListener("submit", function (event){  
+  let users = []
+   
+  if( localStorage.getItem("users") != null) {
+    users = JSON.parse(localStorage.getItem("users"))
+  }
+
+  event.preventDefault();
+  const userName = document.getElementById("userName").value;
+  const userEmail = document.getElementById("userEmail").value;
+  const userNumber = document.getElementById("userPhone").value;
+  const userPassword = document.getElementById("userPassword").value;
+  const userConfirmPassword = document.getElementById("confirmPassword").value;
+ 
+ let user_data = {userName,userEmail,userNumber,userPassword,userConfirmPassword }
+   let checkDataPresent = false;
+   const select_user = users.find(function (user){
+    const customerPhone = user["userNumber"];
+    const cusEmail =  user["userEmail"];
+
+    if( userNumber === customerPhone ){
+      checkDataPresent = true;
+      alert("user already present please change Number");
+      return false;
+    }
+
+    return false;
+  });
+  if(!checkDataPresent) {
+    users.push(user_data)
+    localStorage.setItem("users", JSON.stringify(users))
+    console.log(users)
+    alert("Account Created Successfully ")
+  }
+});
+
+
+
+const logForm = document.getElementById("Log_form");
+
+logForm.addEventListener("submit", function(event){
+  let get_data = JSON.parse(localStorage.getItem("users"))
+  event.preventDefault();
+  const number = document.getElementById("Number").value;
+  const password = document.getElementById("Pass").value;
+  let findData = false;
+  const select_user = get_data.find(function (user){
+    const customerPhone = user["userNumber"];
+    const customerName = user["userName"];
+
+    if(number === customerPhone){
+      findData = true;
+      if( password ===  user["userPassword"]) {
+        alert(customerName  +"! Your account logged in successfully");
+        window.location.href = "./pages/Customer/Customer.html"
+        return findData;
+      }
+      alert("Password is incorrect Please check");
+      return findData;
+    }
+    return findData;
+  })
+  if(!findData) {
+    alert("Number is not available please signup or enter valid phone number")
+  }
+  console.log(select_user)
+  localStorage.setItem("oneUser",JSON.stringify(select_user))
+});
+
+
+
+
+
+       </script>
   </body>
-</html>
+</html> 

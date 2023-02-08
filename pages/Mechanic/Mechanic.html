@@ -41,6 +41,35 @@
         >
       </div>
     </header>
-    <section style="margin-top: 80px"></section>
+    <section style="margin-top: 80px">
+      <div class="top">
+        <h2>Hello</h2>
+        <h2 id="user_name">User</h2>
+        <p>Please register as a Reparo Mechanic</p>
+      </div>
+      <div class="middle">
+        <h3>Select type of vehicle you can Service</h3>
+      </div>
+      <div class="end">
+        <!-- <h3>Select vehicle you can service ?</h3> -->
+        <div class="select_vehicle" id="bike_selection">
+          <img src="../../assets/images/home/bike.png" alt="" />
+          <h2>Bike</h2>
+        </div>
+        <div class="select_vehicle" id="auto_selection">
+          <img src="../../assets/images/home/car.png" alt="" />
+          <h2>Car</h2>
+        </div>
+        <div class="select_vehicle" id="car_selection">
+          <img src="../../assets/images/home/ricksaw.png" alt="" />
+          <h2>Auto</h2>
+        </div>
+      </div>
+    </section>
+    <script>
+      const user_name = localStorage.getItem("name");
+      console.log(user_name);
+      document.getElementById("user_name").innerText = user_name;
+    </script>
   </body>
 </html>

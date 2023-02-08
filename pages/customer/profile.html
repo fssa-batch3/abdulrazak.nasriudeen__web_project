@@ -79,7 +79,7 @@
           <!-- ------------editing ------------------profile  ------------->
           <div class="edit-profile">
             <h5>Name</h5>
-            <input type="text" name="" id="" value="Rashmika Mandhana" />
+            <input type="text" name="" id="p_name" />
           </div>
           <div class="edit-profile">
             <h5>Phone Number</h5>
@@ -87,7 +87,7 @@
           </div>
           <div class="edit-profile">
             <h5>Email-id</h5>
-            <input type="email" name="" id="" value="Rashmika.razz@gmail.com" />
+            <input type="email" name="" id="p_email" />
           </div>
           <div class="edit-profile">
             <h5>Password</h5>
@@ -134,5 +134,16 @@
         </a>
       </div>
     </div>
+    <script>
+      const name = localStorage.getItem("name");
+      const email = localStorage.getItem("email");
+      const password = localStorage.getItem("password");
+      console.log(name);
+      console.log(email);
+      console.log(password);
+      document.getElementById("p_name").value = name;
+      document.getElementById("p_email").value = name;
+      document.getElementById("p_email").value = name;
+    </script>
   </body>
 </html>
