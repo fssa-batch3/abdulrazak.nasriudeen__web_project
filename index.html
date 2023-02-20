@@ -67,31 +67,36 @@
             required=""
             type="text"
             autocomplete="off"
-            
+            pattern="[A-Za-z]{1,32}"  
             class="input"
             id = "userName"
+            title="doesnt get space"
           />
           <label class="user-label"> Name</label>
         </div>
         <div class="input-group">
           <input
-            required=""
+            required= "true"
             type="email"
-            
             autocomplete="off"
             class="input"
             id = "userEmail"
+            
           />
           <label class="user-label">Email-id</label>
         </div>
         <div class="input-group">
           <input
-            required=""
+            required="true"
             type="number"
+            pattern="[0-9]{1,10}"
             
             autocomplete="off"
             class="input"
             id ="userPhone"
+             title="doesnt get space"
+
+            
           />
           <label class="user-label">Phone-Number</label>
         </div>
@@ -533,10 +538,7 @@ const service_append = document.querySelector("div .services"  );
 service_append.append(service_div);
 }
 
-
 const signupForm = document.getElementById("sign_form")
-
-
 
 signupForm.addEventListener("submit", function (event){  
   let users = []
@@ -544,38 +546,40 @@ signupForm.addEventListener("submit", function (event){
   if( localStorage.getItem("users") != null) {
     users = JSON.parse(localStorage.getItem("users"))
   }
-
   event.preventDefault();
   const userName = document.getElementById("userName").value;
   const userEmail = document.getElementById("userEmail").value;
   const userNumber = document.getElementById("userPhone").value;
   const userPassword = document.getElementById("userPassword").value;
   const userConfirmPassword = document.getElementById("confirmPassword").value;
- 
+  let validation_error = false;
  let user_data = {userName,userEmail,userNumber,userPassword,userConfirmPassword }
-   let checkDataPresent = false;
-   const select_user = users.find(function (user){
-    const customerPhone = user["userNumber"];
-    const cusEmail =  user["userEmail"];
-
-    if( userNumber === customerPhone ){
-      checkDataPresent = true;
-      alert("user already present please change Number");
-      return false;
-    }
-
-    return false;
-  });
-  if(!checkDataPresent) {
-    users.push(user_data)
-    localStorage.setItem("users", JSON.stringify(users))
-    console.log(users)
-    alert("Account Created Successfully ")
-  }
-});
-
-
-
+    
+   if(userPassword != userConfirmPassword){
+    valdation_error = true;
+    alert("Confirm password is in correct ")
+    return false ;
+   }
+   
+    const select_user = users.find (function (user){
+        const customerEmail = user["userEmail"];
+        if( userEmail === customerEmail ) {
+            validation_error = true;
+            alert("user & already use this account, please change your email");
+            return false;
+          }
+          return false;
+        });
+        if(!validation_error){
+            users.push(user_data)
+            localStorage.setItem("users", JSON.stringify(users))
+            console.log(users)
+            alert("account created successfully...")
+          }
+    });
+   
+    
+    
 const logForm = document.getElementById("Log_form");
 
 logForm.addEventListener("submit", function(event){
@@ -584,7 +588,7 @@ logForm.addEventListener("submit", function(event){
   const number = document.getElementById("Number").value;
   const password = document.getElementById("Pass").value;
   let findData = false;
-  const select_user = get_data.find(function (user){
+  const select_user = get_data.find(function (user){       
     const customerPhone = user["userNumber"];
     const customerName = user["userName"];
 
@@ -592,6 +596,7 @@ logForm.addEventListener("submit", function(event){
       findData = true;
       if( password ===  user["userPassword"]) {
         alert(customerName  +"! Your account logged in successfully");
+        localStorage.setItem("oneUser",JSON.stringify(number))
         window.location.href = "./pages/Customer/Customer.html"
         return findData;
       }
@@ -604,7 +609,7 @@ logForm.addEventListener("submit", function(event){
     alert("Number is not available please signup or enter valid phone number")
   }
   console.log(select_user)
-  localStorage.setItem("oneUser",JSON.stringify(select_user))
+  
 });
 
 

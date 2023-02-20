@@ -109,8 +109,20 @@
           />
           <label class="user-label">Address</label>
         </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="text"
+            name="text"
+            autocomplete="off"
+            class="input"
+            id="P_Address"
+          />
+          <label class="user-label">Address</label>
+        </div>
         <button type="submit">Confirm</button>
       </form>
+      <button onclick="del()">Delete</button>
     </div>
     <!-- profile ends -->
     <section style="margin-top: 80px">
@@ -363,32 +375,110 @@
       }
 
       // profile ---------
-      let selectOneUser = JSON.parse(localStorage.getItem("oneUser"));
+      let OneUserNumber = JSON.parse(localStorage.getItem("oneUser"));
+      const fullarray = JSON.parse(localStorage.getItem("users"));
+      const selectOneUser = fullarray.find(function (event) {
+        const phone = event["userNumber"];
+        if (OneUserNumber === phone) {
+          return true;
+        }
+      });
       const profileForm = document.getElementById("profileForm");
       console.log(selectOneUser);
       let name = document.getElementById("P_name");
       let email = document.getElementById("P_mail");
       let phone = document.getElementById("P_number");
       let password = document.getElementById("P_password");
+      let address = document.getElementById("P_address");
+      let address_g = document.getElementById("P_Address");
 
       name.value = selectOneUser["userName"];
       email.value = selectOneUser["userEmail"];
       phone.value = selectOneUser["userNumber"];
       password.value = selectOneUser["userPassword"];
+      address.value = selectOneUser["address"];
+      address_g.value = selectOneUser["address_g"];
 
-      profileForm.addEventListener("submit", function (event) {
+      // profileForm.addEventListener("submit", function (event) {
+      //   event.preventDefault();
+      //   let address = document.getElementById("P_address").value;
+      //   let address_ = document.getElementById("P_Address").value;
+      //   let userName = document.getElementById("P_name").value;
+      //   let userPassword = document.getElementById("P_password").value;
+      //   let userNumber = document.getElementById("P_number").value;
+      //   let userEmail = document.getElementById("P_mail").value;
+
+      //   const newData = {
+      //     userName,
+      //     userEmail,
+      //     userNumber,
+      //     userPassword,
+      //     address,
+      //     address_,
+      //   };
+      //   const combinedData = Object.assign(selectOneUser, newData);
+      //   console.log(combinedData);
+
+      //   // finding index of
+      //   const index = fullarray.indexOf(selectOneUser);
+      //   console.log(index);
+      //   fullarray[index] = combinedData;
+      //   localStorage.setItem("users", JSON.stringify(fullarray));
+      //   address.value = combinedData["address"];
+      //   address_.value = combinedData["address_"];
+      // });
+      const oneNumber = JSON.parse(localStorage.getItem("oneUser"));
+      const userArray = JSON.parse(localStorage.getItem("users"));
+      const pForm = document.getElementById("profileForm");
+
+      const selected_user = userArray.find(function (event) {
+        const number = event["userNumber"];
+        if (oneNumber === number) {
+          return true;
+        }
+      });
+      const index = userArray.indexOf(selected_user);
+      console.log(selected_user);
+      pForm.addEventListener("submit", function (event) {
         event.preventDefault();
         let address = document.getElementById("P_address").value;
+        let address_g = document.getElementById("P_Address").value;
+        let userName = document.getElementById("P_name").value;
+        let userPassword = document.getElementById("P_password").value;
+        let userNumber = document.getElementById("P_number").value;
+        let userEmail = document.getElementById("P_mail").value;
 
-        console.log(address);
-        selectOneUser["address"] = address;
-        console.log(selectOneUser);
-        // localStorage.setItem("oneUser", JSON.stringify(selectOneUser));
-        const fullarray = JSON.parse(localStorage.getItem("users"));
-        fullarray.find(function (event) {
-          event;
-        });
+        let newObj = {
+          address,
+          address_g,
+          userName,
+          userPassword,
+          userNumber,
+          userEmail,
+        };
+        //
+
+        const combinedData = Object.assign(selected_user, newObj);
+
+        console.log(index);
+        userArray[index] = combinedData;
+        localStorage.setItem("users", JSON.stringify(userArray));
       });
+      console.log(index);
+
+      function del() {
+        const delarray = JSON.parse(localStorage.getItem("users"));
+        const alert123 = confirm("would u like to delete your account ");
+        if (alert123 === true) {
+          delarray.splice(index, 1);
+          alert("your account deleted successfully");
+          localStorage.setItem("users", JSON.stringify(delarray));
+          window.location.href = "../../index.html";
+        }
+        console.log(alert);
+      }
+
+      // console.log(selected_user);
     </script>
   </body>
 </html>
