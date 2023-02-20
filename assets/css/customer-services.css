@@ -2,11 +2,11 @@
   height: 85%;
   width: 90%;
   position: absolute;
-  background-color: var(--red);
+  background-color: black;
   top: 10%;
   left: 5%;
   border-radius: 50px;
-  border: 3px solid black;
+  border: 3px solid var(--red);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +23,12 @@
   width: 48%;
   height: 100%;
 }
+.up-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  border: 6px solid black;
+}
 .up-cont {
   width: 48%;
   height: 100%;
@@ -32,7 +38,7 @@
   /* background-color: var(--light); */
 }
 .log-out {
-  color: black;
+  color: var(--red);
 }
 .log-out:hover {
   transform: scale(1.2);
@@ -44,6 +50,7 @@
 }
 h2 {
   font-size: 35px;
+  color: var(--light);
   /* width: 100%; */
   height: 10%;
 }
@@ -56,7 +63,7 @@ h2 {
   width: 90%;
   justify-content: flex-start;
 
-  background-color: black;
+  background-color: var(--red);
   color: var(--light);
   height: 10%;
   border-top-left-radius: 50px;
