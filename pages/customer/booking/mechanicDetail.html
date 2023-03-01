@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mechanicDetails</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Solway&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #dc3545;
+        width: 100%;
+        height: 1000px;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: solway;
+      }
+      section {
+        width: 95%;
+        height: 95%;
+        background-color: #f8f9fa;
+        border: 5px solid black;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+      }
+      .left,
+      .right {
+        width: 45%;
+        height: 90%;
+        border-radius: 50px;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2%;
+        color: azure;
+        gap: 3%;
+      }
+      h2 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 25px;
+      }
+      .left img {
+        height: 70%;
+        width: 90%;
+        border: 3px solid #fff;
+        border-radius: 30px;
+      }
+      .cont {
+        width: 95%;
+        height: 95%;
+        border-radius: 50px;
+        background-color: #f8f9fa;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* padding-top: 1%; */
+      }
+      .cont h1 {
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="left">
+        <img src="" alt="" />
+        <div class="des">
+          <h2>Name</h2>
+          <p>Specialist in 2wheelers</p>
+        </div>
+      </div>
+      <div class="right">
+        <div class="cont">
+          <h1>Mechanic details</h1>
+          <p>Phone : <span id="phone">9840326198</span></p>
+          <p>
+            Address :<span id="address">3/401,5th mainroad , kodungaiyur</span>
+          </p>
+          <p>Years of experience : <span id="yrs"> 5</span></p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
