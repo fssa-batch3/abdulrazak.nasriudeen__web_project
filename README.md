@@ -1,4 +1,4 @@
-Abdul Razak web project  (REPARO - it is a latin term which means to repair or fix something)
+Abdul Razak web project  (REPARO - it is a spanish term which means to repair or fix something)
 
 list of features :
 
