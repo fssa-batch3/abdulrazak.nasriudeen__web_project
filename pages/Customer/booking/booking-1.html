@@ -17,6 +17,66 @@
       href="https://fonts.googleapis.com/css2?family=Solway&display=swap"
       rel="stylesheet"
     />
+    <style>
+      h1 {
+        position: absolute;
+        top: 9%;
+        left: 35%;
+        width: 30%;
+        height: 10%;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        border: 5px solid black;
+        border-radius: 30px;
+      }
+      .mechanicContainer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 80%;
+        background-color: #f8f9fa;
+        position: absolute;
+        top: 15%;
+        left: 10%;
+        gap: 3%;
+        overflow-y: scroll;
+        padding-top: 2%;
+        border: 5px solid black;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+      }
+      a {
+        width: 20%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2%;
+        border: 5px solid black;
+        background-color: #dc3545;
+        color: #f8f9fa;
+        gap: 1%;
+        border-radius: 20px;
+        box-shadow: 3px 3px #343a40;
+        text-decoration: none;
+      }
+      a img {
+        width: 80%;
+        height: 50%;
+        border: 3px solid black;
+      }
+
+      a h2 {
+        font-size: 30px;
+      }
+      a h3 {
+        font-size: 20px;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -49,25 +109,47 @@
       <!-- -------------------arrow----------------- -->
       <img
         src="../../../assets/images/navegation.gif"
+        src=""
         alt="navigation-arrow"
         class="arrow"
       />
       <!-- -------------------arrow----------------- -->
       <!-- ----------Booking---starts-------->
-      <div class="book-container">
-        <img src="../../../assets/images/Customer/mec-1.jpg" alt="Mechanic" />
-        <h3>Sethupathi.</h3>
-        <p>Working Experience : 4yrs</p>
-        <p>Ratings:⭐⭐⭐⭐</p>
-        <h4>Speacialist in 2 Wheelers and 4 Wheelers</h4>
-        <p>Phn : 8124311602</p>
-        <p>Address: 3/401 , 5th Main road,<br />Kodungaiyur,Chennai-600118</p>
-        <hr style="margin-left: -3%" />
-        <h4>Service-Category: General</h4>
-        <h4>Vehicle type : 2 Wheeler</h4>
-        <h4>Amount : ₹ 1300</h4>
-        <a href="./book-nav.html"> Confirm-Booking</a>
+      <h1>Choose a mechanic</h1>
+      <div id="upper" class="mechanicContainer">
+        <!-- <div class="mechContainer">
+          <img src="" alt="" />
+          <h2>name</h2>
+          <h3>location</h3>
+        </div> -->
       </div>
     </section>
+    <script>
+      // create mechanic div
+
+      let mechanicArray = JSON.parse(localStorage.getItem("mechanics"));
+      for (let i = 0; i < mechanicArray.length; i++) {
+        let anchor = document.createElement("a");
+        anchor.setAttribute(
+          "href",
+          "./mechanicDetail.html?id=" + mechanicArray[i]["u_id"]
+        );
+        let container = document.createElement("div");
+        container.setAttribute("class", "mechContainer");
+        anchor.append(container);
+        let image = document.createElement("img");
+        image.setAttribute("src", mechanicArray[i]["image"]);
+        container.append(image);
+        let h2 = document.createElement("h2");
+        h2.innerText = mechanicArray[i]["userName"];
+        container.append(h2);
+        let h3 = document.createElement("h3");
+        h3.innerText =
+          mechanicArray[i]["city"] + "," + mechanicArray[i]["state"];
+        container.append(h3);
+        let appendOf = document.getElementById("upper");
+        appendOf.append(anchor);
+      }
+    </script>
   </body>
 </html>

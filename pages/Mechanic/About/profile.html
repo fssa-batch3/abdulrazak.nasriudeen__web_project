@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        background-color: #6c757d;
+        height: 1000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      section {
+        width: 70%;
+        height: 80%;
+        display: flex;
+        border: 10px solid BLACK;
+        background-color: #343a40;
+      }
+      .leftDiv {
+        width: 45%;
+        background-color: #343a40;
+        height: 100%;
+        display: flex;
+        gap: 20%;
+        flex-direction: column;
+        /* border-top-right-radius: 200px;
+        border-bottom-right-radius: 200px; */
+      }
+      .leftTop {
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        margin-top: 2%;
+        gap: 10%;
+        font-size: 30px;
+        color: #fff;
+      }
+      .leftTop p {
+        font-size: 15px;
+      }
+      .leftTop img {
+        width: 60%;
+        height: 90%;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 50px;
+      }
+      .leftBottom {
+        display: flex;
+        flex-direction: column;
+        height: 60%;
+        align-items: end;
+        gap: 5%;
+      }
+      .leftBottom button {
+        width: 60%;
+        height: 20%;
+        outline: none;
+        background-color: #343a40;
+        color: #fff;
+        font-size: 25px;
+        border-radius: 30px;
+        border: none;
+      }
+      .rightDiv {
+        width: 55%;
+        height: 100%;
+        background-color: #fff;
+        border-bottom-left-radius: 50px;
+        /* padding: 1px; */
+        border-top-left-radius: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #first {
+        display: flex;
+      }
+      .Container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+        border-bottom-left-radius: 30px;
+        border-top-left-radius: 30px;
+        width: 550px;
+        height: 700px;
+        background-color: #fff;
+      }
+      label {
+        height: 8%;
+        width: 95%;
+        padding: 3%;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        gap: 5%;
+        font-size: 25px;
+        border: 4px solid BLACK;
+        /* background-color: aqua; */
+        font-weight: bold;
+      }
+      input {
+        height: 95%;
+        width: 70%;
+        /* background-color: aqua; */
+        outline: none;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="leftDiv">
+        <div class="leftTop">
+          <img id="profileImg" />
+          <h1 id="head"></h1>
+          <p>Please complete your profile</p>
+        </div>
+        <div class="leftBottom">
+          <button>Personal Details</button>
+          <button>Vehicle details</button>
+          <button>Log Out</button>
+          <button onclick="del()">Delete Account</button>
+        </div>
+      </div>
+      <div class="rightDiv">
+        <form action="" id="m_form">
+          <div id="first" class="Container">
+            <label for="name"
+              >Name : <input type="text" name="" id="name"
+            /></label>
+            <label for="name">
+              Number : <input type="number" name="" id="number"
+            /></label>
+            <label for="name"
+              >Email : <input type="email" name="" id="email"
+            /></label>
+            <label for="name"
+              >Password : <input type="password" name="" id="password"
+            /></label>
+            <label for="name"
+              >image : <input type="text" name="" id="img"
+            /></label>
+            <label for="name"
+              >City : <input type="text" name="" id="city"
+            /></label>
+            <label for="name"
+              >State : <input type="text" name="" id="state"
+            /></label>
+            <button type="submit">submit</button>
+          </div>
+          <!-- <div id="second" class="Container"></div> -->
+        </form>
+      </div>
+    </section>
+    <script>
+      let h1tag = document.getElementById("head");
+
+      let userId = JSON.parse(localStorage.getItem("oneUser"));
+      const fullarray = JSON.parse(localStorage.getItem("mechanics"));
+      const selectOneUser = fullarray.find(function (event) {
+        const id = event["u_id"];
+        if (userId === id) {
+          return true;
+        }
+      });
+      let mechForm = document.getElementById("m_form");
+      let name = document.getElementById("name");
+      let number = document.getElementById("number");
+      let email = document.getElementById("email");
+      let password = document.getElementById("password");
+      let city = document.getElementById("city");
+      let state = document.getElementById("state");
+      let img = document.getElementById("profileImg");
+
+      name.value = selectOneUser["userName"];
+      number.value = selectOneUser["userNumber"];
+      email.value = selectOneUser["userEmail"];
+      password.value = selectOneUser["userPassword"];
+      h1tag.innerText = "hello  !" + selectOneUser["userName"];
+      city.value = selectOneUser["city"];
+      state.value = selectOneUser["state"];
+      img.setAttribute("src", selectOneUser["image"]);
+
+      const index = fullarray.indexOf(selectOneUser);
+
+      mechForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let userName = document.getElementById("name").value;
+        let userNumber = document.getElementById("number").value;
+        let userEmail = document.getElementById("email").value;
+        let userPassword = document.getElementById("password").value;
+        let image = document.getElementById("img").value;
+        let city = document.getElementById("city").value;
+        let state = document.getElementById("state").value;
+
+        let newObj = {
+          userName,
+          userNumber,
+          userEmail,
+          userPassword,
+          image,
+          city,
+          state,
+        };
+
+        const combinedData = Object.assign(selectOneUser, newObj);
+        fullarray[index] = combinedData;
+        alert("updated Successfully");
+        city.value = combinedData["city"];
+        state.value = combinedData["state"];
+        localStorage.setItem("mechanics", JSON.stringify(fullarray));
+      });
+
+      function del() {
+        const delarray = JSON.parse(localStorage.getItem("mechanics"));
+        const alert123 = confirm("would u like to delete your account ");
+        if (alert123 === true) {
+          delarray.splice(index, 1);
+          alert("your account deleted successfully");
+          localStorage.setItem("mechanics", JSON.stringify(delarray));
+          window.location.href = "../../../index.html";
+        }
+      }
+    </script>
+  </body>
+</html>

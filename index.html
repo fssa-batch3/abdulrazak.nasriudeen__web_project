@@ -122,25 +122,31 @@
           />
           <label class="user-label">confirm-password</label>
         </div>
-        <div class="checkbox-cont">
-          <div>
-            <span style="color:var(--dark)">Customer</span>
-            <label class="container">
-              <input type="checkbox" id="customerCheck"  />
-              <div class="checkmark"></div>
+        <div class="radioContainer" style="display: flex">
+            <label for="Customercheck"
+              >Customer
+              <input
+                type="radio"
+                id="Customercheck"
+                name="select"
+                value="customer"
+              />
+            </label>
+            <label for="MechanicCheck"
+              >Mechanic
+              <input
+                type="radio"
+                id="MechanicCheck"
+                name="select"
+                value="mechanic"
+              />
             </label>
           </div>
-          <div>
-            <span style="color:var(--dark)">Mechanic</span>
-            <label class="container">
-              <input type="checkbox" id="mechanicCheck" />
-              <div class="checkmark"></div>
-            </label>
-          </div>
-        </div>
+
         <button type="submit" class="button" id="submit" >
        <span class="button-content">Create account</span>
    </button>
+   
       </form>
       <p>Or</p>
        <button style="background-color:var(--pink)" class="button" >
@@ -299,6 +305,7 @@
           </div>
         </div>
       </div>
+      <a href=></a>
 
       <img
         src="./assets/images/home/services/schedule-apointment.png"
@@ -460,6 +467,7 @@
             </div>
 
     </footer>
+    <script src="./pages/javascript/CRED.js"></script>
 
     <script>
     
@@ -537,82 +545,59 @@ let  service_div = document.createElement("div");
 const service_append = document.querySelector("div .services"  );
 service_append.append(service_div);
 }
+//CREATE USER
+      const signupForm = document.getElementById("sign_form");
 
-const signupForm = document.getElementById("sign_form")
+      signupForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const userName = document.getElementById("userName").value;
+        const userEmail = document.getElementById("userEmail").value;
+        const userNumber = document.getElementById("userPhone").value;
+        const userPassword = document.getElementById("userPassword").value;
+        const userConfirmPassword =
+          document.getElementById("confirmPassword").value;
+        const cusCheck = document.getElementById("Customercheck").checked;
+        const MechCheck = document.getElementById("MechanicCheck").checked;
+        let check = "";
+      
+        const u_id = Date.now();
+        let user_data = {
+          u_id,
+          check,
+          userName,
+          userEmail,
+          userNumber,
+          userPassword
+          
+        };
+        console.log(user_data);
 
-signupForm.addEventListener("submit", function (event){  
-  let users = []
-   
-  if( localStorage.getItem("users") != null) {
-    users = JSON.parse(localStorage.getItem("users"))
-  }
-  event.preventDefault();
-  const userName = document.getElementById("userName").value;
-  const userEmail = document.getElementById("userEmail").value;
-  const userNumber = document.getElementById("userPhone").value;
-  const userPassword = document.getElementById("userPassword").value;
-  const userConfirmPassword = document.getElementById("confirmPassword").value;
-  let validation_error = false;
- let user_data = {userName,userEmail,userNumber,userPassword,userConfirmPassword }
-    
-   if(userPassword != userConfirmPassword){
-    valdation_error = true;
-    alert("Confirm password is in correct ")
-    return false ;
-   }
-   
-    const select_user = users.find (function (user){
-        const customerEmail = user["userEmail"];
-        if( userEmail === customerEmail ) {
-            validation_error = true;
-            alert("user & already use this account, please change your email");
-            return false;
-          }
+        if (userPassword != userConfirmPassword) {
+          alert("Confirm password is in correct ");
           return false;
-        });
-        if(!validation_error){
-            users.push(user_data)
-            localStorage.setItem("users", JSON.stringify(users))
-            console.log(users)
-            alert("account created successfully...")
-          }
-    });
-   
-    
-    
-const logForm = document.getElementById("Log_form");
+        }
+        if (cusCheck === true) {
+          user_data.check = "customer";
+          createUser(user_data);
+        } else if (MechCheck === true) {
+          user_data.check = "mechanic";
+          createMechanic(user_data);
+        }
+        // Sign_closePopup();
+        // log_openPopup();
+      });
 
-logForm.addEventListener("submit", function(event){
-  let get_data = JSON.parse(localStorage.getItem("users"))
-  event.preventDefault();
-  const number = document.getElementById("Number").value;
-  const password = document.getElementById("Pass").value;
-  let findData = false;
-  const select_user = get_data.find(function (user){       
-    const customerPhone = user["userNumber"];
-    const customerName = user["userName"];
+      //LOGIN PAGE
 
-    if(number === customerPhone){
-      findData = true;
-      if( password ===  user["userPassword"]) {
-        alert(customerName  +"! Your account logged in successfully");
-        localStorage.setItem("oneUser",JSON.stringify(number))
-        window.location.href = "./pages/Customer/Customer.html"
-        return findData;
-      }
-      alert("Password is incorrect Please check");
-      return findData;
-    }
-    return findData;
-  })
-  if(!findData) {
-    alert("Number is not available please signup or enter valid phone number")
-  }
-  console.log(select_user)
-  
-});
+      const logForm = document.getElementById("Log_form");
 
+      logForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const number = document.getElementById("Number").value;
+        const password = document.getElementById("Pass").value;
 
+        read(number, password);
+      });
 
 
 
