@@ -81,7 +81,7 @@ function read(num, pass) {
         if (pass === user["userPassword"]) {
           alert(customerName + "! Your account logged in successfully");
           localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
-          window.location.href = "../pages/Customer/Customer.html";
+          window.location.href = "./pages/Customer/Customer.html";
           return findData;
         }
         alert("Password is incorrect Please check");
@@ -99,7 +99,7 @@ function read(num, pass) {
           if (pass === user["userPassword"]) {
             alert(mechName + "! Your account logged as mechanic  successfully");
             localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
-            window.location.href = "../pages/Mechanic/Mechanic.html";
+            window.location.href = "./pages/Mechanic/Mechanic.html";
             return findData;
           }
           alert("Password is incorrect Please check");
