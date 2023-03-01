@@ -76,22 +76,50 @@
   <body>
     <section>
       <div class="left">
-        <img src="" alt="" />
+        <img id="p_img" />
         <div class="des">
-          <h2>Name</h2>
+          <h2 id="name"></h2>
           <p>Specialist in 2wheelers</p>
         </div>
       </div>
       <div class="right">
         <div class="cont">
           <h1>Mechanic details</h1>
-          <p>Phone : <span id="phone">9840326198</span></p>
-          <p>
-            Address :<span id="address">3/401,5th mainroad , kodungaiyur</span>
-          </p>
+          <p>Phone : <span id="phone"></span></p>
+          <p>Address :<span id="address"></span></p>
           <p>Years of experience : <span id="yrs"> 5</span></p>
         </div>
       </div>
     </section>
+    <script>
+      const getId = window.location.search;
+      const idParam = new URLSearchParams(getId);
+      const Id = idParam.get("id");
+
+      //   mechanic array
+      const mechanics = JSON.parse(localStorage.getItem("mechanics"));
+      //   console.log(mechanics);
+
+      const mech = mechanics.find(function (event) {
+        let mechId = event["u_id"];
+        // console.log(mechId);
+        if (Id == mechId) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      let name = document.getElementById("name");
+      let phn = document.getElementById("phone");
+      let addrs = document.getElementById("address");
+      let image = document.getElementById("p_img");
+      image.setAttribute("src", mech["image"]);
+
+      name.innerText = mech["userName"];
+      phn.innerText = mech["userNumber"];
+      addrs.innerText = mech["city"] + "," + mech["state"];
+
+      console.log(mech);
+    </script>
   </body>
 </html>
