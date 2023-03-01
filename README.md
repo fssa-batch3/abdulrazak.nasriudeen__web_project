@@ -1,4 +1,4 @@
-Abdul Razak web project 
+Abdul Razak web project  (REPARO - it is a latin term which means to repair or fix something)
 
 list of features :
 
@@ -10,6 +10,8 @@ list of features :
 
 2) MECHANIC CRUD
 2.1) create mechanic - Completed
-2.2) reade Mechanic - Completed
+2.2) read Mechanic - Completed
 2.3) update the existing user - Completed
 2.4) delete mechanic  - Completed
+2.5)list mechanic - completed
+2.6) details mechanic - completed
