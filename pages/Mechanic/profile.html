@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mechanic Profile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../assets/css/profile.css"
+    />
+  </head>
+  <body>
+    <div class="side">
+      <!-- <video src="../../assets/images/home/Status update.mp4"></video> -->
+      <img src="../../assets/images/home/Status update.gif" alt="" />
+      <div class="profile">
+        <img id="C_profile" alt="profileImg" />
+
+        <!-- <img src="../../assets/images/logo.png" width="10px" height="10px" /> -->
+
+        <h1 id="h_name"></h1>
+        <!-- <h2>Please fill your details</h2> -->
+      </div>
+      <div class="buttonCont">
+        <button
+          class="button"
+          onclick="openprofile('personal','B_pro')"
+          id="B_pro"
+        >
+          Personal
+        </button>
+        <button
+          class="button"
+          onclick="openprofile('Workshop','W_pro')"
+          id="W_pro"
+        >
+          Workshop
+        </button>
+        <button
+          class="button"
+          onclick="openprofile('Services','s_pro')"
+          id="s_pro"
+        >
+          Service provided
+        </button>
+      </div>
+      <p>Edit your profile here</p>
+      <!-- <button class="com">Complete Profile</button> -->
+    </div>
+    <div class="container" id="personal">
+      <h1>Personal details</h1>
+      <form id="personal_form">
+        <label for="name"
+          >Name:
+
+          <input type="text" id="name" name="name" required />
+        </label>
+
+        <label for="email"
+          >Email:
+
+          <input type="email" id="email" name="email" required />
+        </label>
+
+        <label for="password"
+          >Password:
+
+          <input type="password" id="password" name="password" required />
+        </label>
+
+        <label for="phone"
+          >Phone:
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{10}"
+            required
+          />
+        </label>
+
+        <!-- <label for="address"
+          >Address:
+
+          <textarea id="address" name="address" required></textarea>
+        </label> -->
+
+        <!-- <label for="city_state"
+          >City:
+          <select id="city_state" name="city" required>
+            <option value="">--Select city--</option>
+            <option value="Chennai,TamilNadu">Chennai,TamilNadu</option>
+            <option value="Coimbatore,TamilNadu">Coimbatore,TamilNadu</option>
+            <option value="Salem,TamilNadu">Salem,TamilNadu</option>
+            <option value="Madurai,TamilNadu">Madurai,TamilNadu</option>
+            <option value="Tiruchirappalli,TamilNadu">
+              Tiruchirappalli,TamilNadu
+            </option>
+            <option value="Thoothukudi,TamilNadu">Thoothukudi,TamilNadu</option>
+            <option value="Vellore,TamilNadu">Vellore,TamilNadu</option>
+            <option value="Dindigul,TamilNadu">Dindigul,TamilNadu</option>
+            <option value="Tirunelveli,TamilNadu">Tirunelveli,TamilNadu</option>
+            <option value="Tiruppur,TamilNadu">Tiruppur,TamilNadu</option>
+            <option value="Cuddalore,TamilNadu">Cuddalore,TamilNadu</option>
+            <option value="Karur,TamilNadu">Karur,TamilNadu</option>
+            <option value="Kanchipuram,TamilNadu">Kanchipuram,TamilNadu</option>
+            <option value="Nagapattinam,TamilNadu">
+              Nagapattinam,TamilNadu
+            </option>
+            <option value="Pudukkottai,TamilNadu">Pudukkottai,TamilNadu</option>
+            <option value="Sivaganga,TamilNadu">Sivaganga,TamilNadu</option>
+            <option value="Kumbakonam,TamilNadu">Kumbakonam,TamilNadu</option>
+            <option value="Karaikudi,TamilNadu">Karaikudi,TamilNadu</option>
+            <option value="Hosur,TamilNadu">Hosur,TamilNadu</option>
+            <option value="Ooty,TamilNadu">Ooty,TamilNadu</option>
+            <option value="Ambur,TamilNadu">Ambur,TamilNadu</option>
+            <option value="Gudiyatham,TamilNadu">Gudiyatham,TamilNadu</option>
+            <option value="Pollachi,TamilNadu">Pollachi,TamilNadu</option>
+            <option value="Sivakasi,TamilNadu">Sivakasi,TamilNadu</option>
+            <option value="Komarapalayam,TamilNadu">
+              Komarapalayam,TamilNadu
+            </option>
+            <option value="Neyveli,TamilNadu">Neyveli,TamilNadu</option>
+            <option value="Rajapalayam,TamilNadu">Rajapalayam,TamilNadu</option>
+            <option value="Vaniyambadi,TamilNadu">Vaniyambadi,TamilNadu</option>
+            <option value="Nagercoil,TamilNadu">Nagercoil,TamilNadu</option>
+            <option value="Ramanathapuram,TamilNadu">
+              Ramanathapuram,TamilNadu
+            </option>
+            <option value="Viluppuram,TamilNadu">Viluppuram,TamilNadu</option>
+            <option value="Namakkal,TamilNadu">Namakkal,TamilNadu</option>
+            <option value="Thiruvarur,TamilNadu">Thiruvarur,TamilNadu</option>
+            <option value="Dharmapuri,TamilNadu">Dharmapuri,TamilNadu</option>
+            <option value="Krishnagiri,TamilNadu">Krishnagiri,TamilNadu</option>
+            <option value="Thiruvallur,TamilNadu">Thiruvallur,TamilNadu</option>
+            <option value="Theni,TamilNadu">Theni,TamilNadu</option>
+            <option value="Ariyalur,TamilNadu">Ariyalur,TamilNadu</option>
+            <option value="Perambalur,TamilNadu">Perambalur,TamilNadu</option>
+            <option value="Virudhunagar,TamilNadu">
+              Virudhunagar,TamilNadu
+            </option>
+            <option value="Ranipet,TamilNadu">Ranipet,TamilNadu</option>
+            <option value="Kancheepuram,TamilNadu">
+              Kancheepuram,TamilNadu
+            </option>
+            <option value="Kanyakumari,TamilNadu">Kanyakumari,TamilNadu</option>
+            <option value="Kallakurichi,TamilNadu">
+              Kallakurichi,TamilNadu
+            </option>
+            <option value="Chengalpattu,TamilNadu">
+              Chengalpattu,TamilNadu
+            </option>
+            <option value="Mayiladuthurai,TamilNadu">
+              Mayiladuthurai,TamilNadu
+            </option>
+            <option value="Kodaikanal,TamilNadu">Kodaikanal,TamilNadu</option>
+            <option value="Maduranthakam,TamilNadu">
+              Maduranthakam,TamilNadu
+            </option>
+            <option value="Gudalur,TamilNadu">Gudalur,TamilNadu</option>
+          </select>
+        </label> -->
+        <label for="v_type">
+          Specialized_in:
+          <select id="v_type" name="v_type">
+            <option value="select your type">select your vehicle type</option>
+            <option value="Two Wheelers">Two Wheelers</option>
+            <option value="Three Wheelers">Three Wheelers</option>
+            <option value="Four Wheelers">Four Wheelers</option>
+          </select>
+        </label>
+        <label for="E_year"
+          >Experience:
+          <select id="E_year" name="E_year">
+            <option value="">select Experience in years</option>
+            <option value="1 year">1 year</option>
+            <option value="2 years">2 years</option>
+            <option value="3 years">3 years</option>
+            <option value="4 years">4 years</option>
+            <option value="5 years">5 years</option>
+            <option value="6 years">6 years</option>
+            <option value="7 years">7 years</option>
+            <option value="more than 7 years">more than 7 years</option>
+          </select></label
+        >
+        <label for="profile-pic"
+          >ProfilePicture:
+
+          <input type="text" id="profilepic" name="profile-pic" required />
+        </label>
+
+        <button type="submit">Next</button>
+      </form>
+    </div>
+    <div class="container" id="Workshop">
+      <h1>Your Workshop details</h1>
+      <form>
+        <label for="workshopName"
+          >Workshop_Name:
+
+          <input type="text" name="" id="workshopName" />
+        </label>
+
+        <label for="workshopNumber"
+          >Workshop_Number: <input type="num" id="workshopNumber" />
+        </label>
+
+        <label for="WorkshopAddress"
+          >Workshop_Address <textarea id="WorkshopAddress" required></textarea>
+        </label>
+        <label for="city_state"
+          >City:
+          <select id="city_state" name="city" required>
+            <option value="">--Select city--</option>
+            <option value="Chennai,TamilNadu">Chennai,TamilNadu</option>
+            <option value="Coimbatore,TamilNadu">Coimbatore,TamilNadu</option>
+            <option value="Salem,TamilNadu">Salem,TamilNadu</option>
+            <option value="Madurai,TamilNadu">Madurai,TamilNadu</option>
+            <option value="Tiruchirappalli,TamilNadu">
+              Tiruchirappalli,TamilNadu
+            </option>
+            <option value="Thoothukudi,TamilNadu">Thoothukudi,TamilNadu</option>
+            <option value="Vellore,TamilNadu">Vellore,TamilNadu</option>
+            <option value="Dindigul,TamilNadu">Dindigul,TamilNadu</option>
+            <option value="Tirunelveli,TamilNadu">Tirunelveli,TamilNadu</option>
+            <option value="Tiruppur,TamilNadu">Tiruppur,TamilNadu</option>
+            <option value="Cuddalore,TamilNadu">Cuddalore,TamilNadu</option>
+            <option value="Karur,TamilNadu">Karur,TamilNadu</option>
+            <option value="Kanchipuram,TamilNadu">Kanchipuram,TamilNadu</option>
+            <option value="Nagapattinam,TamilNadu">
+              Nagapattinam,TamilNadu
+            </option>
+            <option value="Pudukkottai,TamilNadu">Pudukkottai,TamilNadu</option>
+            <option value="Sivaganga,TamilNadu">Sivaganga,TamilNadu</option>
+            <option value="Kumbakonam,TamilNadu">Kumbakonam,TamilNadu</option>
+            <option value="Karaikudi,TamilNadu">Karaikudi,TamilNadu</option>
+            <option value="Hosur,TamilNadu">Hosur,TamilNadu</option>
+            <option value="Ooty,TamilNadu">Ooty,TamilNadu</option>
+            <option value="Ambur,TamilNadu">Ambur,TamilNadu</option>
+            <option value="Gudiyatham,TamilNadu">Gudiyatham,TamilNadu</option>
+            <option value="Pollachi,TamilNadu">Pollachi,TamilNadu</option>
+            <option value="Sivakasi,TamilNadu">Sivakasi,TamilNadu</option>
+            <option value="Komarapalayam,TamilNadu">
+              Komarapalayam,TamilNadu
+            </option>
+            <option value="Neyveli,TamilNadu">Neyveli,TamilNadu</option>
+            <option value="Rajapalayam,TamilNadu">Rajapalayam,TamilNadu</option>
+            <option value="Vaniyambadi,TamilNadu">Vaniyambadi,TamilNadu</option>
+            <option value="Nagercoil,TamilNadu">Nagercoil,TamilNadu</option>
+            <option value="Ramanathapuram,TamilNadu">
+              Ramanathapuram,TamilNadu
+            </option>
+            <option value="Viluppuram,TamilNadu">Viluppuram,TamilNadu</option>
+            <option value="Namakkal,TamilNadu">Namakkal,TamilNadu</option>
+            <option value="Thiruvarur,TamilNadu">Thiruvarur,TamilNadu</option>
+            <option value="Dharmapuri,TamilNadu">Dharmapuri,TamilNadu</option>
+            <option value="Krishnagiri,TamilNadu">Krishnagiri,TamilNadu</option>
+            <option value="Thiruvallur,TamilNadu">Thiruvallur,TamilNadu</option>
+            <option value="Theni,TamilNadu">Theni,TamilNadu</option>
+            <option value="Ariyalur,TamilNadu">Ariyalur,TamilNadu</option>
+            <option value="Perambalur,TamilNadu">Perambalur,TamilNadu</option>
+            <option value="Virudhunagar,TamilNadu">
+              Virudhunagar,TamilNadu
+            </option>
+            <option value="Ranipet,TamilNadu">Ranipet,TamilNadu</option>
+            <option value="Kancheepuram,TamilNadu">
+              Kancheepuram,TamilNadu
+            </option>
+            <option value="Kanyakumari,TamilNadu">Kanyakumari,TamilNadu</option>
+            <option value="Kallakurichi,TamilNadu">
+              Kallakurichi,TamilNadu
+            </option>
+            <option value="Chengalpattu,TamilNadu">
+              Chengalpattu,TamilNadu
+            </option>
+            <option value="Mayiladuthurai,TamilNadu">
+              Mayiladuthurai,TamilNadu
+            </option>
+            <option value="Kodaikanal,TamilNadu">Kodaikanal,TamilNadu</option>
+            <option value="Maduranthakam,TamilNadu">
+              Maduranthakam,TamilNadu
+            </option>
+            <option value="Gudalur,TamilNadu">Gudalur,TamilNadu</option>
+          </select>
+        </label>
+
+        <label for="S_year">
+          Started_Year:
+
+          <input type="num" name="" id="S_year" />
+        </label>
+
+        <label for="w_img_1">
+          Workshop_Image1
+
+          <input type="num" name="" id="w_img_1" />
+        </label>
+        <label for="w_img_2">
+          Workshop_Image2
+
+          <input type="text" name="" id="w_img_2" />
+        </label>
+
+        <button type="submit">Next</button>
+      </form>
+    </div>
+    <div class="container" id="Services">
+      <h1>Service cost</h1>
+      <label for="General"
+        >General Services
+        <span
+          class="material-symbols-outlined"
+          onclick="openProServices('general')"
+        >
+          expand_more
+        </span>
+        Service included <input type="num" max="1500" />
+      </label>
+      <label for="list" class="serviceList" id="general"
+        >Engine oil change,Oil filter replacement,Air filter
+        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
+        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
+        check,General inspection.
+        <span class="material-symbols-outlined" onclick="openProServices()">
+          expand_less
+        </span>
+      </label>
+      <label for="General"
+        >General Services
+        <span class="material-symbols-outlined"> expand_more </span>
+      </label>
+      <label for="list" class="serviceList" id=""
+        >Engine oil change,Oil filter replacement,Air filter
+        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
+        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
+        check,General inspection.
+        <span class="material-symbols-outlined"> expand_less </span>
+      </label>
+      <label for="General"
+        >General Services
+        <span class="material-symbols-outlined"> expand_more </span>
+      </label>
+      <label for="list" class="serviceList"
+        >Engine oil change,Oil filter replacement,Air filter
+        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
+        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
+        check,General inspection.
+        <span class="material-symbols-outlined"> expand_less </span>
+      </label>
+      <label for="General"
+        >General Services
+        <span class="material-symbols-outlined"> expand_more </span>
+      </label>
+      <label for="list" class="serviceList"
+        >Engine oil change,Oil filter replacement,Air filter
+        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
+        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
+        check,General inspection.
+        <span class="material-symbols-outlined"> expand_less </span>
+      </label>
+      <label for="General"
+        >General Services
+        <span class="material-symbols-outlined"> expand_more </span>
+      </label>
+      <label for="list" class="serviceList"
+        >Engine oil change,Oil filter replacement,Air filter
+        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
+        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
+        check,General inspection.
+        <span class="material-symbols-outlined"> expand_less </span>
+      </label>
+    </div>
+
+    <script src="../javascript/json.js"></script>
+    <script src="../javascript/mechanic.js"></script>
+    <script>
+      let P_image = document.getElementById("C_profile");
+      let h_name = document.getElementById("h_name");
+      h_name.innerText = "Hi!   " + log_cus["userName"];
+
+      P_image.setAttribute("src", log_cus["image"]);
+      updateProfile(log_cus);
+
+      console.log(index);
+      console.log(log_cus);
+
+      const per_form = document.getElementById("personal_form");
+      per_form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let userName = document.getElementById("name").value;
+        let userEmail = document.getElementById("email").value;
+        let userNumber = document.getElementById("phone").value;
+        let userPassword = document.getElementById("password").value;
+        let address = document.getElementById("address").value;
+        let city = document.getElementById("city_state").value;
+        let image = document.getElementById("profilepic").value;
+
+        let proObj = {
+          userName,
+          userEmail,
+          userNumber,
+          userPassword,
+          address,
+          city,
+          image,
+        };
+
+        let update = Object.assign(log_cus, proObj);
+        console.log(update);
+        customers[index] = update;
+        console.log(customers);
+        localStorage.setItem("users", JSON.stringify(customers));
+        openprofile("Workshop", "W_pro");
+      });
+      const v_form = document.getElementById("Vehicle");
+      v_form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        // Workshop array
+        let workshops = [];
+        if (localStorage.getItem("workshops") != null) {
+          workshops = JSON.parse(localStorage.getItem("workshops"));
+        }
+
+        let workshopName = document.getElementById("workshopName").value;
+        let workshopNumber = document.getElementById("workshopNumber").value;
+        let WorkshopAddress = document.getElementById("WorkshopAddress").value;
+        let city_state = document.getElementById("city_state").value;
+        let S_year = document.getElementById("S_year").value;
+        let w_img_1 = document.getElementById("w_img_1").value;
+        let w_img_2 = document.getElementById("w_img_2").value;
+        let Workshop_id = Date.now();
+
+        const mechObj = {
+          MechanicID: log_cus["u_id"],
+          workshopName,
+          workshopNumber,
+          WorkshopAddress,
+          city_state,
+          S_year,
+          w_img_1,
+          w_img_2,
+          Workshop_id,
+        };
+
+        workshops.push(mechObj);
+        localStorage.setItem("workshops", JSON.stringify(workshops));
+        let update = Object.assign(log_cus, mechObj);
+        console.log(update);
+        mechanics[index] = update;
+        localStorage.setItem("mechanics", JSON.stringify(mechanics));
+        window.location.href = "./mechanic.html";
+      });
+      function updateProfile(input) {
+        let userName = document.getElementById("name");
+        let userEmail = document.getElementById("email");
+        let userNumber = document.getElementById("phone");
+        let userPassword = document.getElementById("password");
+        let address = document.getElementById("address");
+        let city = document.getElementById("city_state");
+        let image = document.getElementById("profilepic");
+        let workshopName = document.getElementById("workshopName");
+        let workshopNumber = document.getElementById("workshopNumber");
+        let WorkshopAddress = document.getElementById("WorkshopAddress");
+        let city_state = document.getElementById("city_state");
+        let S_year = document.getElementById("S_year");
+        let w_img_1 = document.getElementById("w_img_1");
+        let w_img_2 = document.getElementById("w_img_2");
+
+        userName.value = input["userName"];
+        userEmail.value = input["userEmail"];
+        userNumber.value = input["userNumber"];
+        userPassword.value = input["userPassword"];
+        address.value = input["address"];
+        city.value = input["city"];
+        image.value = input["image"];
+        workshopName.value = input["workshopName"];
+        workshopNumber.value = input["workshopNumber"];
+        WorkshopAddress.value = input["WorkshopAddress"];
+        city_state.value = input["city_state"];
+        S_year.value = input["S_year"];
+        w_img_1.value = input["w_img_1"];
+        w_img_2.value = input["w_img_2"];
+      }
+    </script>
+  </body>
+</html>
