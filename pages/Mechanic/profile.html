@@ -38,7 +38,7 @@
         </button>
         <button
           class="button"
-          onclick="openprofile('Workshop','W_pro')"
+          onclick="openprofile('Work_shop','W_pro')"
           id="W_pro"
         >
           Workshop
@@ -199,7 +199,7 @@
         <button type="submit">Next</button>
       </form>
     </div>
-    <div class="container" id="Workshop">
+    <div class="container" id="Work_shop">
       <h1>Your Workshop details</h1>
       <form>
         <label for="workshopName"
@@ -321,6 +321,49 @@
         >
           expand_more
         </span>
+        Service included
+        <input
+          type="range"
+          name="length"
+          id="length"
+          min="0"
+          max="20"
+          value="0"
+        />
+      </label>
+      <label for="list" class="serviceList" id="general"
+        >Engine oil change,Oil filter replacement,Air filter
+        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
+        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
+        check,General inspection.
+        <span class="material-symbols-outlined" onclick="openProServices()">
+          expand_less
+        </span>
+      </label>
+      <label for="General"
+        >General Services
+        <span class="material-symbols-outlined" onclick="openProServices('aa')">
+          expand_more
+        </span>
+        Service included <input type="num" max="1500" />
+      </label>
+      <label for="list" class="serviceList" id="aa"
+        >Engine oil change,Oil filter replacement,Air filter
+        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
+        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
+        check,General inspection.
+        <span class="material-symbols-outlined" onclick="openProServices()">
+          expand_less
+        </span>
+      </label>
+      <label for="General"
+        >General Services
+        <span
+          class="material-symbols-outlined"
+          onclick="openProServices('general')"
+        >
+          expand_more
+        </span>
         Service included <input type="num" max="1500" />
       </label>
       <label for="list" class="serviceList" id="general"
@@ -334,47 +377,41 @@
       </label>
       <label for="General"
         >General Services
-        <span class="material-symbols-outlined"> expand_more </span>
+        <span
+          class="material-symbols-outlined"
+          onclick="openProServices('general')"
+        >
+          expand_more
+        </span>
+        Service included <input type="num" max="1500" />
       </label>
-      <label for="list" class="serviceList" id=""
+      <label for="list" class="serviceList" id="general"
         >Engine oil change,Oil filter replacement,Air filter
         cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
         adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
         check,General inspection.
-        <span class="material-symbols-outlined"> expand_less </span>
+        <span class="material-symbols-outlined" onclick="openProServices()">
+          expand_less
+        </span>
       </label>
       <label for="General"
         >General Services
-        <span class="material-symbols-outlined"> expand_more </span>
+        <span
+          class="material-symbols-outlined"
+          onclick="openProServices('general')"
+        >
+          expand_more
+        </span>
+        Service included <input type="num" max="1500" />
       </label>
-      <label for="list" class="serviceList"
+      <label for="list" class="serviceList" id="general"
         >Engine oil change,Oil filter replacement,Air filter
         cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
         adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
         check,General inspection.
-        <span class="material-symbols-outlined"> expand_less </span>
-      </label>
-      <label for="General"
-        >General Services
-        <span class="material-symbols-outlined"> expand_more </span>
-      </label>
-      <label for="list" class="serviceList"
-        >Engine oil change,Oil filter replacement,Air filter
-        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
-        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
-        check,General inspection.
-        <span class="material-symbols-outlined"> expand_less </span>
-      </label>
-      <label for="General"
-        >General Services
-        <span class="material-symbols-outlined"> expand_more </span>
-      </label>
-      <label for="list" class="serviceList"
-        >Engine oil change,Oil filter replacement,Air filter
-        cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
-        adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
-        check,General inspection.
-        <span class="material-symbols-outlined"> expand_less </span>
+        <span class="material-symbols-outlined" onclick="openProServices()">
+          expand_less
+        </span>
       </label>
     </div>
 
@@ -386,108 +423,83 @@
       h_name.innerText = "Hi!   " + log_cus["userName"];
 
       P_image.setAttribute("src", log_cus["image"]);
-      updateProfile(log_cus);
+      // updateProfile(log_cus);
 
       console.log(index);
       console.log(log_cus);
+      let userName = document.getElementById("name");
+      let userNumber = document.getElementById("phone");
+      let userEmail = document.getElementById("email");
+      let userPassword = document.getElementById("password");
 
-      const per_form = document.getElementById("personal_form");
-      per_form.addEventListener("submit", function (event) {
-        event.preventDefault();
+      userName.value = log_cus["userName"];
+      userNumber.value = log_cus["userNumber"];
+      userEmail.value = log_cus["userEmail"];
+      userPassword.value = log_cus["userPassword"];
+
+      // mechanic personal form
+      const per_mech = document.getElementById("personal_form");
+      per_mech.addEventListener("submit", function (e) {
+        e.preventDefault();
         let userName = document.getElementById("name").value;
-        let userEmail = document.getElementById("email").value;
         let userNumber = document.getElementById("phone").value;
+        let userEmail = document.getElementById("email").value;
         let userPassword = document.getElementById("password").value;
-        let address = document.getElementById("address").value;
-        let city = document.getElementById("city_state").value;
-        let image = document.getElementById("profilepic").value;
+        let ser_vehicle = document.getElementById("v_type").value;
+        let experience = document.getElementById("E_year").value;
+        let profile_pic = document.getElementById("profilepic").value;
 
-        let proObj = {
+        let newObj = {
           userName,
-          userEmail,
           userNumber,
+          userEmail,
           userPassword,
-          address,
-          city,
-          image,
+          ser_vehicle,
+          experience,
+          profile_pic,
         };
-
-        let update = Object.assign(log_cus, proObj);
-        console.log(update);
-        customers[index] = update;
-        console.log(customers);
-        localStorage.setItem("users", JSON.stringify(customers));
-        openprofile("Workshop", "W_pro");
+        let updatedObj = Object.assign(log_cus, newObj);
+        mechanics[index] = updatedObj;
+        localStorage.setItem("mechanics", JSON.stringify(mechanics));
+        console.log(updatedObj);
+        openprofile("Work_shop", "W_pro");
       });
-      const v_form = document.getElementById("Vehicle");
-      v_form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        // Workshop array
-        let workshops = [];
-        if (localStorage.getItem("workshops") != null) {
-          workshops = JSON.parse(localStorage.getItem("workshops"));
-        }
 
+      const workShop_form = document.getElementById("Work_shop");
+      workShop_form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let workShopArray = [];
+        if (localStorage.getItem("workShopArray") != null) {
+          Customer_vehicles = JSON.parse(localStorage.getItem("workShopArray"));
+        }
         let workshopName = document.getElementById("workshopName").value;
         let workshopNumber = document.getElementById("workshopNumber").value;
         let WorkshopAddress = document.getElementById("WorkshopAddress").value;
         let city_state = document.getElementById("city_state").value;
-        let S_year = document.getElementById("S_year").value;
+        let started = document.getElementById("S_year").value;
         let w_img_1 = document.getElementById("w_img_1").value;
         let w_img_2 = document.getElementById("w_img_2").value;
-        let Workshop_id = Date.now();
+        let workshop_id = Date.now();
 
-        const mechObj = {
-          MechanicID: log_cus["u_id"],
+        let workShop = {
           workshopName,
           workshopNumber,
           WorkshopAddress,
           city_state,
-          S_year,
+          started,
           w_img_1,
           w_img_2,
-          Workshop_id,
+          workshop_id,
+          mech_id: log_cus["u_id"],
         };
-
-        workshops.push(mechObj);
-        localStorage.setItem("workshops", JSON.stringify(workshops));
-        let update = Object.assign(log_cus, mechObj);
-        console.log(update);
-        mechanics[index] = update;
+        workShopArray.push(workShop);
+        localStorage.setItem("workshops", JSON.stringify(workShopArray));
+        console.log(workShop);
+        log_cus["workShop"] = workShop;
+        mechanics[index] = log_cus;
         localStorage.setItem("mechanics", JSON.stringify(mechanics));
-        window.location.href = "./mechanic.html";
+        openprofile("Services", "s_pro");
       });
-      function updateProfile(input) {
-        let userName = document.getElementById("name");
-        let userEmail = document.getElementById("email");
-        let userNumber = document.getElementById("phone");
-        let userPassword = document.getElementById("password");
-        let address = document.getElementById("address");
-        let city = document.getElementById("city_state");
-        let image = document.getElementById("profilepic");
-        let workshopName = document.getElementById("workshopName");
-        let workshopNumber = document.getElementById("workshopNumber");
-        let WorkshopAddress = document.getElementById("WorkshopAddress");
-        let city_state = document.getElementById("city_state");
-        let S_year = document.getElementById("S_year");
-        let w_img_1 = document.getElementById("w_img_1");
-        let w_img_2 = document.getElementById("w_img_2");
-
-        userName.value = input["userName"];
-        userEmail.value = input["userEmail"];
-        userNumber.value = input["userNumber"];
-        userPassword.value = input["userPassword"];
-        address.value = input["address"];
-        city.value = input["city"];
-        image.value = input["image"];
-        workshopName.value = input["workshopName"];
-        workshopNumber.value = input["workshopNumber"];
-        WorkshopAddress.value = input["WorkshopAddress"];
-        city_state.value = input["city_state"];
-        S_year.value = input["S_year"];
-        w_img_1.value = input["w_img_1"];
-        w_img_2.value = input["w_img_2"];
-      }
     </script>
   </body>
 </html>
