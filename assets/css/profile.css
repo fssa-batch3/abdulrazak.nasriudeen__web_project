@@ -191,3 +191,6 @@ input[type="submit"]:hover {
 .serviceList {
   display: none;
 }
+#service {
+  gap: 5%;
+}
