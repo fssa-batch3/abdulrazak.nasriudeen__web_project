@@ -365,5 +365,34 @@
         vehicle_image.value = input["vehicle_image"];
       }
     </script>
+    <script>
+      let type;
+      let fuelType = "";
+      let VehicleCompany = "";
+      let vehicleModel = "";
+
+      const select_vehicle_Type = document.getElementById("v_type");
+      select_vehicle_Type.addEventListener("change", (event) => {
+        type = event.target.value;
+      });
+      const select_fuel_Type = document.getElementById("f_type");
+      select_fuel_Type.addEventListener("change", (event) => {
+        fuelType = event.target.value;
+      });
+      const select_VehicleCompany = document.getElementById("v_company");
+      select_VehicleCompany.addEventListener("change", (event) => {
+        VehicleCompany = event.target.value;
+        console.log(VehicleCompany);
+      });
+      const select_VehicleModel = document.getElementById("model");
+      select_VehicleModel.addEventListener("change", (event) => {
+        vehicleModel = event.target.value;
+      });
+
+      console.log(fuelType);
+      console.log(vehicleModel);
+      console.log(type);
+      console.log(VehicleCompany);
+    </script>
   </body>
 </html>
