@@ -332,3 +332,46 @@ const three_wheeler_company = [
     ],
   },
 ];
+
+const four_wheeler_company = [
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+  {
+    company: "",
+    vehicles: [],
+  },
+];
