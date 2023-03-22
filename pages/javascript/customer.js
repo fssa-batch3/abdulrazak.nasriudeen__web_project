@@ -27,6 +27,9 @@ function openprofile(serviceName, bId) {
 
 const two_wheeler_company = [
   {
+    company: "Select-Your-company",
+  },
+  {
     company: "Bajaj Auto",
     vehicles: [
       "Splendor Plus",
@@ -255,6 +258,9 @@ const two_wheeler_company = [
 
 const three_wheeler_company = [
   {
+    company: "Select-Your-company",
+  },
+  {
     company: "Bajaj Auto",
     vehicles: [
       "Bajaj RE Compact 2S",
@@ -272,18 +278,16 @@ const three_wheeler_company = [
   {
     company: "Piaggio ",
     vehicles: [
-      [
-        "Piaggio Ape City",
-        "Piaggio Ape Xtra LDX",
-        "Piaggio Ape DX",
-        "Piaggio Ape E-City",
-        "Piaggio Ape E-City FX",
-        "Piaggio Ape E-City LDX",
-        "Piaggio Ape E-City Plus",
-        "Piaggio Ape Auto DX",
-        "Piaggio Ape Auto DXL",
-        "Piaggio Ape Auto DXL CNG",
-      ],
+      "Piaggio Ape City",
+      "Piaggio Ape Xtra LDX",
+      "Piaggio Ape DX",
+      "Piaggio Ape E-City",
+      "Piaggio Ape E-City FX",
+      "Piaggio Ape E-City LDX",
+      "Piaggio Ape E-City Plus",
+      "Piaggio Ape Auto DX",
+      "Piaggio Ape Auto DXL",
+      "Piaggio Ape Auto DXL CNG",
     ],
   },
   {
@@ -334,6 +338,9 @@ const three_wheeler_company = [
 ];
 
 const four_wheeler_company = [
+  {
+    company: "Select-Your-company",
+  },
   {
     company: "Maruti Suzuki",
     vehicles: [
@@ -485,3 +492,46 @@ const four_wheeler_company = [
     ],
   },
 ];
+
+// function to create company options
+
+function createCompany(array, id) {
+  const options = document.getElementById(id);
+  while (options.hasChildNodes()) {
+    options.firstChild.remove();
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    let option = document.createElement("option");
+    option.setAttribute("value", array[i]["company"]);
+    option.innerText = array[i]["company"];
+    options.append(option);
+  }
+}
+
+// function to create vehicles option
+
+function createVehicle(array, id, model) {
+  const options = document.getElementById(id);
+  while (options.hasChildNodes()) {
+    options.firstChild.remove();
+  }
+  let finded = array.find((F) => F.company === model);
+
+  for (let i = 0; i < finded["vehicles"].length; i++) {
+    let option = document.createElement("option");
+    option.setAttribute("value", finded["vehicles"][i]);
+    option.innerText = finded["vehicles"][i];
+    options.append(option);
+  }
+}
+
+console.log(finded);
+
+for (let j = 0; j < finded["vehicles"].length; j++) {
+  console.log(finded["vehicles"][j]);
+}
+
+// }
+// createVehicles(, "");
+console.log(two_wheeler_company[1]["vehicles"]);
