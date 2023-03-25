@@ -380,6 +380,20 @@ function createCard(x, id) {
       phone.append(phoneNum);
       let hrTag = document.createElement("hr");
       left_container.append(hrTag);
+
+      let address = document.createElement("div");
+      address.setAttribute("class", "call");
+      left_container.append(address);
+
+      let addressIcon = document.createElement("i");
+      addressIcon.setAttribute("class", "material-symbols-outlined");
+
+      address.append(addressIcon);
+
+      let workshopAddress = document.createElement("p");
+      workshopAddress.innerText = " sample";
+
+      address.append(workshopAddress);
     }
   } catch (error) {}
 }
