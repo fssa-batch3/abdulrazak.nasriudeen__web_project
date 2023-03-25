@@ -327,61 +327,59 @@ function read(num, pass) {
   } catch (error) {}
 }
 
-// function findcustomer(arr) {
-//   const select_user = arr.find(function (user) {
-//     const customerPhone = user["userNumber"];
-//     const customerName = user["userName"];
+//function for creating customer,mechanic card
 
-//     if (num === customerPhone) {
-//       findData = true;
-//       check = true;
-//       if (pass === user["userPassword"]) {
-//         alert(customerName + "! Your account logged in successfully");
-//         localStorage.setItem("oneUser", JSON.stringify(number));
-//         // window.location.href = "./pages/Customer/Customer.html";
-//         return findData;
-//       }
-// alert("Password is incorrect Please check");
-//       return findData;
-//     }
-//     return findData;
-//   });
-// // }
-// function findCnum(arr, num, pass) {
-//   const select_user = arr.find(function (user) {
-//     const customerPhone = user["userNumber"];
-//     const customerName = user["userName"];
+function createCard(x, id) {
+  try {
+    for (let i = 0; i < x.length; i++) {
+      let card = document.createElement("div");
+      card.setAttribute("class", "shopDiv");
+      let card_image = document.createElement("img");
+      card_image.setAttribute("src", x["image"]);
+      card_image.setAttribute("alt", "workshopImage");
+      card.append(card_image);
+      let card_description = document.createElement("div");
+      card_description.setAttribute("class", "desc");
+      card.append(card_description);
+      let card_in_desc = document.createElement("div");
 
-//     if (num === customerPhone) {
-//       findData = true;
-//       if (pass === user["userPassword"]) {
-//         alert(customerName + "! Your account logged in successfully");
-//         localStorage.setItem("oneUser", JSON.stringify(number));
+      card_in_desc.setAttribute("class", "desc_top");
 
-//         return findData;
-//       }
-//       alert("Password is incorrect Please check");
-//       return findData;
-//     }
-//     return (findData = true);
-//   });
-// }
-// function findMnum(arr, num, pass) {
-//   const select_user = arr.find(function (user) {
-//     const Phone = user["userNumber"];
-//     const Name = user["userName"];
+      card_description.append(card_in_desc);
 
-//     if (num === Phone) {
-//       findData = true;
-//       if (pass === user["userPassword"]) {
-//         alert(Name + "! Your account logged in successfully");
-//         localStorage.setItem("oneUser", JSON.stringify(number));
+      let workShop_title = document.createElement("h3");
+      workShop_title.innerText = x["title"];
+      card_in_desc.append(workShop_title);
 
-//         return findData;
-//       }
-//       alert("Password is incorrect Please check");
-//       return findData;
-//     }
-//     return (findData = true);
-//   });
-// }
+      let workshop_ratings = document.createElement("p");
+      workshop_ratings.innerText = "⭐⭐⭐⭐";
+
+      card_in_desc.append(workshop_ratings);
+
+      let container = document.createElement("div");
+      container.setAttribute("class", "descContainer");
+      card_description.append(container);
+
+      let left_container = document.createElement("div");
+      left_container.setAttribute("class", "desc_left");
+      container.append(left_container);
+
+      let phone = document.createElement("div");
+      phone.setAttribute("class", "call");
+      left_container.append(phone);
+
+      let phoneIcon = document.createElement("i");
+      phoneIcon.setAttribute("class", "material-symbols-outlined");
+      phoneIcon.innerText = "call";
+
+      phone.append(phoneIcon);
+
+      let phoneNum = document.createElement("p");
+      phoneNum.innerText = "";
+
+      phone.append(phoneNum);
+      let hrTag = document.createElement("hr");
+      left_container.append(hrTag);
+    }
+  } catch (error) {}
+}
