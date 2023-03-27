@@ -400,9 +400,9 @@
       const workShop_form = document.getElementById("Work_shop");
       workShop_form.addEventListener("submit", function (e) {
         e.preventDefault();
-        let workShopArray = [];
-        if (localStorage.getItem("workShopArray") != null) {
-          Customer_vehicles = JSON.parse(localStorage.getItem("workShopArray"));
+        let work = (shops = []);
+        if (localStorage.getItem("workshops") != null) {
+          workshops = JSON.parse(localStorage.getItem("workshops"));
         }
         let workshopName = document.getElementById("workshopName").value;
         let workshopNumber = document.getElementById("workshopNumber").value;
@@ -424,7 +424,7 @@
           workshop_id,
           mech_id: log_cus["u_id"],
         };
-        workShopArray.push(workShop);
+        workshops.push(workShop);
         localStorage.setItem("workshops", JSON.stringify(workShopArray));
         console.log(workShop);
         log_cus["workShop"] = workShop;
