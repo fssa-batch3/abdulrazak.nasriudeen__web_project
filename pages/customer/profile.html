@@ -49,24 +49,43 @@
         <label for="name"
           >Name:
 
-          <input type="text" id="name" name="name" required />
+          <input
+            type="text"
+            class="profileClass"
+            id="name"
+            name="name"
+            required
+          />
         </label>
 
         <label for="email"
           >Email:
 
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            class="profileClass"
+            id="email"
+            name="email"
+            required
+          />
         </label>
 
         <label for="password"
           >Password:
 
-          <input type="password" id="password" name="password" required />
+          <input
+            type="password"
+            class="profileClass"
+            id="password"
+            name="password"
+            required
+          />
         </label>
 
         <label for="phone"
           >Phone:
           <input
+            class="profileClass"
             type="tel"
             id="phone"
             name="phone"
@@ -78,12 +97,17 @@
         <label for="address"
           >Address:
 
-          <textarea id="address" name="address" required></textarea>
+          <textarea
+            id="address"
+            class="profileClass"
+            name="address"
+            required
+          ></textarea>
         </label>
 
         <label for="city_state"
           >City:
-          <select id="city_state" name="city" required>
+          <select id="city_state" class="profileClass" name="city" required>
             <option value="">--Select city--</option>
             <option value="Chennai,TamilNadu">Chennai,TamilNadu</option>
             <option value="Coimbatore,TamilNadu">Coimbatore,TamilNadu</option>
@@ -160,17 +184,23 @@
         <label for="profile-pic"
           >ProfilePicture:
 
-          <input type="text" id="profilepic" name="profile-pic" required />
+          <input
+            type="text"
+            class="profileClass"
+            id="profilepic"
+            name="profile-pic"
+            required
+          />
         </label>
 
-        <button type="submit">Next</button>
+        <button onclick="dis('profileClass')" type="submit">Submit</button>
       </form>
     </div>
     <div class="container" id="Vehicle">
       <h1>Your vehicle details</h1>
       <form>
         <label for="v_type"> Vehicle_Type: </label>
-        <select id="v_type" name="v_type">
+        <select id="v_type" class="vehicleDetails" name="v_type">
           <option value="select your type">select your type</option>
           <option value="Two Wheelers">Two Wheelers</option>
           <option value="Three Wheelers">Three Wheelers</option>
@@ -178,14 +208,14 @@
         </select>
 
         <label for="f_type"> Fuel_Type: </label>
-        <select id="f_type" name="v_type">
+        <select id="f_type" class="vehicleDetails" name="v_type">
           <option value="select your Fuel">select your Fuel</option>
           <option value="Petrol">Petrol</option>
           <option value="Deisel">Deisel</option>
         </select>
 
         <label for="v_Company">Vehicle_Company: </label>
-        <select name="company" id="v_company">
+        <select name="company" class="vehicleDetails" id="v_company">
           <option value="Select your company">Select your company</option>
           <!-- <option value="Hero MotoCorp">Hero MotoCorp</option>
           <option value="Bajaj Auto">Bajaj Auto</option>
@@ -205,7 +235,7 @@
         </select>
 
         <label for="model">Select model :</label>
-        <select id="model" name="hero-model">
+        <select id="model" class="vehicleDetails" name="hero-model">
           <option value="">select model</option>
           <!-- <option value="Hero Splendor Plus">Hero Splendor Plus</option>
           <option value="Hero HF Deluxe">Hero HF Deluxe</option>
@@ -236,22 +266,23 @@
         <label for="year">
           Vehicle_Year:
 
-          <input type="num" name="" id="year" />
+          <input type="num" class="vehicleDetails" name="" id="year" />
         </label>
 
         <label for="v_num">
           Vehicle_Number:
 
-          <input type="num" name="" id="v_num" />
+          <input type="num" class="vehicleDetails" name="" id="v_num" />
         </label>
         <label for="v_img">
           Vehicle_image:
 
-          <input type="text" name="" id="v_img" />
+          <input type="text" class="vehicleDetails" name="" id="v_img" />
         </label>
 
-        <button type="submit">Next</button>
+        <button type="submit">Submit</button>
       </form>
+      <button>delete your vehicle</button>
     </div>
 
     <script src="../javascript/json.js"></script>
@@ -331,6 +362,7 @@
         console.log(update);
         customers[index] = update;
         localStorage.setItem("users", JSON.stringify(customers));
+        dis("vehicleDetails");
         window.location.href = "./customer.html";
       });
       function updateProfile(input) {
