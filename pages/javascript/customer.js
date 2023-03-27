@@ -681,3 +681,20 @@ function createWorkshop(arr, id) {
     }
   } catch (error) {}
 }
+
+let deletedUser = [];
+if (localStorage.getItem("deletedUser") != null) {
+  deletedUser = JSON.parse(localStorage.getItem("deletedUser"));
+}
+function delUser(id, arr) {
+  let del = arr.find((e) => {
+    id === e["customerID"];
+  });
+  let index = arr.indexOf(del);
+  console.log(index);
+  let conform = confirm("Would u like to delete");
+  if (conform === true) {
+    arr.splice(index, 1);
+    localStorage.setItem("'" + arr + "'", JSON.stringify(arr));
+  }
+}
