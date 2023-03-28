@@ -686,15 +686,13 @@ let deletedUser = [];
 if (localStorage.getItem("deletedUser") != null) {
   deletedUser = JSON.parse(localStorage.getItem("deletedUser"));
 }
-function delUser(id, arr) {
-  let del = arr.find((e) => {
+function delUser(id) {
+  let delUse = customers.find((e) => {
     id === e["customerID"];
   });
-  let index = arr.indexOf(del);
-  console.log(index);
-  let conform = confirm("Would u like to delete");
+  deletedUser.push(delUse);
+  let conform = confirm("Would u like to delete your account");
   if (conform === true) {
-    arr.splice(index, 1);
-    localStorage.setItem("'" + arr + "'", JSON.stringify(arr));
   }
+  localStorage.setItem("deletedUser", JSON.stringify(deletedUser));
 }
