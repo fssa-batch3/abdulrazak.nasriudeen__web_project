@@ -682,17 +682,17 @@ function createWorkshop(arr, id) {
   } catch (error) {}
 }
 
-let deletedUser = [];
-if (localStorage.getItem("deletedUser") != null) {
-  deletedUser = JSON.parse(localStorage.getItem("deletedUser"));
-}
-function delUser(id) {
-  let delUse = customers.find((e) => {
-    id === e["customerID"];
-  });
-  deletedUser.push(delUse);
+function delUser() {
   let conform = confirm("Would u like to delete your account");
   if (conform === true) {
+    let deletedUser = [];
+    if (localStorage.getItem("deletedUser") != null) {
+      deletedUser = JSON.parse(localStorage.getItem("deletedUser"));
+    }
+    deletedUser.push(log_cus);
+    localStorage.setItem("deletedUser", JSON.stringify(deletedUser));
+    customers.splice(index, 1);
+    localStorage.setItem("users", JSON.stringify(customers));
+    window.location.href = "../../index.html";
   }
-  localStorage.setItem("deletedUser", JSON.stringify(deletedUser));
 }

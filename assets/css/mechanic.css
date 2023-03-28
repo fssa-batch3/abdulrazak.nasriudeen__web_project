@@ -1,0 +1,6 @@
+.sidebar {
+  background-color: black;
+}
+.sidebar ul li:hover a {
+  color: black;
+}
