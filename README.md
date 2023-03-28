@@ -12,7 +12,7 @@ Steps  :
   3. Click the "Create Account" button.   
 Expected result :      
     The user is navigated to the login page with success message      
-    [completed].  
+    [completed 🎷].  
     
 Read an account :     
 Scenario 1 : Account logged in successfully        
@@ -23,7 +23,7 @@ Steps :
     
 Expected Result :     
        the user is navigted to the customer's profile page with login success message     
-       [completed]     
+       [completed 🎷]     
 
 
 Update user account :    
@@ -35,7 +35,7 @@ Steps :
 
 Expected result :    
       Navigated to the vehicle profile page   
-      [completed]  
+      [completed 🎷]  
       
 Scenario 2   :  vehicle profile updated successfully   
 Steps :   
@@ -45,7 +45,7 @@ Steps :
      
 Expected Result :    
       navigated to the customer's page    
-      [completed]  
+      [completed 🎷]  
       
       
       
@@ -58,7 +58,46 @@ Steps :
       
 Expected result    
       navigated to the index page with the message of deleted successfully    
-      [completed]   
+       [completed 🎷]     
+      
+      
+MECHANICS    
+
+Create an account   
+Scenario 1 :  Account created successfully   
+Steps :   
+    1. Navigated to the signUp page   
+    2. enter the required details such as name , email , password , etc   
+    3.click "create account button"       
+    
+Expected result [Navigated to the login page with success message]   
+ [completed 🎷]   
+ 
+ 
+Read an account   
+Scenario 1 : logged in successfully    
+Steps :  
+       1. Navigated to the login page   
+       2. Enter the phone and password     
+       3. Click "Login" button    
+Expected Result [Navigated to the mechanic page with success message ]     
+ [completed 🎷]      
+
+
+Update an account     
+Scenario 1 :  Updated Successfully     
+Steps :   
+       1. Navigated to the profile page 
+       2. click "personal" buttton 
+       3. enter more details such as work Experience , vehicle type to work , etc    
+       4. click "Next" button 
+Expected Result [navigated to the workShop details page ]    
+ [completed 🎷]     
+ 
+
+
+
+
 
     
     
