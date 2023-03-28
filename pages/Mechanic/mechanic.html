@@ -28,7 +28,7 @@
       rel="stylesheet"
     />
 
-    <title>Customer page</title>
+    <title>Mechanic</title>
     <link rel="stylesheet" href="../../assets/css/admin.css" />
     <link rel="stylesheet" href="../../assets/css/customer.css" />
     <link rel="stylesheet" href="../../assets/css/mechanic.css" />
@@ -50,7 +50,7 @@
 
         <ul>
           <li>
-            <a href="./customer.html">
+            <a href="./mechanic.html">
               <i class="material-symbols-outlined"> dashboard </i>
               <div>Home</div>
             </a>
@@ -106,19 +106,34 @@
           </li>
         </ul>
       </div>
-      <div class="main"></div>
+      <div class="main">
+        <header>
+          <div class="token">
+            <h2><span class="material-symbols-outlined"> token </span>3</h2>
+
+            <p>Your Machos</p>
+          </div>
+          <div class="tokenDesc">
+            <div class="tokenOne firstChild">
+              <h5>Machos</h5>
+              <h5>03</h5>
+            </div>
+            <div class="tokenOne">
+              <span class="material-symbols-outlined"> token </span>
+              <h5>Activity</h5>
+            </div>
+            <div class="tokenOne">
+              <span class="material-symbols-outlined"> insights </span>
+              <h5>Increase</h5>
+            </div>
+            <div class="tokenOne">
+              <span class="material-symbols-outlined"> currency_exchange </span>
+              <h5>Use Machos</h5>
+            </div>
+          </div>
+        </header>
+      </div>
     </div>
-    <script src="../javascript/customer.js"></script>
-
-    <script>
-      const h1 = document.getElementById("head");
-      const h3 = document.getElementById("city");
-      h1.innerText = "Hi  " + log_cus["userName"] + "..!";
-      h3.innerText = log_cus["city"] + ".";
-    </script>
-
-    <script>
-      createWorkshop(workshops, "workShopAppend");
-    </script>
+    <script src="../javascript/mechanic.js"></script>
   </body>
 </html>

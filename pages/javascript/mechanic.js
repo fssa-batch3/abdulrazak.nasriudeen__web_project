@@ -29,3 +29,19 @@ function openProServices(id) {
   }
   document.getElementById(id).style.display = "flex";
 }
+
+// function for token
+
+const token = document.querySelector(".token");
+token.addEventListener("mouseover", (e) => {
+  e = document.querySelector(".tokenDesc");
+  e.style.display = "flex";
+});
+
+const tokendesc = document.querySelector(".tokenDesc");
+tokendesc.addEventListener("mouseover", (e) => {
+  tokendesc.style.display = "flex";
+});
+tokendesc.addEventListener("mouseout", (e) => {
+  tokendesc.style.display = "none";
+});
