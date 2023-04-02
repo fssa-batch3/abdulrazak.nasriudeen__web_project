@@ -216,6 +216,15 @@ function log_closePopup() {
   document.getElementById("log_popup").style.display = "none";
 }
 
+// function to check existing user
+function userCheck(e, n) {
+  let customer = e.find((u) => {
+    if (n === u["numberf"]) {
+      return true;
+    }
+  });
+}
+
 // crud
 
 // Create user function
@@ -223,17 +232,14 @@ function createUser(obj) {
   try {
     let users = [];
     let validation_error = false;
-    // alert("hi");
-
     if (localStorage.getItem("users") != null) {
       users = JSON.parse(localStorage.getItem("users"));
     }
-    console.log(users);
     const select_user = users.find(function (user) {
-      const customerEmail = user["userEmail"];
-      if (obj["userEmail"] === customerEmail) {
+      const number = user["number"];
+      if (obj["number"] === number) {
         validation_error = true;
-        alert("user & already use this account, please change your email");
+        alert("user & already use this account, please try another number");
         return false;
       }
       return false;
@@ -243,6 +249,7 @@ function createUser(obj) {
       localStorage.setItem("users", JSON.stringify(users));
       console.log(users);
       alert("account created successfully...");
+      container.classList.add("sign-up-mode");
     }
   } catch (error) {}
 }
@@ -258,8 +265,8 @@ function createMechanic(obj) {
     }
     console.log(mechanics);
     const select_user = mechanics.find(function (user) {
-      const customerEmail = user["userEmail"];
-      if (obj["userEmail"] === customerEmail) {
+      const number = user["number"];
+      if (obj["number"] === number) {
         validation_error = true;
         alert("user & already use this account, please change your email");
         return false;
@@ -271,6 +278,7 @@ function createMechanic(obj) {
       localStorage.setItem("mechanics", JSON.stringify(mechanics));
       console.log(mechanics);
       alert("account created as mechanic successfully...");
+      container.classList.add("sign-up-mode");
     }
   } catch (error) {}
 }
@@ -282,37 +290,38 @@ function read(num, pass) {
     let mechanic_data = JSON.parse(localStorage.getItem("mechanics"));
     let findData = false;
     const select_user = get_data.find(function (user) {
-      const customerPhone = user["userNumber"];
-      const customerName = user["userName"];
+      const customerPhone = user["number"];
+      const customerName = user["name"];
 
       if (num === customerPhone) {
         findData = true;
-        if (pass === user["userPassword"]) {
+        if (pass === user["password"]) {
           alert(customerName + "! Your account logged in successfully");
           localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
-          window.location.href = "./pages/customer/profile.html";
+          window.location.href = "./customer/profile.html";
 
           return findData;
         }
-        alert("Password is incorrect Please check");
+        // alert("Password is incorrect Please check");
+        Notify.error("Password is incorrect Please check");
         return findData;
       }
       return findData;
     });
     if (findData === false) {
       const mech = mechanic_data.find(function (user) {
-        const mechPhone = user["userNumber"];
-        const mechName = user["userName"];
+        const mechPhone = user["number"];
+        const mechName = user["name"];
 
         if (num === mechPhone) {
           findData = true;
-          if (pass === user["userPassword"]) {
+          if (pass === user["password"]) {
             alert(mechName + "! Your account logged as mechanic  successfully");
             localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
-            window.location.href = "../pages/Mechanic/profile.html";
+            window.location.href = "./Mechanic/profile.html";
             return findData;
           }
-          alert("Password is incorrect Please check");
+          Notify.error("Password is incorrect Please check");
           return findData;
         }
         return findData;
@@ -325,6 +334,68 @@ function read(num, pass) {
     }
     console.log(select_user);
   } catch (error) {}
+}
+
+//function to check alphabet
+function hasnotAlphabet(string) {
+  keyboardSymbols = [
+    "`",
+    "~",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "_",
+    "=",
+    "+",
+    "[",
+    "{",
+    "]",
+    "}",
+    "\\",
+    "|",
+    ";",
+    ":",
+    "'",
+    '"',
+    ",",
+    "<",
+    ".",
+    ">",
+    "/",
+    "?",
+    " ",
+  ];
+  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  for (let i = 0; i < keyboardSymbols.length; i++) {
+    if (
+      string.includes(keyboardSymbols[i]) ||
+      string.includes(numbersArray[i])
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// function to check number
+function hasNumber(value) {
+  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (value.includes(numbersArray[i])) {
+      return true;
+    }
+  }
+  return false;
 }
 
 //function for creating customer,mechanic card

@@ -1,13 +1,13 @@
 :root {
-  --pink: #e83e8c;
-  --teal: #20c997;
+  --pink: #6610f2;
+  --red: #e83e8c;
+  --teal: #007bff;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
   --light: #f8f9fa;
   --dark: #343a40;
 }
-
 * {
   margin: 0px;
   padding: 0px;
@@ -20,7 +20,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--gray);
+  background-color: black;
 }
 section {
   position: relative;
@@ -29,7 +29,7 @@ section {
   background-color: var(--white);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 20px 0 var(--dark), 0 6px 20px 0 var(--dark);
+  box-shadow: 0 4px 20px 0 var(--gray), 0 6px 20px 0 var(--gray);
 }
 section::before {
   content: "";
@@ -94,7 +94,7 @@ form.sign-in-form {
 .input-feild i {
   flex: 1;
   text-align: center;
-  color: var(--dark);
+  color: var(--pink);
   font-size: 25px;
 }
 .input-feild input {
