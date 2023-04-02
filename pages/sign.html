@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="../assets/css/sign.css" />
+  </head>
+  <body>
+    <!-- <div id="sign_popup" class="signup">
+      <div class="sign_h">
+        <h2>Sign-up</h2>
+        <span
+          onclick="Sign_closePopup() "
+          style="color: red"
+          class="material-symbols-outlined"
+        >
+          logout</span
+        >
+      </div>
+      <form class="sign_m" id="sign_form">
+        <div class="input-group">
+          <input
+            required=""
+            type="text"
+            autocomplete="off"
+            pattern="[A-Za-z]{1,32}"
+            class="input"
+            id="userName"
+            title="doesnt get space"
+          />
+          <label class="user-label"> Name</label>
+        </div>
+        <div class="input-group">
+          <input
+            required="true"
+            type="email"
+            autocomplete="off"
+            class="input"
+            id="userEmail"
+          />
+          <label class="user-label">Email-id</label>
+        </div>
+        <div class="input-group">
+          <input
+            required="true"
+            type="number"
+            pattern="[0-9]{1,10}"
+            autocomplete="off"
+            class="input"
+            id="userPhone"
+            title="doesnt get space"
+          />
+          <label class="user-label">Phone-Number</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="password"
+            autocomplete="off"
+            class="input"
+            id="userPassword"
+          />
+          <label class="user-label">create-password</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="password"
+            autocomplete="off"
+            class="input"
+            id="confirmPassword"
+          />
+          <label class="user-label">confirm-password</label>
+        </div>
+        <div class="radioContainer" style="display: flex">
+          <label for="Customercheck"
+            >Customer
+            <input
+              type="radio"
+              id="Customercheck"
+              name="select"
+              value="customer"
+            />
+          </label>
+          <label for="MechanicCheck"
+            >Mechanic
+            <input
+              type="radio"
+              id="MechanicCheck"
+              name="select"
+              value="mechanic"
+            />
+          </label>
+        </div>
+
+        <button onclick="" type="submit" class="button" id="submit">
+          <span class="button-content">Create account</span>
+        </button>
+      </form>
+      <p>Or</p>
+      <button style="background-color: var(--pink)" class="button">
+        <span class="button-content">Continue with Google </span>
+      </button>
+    </div> -->
+    <!-- login -->
+    <!-- <div id="log_popup" class="signup">
+
+      <div class="sign_h">
+        <h2>Login</h2>
+        <span
+          onclick="log_closePopup()"
+          style="color: red"
+          class="material-symbols-outlined"
+        >
+          logout</span
+        >
+      </div>
+      <form class="sign_m" id="Log_form">
+        <div class="input-group">
+          <input
+            required=""
+            type="number"
+            name="text"
+            autocomplete="off"
+            class="input"
+            id="Number"
+          />
+          <label class="user-label">Phone-Number</label>
+        </div>
+        <div class="input-group">
+          <input
+            required=""
+            type="password"
+            name="text"
+            autocomplete="off"
+            class="input"
+            id="Pass"
+          />
+          <label class="user-label">password</label>
+        </div>
+
+        <button class="button" type="submit">
+          <span class="button-content">login</span>
+        </button>
+      </form>
+    </div> -->
+
+    <section class="container">
+      <!--container-->
+      <div class="signin-signup">
+        <form action="" class="sign-up-form">
+          <h2 class="title">Sign up</h2>
+          <div class="input-feild">
+            <i class="material-symbols-outlined"> person </i>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-feild">
+            <i class="material-symbols-outlined"> call </i>
+            <input
+              type="num"
+              pattern="[0-9]{10}"
+              title="only 10 numbers"
+              placeholder="Phone-number"
+            />
+          </div>
+          <div class="input-feild">
+            <i class="material-symbols-outlined"> lock </i>
+            <input type="password" placeholder="password" />
+          </div>
+          <div class="input-feild">
+            <i class="material-symbols-outlined"> lock_reset </i>
+            <input type="password" placeholder="confirm-password" />
+          </div>
+          <p>Sign up as</p>
+          <div class="radio-cont">
+            <div class="input-feild radio">
+              <label for="customerRadio">
+                <p>Customer</p>
+
+                <input
+                  type="radio"
+                  name="check"
+                  value="customer"
+                  id="customerRadio"
+                  class="radio"
+                />
+              </label>
+            </div>
+            <div class="input-feild radio">
+              <label for="mechanicRadio">
+                <p>Mechanic</p>
+                <input
+                  type="radio"
+                  name="check"
+                  value="Mechanic"
+                  id="mechanicRadio"
+                  class="radio"
+                />
+              </label>
+            </div>
+          </div>
+
+          <button type="submit">Sign up</button>
+          <p class="social-text">Or Sign-up with Social media</p>
+          <p class="social-media">
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+          </p>
+          <p class="account-text">
+            Already have an account ? <a href="#" id="sign-in-btn2">login</a>
+          </p>
+        </form>
+        <form action="" class="sign-in-form">
+          <h2 class="title">Login</h2>
+          <div class="input-feild">
+            <i class="material-symbols-outlined"> call </i>
+            <input type="num" placeholder="Phone number" />
+          </div>
+          <div class="input-feild">
+            <i class="material-symbols-outlined"> lock </i>
+            <input type="password" placeholder="password" />
+          </div>
+
+          <button type="submit">login</button>
+          <p class="forget">forget password ?</p>
+          <p class="social-text">Or Sign-in with Social media</p>
+          <p class="social-media">
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="material-symbols-outlined"> public </i>
+            </a>
+          </p>
+          <p class="account-text">
+            Dont have an account ? <a href="#" id="sign-up-btn2">Sign-up</a>
+          </p>
+        </form>
+      </div>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New to Reparo ?</h3>
+            <p>If you are new to our company please sign up</p>
+            <p>Click here !</p>
+            <button id="sign-in-btn">Signup</button>
+          </div>
+          <img src="../assets/images/home/signin.svg" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Already member of Reparo ?</h3>
+            <p>If you already signed up in our company please login</p>
+            <p>Click here !</p>
+            <button id="sign-up-btn">login</button>
+          </div>
+          <img src="../assets/images/home/signup.svg" alt="" />
+        </div>
+      </div>
+    </section>
+    <script src="../pages/javascript/sign.js"></script>
+  </body>
+</html>
