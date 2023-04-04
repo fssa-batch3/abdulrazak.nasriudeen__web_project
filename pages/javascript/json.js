@@ -226,25 +226,40 @@ function userCheck(e, n) {
 }
 
 // crud
-
-// Create user function
-function createUser(obj) {
+// check user
+function checkUser(obj) {
   try {
-    let users = [];
-    let validation_error = false;
-    if (localStorage.getItem("users") != null) {
-      users = JSON.parse(localStorage.getItem("users"));
-    }
-    const select_user = users.find(function (user) {
-      const number = user["number"];
-      if (obj["number"] === number) {
-        validation_error = true;
-        alert("user & already use this account, please try another number");
+    let users = JSON.parse(localStorage.getItem("users"));
+    let mechanics = JSON.parse(localStorage.getItem("mechanics"));
+    let validation = false;
+    const customer = users.find((e) => {
+      if (obj["number"] === e["number"]) {
+        validation = true;
+        Notify.error("User Already present please try to login");
         return false;
       }
       return false;
     });
-    if (!validation_error) {
+    const mechanic = mechanics.find((e) => {
+      if (obj["number"] === e["number"]) {
+        validation = true;
+        Notify.error("User Already present please try to login ");
+        return false;
+      }
+      return false;
+    });
+    return validation;
+  } catch (error) {}
+}
+
+// Create user function
+function createUser(obj, chck) {
+  try {
+    let users = [];
+    if (localStorage.getItem("users") != null) {
+      users = JSON.parse(localStorage.getItem("users"));
+    }
+    if (chck === false) {
       users.push(obj);
       localStorage.setItem("users", JSON.stringify(users));
       console.log(users);
@@ -254,26 +269,13 @@ function createUser(obj) {
   } catch (error) {}
 }
 //function to create mechanic
-function createMechanic(obj) {
+function createMechanic(obj, chck) {
   try {
     let mechanics = [];
-    let validation_error = false;
-    // alert("hi");
-
     if (localStorage.getItem("mechanics") != null) {
       mechanics = JSON.parse(localStorage.getItem("mechanics"));
     }
-    console.log(mechanics);
-    const select_user = mechanics.find(function (user) {
-      const number = user["number"];
-      if (obj["number"] === number) {
-        validation_error = true;
-        alert("user & already use this account, please change your email");
-        return false;
-      }
-      return false;
-    });
-    if (!validation_error) {
+    if (chck === false) {
       mechanics.push(obj);
       localStorage.setItem("mechanics", JSON.stringify(mechanics));
       console.log(mechanics);

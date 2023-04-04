@@ -92,13 +92,14 @@ sign_up.addEventListener("submit", (e) => {
     return false;
   }
   const user = { user_id, name, number, password };
+  let sign = checkUser(user);
 
   if (customerRadio === true) {
     user.check = "customer";
-    createUser(user);
+    createUser(user, sign);
   } else if (mechanicRadio === true) {
     user.check = "mechanic";
-    createMechanic(user);
+    createMechanic(user, sign);
   }
 });
 
