@@ -227,6 +227,43 @@ function userCheck(e, n) {
 
 // crud
 // check user
+function checkUser(obj) {
+  try {
+    let users = [];
+    if (localStorage.getItem("users") != null) {
+      users = JSON.parse(localStorage.getItem("users"));
+    }
+    let mechanics = [];
+    if (localStorage.getItem("mechanics") != null) {
+      mechanics = JSON.parse(localStorage.getItem("mechanics"));
+    }
+    // const mechanics = JSON.parse(localStorage.getItem("mechanics"));
+    let validation = false;
+    if (users === null) {
+      users = [];
+    }
+    if (mechanics === null) {
+      mechanics = [];
+    }
+    const customer = users.find((e) => {
+      if (obj["number"] === e["number"]) {
+        validation = true;
+        Notify.error("User Already present please try to login");
+        return false;
+      }
+      return false;
+    });
+    const mechanic = mechanics.find((e) => {
+      if (obj["number"] === e["number"]) {
+        validation = true;
+        Notify.error("User Already present please try to login ");
+        return false;
+      }
+      return false;
+    });
+    return validation;
+  } catch (error) {}
+}
 
 // Create user function
 function createUser(obj, chck) {
@@ -311,31 +348,6 @@ function read(num, pass) {
       );
     }
     console.log(select_user);
-  } catch (error) {}
-}
-
-function checkUser(obj) {
-  try {
-    let users = JSON.parse(localStorage.getItem("users"));
-    let mechanics = JSON.parse(localStorage.getItem("mechanics"));
-    let validation = false;
-    const customer = users.find((e) => {
-      if (obj["number"] === e["number"]) {
-        validation = true;
-        Notify.error("User Already present please try to login");
-        return false;
-      }
-      return false;
-    });
-    const mechanic = mechanics.find((e) => {
-      if (obj["number"] === e["number"]) {
-        validation = true;
-        Notify.error("User Already present please try to login ");
-        return false;
-      }
-      return false;
-    });
-    return validation;
   } catch (error) {}
 }
 
