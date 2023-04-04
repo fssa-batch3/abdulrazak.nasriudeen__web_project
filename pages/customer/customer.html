@@ -14,6 +14,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -25,11 +30,12 @@
 
     <title>Customer page</title>
     <link rel="stylesheet" href="../../assets/css/admin.css" />
+    <link rel="stylesheet" href="../../assets/css/customer.css" />
   </head>
 
   <body>
     <div class="container">
-      <div class="topbar cus_head">
+      <!-- <div class="topbar cus_head">
         <div class="logo">
           <img src="../../assets/images/logo.png" alt="logo" />
         </div>
@@ -37,52 +43,52 @@
           <input type="text" name="search" placeholder="search here" />
           <i class="material-symbols-outlined"> search </i>
         </div>
-        <i class="material-symbols-outlined"> notifications </i>
-        <i class="material-symbols-outlined"> chat </i>
-        <i class="material-symbols-outlined"> account_circle </i>
-      </div>
+      </div> -->
       <div class="sidebar">
+        <img src="../../assets/images/logo.png" alt="" />
+
         <ul>
           <li>
-            <a href="./dashboard.html">
+            <a href="./customer.html">
               <i class="material-symbols-outlined"> dashboard </i>
               <div>Home</div>
             </a>
           </li>
-          <li>
-            <a href="./admin_pages/customer.html">
-              <i class="material-symbols-outlined"> diversity_3 </i>
-              <div>Customers</div>
-            </a>
-          </li>
+
           <li>
             <a href="./admin_pages/mechanic.html">
-              <i class="material-symbols-outlined"> engineering </i>
-              <div>Mechanics</div>
-            </a>
-          </li>
-          <li>
-            <a href="./admin_pages/seller.html">
-              <i class="material-symbols-outlined"> sell </i>
-              <div>Sellers</div>
+              <i class="material-symbols-outlined"> activity_zone </i>
+              <div>Your Activity</div>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="material-symbols-outlined"> insert_chart </i>
-              <div>Analytics</div>
+              <i class="material-symbols-outlined"> shopping_cart </i>
+              <div>Our Products</div>
+            </a>
+          </li>
+          <li>
+            <a href="./profile.html">
+              <i class="material-symbols-outlined"> account_circle </i>
+              <div>Profile</div>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="material-symbols-outlined"> currency_rupee </i>
-              <div>Earnings</div>
+              <i class="material-symbols-outlined"> notifications </i>
+              <div>Notifications</div>
             </a>
           </li>
           <li>
             <a href="#">
               <i class="material-symbols-outlined"> settings </i>
               <div>Settings</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="material-symbols-outlined"> logout </i>
+              <div>log Out</div>
             </a>
           </li>
           <li>
@@ -100,10 +106,361 @@
           <h3 id="city"></h3>
         </div>
         <div class="nearShop">
-          <div class="shopDiv"></div>
-          <div class="shopDiv"></div>
-          <div class="shopDiv"></div>
+          <div class="shopDiv">
+            <img src="../../assets/images/home/ktm bike.jpg" alt="" />
+            <div class="desc">
+              <div class="desc_top">
+                <h3>workshopName</h3>
+                <button>
+                  <i class="material-symbols-outlined">bookmark</i>
+                </button>
+              </div>
+              <div class="descContainer">
+                <div class="desc_left">
+                  <p>Ratings</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                </div>
+                <div class="desc_right">
+                  <p>location : <span> Chennai </span></p>
+                  <div class="rightO_C">
+                    <p>Open</p>
+                    <p>/</p>
+                    <p>Closed</p>
+                  </div>
+                </div>
+              </div>
+              <div class="desc_bottom">
+                <button>
+                  <i class="material-symbols-outlined">visibility</i>
+                  view
+                </button>
+                <button>
+                  <i class="material-symbols-outlined">call</i>
+                  <p>call</p>
+                </button>
+
+                <button>
+                  <i class="material-symbols-outlined">pin_drop</i>
+                  <p>direction</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="shopDiv">
+            <img src="../../assets/images/home/ktm bike.jpg" alt="" />
+            <div class="desc">
+              <div class="desc_top">
+                <h3>workshopName</h3>
+                <button>
+                  <i class="material-symbols-outlined">bookmark</i>
+                </button>
+              </div>
+              <div class="descContainer">
+                <div class="desc_left">
+                  <p>Ratings</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                </div>
+                <div class="desc_right">
+                  <p>location : <span> Chennai </span></p>
+                  <div class="rightO_C">
+                    <p>Open</p>
+                    <p>/</p>
+                    <p>Closed</p>
+                  </div>
+                </div>
+              </div>
+              <div class="desc_bottom">
+                <button>
+                  <i class="material-symbols-outlined">visibility</i>
+                  view
+                </button>
+                <button>
+                  <i class="material-symbols-outlined">call</i>
+                  <p>call</p>
+                </button>
+
+                <button>
+                  <i class="material-symbols-outlined">pin_drop</i>
+                  <p>direction</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="shopDiv">
+            <img src="../../assets/images/home/ktm bike.jpg" alt="" />
+            <div class="desc">
+              <div class="desc_top">
+                <h3>workshopName</h3>
+                <button>
+                  <i class="material-symbols-outlined">bookmark</i>
+                </button>
+              </div>
+              <div class="descContainer">
+                <div class="desc_left">
+                  <p>Ratings</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                </div>
+                <div class="desc_right">
+                  <p>location : <span> Chennai </span></p>
+                  <div class="rightO_C">
+                    <p>Open</p>
+                    <p>/</p>
+                    <p>Closed</p>
+                  </div>
+                </div>
+              </div>
+              <div class="desc_bottom">
+                <button>
+                  <i class="material-symbols-outlined">visibility</i>
+                  view
+                </button>
+                <button>
+                  <i class="material-symbols-outlined">call</i>
+                  <p>call</p>
+                </button>
+
+                <button>
+                  <i class="material-symbols-outlined">pin_drop</i>
+                  <p>direction</p>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <section>
+          <h2>Door Step Services for your vehicle</h2>
+          <div class="nearShop serviceContainer">
+            <div class="serviceCont">
+              <div class="Service_card_box">
+                <span></span>
+                <img src="../../assets/images/admin/dash/admin.jfif" alt="" />
+                <div class="description">
+                  <div>
+                    <h3>General services</h3>
+                    <p style="font-size: 11px">Avg.Price</p>
+                    <p>starts @300</p>
+                  </div>
+                  <div>
+                    <div class="likes">
+                      <i class="material-symbols-outlined"> thumb_up </i>
+                      <p>200</p>
+                      <i class="material-symbols-outlined"> thumb_down </i>
+                      <p>2</p>
+                    </div>
+                    <button>Book Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="serviceCont">
+              <div class="Service_card_box">
+                <span></span>
+                <img src="../../assets/images/admin/dash/admin.jfif" alt="" />
+                <div class="description">
+                  <div>
+                    <h3>General services</h3>
+                    <p style="font-size: 11px">Avg.Price</p>
+                    <p>starts @300</p>
+                  </div>
+                  <div>
+                    <div class="likes">
+                      <i class="material-symbols-outlined"> thumb_up </i>
+                      <p>200</p>
+                      <i class="material-symbols-outlined"> thumb_down </i>
+                      <p>2</p>
+                    </div>
+                    <button>Book Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="serviceCont">
+              <div class="Service_card_box">
+                <span></span>
+                <img src="../../assets/images/admin/dash/admin.jfif" alt="" />
+                <div class="description">
+                  <div>
+                    <h3>General services</h3>
+                    <p style="font-size: 11px">Avg.Price</p>
+                    <p>starts @300</p>
+                  </div>
+                  <div>
+                    <div class="likes">
+                      <i class="material-symbols-outlined"> thumb_up </i>
+                      <p>200</p>
+                      <i class="material-symbols-outlined"> thumb_down </i>
+                      <p>2</p>
+                    </div>
+
+                    <button>Book Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="serviceCont">
+              <div class="Service_card_box">
+                <span></span>
+                <img src="../../assets/images/admin/dash/admin.jfif" alt="" />
+                <div class="description">
+                  <div>
+                    <h3>General services</h3>
+                    <p style="font-size: 11px">Avg.Price</p>
+                    <p>starts @300</p>
+                  </div>
+                  <div>
+                    <div class="likes">
+                      <i class="material-symbols-outlined"> thumb_up </i>
+                      <p>200</p>
+                      <i class="material-symbols-outlined"> thumb_down </i>
+                      <p>2</p>
+                    </div>
+                    <button>Book Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="first_row">
+            <h1>If your vehicle gets breakdown</h1>
+            <h3>We are here for you</h3>
+          </div>
+          <div class="secondRow">
+            <form id="personal_form">
+              <label class="break_label" for="address"
+                >Describe your problem
+
+                <textarea id="address" name="address" required></textarea>
+              </label>
+              <label class="break_label" for="address"
+                >Current location
+
+                <textarea id="address" name="address" required></textarea>
+              </label>
+
+              <label for="city_state"
+                >City:
+                <select id="city_state" name="city" required>
+                  <option value="">--Select city--</option>
+                  <option value="Chennai,TamilNadu">Chennai,TamilNadu</option>
+                  <option value="Coimbatore,TamilNadu">
+                    Coimbatore,TamilNadu
+                  </option>
+                  <option value="Salem,TamilNadu">Salem,TamilNadu</option>
+                  <option value="Madurai,TamilNadu">Madurai,TamilNadu</option>
+                  <option value="Tiruchirappalli,TamilNadu">
+                    Tiruchirappalli,TamilNadu
+                  </option>
+                  <option value="Thoothukudi,TamilNadu">
+                    Thoothukudi,TamilNadu
+                  </option>
+                  <option value="Vellore,TamilNadu">Vellore,TamilNadu</option>
+                  <option value="Dindigul,TamilNadu">Dindigul,TamilNadu</option>
+                  <option value="Tirunelveli,TamilNadu">
+                    Tirunelveli,TamilNadu
+                  </option>
+                  <option value="Tiruppur,TamilNadu">Tiruppur,TamilNadu</option>
+                  <option value="Cuddalore,TamilNadu">
+                    Cuddalore,TamilNadu
+                  </option>
+                  <option value="Karur,TamilNadu">Karur,TamilNadu</option>
+                  <option value="Kanchipuram,TamilNadu">
+                    Kanchipuram,TamilNadu
+                  </option>
+                  <option value="Nagapattinam,TamilNadu">
+                    Nagapattinam,TamilNadu
+                  </option>
+                  <option value="Pudukkottai,TamilNadu">
+                    Pudukkottai,TamilNadu
+                  </option>
+                  <option value="Sivaganga,TamilNadu">
+                    Sivaganga,TamilNadu
+                  </option>
+                  <option value="Kumbakonam,TamilNadu">
+                    Kumbakonam,TamilNadu
+                  </option>
+                  <option value="Karaikudi,TamilNadu">
+                    Karaikudi,TamilNadu
+                  </option>
+                  <option value="Hosur,TamilNadu">Hosur,TamilNadu</option>
+                  <option value="Ooty,TamilNadu">Ooty,TamilNadu</option>
+                  <option value="Ambur,TamilNadu">Ambur,TamilNadu</option>
+                  <option value="Gudiyatham,TamilNadu">
+                    Gudiyatham,TamilNadu
+                  </option>
+                  <option value="Pollachi,TamilNadu">Pollachi,TamilNadu</option>
+                  <option value="Sivakasi,TamilNadu">Sivakasi,TamilNadu</option>
+                  <option value="Komarapalayam,TamilNadu">
+                    Komarapalayam,TamilNadu
+                  </option>
+                  <option value="Neyveli,TamilNadu">Neyveli,TamilNadu</option>
+                  <option value="Rajapalayam,TamilNadu">
+                    Rajapalayam,TamilNadu
+                  </option>
+                  <option value="Vaniyambadi,TamilNadu">
+                    Vaniyambadi,TamilNadu
+                  </option>
+                  <option value="Nagercoil,TamilNadu">
+                    Nagercoil,TamilNadu
+                  </option>
+                  <option value="Ramanathapuram,TamilNadu">
+                    Ramanathapuram,TamilNadu
+                  </option>
+                  <option value="Viluppuram,TamilNadu">
+                    Viluppuram,TamilNadu
+                  </option>
+                  <option value="Namakkal,TamilNadu">Namakkal,TamilNadu</option>
+                  <option value="Thiruvarur,TamilNadu">
+                    Thiruvarur,TamilNadu
+                  </option>
+                  <option value="Dharmapuri,TamilNadu">
+                    Dharmapuri,TamilNadu
+                  </option>
+                  <option value="Krishnagiri,TamilNadu">
+                    Krishnagiri,TamilNadu
+                  </option>
+                  <option value="Thiruvallur,TamilNadu">
+                    Thiruvallur,TamilNadu
+                  </option>
+                  <option value="Theni,TamilNadu">Theni,TamilNadu</option>
+                  <option value="Ariyalur,TamilNadu">Ariyalur,TamilNadu</option>
+                  <option value="Perambalur,TamilNadu">
+                    Perambalur,TamilNadu
+                  </option>
+                  <option value="Virudhunagar,TamilNadu">
+                    Virudhunagar,TamilNadu
+                  </option>
+                  <option value="Ranipet,TamilNadu">Ranipet,TamilNadu</option>
+                  <option value="Kancheepuram,TamilNadu">
+                    Kancheepuram,TamilNadu
+                  </option>
+                  <option value="Kanyakumari,TamilNadu">
+                    Kanyakumari,TamilNadu
+                  </option>
+                  <option value="Kallakurichi,TamilNadu">
+                    Kallakurichi,TamilNadu
+                  </option>
+                  <option value="Chengalpattu,TamilNadu">
+                    Chengalpattu,TamilNadu
+                  </option>
+                  <option value="Mayiladuthurai,TamilNadu">
+                    Mayiladuthurai,TamilNadu
+                  </option>
+                  <option value="Kodaikanal,TamilNadu">
+                    Kodaikanal,TamilNadu
+                  </option>
+                  <option value="Maduranthakam,TamilNadu">
+                    Maduranthakam,TamilNadu
+                  </option>
+                  <option value="Gudalur,TamilNadu">Gudalur,TamilNadu</option>
+                </select>
+              </label>
+
+              <button type="submit">Confirm</button>
+            </form>
+          </div>
+        </section>
       </div>
     </div>
     <script src="../javascript/customer.js"></script>

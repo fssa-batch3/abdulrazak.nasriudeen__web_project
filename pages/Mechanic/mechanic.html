@@ -135,5 +135,20 @@
       </div>
     </div>
     <script src="../javascript/mechanic.js"></script>
+    <script>
+      const token = document.getElementsByClassName(".token");
+      token.addEventListener("click", (e) => {
+        e = document.querySelector(".tokenDesc");
+        e.style.display = "flex";
+      });
+
+      const tokendesc = document.querySelector(".tokenDesc");
+      tokendesc.addEventListener("mouseover", (e) => {
+        tokendesc.style.display = "flex";
+      });
+      tokendesc.addEventListener("mouseout", (e) => {
+        tokendesc.style.display = "none";
+      });
+    </script>
   </body>
 </html>
