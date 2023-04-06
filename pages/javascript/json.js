@@ -226,6 +226,7 @@ function userCheck(e, n) {
 }
 
 // crud
+
 // check user
 function checkUser(obj) {
   try {
@@ -239,16 +240,11 @@ function checkUser(obj) {
     }
     // const mechanics = JSON.parse(localStorage.getItem("mechanics"));
     let validation = false;
-    if (users === null) {
-      users = [];
-    }
-    if (mechanics === null) {
-      mechanics = [];
-    }
     const customer = users.find((e) => {
       if (obj["number"] === e["number"]) {
         validation = true;
         Notify.error("User Already present please try to login");
+        container.classList.add("sign-up-mode");
         return false;
       }
       return false;
@@ -257,6 +253,7 @@ function checkUser(obj) {
       if (obj["number"] === e["number"]) {
         validation = true;
         Notify.error("User Already present please try to login ");
+        container.classList.add("sign-up-mode");
         return false;
       }
       return false;
@@ -312,7 +309,7 @@ function read(num, pass) {
         findData = true;
         if (pass === user["password"]) {
           alert(customerName + "! Your account logged in successfully");
-          localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
+          localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
           window.location.href = "./customer/profile.html";
 
           return findData;
@@ -332,7 +329,7 @@ function read(num, pass) {
           findData = true;
           if (pass === user["password"]) {
             alert(mechName + "! Your account logged as mechanic  successfully");
-            localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
+            localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
             window.location.href = "./Mechanic/profile.html";
             return findData;
           }

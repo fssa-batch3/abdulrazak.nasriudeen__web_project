@@ -2,11 +2,22 @@ const cus = JSON.parse(localStorage.getItem("oneUser"));
 let customers = JSON.parse(localStorage.getItem("users"));
 const workshops = JSON.parse(localStorage.getItem("workshops"));
 let log_cus = customers.find(function (e) {
-  if (e["u_id"] == cus) {
+  if (e["user_id"] == cus) {
     return true;
   }
 });
+let Customer_vehicles = [];
+if (localStorage.getItem("Customer_vehicles") != null) {
+  Customer_vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
+}
+let cus_vehicle = Customer_vehicles.find((e) => {
+  if (e["customer_id"] === cus) {
+    return true;
+  }
+});
+
 let index = customers.indexOf(log_cus);
+// let vehicleIndex = vehicles.indexOf(cus_vehicle);
 function openprofile(serviceName, bId) {
   var ser_cont, i, button;
   ser_cont = document.getElementsByClassName("container");
@@ -24,6 +35,132 @@ function openprofile(serviceName, bId) {
   // document.getElementById(bId).style.color = "black";
 }
 
+// profile page
+let profileName = document.getElementById("h_name");
+let profileImage = document.getElementById("C_profile");
+profileName.innerText = "Hi ! " + log_cus["name"];
+show(log_cus);
+let P_name = document.getElementById("name");
+let P_phone = document.getElementById("phone");
+let P_password = document.getElementById("password");
+P_name.value = log_cus["name"];
+P_phone.value = log_cus["number"];
+P_password.value = log_cus["password"];
+P_name.setAttribute("disabled", true);
+P_phone.setAttribute("disabled", true);
+P_password.setAttribute("disabled", true);
+
+//personal form ;
+let personal_form = document.getElementById("personal_form");
+personal_form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let email = document.getElementById("email").value;
+  let address = document.getElementById("address").value;
+  let city = document.getElementById("city_state").value;
+  let image = document.getElementById("profilepic").value;
+
+  //making as an object
+
+  let object = { email, address, city, image };
+  let vehicle = { customerId: log_cus["user_id"] };
+
+  let updateObj = Object.assign(log_cus, object);
+  customers[index] = updateObj;
+  localStorage.setItem("users", JSON.stringify(customers));
+  openprofile("Vehicle", "W_pro");
+
+  //disable the account
+});
+// personal form ended
+
+//vehicle form
+const vehicleForm = document.getElementById("vehicleForm");
+vehicleForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const vehicleId = Date.now();
+  let vehicleType = document.getElementById("v_type").value;
+  let fuelType = document.getElementById("f_type").value;
+  let VehicleCompany = document.getElementById("v_company").value;
+  let vehicleModel = document.getElementById("model").value;
+  let vehicleYear = document.getElementById("year").value;
+  let vehicleNumber = document.getElementById("v_num").value;
+  let vehicleImage = document.getElementById("v_img").value;
+
+  let vehicleObject = {
+    customer_id: log_cus["user_id"],
+    vehicleId,
+    vehicleType,
+    fuelType,
+    VehicleCompany,
+    vehicleModel,
+    vehicleYear,
+    vehicleNumber,
+    vehicleImage,
+  };
+
+  // pushing to vehicle array
+
+  if (cus_vehicle == undefined) {
+    Customer_vehicles.push(vehicleObject);
+    localStorage.setItem(
+      "Customer_vehicles",
+      JSON.stringify(Customer_vehicles)
+    );
+  } else if (cus_vehicle != undefined) {
+    let vehicleUpdate = Object.assign(cus_vehicle, vehicleObject);
+    let vehicleIndex = Customer_vehicles.indexOf(cus_vehicle);
+    Customer_vehicles[vehicleIndex] = vehicleUpdate;
+    localStorage.setItem(
+      "Customer_vehicles",
+      JSON.stringify(Customer_vehicles)
+    );
+  }
+  alert("updated your vehicle details successfully");
+  window.location.href = "./showprofile.html";
+});
+
+// function to show values
+function show(arr) {
+  let P_name = document.getElementById("name");
+  let P_phone = document.getElementById("phone");
+  let P_password = document.getElementById("password");
+  let email = document.getElementById("email");
+  let address = document.getElementById("address");
+  let city = document.getElementById("city_state");
+  let image = document.getElementById("profilepic");
+  // let vehicleType = document.getElementById("v_type");
+  // let fuelType = document.getElementById("f_type");
+  // let VehicleCompany = document.getElementById("v_company");
+  // let vehicleModel = document.getElementById("model");
+  // let vehicleYear = document.getElementById("year");
+  // let vehicleNumber = document.getElementById("v_num");
+  // let vehicleImage = document.getElementById("v_img");
+
+  //showing values
+  P_name.value = arr["name"];
+  P_phone.value = arr["number"];
+  P_password.value = arr["password"];
+  email.value = arr["email"];
+  address.value = arr["address"];
+  city.value = arr["city"];
+  image.value = arr["image"];
+}
+
+// function to disable an account
+function disAble(cls) {
+  let dis = document.getElementsByClassName(cls);
+  for (let i = 0; i < dis.length; i++) {
+    dis[i].setAttribute("disabled", true);
+  }
+}
+// function to Enable an account
+function enAble(cls) {
+  let dis = document.getElementsByClassName(cls);
+  for (let i = 0; i < dis.length; i++) {
+    dis[i].setAttribute("disabled", false);
+  }
+}
+
 // json for vehicles
 
 const two_wheeler_company = [
@@ -33,6 +170,7 @@ const two_wheeler_company = [
   {
     company: "Bajaj Auto",
     vehicles: [
+      "select-your-model",
       "Splendor Plus",
       "HF Deluxe",
       "Passion Pro",
@@ -58,6 +196,7 @@ const two_wheeler_company = [
   {
     company: "Hero MotoCorp",
     vehicles: [
+      "select-your-model",
       "Splendor Plus",
       "HF Deluxe",
       "Passion Pro",
@@ -83,6 +222,7 @@ const two_wheeler_company = [
   {
     company: "TVS Motor Company",
     vehicles: [
+      "select-your-model",
       "Apache RTR 160 4V",
       "Apache RTR 200 4V",
       "Apache RR 310",
@@ -108,6 +248,7 @@ const two_wheeler_company = [
   {
     company: "Honda Motorcycle and Scooter India",
     vehicles: [
+      "select-your-model",
       "Activa 6G",
       "Activa 125",
       "Shine",
@@ -133,6 +274,7 @@ const two_wheeler_company = [
   {
     company: "Royal Enfield",
     vehicles: [
+      "select-your-model",
       "Classic 350",
       "Bullet 350",
       "Meteor 350",
@@ -158,6 +300,7 @@ const two_wheeler_company = [
   {
     company: "Suzuki Motorcycle India",
     vehicles: [
+      "select-your-model",
       "Access 125",
       "Burgman Street",
       "Burgman 125",
@@ -183,6 +326,7 @@ const two_wheeler_company = [
   {
     company: "Yamaha Motor India",
     vehicles: [
+      "select-your-model",
       "FZ-S",
       "FZ Fi",
       "FZ 25",
@@ -208,6 +352,7 @@ const two_wheeler_company = [
   {
     company: "KTM India",
     vehicles: [
+      "select-your-model",
       "125 Duke",
       "200 Duke",
       "250 Duke",
@@ -233,6 +378,7 @@ const two_wheeler_company = [
   {
     company: "Jawa Motorcycles",
     vehicles: [
+      "select-your-model",
       "Jawa",
       "Jawa Forty Two",
       "Jawa Perak",
@@ -264,6 +410,7 @@ const three_wheeler_company = [
   {
     company: "Bajaj Auto",
     vehicles: [
+      "select-your-model",
       "Bajaj RE Compact 2S",
       "Bajaj RE Compact 4S",
       "Bajaj RE Optima",
@@ -279,6 +426,7 @@ const three_wheeler_company = [
   {
     company: "Piaggio ",
     vehicles: [
+      "select-your-model",
       "Piaggio Ape City",
       "Piaggio Ape Xtra LDX",
       "Piaggio Ape DX",
@@ -294,6 +442,7 @@ const three_wheeler_company = [
   {
     company: "TVS Motors",
     vehicles: [
+      "select-your-model",
       "TVS King",
       "TVS King Deluxe",
       "TVS King Duramax",
@@ -309,6 +458,7 @@ const three_wheeler_company = [
   {
     company: "Atul Auto",
     vehicles: [
+      "select-your-model",
       "Atul Gem",
       "Atul Smart",
       "Atul Elite",
@@ -324,6 +474,7 @@ const three_wheeler_company = [
   {
     company: "Mahindra & Mahindra",
     vehicles: [
+      "select-your-model",
       "Mahindra Alfa",
       "Mahindra Alfa DX",
       "Mahindra Alfa Plus",
@@ -345,6 +496,7 @@ const four_wheeler_company = [
   {
     company: "Maruti Suzuki",
     vehicles: [
+      "select-your-model",
       "Alto",
       "Swift",
       "Dzire",
@@ -360,6 +512,7 @@ const four_wheeler_company = [
   {
     company: "Hyundai",
     vehicles: [
+      "select-your-model",
       "i20",
       "Creta",
       "Verna",
@@ -375,6 +528,7 @@ const four_wheeler_company = [
   {
     company: "Tata Motors",
     vehicles: [
+      "select-your-model",
       "Tiago",
       "Altroz",
       "Nexon",
@@ -390,6 +544,7 @@ const four_wheeler_company = [
   {
     company: "Mahindra & Mahindra",
     vehicles: [
+      "select-your-model",
       "Scorpio",
       "XUV500",
       "Thar",
@@ -405,6 +560,7 @@ const four_wheeler_company = [
   {
     company: "Kia Motors",
     vehicles: [
+      "select-your-model",
       "Seltos",
       "Carnival",
       "Sonet",
@@ -420,6 +576,7 @@ const four_wheeler_company = [
   {
     company: "Toyota Kirloskar",
     vehicles: [
+      "select-your-model",
       "Fortuner",
       "Innova Crysta",
       "Glanza",
@@ -435,6 +592,7 @@ const four_wheeler_company = [
   {
     company: "Honda Cars India",
     vehicles: [
+      "select-your-model",
       "Honda City",
       "Honda Civic",
       "Honda Amaze",
@@ -450,6 +608,7 @@ const four_wheeler_company = [
   {
     company: "Renault India",
     vehicles: [
+      "select-your-model",
       "Renault Kwid",
       "Renault Triber",
       "Renault Duster",
@@ -465,6 +624,7 @@ const four_wheeler_company = [
   {
     company: "Ford",
     vehicles: [
+      "select-your-model",
       "Fiesta",
       "Focus",
       "Mustang",
@@ -480,6 +640,7 @@ const four_wheeler_company = [
   {
     company: "volkswagen",
     vehicles: [
+      "select-your-model",
       "Golf",
       "Polo",
       "Passat",
@@ -526,16 +687,42 @@ function createVehicle(array, id, model) {
     options.append(option);
   }
 }
+//vehicle-company
+const select_vehicle_Type = document.getElementById("v_type");
+select_vehicle_Type.addEventListener("change", (event) => {
+  type = event.target.value;
+  if (type === "Two Wheelers") {
+    createCompany(two_wheeler_company, "v_company");
+  } else if (type === "Three Wheelers") {
+    createCompany(three_wheeler_company, "v_company");
+  } else if (type === "Four Wheelers") {
+    createCompany(four_wheeler_company, "v_company");
+  }
+});
 
-console.log(finded);
+//vehicle-models
+const select_VehicleCompany = document.getElementById("v_company");
+select_VehicleCompany.addEventListener("change", (event) => {
+  VehicleCompany = event.target.value;
+  if (type === "Two Wheelers") {
+    createVehicle(two_wheeler_company, "model", VehicleCompany);
+    // createCompany(two_wheeler_company, "v_company");
+  } else if (type === "Three Wheelers") {
+    createVehicle(three_wheeler_company, "model", VehicleCompany);
+  } else if (type === "Four Wheelers") {
+    createVehicle(four_wheeler_company, "model", VehicleCompany);
+  }
+});
 
-for (let j = 0; j < finded["vehicles"].length; j++) {
-  console.log(finded["vehicles"][j]);
-}
+// console.log(finded);
+
+// for (let j = 0; j < finded["vehicles"].length; j++) {
+//   console.log(finded["vehicles"][j]);
+// }
 
 // }
 // createVehicles(, "");
-console.log(two_wheeler_company[1]["vehicles"]);
+// console.log(two_wheeler_company[1]["vehicles"]);
 
 // function to disable Input feilds
 function dis(classes) {
