@@ -39,7 +39,6 @@ function openprofile(serviceName, bId) {
 let profileName = document.getElementById("h_name");
 let profileImage = document.getElementById("C_profile");
 profileName.innerText = "Hi ! " + log_cus["name"];
-show(log_cus);
 let P_name = document.getElementById("name");
 let P_phone = document.getElementById("phone");
 let P_password = document.getElementById("password");
