@@ -81,9 +81,26 @@ vehicleForm.addEventListener("submit", (e) => {
   let fuelType = document.getElementById("f_type").value;
   let VehicleCompany = document.getElementById("v_company").value;
   let vehicleModel = document.getElementById("model").value;
-  let vehicleYear = document.getElementById("year").value;
-  let vehicleNumber = document.getElementById("v_num").value;
+  let year1 = document.getElementById("year1").value;
+  let year2 = document.getElementById("year2").value;
+  let year3 = document.getElementById("year3").value;
+  let year4 = document.getElementById("year4").value;
+  let vehicleYear = "";
+  vehicleYear += year1 + year2 + year3 + year4;
+  let vehicleNumber1 = document.getElementById("v_num1").value;
+  let vehicleNumber2 = document.getElementById("v_num2").value;
+  let vehicleNumber3 = document.getElementById("v_num3").value;
+  let vehicleNumber4 = document.getElementById("v_num4").value;
   let vehicleImage = document.getElementById("v_img").value;
+  let vehicleNumber = "";
+  vehicleNumber +=
+    vehicleNumber1 +
+    "-" +
+    vehicleNumber2 +
+    "-" +
+    vehicleNumber3 +
+    "-" +
+    vehicleNumber4;
 
   let vehicleObject = {
     customer_id: log_cus["user_id"],
@@ -116,6 +133,94 @@ vehicleForm.addEventListener("submit", (e) => {
   }
   alert("updated your vehicle details successfully");
   window.location.href = "./showprofile.html";
+});
+
+// validation for year
+let year1 = document.getElementById("year1");
+let year2 = document.getElementById("year2");
+let year3 = document.getElementById("year3");
+let year4 = document.getElementById("year4");
+year1.addEventListener("change", (e) => {
+  e = year1.value;
+  let f = hasNumber(e);
+  if (f != true) {
+    Notify.error("Number are only allowed to be entered");
+  }
+  if (e.length != 1) {
+    Notify.error("Only 1 number are allowed in 1 box");
+  }
+}); // year 1
+year2.addEventListener("change", (e) => {
+  e = year2.value;
+  let f = hasNumber(e);
+  if (f != true) {
+    Notify.error("Number are only allowed to be entered");
+  }
+  if (e.length != 1) {
+    Notify.error("Only 1 number are allowed in 1 box");
+  }
+}); // year 2
+year3.addEventListener("change", (e) => {
+  e = year3.value;
+  let f = hasNumber(e);
+  if (f != true) {
+    Notify.error("Number are only allowed to be entered");
+  }
+  if (e.length != 1) {
+    Notify.error("Only 1 number are allowed in 1 box");
+  }
+}); // year 3
+year4.addEventListener("change", (e) => {
+  e = year4.value;
+  let f = hasNumber(e);
+  if (f != true) {
+    Notify.error("Number are only allowed to be entered");
+  }
+  if (e.length != 1) {
+    Notify.error("Only 1 number are allowed in 1 box");
+  }
+}); // yearv 4
+let vNum1 = document.getElementById("v_num1"); // for TN
+vNum1.addEventListener("change", (e) => {
+  e = vNum1.value;
+  let f = hasAlp(e);
+  if (f != true || e.length != 2) {
+    Notify.error("State code should be in 2 letters and uppercase");
+  }
+});
+let vNum2 = document.getElementById("v_num2"); // for 00
+vNum2.addEventListener("change", (e) => {
+  e = vNum2.value;
+  let f = hasNumber(e);
+  if (f != true) {
+    Notify.error("Number are only allowed to be entered");
+  }
+  if (e.length != 2) {
+    Notify.error("Only 2 number are allowed");
+  }
+});
+let vNum3 = document.getElementById("v_num3"); // for district code
+vNum3.addEventListener("change", (e) => {
+  e = vNum3.value;
+  let f = hasAlp(e);
+  if (f != true) {
+    Notify.error("code should be in uppercase   ");
+  }
+  if (e.length > 2) {
+    Notify.error(" not more 2 letters should be enter  ");
+  }
+});
+
+let vNum4 = document.getElementById("v_num4"); // for number
+vNum4.addEventListener("change", (e) => {
+  e = vNum4.value;
+  let f = hasNumber(e);
+  if (f != true) {
+    Notify.error("Number are only allowed to be entered");
+  }
+  if (e.length != 4) {
+    Notify.error(" 4 numbers should be entered");
+  }
 });
 
 // function to show values

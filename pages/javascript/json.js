@@ -409,5 +409,15 @@ function hasNumber(value) {
   }
   return false;
 }
+//function to check uppercase alphabet
+function hasAlp(e) {
+  const alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (let i = 0; i < alp.length; i++) {
+    if (e.includes(alp[i])) {
+      return true;
+    }
+  }
+  return false;
+}
 
 //function for creating customer,mechanic card
