@@ -339,7 +339,7 @@ function read(num, pass) {
         return findData;
       });
     }
-    if (findData == false) {
+    if (findData === false) {
       alert("User not found enter correct number or create an account ");
     }
     console.log(select_user);

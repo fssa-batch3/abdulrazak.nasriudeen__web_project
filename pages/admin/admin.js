@@ -11,17 +11,31 @@ function createCard(ar, id) {
     image.setAttribute("alt", "image");
     card.append(image);
     let name = document.createElement("p");
-    name.innerText = ar[i]["userName"];
+    name.innerText = "Name : " + ar[i]["name"];
     card.append(name);
     let num = document.createElement("p");
-    num.innerText = ar[i]["userNumber"];
+    num.innerText = "ph : " + ar[i]["number"];
     card.append(num);
     let anchor = document.createElement("a");
-    anchor.setAttribute("class", "material-symbols-outlined");
-    anchor.setAttribute("href", "");
-    anchor.innerText = "spoof";
+    let icon = document.createElement("i");
+    icon.setAttribute("class", "material-symbols-outlined");
+    anchor.setAttribute("onclick", "cusDetail(" + ar[i]["user_id"] + ")");
+    anchor.innerText = "view";
+    icon.innerText = "visibility";
+    anchor.append(icon);
     card.append(anchor);
     let app = document.getElementById(id);
     app.append(card);
   }
+}
+// function to detail page
+function cusDetail(id) {
+  let card = document.querySelector(".detailCard");
+  card.style.display = "block";
+  alert(id);
+}
+// function to back
+function exitDetail() {
+  let card = document.querySelector(".detailCard");
+  card.style.display = "none";
 }

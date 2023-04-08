@@ -972,3 +972,10 @@ function delUser() {
     window.location.href = "../../index.html";
   }
 }
+
+//dropdown
+// const setting = document.getElementById("settings");
+// setting.addEventListener("mouseover", (e) => {
+//   e = document.getElementById("settings_dropdown");
+//   e.style.display = "block";
+// });

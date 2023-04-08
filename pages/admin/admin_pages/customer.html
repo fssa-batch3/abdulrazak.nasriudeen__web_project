@@ -41,6 +41,33 @@
       a {
         text-decoration: none;
         color: black;
+        display: flex;
+        align-items: center;
+        gap: 10%;
+      }
+      a:hover {
+        cursor: pointer;
+        scale: 1.1;
+      }
+      .detailCard {
+        width: 95%;
+        height: 100%;
+        background-color: white;
+        position: fixed;
+        display: none;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        padding: 10px;
+      }
+      header span {
+        color: red;
+      }
+      header span:hover {
+        cursor: pointer;
+        scale: 1.2;
       }
     </style>
   </head>
@@ -119,6 +146,14 @@
       <div class="main">
         <h2>Your Customers <span id="no"></span></h2>
         <div class="cards" id="appCard"></div>
+        <div class="detailCard">
+          <header>
+            <h2>Customer Details</h2>
+            <span onclick="exitDetail()" class="material-symbols-outlined">
+              logout
+            </span>
+          </header>
+        </div>
       </div>
     </div>
     <script src="../admin.js"></script>
