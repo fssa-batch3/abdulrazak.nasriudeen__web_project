@@ -294,6 +294,22 @@ function createMechanic(obj, chck) {
     }
   } catch (error) {}
 }
+// admin login
+function adminLogin(num, pass) {
+  try {
+    if (num == 8124311602) {
+      if (pass == 123456) {
+        alert("Welcome back to your company sir");
+        window.location.href = "./admin/dashboard.html";
+        return true;
+      }
+      alert("password is incorrect");
+      return false;
+    } else {
+      return false;
+    }
+  } catch (error) {}
+}
 
 // read user function
 function read(num, pass) {

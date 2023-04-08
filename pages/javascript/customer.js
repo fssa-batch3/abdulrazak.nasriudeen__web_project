@@ -61,7 +61,7 @@ personal_form.addEventListener("submit", (e) => {
   //making as an object
 
   let object = { email, address, city, image };
-  let vehicle = { customerId: log_cus["user_id"] };
+  // let vehicle = { customerId: log_cus["user_id"] };
 
   let updateObj = Object.assign(log_cus, object);
   customers[index] = updateObj;

@@ -109,7 +109,10 @@ login.addEventListener("submit", (e) => {
   e.preventDefault();
   const num = document.getElementById("log_num").value;
   const pass = document.getElementById("log_pass").value;
-  read(num, pass);
+  let admin = adminLogin(num, pass);
+  if (admin == false) {
+    read(num, pass);
+  }
   //
   //
 });
