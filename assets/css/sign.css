@@ -39,7 +39,7 @@ section::before {
 
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, var(--pink), #4e0125);
+  background: linear-gradient(-45deg, var(--red), #4e0125);
   z-index: 6;
   transform: translateX(100%);
   transition: 1s ease-in-out;
@@ -77,7 +77,7 @@ form.sign-in-form {
 }
 .title {
   font-size: 35px;
-  color: var(--pink);
+  color: var(--red);
   margin-bottom: 10px;
 }
 .input-feild {
@@ -85,7 +85,7 @@ form.sign-in-form {
   height: 50px;
   background-color: var(--light);
   margin: 10px 0;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--dark);
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@ form.sign-in-form {
 .input-feild i {
   flex: 1;
   text-align: center;
-  color: var(--pink);
+  color: var(--red);
   font-size: 25px;
 }
 .input-feild input {
@@ -126,7 +126,7 @@ button {
   height: 50px;
   border: none;
   border-radius: 30px;
-  background-color: var(--pink);
+  background-color: var(--red);
   color: var(--white);
   font-weight: 600;
   font-size: 15px;
@@ -162,7 +162,7 @@ a {
   text-decoration: none;
 }
 .social-icon:hover {
-  color: var(--pink);
+  color: var(--red);
 }
 .panels-container {
   position: absolute;

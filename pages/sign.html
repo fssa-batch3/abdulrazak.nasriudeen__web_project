@@ -22,145 +22,6 @@
     />
   </head>
   <body>
-    <!-- <div id="sign_popup" class="signup">
-      <div class="sign_h">
-        <h2>Sign-up</h2>
-        <span
-          onclick="Sign_closePopup() "
-          style="color: red"
-          class="material-symbols-outlined"
-        >
-          logout</span
-        >
-      </div>
-      <form class="sign_m" id="sign_form">
-        <div class="input-group">
-          <input
-            required=""
-            type="text"
-            autocomplete="off"
-            pattern="[A-Za-z]{1,32}"
-            class="input"
-            id="userName"
-            title="doesnt get space"
-          />
-          <label class="user-label"> Name</label>
-        </div>
-        <div class="input-group">
-          <input
-            required="true"
-            type="email"
-            autocomplete="off"
-            class="input"
-            id="userEmail"
-          />
-          <label class="user-label">Email-id</label>
-        </div>
-        <div class="input-group">
-          <input
-            required="true"
-            type="number"
-            pattern="[0-9]{1,10}"
-            autocomplete="off"
-            class="input"
-            id="userPhone"
-            title="doesnt get space"
-          />
-          <label class="user-label">Phone-Number</label>
-        </div>
-        <div class="input-group">
-          <input
-            required=""
-            type="password"
-            autocomplete="off"
-            class="input"
-            id="userPassword"
-          />
-          <label class="user-label">create-password</label>
-        </div>
-        <div class="input-group">
-          <input
-            required=""
-            type="password"
-            autocomplete="off"
-            class="input"
-            id="confirmPassword"
-          />
-          <label class="user-label">confirm-password</label>
-        </div>
-        <div class="radioContainer" style="display: flex">
-          <label for="Customercheck"
-            >Customer
-            <input
-              type="radio"
-              id="Customercheck"
-              name="select"
-              value="customer"
-            />
-          </label>
-          <label for="MechanicCheck"
-            >Mechanic
-            <input
-              type="radio"
-              id="MechanicCheck"
-              name="select"
-              value="mechanic"
-            />
-          </label>
-        </div>
-
-        <button onclick="" type="submit" class="button" id="submit">
-          <span class="button-content">Create account</span>
-        </button>
-      </form>
-      <p>Or</p>
-      <button style="background-color: var(--pink)" class="button">
-        <span class="button-content">Continue with Google </span>
-      </button>
-    </div> -->
-    <!-- login -->
-    <!-- <div id="log_popup" class="signup">
-
-      <div class="sign_h">
-        <h2>Login</h2>
-        <span
-          onclick="log_closePopup()"
-          style="color: red"
-          class="material-symbols-outlined"
-        >
-          logout</span
-        >
-      </div>
-      <form class="sign_m" id="Log_form">
-        <div class="input-group">
-          <input
-            required=""
-            type="number"
-            name="text"
-            autocomplete="off"
-            class="input"
-            id="Number"
-          />
-          <label class="user-label">Phone-Number</label>
-        </div>
-        <div class="input-group">
-          <input
-            required=""
-            type="password"
-            name="text"
-            autocomplete="off"
-            class="input"
-            id="Pass"
-          />
-          <label class="user-label">password</label>
-        </div>
-
-        <button class="button" type="submit">
-          <span class="button-content">login</span>
-        </button>
-      </form>
-    </div> -->
-
     <section class="container">
       <!--container-->
       <div class="signin-signup">
@@ -169,6 +30,7 @@
           <div class="input-feild">
             <i class="material-symbols-outlined"> person </i>
             <input
+              autocomplete="off"
               type="text"
               id="name"
               required
@@ -180,6 +42,7 @@
           <div class="input-feild">
             <i class="material-symbols-outlined"> call </i>
             <input
+              autocomplete="off"
               type="num"
               pattern="[0-9]{10}"
               required
@@ -191,6 +54,7 @@
           <div class="input-feild">
             <i class="material-symbols-outlined"> lock </i>
             <input
+              autocomplete="off"
               id="password"
               type="password"
               pattern="[A-Za-z0-9]{6}"
@@ -202,6 +66,7 @@
           <div class="input-feild">
             <i class="material-symbols-outlined"> lock_reset </i>
             <input
+              autocomplete="off"
               type="password"
               id="confirmPassword"
               pattern="[A-Za-z0-9]{6}"
@@ -218,6 +83,7 @@
                 <p>Customer</p>
 
                 <input
+                  autocomplete="off"
                   type="radio"
                   name="check"
                   value="customer"
@@ -233,6 +99,7 @@
                 <p>Mechanic</p>
 
                 <input
+                  autocomplete="off"
                   type="radio"
                   name="check"
                   value="Mechanic"
@@ -269,9 +136,10 @@
           <div class="input-feild">
             <i class="material-symbols-outlined"> call </i>
             <input
+              autocomplete="off"
               type="num"
               required
-              pattern="{10}"
+              pattern="[0-9]{10}"
               title="only 10 numbers are acceptable"
               id="log_num"
               placeholder="Phone number"
@@ -280,10 +148,11 @@
           <div class="input-feild">
             <i class="material-symbols-outlined"> lock </i>
             <input
+              autocomplete="off"
               type="password"
               required
               id="log_pass"
-              pattern="{6}"
+              pattern="[A-Za-z0-9]{6}"
               title="only 6 characters are acceptable"
               placeholder="password"
             />
