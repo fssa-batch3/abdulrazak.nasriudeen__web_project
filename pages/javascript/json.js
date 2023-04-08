@@ -339,10 +339,8 @@ function read(num, pass) {
         return findData;
       });
     }
-    if (findData === false) {
-      alert(
-        "Number is not available please signup or enter valid phone number"
-      );
+    if (findData == false) {
+      alert("User not found enter correct number or create an account ");
     }
     console.log(select_user);
   } catch (error) {}
