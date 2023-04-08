@@ -310,7 +310,7 @@ function read(num, pass) {
         if (pass === user["password"]) {
           alert(customerName + "! Your account logged in successfully");
           localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
-          window.location.href = "./customer/profile.html";
+          window.location.href = "./customer/cus_profile.html";
 
           return findData;
         }

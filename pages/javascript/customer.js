@@ -250,21 +250,6 @@ function show(arr) {
   image.value = arr["image"];
 }
 
-// function to disable an account
-function disAble(cls) {
-  let dis = document.getElementsByClassName(cls);
-  for (let i = 0; i < dis.length; i++) {
-    dis[i].setAttribute("disabled", true);
-  }
-}
-// function to Enable an account
-function enAble(cls) {
-  let dis = document.getElementsByClassName(cls);
-  for (let i = 0; i < dis.length; i++) {
-    dis[i].setAttribute("disabled", false);
-  }
-}
-
 // json for vehicles
 
 const two_wheeler_company = [

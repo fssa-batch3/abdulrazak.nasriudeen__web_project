@@ -1,0 +1,332 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+section {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  gap: 5%;
+  /* padding: 3%; */
+}
+.sec1 {
+  height: auto;
+}
+.serviceCard {
+  width: 450px;
+  height: 300px;
+  /* background-image: url(../images/admin/dash/admin.jfif);
+  background-size: cover; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+@media (max-width: 500px) {
+  .serviceCard {
+    width: 100%;
+  }
+  .Service_card_box {
+    width: 350px;
+    height: auto;
+  }
+}
+.serviceContainer {
+  background-color: #f5f5f5;
+  margin-top: 1%;
+  gap: 5%;
+}
+
+/* service cards */
+.serviceCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.Service_card_box {
+  width: 450px;
+  height: 380px;
+  border-radius: 20px;
+  background-color: white;
+  position: relative;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4%;
+}
+
+.Service_card_box span {
+  position: absolute;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Service_card_box span::before {
+  content: "Door Step";
+  position: absolute;
+  width: 150%;
+  height: 40px;
+  background-color: black;
+  transform: rotate(-45deg) translateY(-20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23); */
+}
+
+/* service Card  */
+section h2 {
+  font-size: clamp(40px, 2vw, 20px);
+}
+.Service_card_box img {
+  width: 90%;
+  height: 65%;
+  border-radius: 20px;
+  border: 2px black solid;
+}
+.description {
+  width: 90%;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 20%;
+}
+.description i {
+  color: green;
+  /* background-color: aqua; */
+}
+.likes {
+  display: flex;
+  width: 50%;
+  gap: 3%;
+}
+.description button {
+  width: 120%;
+  height: 60%;
+  border-radius: 20px;
+  margin-top: 10%;
+  /* margin-left: 40%; */
+  background-color: black;
+  outline: none;
+  border: none;
+  color: #fff;
+}
+.description button:hover {
+  color: black;
+  cursor: pointer;
+  background-color: #20c997;
+  border: 2px solid black;
+}
+.description h3 {
+  font-size: 20px;
+}
+.first_row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.secondRow {
+  width: 900px;
+  height: 500px;
+  background-color: #fff;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-image: url(../../assets/images/customer/breakdown].png);
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  background-position: center;
+}
+.secondRow form {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+.break_label {
+  height: 20%;
+}
+.secondRow form textarea {
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+}
+
+.sidebar {
+  top: 0px;
+  bottom: 0px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 5%;
+  /* height: 100%; */
+}
+.sidebar ul {
+  width: 100%;
+}
+.main {
+  top: 0px;
+}
+.sidebar img {
+  width: 60%;
+  height: 20%;
+  margin-top: 10%;
+  margin-left: 2%;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+.shopDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding-top: 2%;
+  gap: 2%;
+}
+
+.shopDiv img {
+  width: 85%;
+  height: 65%;
+  border: 1px solid white;
+  border-radius: 30px;
+}
+.desc {
+  width: 90%;
+  border-radius: 30px;
+  height: 35%;
+  /* background-color: aqua; */
+  display: flex;
+  gap: 5%;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.descContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 5%;
+}
+.desc_top {
+  display: flex;
+  width: 100%;
+  gap: 25%;
+  align-items: center;
+  justify-content: center;
+}
+.desc_top button {
+  border-radius: 50%;
+  padding-top: 1%;
+}
+.desc p {
+  font-size: 13px;
+}
+#work_address {
+  height: 100%;
+}
+.desc_right,
+.desc_left {
+  width: 48%;
+  /* height: 100%; */
+  margin-bottom: 2%;
+}
+.desc_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.desc_right {
+  border-left: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+.rightO_C {
+  display: flex;
+  gap: 5%;
+}
+.desc_right button {
+  width: 100%;
+}
+.desc_bottom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+  /* margin-top: 8%; */
+  /* color: #20c997; */
+}
+
+.desc_bottom button {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  gap: 2%;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 1%;
+}
+.shopDiv button:hover {
+  color: #20c997;
+  border-color: #20c997;
+  outline: none;
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  .Service_card_box {
+    width: 350px;
+    height: 280px;
+  }
+  .secondRow {
+    width: 300px;
+  }
+  .serviceContainer {
+    background-color: #f5f5f5;
+    margin-top: 1%;
+    gap: 5%;
+  }
+  .sidebar img {
+    height: 5%;
+    width: 60%;
+    padding: 1%;
+    border-radius: 100%;
+  }
+  .sidebar {
+    gap: 1%;
+  }
+}
