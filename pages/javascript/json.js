@@ -269,10 +269,23 @@ function createUser(obj, chck) {
     if (localStorage.getItem("users") != null) {
       users = JSON.parse(localStorage.getItem("users"));
     }
+    let Customer_vehicles = [];
+    if (localStorage.getItem("Customer_vehicles") != null) {
+      Customer_vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
+    }
+    let vehicleObj = {
+      CustomerId: obj["user_id"],
+      VehicleId: obj["vehicle_id"],
+    };
     if (chck === false) {
       users.push(obj);
+      Customer_vehicles.push(vehicleObj);
       localStorage.setItem("users", JSON.stringify(users));
-      console.log(users);
+      localStorage.setItem(
+        "Customer_vehicles",
+        JSON.stringify(Customer_vehicles)
+      );
+
       alert("account created successfully...");
       container.classList.add("sign-up-mode");
     }

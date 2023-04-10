@@ -1,8 +1,8 @@
 const cus = JSON.parse(localStorage.getItem("oneUser"));
 let customers = JSON.parse(localStorage.getItem("users"));
 const workshops = JSON.parse(localStorage.getItem("workshops"));
-let log_cus = customers.find(function (e) {
-  if (e["user_id"] == cus) {
+let log_cus = customers.find((e) => {
+  if (e["user_id"] === cus) {
     return true;
   }
 });
@@ -11,13 +11,15 @@ if (localStorage.getItem("Customer_vehicles") != null) {
   Customer_vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
 }
 let cus_vehicle = Customer_vehicles.find((e) => {
-  if (e["customer_id"] === cus) {
+  if (e["CustomerId"] === cus) {
     return true;
   }
 });
 
 let index = customers.indexOf(log_cus);
-// let vehicleIndex = vehicles.indexOf(cus_vehicle);
+let vehicleIndex = Customer_vehicles.indexOf(cus_vehicle);
+
+//open profile
 function openprofile(serviceName, bId) {
   var ser_cont, i, button;
   ser_cont = document.getElementsByClassName("container");
@@ -61,7 +63,6 @@ personal_form.addEventListener("submit", (e) => {
   //making as an object
 
   let object = { email, address, city, image };
-  // let vehicle = { customerId: log_cus["user_id"] };
 
   let updateObj = Object.assign(log_cus, object);
   customers[index] = updateObj;
@@ -76,7 +77,6 @@ personal_form.addEventListener("submit", (e) => {
 const vehicleForm = document.getElementById("vehicleForm");
 vehicleForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const vehicleId = Date.now();
   let vehicleType = document.getElementById("v_type").value;
   let fuelType = document.getElementById("f_type").value;
   let VehicleCompany = document.getElementById("v_company").value;
@@ -103,8 +103,6 @@ vehicleForm.addEventListener("submit", (e) => {
     vehicleNumber4;
 
   let vehicleObject = {
-    customer_id: log_cus["user_id"],
-    vehicleId,
     vehicleType,
     fuelType,
     VehicleCompany,
@@ -115,22 +113,25 @@ vehicleForm.addEventListener("submit", (e) => {
   };
 
   // pushing to vehicle array
+  let update = Object.assign(cus_vehicle, vehicleObject);
+  Customer_vehicles[vehicleIndex] = update;
+  localStorage.setItem("Customer_vehicles", JSON.stringify(Customer_vehicles));
 
-  if (cus_vehicle == undefined) {
-    Customer_vehicles.push(vehicleObject);
-    localStorage.setItem(
-      "Customer_vehicles",
-      JSON.stringify(Customer_vehicles)
-    );
-  } else if (cus_vehicle != undefined) {
-    let vehicleUpdate = Object.assign(cus_vehicle, vehicleObject);
-    let vehicleIndex = Customer_vehicles.indexOf(cus_vehicle);
-    Customer_vehicles[vehicleIndex] = vehicleUpdate;
-    localStorage.setItem(
-      "Customer_vehicles",
-      JSON.stringify(Customer_vehicles)
-    );
-  }
+  // if (cus_vehicle == undefined) {
+  //   Customer_vehicles.push(vehicleObject);
+  //   localStorage.setItem(
+  //     "Customer_vehicles",
+  //     JSON.stringify(Customer_vehicles)
+  //   );
+  // } else if (cus_vehicle != undefined) {
+  //   let vehicleUpdate = Object.assign(cus_vehicle, vehicleObject);
+  //   let vehicleIndex = Customer_vehicles.indexOf(cus_vehicle);
+  //   Customer_vehicles[vehicleIndex] = vehicleUpdate;
+  //   localStorage.setItem(
+  //     "Customer_vehicles",
+  //     JSON.stringify(Customer_vehicles)
+  //   );
+  // }
   alert("updated your vehicle details successfully");
   window.location.href = "./showprofile.html";
 });

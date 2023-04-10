@@ -96,6 +96,7 @@ sign_up.addEventListener("submit", (e) => {
 
   if (customerRadio === true) {
     user.check = "customer";
+    user.vehicle_id = user_id + 2;
     createUser(user, sign);
   } else if (mechanicRadio === true) {
     user.check = "mechanic";
