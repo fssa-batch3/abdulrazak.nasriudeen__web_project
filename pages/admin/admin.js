@@ -40,7 +40,7 @@ function cusDetail(id) {
     }
   });
   let selectVehicle = cusVehicles.find((e) => {
-    if (id == e["customer_id"]) {
+    if (id == e["CustomerId"]) {
       return true;
     }
   });
