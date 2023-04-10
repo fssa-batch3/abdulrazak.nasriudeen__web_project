@@ -56,7 +56,7 @@ function cusDetail(id) {
   const city = document.getElementById("dCity");
 
   // vehicle details
-  const vehicleId = document.getElementById("vehicleId");
+  const vehicleId = document.getElementById("VehicleId");
   const vehicleImage = document.getElementById("vehicleDetail_img");
   const type = document.getElementById("vehicleType");
   const fuel = document.getElementById("fuel");

@@ -298,8 +298,27 @@ function createMechanic(obj, chck) {
     if (localStorage.getItem("mechanics") != null) {
       mechanics = JSON.parse(localStorage.getItem("mechanics"));
     }
+    let workshops = [];
+    if (localStorage.getItem("workshops") != null) {
+      workshops = JSON.parse(localStorage.getItem("workshops"));
+    }
+    let workObj = { mechanicId: obj["user_id"], workshopId: obj["WorkshopId"] };
+    let mechServices = [];
+    if (localStorage.getItem("mechServices") != null) {
+      mechServices = JSON.parse(localStorage.getItem("mechServices"));
+    }
+    let serObj = {
+      mechanicId: obj["user_id"],
+      workshopId: obj["WorkshopId"],
+      serviceId: obj["serviceId"],
+    };
+
     if (chck === false) {
       mechanics.push(obj);
+      workshops.push(workObj);
+      mechServices.push(serObj);
+      localStorage.setItem("mechServices", JSON.stringify(mechServices));
+      localStorage.setItem("workshops", JSON.stringify(workshops));
       localStorage.setItem("mechanics", JSON.stringify(mechanics));
       console.log(mechanics);
       alert("account created as mechanic successfully...");

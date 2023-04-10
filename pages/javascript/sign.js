@@ -100,6 +100,8 @@ sign_up.addEventListener("submit", (e) => {
     createUser(user, sign);
   } else if (mechanicRadio === true) {
     user.check = "mechanic";
+    user.WorkshopId = user_id + 2;
+    user.serviceId = user_id + 4;
     createMechanic(user, sign);
   }
 });

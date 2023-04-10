@@ -1,7 +1,7 @@
 const cus = JSON.parse(localStorage.getItem("oneUser"));
 let mechanics = JSON.parse(localStorage.getItem("mechanics"));
 let log_cus = mechanics.find(function (e) {
-  if (e["u_id"] == cus) {
+  if (e["user_id"] == cus) {
     return true;
   }
 });
@@ -30,18 +30,42 @@ function openProServices(id) {
   document.getElementById(id).style.display = "flex";
 }
 
-// function for token
+// edit profile
+let h_name = document.getElementById("h_name");
+h_name.innerText = "Hi!   " + log_cus["name"];
 
-// const token = document.querySelector(".token");
-// token.addEventListener("mouseover", (e) => {
-//   e = document.querySelector(".tokenDesc");
-//   e.style.display = "flex";
-// });
+let mechName = document.getElementById("name");
+mechName.value = log_cus["name"];
 
-// const tokendesc = document.querySelector(".tokenDesc");
-// tokendesc.addEventListener("mouseover", (e) => {
-//   tokendesc.style.display = "flex";
-// });
-// tokendesc.addEventListener("mouseout", (e) => {
-//   tokendesc.style.display = "none";
-// });
+let mechNum = document.getElementById("phone");
+mechNum.value = log_cus["number"];
+
+let mechpass = document.getElementById("password");
+mechpass.value = log_cus["password"];
+
+const per_mech = document.getElementById("personal_form");
+per_mech.addEventListener("submit", function (e) {
+  e.preventDefault();
+  let name = document.getElementById("name").value;
+  let number = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let specialized = document.getElementById("v_type").value;
+  let experience = document.getElementById("E_year").value;
+  let profile_pic = document.getElementById("profilepic").value;
+
+  let newObj = {
+    name,
+    number,
+    email,
+    password,
+    specialized,
+    experience,
+    profile_pic,
+  };
+  let updatedObj = Object.assign(log_cus, newObj);
+  mechanics[index] = updatedObj;
+  localStorage.setItem("mechanics", JSON.stringify(mechanics));
+  console.log(updatedObj);
+  openprofile("Work_shop", "W_pro");
+});

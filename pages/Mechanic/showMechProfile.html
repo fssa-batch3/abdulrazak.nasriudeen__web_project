@@ -23,7 +23,7 @@
         flex-direction: column;
       }
       main {
-        width: 85%;
+        width: 98%;
         height: 99%;
         background-color: white;
         border-radius: 30px;
@@ -41,8 +41,15 @@
       span {
         color: black;
       }
+      h3 {
+        font-size: 12px;
+      }
+      p {
+        font-size: 15px;
+        color: #651239;
+      }
       section {
-        width: 90%;
+        width: 97%;
         height: 90%;
         background: linear-gradient(-45deg, #651239, #e83e8c);
         border-radius: 30px;
@@ -52,10 +59,10 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: 5%;
+        gap: 3%;
       }
       section div {
-        width: 450px;
+        width: 390px;
         height: 90%;
         background-color: white;
         margin-top: 5px;
@@ -70,7 +77,9 @@
         width: 80%;
         border-bottom: 2px solid black;
         height: 60px;
-        /* display: flex; */
+        display: flex;
+        /* overflow-x: scroll; */
+        /* flex-direction: ; */
         /* justify-content: center; */
       }
       .image {
@@ -150,7 +159,7 @@
       </header>
       <section>
         <div>
-          <h2>Personal details</h2>
+          <h2>Personal</h2>
           <div class="image">
             <img id="sImg" alt="profile-pic" />
             <h3>Your profile photo</h3>
@@ -182,35 +191,63 @@
           </label>
         </div>
         <div>
-          <h2>Vehicle details</h2>
+          <h2>Workshop</h2>
           <div class="image">
-            <img id="showvehicleImage" />
-            <h3>Your vehicle image</h3>
+            <img id="workShopImage" />
+            <h3>Your workshop image</h3>
           </div>
 
           <label class="detail">
-            <h3>Vehicle type :</h3>
-            <p id="showType"></p>
+            <h3>workshop Name :</h3>
+            <p id="showWorkName"></p>
           </label>
           <label class="detail">
-            <h3>fuel type :</h3>
-            <p id="showfType"></p>
+            <h3>workshop Number:</h3>
+            <p id="showWorkNum"></p>
           </label>
           <label class="detail">
-            <h3>Vehicle Company :</h3>
-            <p id="showCompany"></p>
+            <h3>workshop Address :</h3>
+            <p id="showWorkAddress"></p>
           </label>
           <label class="detail">
-            <h3>Vehicle Model :</h3>
-            <p id="showModel"></p>
+            <h3>workshop city:</h3>
+            <p id="showWorkCity"></p>
           </label>
           <label class="detail">
-            <h3>Vehicle year :</h3>
-            <p id="showYear"></p>
+            <h3>Started at :</h3>
+            <p id="showWorkYear"></p>
           </label>
           <label class="detail">
-            <h3>Vehicle Number:</h3>
-            <p id="showNum"></p>
+            <h3>Workshop type:</h3>
+            <p id="showWorkType"></p>
+          </label>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <label class="detail">
+            <h3>General Service</h3>
+
+            <p id="showname"></p>
+          </label>
+          <label class="detail">
+            <h3>Standard Service</h3>
+
+            <p id="showname"></p>
+          </label>
+          <label class="detail">
+            <h3>Premium services Service</h3>
+
+            <p id="showname"></p>
+          </label>
+          <label class="detail">
+            <h3>Full body analysis</h3>
+
+            <p id="showname"></p>
+          </label>
+          <label class="detail">
+            <h3>Break down</h3>
+
+            <p id="showname"></p>
           </label>
         </div>
       </section>
@@ -252,12 +289,12 @@
 
         function profileSuccess() {
           alert("Your profile has been saved");
-          window.location.href = "./cust.html";
+          window.location.href = "./mech.html";
         }
         function profile() {
           let con = confirm("Are you going to edit");
           if (con === true) {
-            window.location.href = "./cus_profile.html";
+            window.location.href = "./profile.html";
           } else {
             return;
           }

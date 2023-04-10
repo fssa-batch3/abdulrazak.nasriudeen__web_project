@@ -68,7 +68,8 @@ h2 img {
 form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  /* gap: 10%; */
 }
 form button {
   width: 50%;
