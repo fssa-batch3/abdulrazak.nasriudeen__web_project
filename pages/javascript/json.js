@@ -375,6 +375,7 @@ function read(num, pass) {
 
         if (num === mechPhone) {
           findData = true;
+
           if (pass === user["password"]) {
             alert(mechName + "! Your account logged as mechanic  successfully");
             localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
