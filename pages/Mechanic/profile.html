@@ -126,19 +126,32 @@
         <label for="workshopName"
           >Workshop_Name:
 
-          <input type="text" name="" id="workshopName" />
+          <input
+            type="text"
+            name=""
+            required
+            pattern="[A-Za-z]{4,30}"
+            id="workshopName"
+          />
         </label>
 
         <label for="workshopNumber"
-          >Workshop_Number: <input type="num" id="workshopNumber" />
+          >Workshop_Number:
+          <input
+            type="num"
+            required
+            pattern="[0-9]{7,14}"
+            id="workshopNumber"
+          />
         </label>
 
         <label for="workshopAddress"
-          >Workshop_Address <textarea id="workshopAddress" required></textarea>
+          >Workshop_Address
+          <textarea required id="workshopAddress" required></textarea>
         </label>
         <label for="city_state"
           >City:
-          <select id="workshopCity" name="city" required>
+          <select required id="workshopCity" name="city" required>
             <option value="">--Select city--</option>
             <option value="Chennai,TamilNadu">Chennai,TamilNadu</option>
             <option value="Coimbatore,TamilNadu">Coimbatore,TamilNadu</option>
@@ -214,18 +227,42 @@
         <label for="timing">
           Opens:
 
-          <input type="num" name="" id="openTiming_hour" />:
-          <input type="num" name="" id="openTiming_min" />
-          <select name="time" id="openTiming_period">
+          <input
+            type="num"
+            name=""
+            required
+            pattern="[0-9]{2}"
+            id="openTiming_hour"
+          />:
+          <input
+            type="num"
+            name=""
+            required
+            pattern="[0-9]{2}"
+            id="openTiming_min"
+          />
+          <select name="time" required id="openTiming_period">
             <option value="">--</option>
             <option value="AM">AM</option>
             <option value="PM">PM</option>
           </select>
 
           Closes:
-          <input type="num" name="" id="closeTiming_hour" />:
-          <input type="num" name="" id="closeTiming_min" />
-          <select name="time" id="closeTiming_period">
+          <input
+            type="num"
+            name=""
+            required
+            pattern="[0-9]{2}"
+            id="closeTiming_hour"
+          />:
+          <input
+            type="num"
+            name=""
+            required
+            pattern="[0-9]{2}"
+            id="closeTiming_min"
+          />
+          <select name="time" required id="closeTiming_period">
             <option value="">--</option>
             <option value="AM">AM</option>
             <option value="PM">PM</option>
@@ -235,10 +272,16 @@
         <label for="S_year">
           Started_Year:
 
-          <input type="num" name="" id="startedOn" />
+          <input
+            type="num"
+            name=""
+            required
+            pattern="[0-9]{4}"
+            id="startedOn"
+          />
 
           Workshoptype:
-          <select name="type" id="workshopType">
+          <select name="type" required id="workshopType">
             <option value="">Select type</option>
             <option value="Two Wheelers">Two Wheelers</option>
             <option value="Three Wheelers">Three Wheelers</option>
@@ -249,7 +292,13 @@
         <label for="w_imgs">
           Workshop_Image
 
-          <input type="text" name="" id="workshopImage" />
+          <input
+            type="text"
+            name=""
+            required
+            pattern="[A-Za-z]{2,50}"
+            id="workshopImage"
+          />
         </label>
 
         <button type="submit">Next</button>
@@ -259,17 +308,22 @@
       <h1>Service cost</h1>
       <form action="" id="service">
         <label for="General"
-          >General Services
+          >General_Services
           <span
             class="material-symbols-outlined"
             onclick="openProServices('general')"
           >
             expand_more
           </span>
-          more
 
-          <p>Expected price :</p>
-          <input type="num" />
+          <p>Price:</p>
+          <input
+            type="num"
+            placeholder="Expected Price "
+            required
+            pattern="[0-9]{2,6}"
+            id="generalCost"
+          />
         </label>
         <label for="list" class="serviceList" id="general"
           >Engine oil change,Oil filter replacement,Air filter
@@ -281,17 +335,22 @@
           </span>
         </label>
         <label for="standard"
-          >Standard Services
+          >Standard_Services
           <span
             class="material-symbols-outlined"
             onclick="openProServices('standard')"
           >
             expand_more
           </span>
-          more
 
-          <p>Expected price :</p>
-          <input type="num" />
+          <p>Price:</p>
+          <input
+            type="num"
+            placeholder="Expected Price "
+            required
+            pattern="[0-9]{2,6}"
+            id="standardCost"
+          />
         </label>
         <label for="list" class="serviceList" id="standard"
           >Engine oil change,Oil filter replacement,Air filter
@@ -303,17 +362,22 @@
           </span>
         </label>
         <label for="premeium"
-          >Premeium Services
+          >Premeium_Services
           <span
             class="material-symbols-outlined"
             onclick="openProServices('premeium')"
           >
             expand_more
           </span>
-          more
 
-          <p>Expected price :</p>
-          <input type="num" />
+          <p>Price:</p>
+          <input
+            type="num"
+            placeholder="Expected Price "
+            required
+            pattern="[0-9]{2,6}"
+            id="premeiumCost"
+          />
         </label>
         <label for="list" class="serviceList" id="premeium"
           >Engine oil change,Oil filter replacement,Air filter
@@ -325,17 +389,22 @@
           </span>
         </label>
         <label for="full"
-          >Full body Analysis
+          >Full body_Analysis
           <span
             class="material-symbols-outlined"
             onclick="openProServices('fulll')"
           >
             expand_more
           </span>
-          more
 
-          <p>Expected price :</p>
-          <input type="num" />
+          <p>Price:</p>
+          <input
+            type="num"
+            placeholder="Expected Price "
+            required
+            pattern="[0-9]{2,6}"
+            id="fullbodyCost"
+          />
         </label>
         <label for="list" class="serviceList" id="fulll"
           >Engine oil change,Oil filter replacement,Air filter
@@ -346,20 +415,25 @@
             expand_less
           </span>
         </label>
-        <label for="full"
+        <label for="brkdown"
           >Breakdown
           <span
             class="material-symbols-outlined"
-            onclick="openProServices('fulll')"
+            onclick="openProServices('brkdown')"
           >
             expand_more
           </span>
-          more
 
-          <p>Expected price :</p>
-          <input type="num" />
+          <p>Price:</p>
+          <input
+            type="num"
+            placeholder="Expected Price "
+            required
+            pattern="[0-9]{2,6}"
+            id="brkdownCost"
+          />
         </label>
-        <label for="list" class="serviceList" id="fulll"
+        <label for="list" class="serviceList" id="brkdown"
           >Engine oil change,Oil filter replacement,Air filter
           cleaning/replacement,Spark plug replacement,Chain lubrication,Brake
           adjustment,Clutch adjustment,Throttle cable adjustment,Tyre pressure
@@ -368,6 +442,7 @@
             expand_less
           </span>
         </label>
+        <button type="submit">submit</button>
       </form>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/suryaumapathy2812/notify__js/notify.js"></script>

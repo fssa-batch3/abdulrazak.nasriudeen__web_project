@@ -214,6 +214,12 @@
             <p id="showWorkCity"></p>
           </label>
           <label class="detail">
+            <h3>open at :</h3>
+            <p id="showWorkopen"></p>
+            <h3>close at :</h3>
+            <p id="showWorkclose"></p>
+          </label>
+          <label class="detail">
             <h3>Started at :</h3>
             <p id="showWorkYear"></p>
           </label>
@@ -225,36 +231,36 @@
         <div>
           <h2>Services</h2>
           <label class="detail">
-            <h3>General Service</h3>
+            <h3>General Service @</h3>
 
-            <p id="showname"></p>
+            <p id="showGeneral_service"></p>
           </label>
           <label class="detail">
-            <h3>Standard Service</h3>
+            <h3>Standard Service @</h3>
 
-            <p id="showname"></p>
+            <p id="showStandard_service"></p>
           </label>
           <label class="detail">
-            <h3>Premium services Service</h3>
+            <h3>Premium services Service @</h3>
 
-            <p id="showname"></p>
+            <p id="showPremium_service"></p>
           </label>
           <label class="detail">
-            <h3>Full body analysis</h3>
+            <h3>Full body analysis @</h3>
 
-            <p id="showname"></p>
+            <p id="showFull_service"></p>
           </label>
           <label class="detail">
-            <h3>Break down</h3>
+            <h3>Break down @</h3>
 
-            <p id="showname"></p>
+            <p id="showBrk_service"></p>
           </label>
         </div>
       </section>
       <button onclick="profileSuccess()">Save</button>
       <script src="https://cdn.jsdelivr.net/gh/suryaumapathy2812/notify__js/notify.js"></script>
 
-      <script src="../javascript/customer.js"></script>
+      <script src="../javascript/mechanic.js"></script>
       <script>
         const sImage = document.getElementById("sImg");
         const sName = document.getElementById("showname");
@@ -263,13 +269,26 @@
         const spassword = document.getElementById("showpassword");
         const saddress = document.getElementById("showaddress");
         const scity = document.getElementById("showcity");
-        const showvehicleImage = document.getElementById("showvehicleImage");
-        const showType = document.getElementById("showType");
-        const showfType = document.getElementById("showfType");
-        const showCompany = document.getElementById("showCompany");
-        const showModel = document.getElementById("showModel");
-        const showYear = document.getElementById("showYear");
-        const showNum = document.getElementById("showNum");
+        const workShopImage = document.getElementById("workShopImage");
+        const showWorkName = document.getElementById("showWorkName");
+        const showWorkNum = document.getElementById("showWorkNum");
+        const showWorkAddress = document.getElementById("showWorkAddress");
+        const showWorkCity = document.getElementById("showWorkCity");
+        const showWorkYear = document.getElementById("showWorkYear");
+        const showWorkType = document.getElementById("showWorkType");
+        const showWorkopen = document.getElementById("showWorkopen");
+        const showWorkclose = document.getElementById("showWorkclose");
+        const showGeneral_service = document.getElementById(
+          "showGeneral_service"
+        );
+        const showStandard_service = document.getElementById(
+          "showStandard_service"
+        );
+        const showPremium_service = document.getElementById(
+          "showPremium_service"
+        );
+        const showFull_service = document.getElementById("showFull_service");
+        const showBrk_service = document.getElementById("showBrk_service");
 
         sName.innerText = log_cus["name"];
         sNum.innerText = log_cus["number"];
@@ -279,13 +298,20 @@
         scity.innerText = log_cus["city"];
         sImage.setAttribute("src", log_cus["image"]);
 
-        showvehicleImage.setAttribute("src", cus_vehicle["vehicleImage"]);
-        showType.innerText = cus_vehicle["vehicleType"];
-        showfType.innerText = cus_vehicle["fuelType"];
-        showCompany.innerText = cus_vehicle["VehicleCompany"];
-        showModel.innerText = cus_vehicle["vehicleModel"];
-        showYear.innerText = cus_vehicle["vehicleYear"];
-        showNum.innerText = cus_vehicle["vehicleNumber"];
+        workShopImage.setAttribute("src", mechWorkshop["workshopImage"]);
+        showWorkName.innerText = mechWorkshop["workshopName"];
+        showWorkNum.innerText = mechWorkshop["workshopNumber"];
+        showWorkAddress.innerText = mechWorkshop["workshopAddress"];
+        showWorkCity.innerText = mechWorkshop["workshopCity"];
+        showWorkYear.innerText = mechWorkshop["startedOn"];
+        showWorkType.innerText = mechWorkshop["workshopType"];
+        showWorkopen.innerText = mechWorkshop["openTiming"];
+        showWorkclose.innerText = mechWorkshop["closeTiming"];
+        showGeneral_service.innerText = oneService["generalCost"];
+        showStandard_service.innerText = oneService["standardCost"];
+        showPremium_service.innerText = oneService["premeiumCost"];
+        showFull_service.innerText = oneService["fullbodyCost"];
+        showBrk_service.innerText = oneService["brkdownCost"];
 
         function profileSuccess() {
           alert("Your profile has been saved");

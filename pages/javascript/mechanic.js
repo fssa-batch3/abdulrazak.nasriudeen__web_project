@@ -11,9 +11,16 @@ let mechWorkshop = workshops.find((e) => {
     return true;
   }
 });
+let services = JSON.parse(localStorage.getItem("mechServices"));
+let oneService = services.find((e) => {
+  if (e["workshopId"] == mechWorkshop["workshopId"]) {
+    return true;
+  }
+});
 
 let index = mechanics.indexOf(log_cus);
 let mechWorkshopIndex = workshops.indexOf(mechWorkshop);
+let serviceIndex = workshops.indexOf(oneService);
 
 function openprofile(serviceName, bId) {
   var ser_cont, i, button;
@@ -119,4 +126,30 @@ mechWorkForm.addEventListener("submit", (e) => {
   localStorage.setItem("workshops", JSON.stringify(workshops));
   openprofile("Services", "s_pro");
   Notify.success("Updated workshop successfully ");
+});
+
+// mechanic services
+const serviceform = document.getElementById("service");
+serviceform.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let generalCost = document.getElementById("generalCost").value;
+  let standardCost = document.getElementById("standardCost").value;
+  let premeiumCost = document.getElementById("premeiumCost").value;
+  let fullbodyCost = document.getElementById("fullbodyCost").value;
+  let brkdownCost = document.getElementById("brkdownCost").value;
+
+  let ser_obj = {
+    generalCost,
+    standardCost,
+    premeiumCost,
+    fullbodyCost,
+    brkdownCost,
+  };
+
+  let update = Object.assign(oneService, ser_obj);
+  services[serviceIndex] = update;
+
+  localStorage.setItem("mechServices", JSON.stringify(services));
+  alert("updated Service information");
+  window.location.href = "./showMechProfile.html";
 });
