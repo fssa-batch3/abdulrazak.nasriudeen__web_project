@@ -62,7 +62,14 @@
         <label for="name"
           >Name:
 
-          <input type="text" id="name" name="name" required />
+          <input
+            type="text"
+            pattern="[A-Za-z]{2,30}"
+            id="name"
+            name="name"
+            title="Only Alphabets are acceptable"
+            required
+          />
         </label>
 
         <label for="email"
@@ -74,7 +81,14 @@
         <label for="password"
           >Password:
 
-          <input type="password" id="password" name="password" required />
+          <input
+            type="password"
+            title="six digit required"
+            pattern="[0-9]{6}"
+            id="password"
+            name="password"
+            required
+          />
         </label>
 
         <label for="phone"
@@ -130,6 +144,7 @@
             type="text"
             name=""
             required
+            title="Only Alphabets are acceptable"
             pattern="[A-Za-z]{4,30}"
             id="workshopName"
           />
@@ -140,7 +155,8 @@
           <input
             type="num"
             required
-            pattern="[0-9]{7,14}"
+            pattern="[0-9]{10,14}"
+            title="Only number are acceptable"
             id="workshopNumber"
           />
         </label>

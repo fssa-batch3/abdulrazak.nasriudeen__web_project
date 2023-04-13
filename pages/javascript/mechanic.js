@@ -153,3 +153,107 @@ serviceform.addEventListener("submit", (e) => {
   alert("updated Service information");
   window.location.href = "./showMechProfile.html";
 });
+
+// validation
+let valiName = document.getElementById("name");
+valiName.addEventListener("change", (e) => {
+  e = valiName.value;
+  let check = hasnotAlphabet(e);
+  if (check === true) {
+    Notify.error("Only Alphabets are acceptable ");
+  }
+});
+
+let valiPassword = document.getElementById("password");
+valiPassword.addEventListener("change", (e) => {
+  e = valiPassword.value;
+  let check = hasNumber(e);
+  if (check === false || e.length != 6) {
+    Notify.error("password should be 6 digits and only in numbers");
+  }
+});
+//Workshop validation
+let workshopName = document.getElementById("workshopName");
+workshopName.addEventListener("change", (e) => {
+  e = workshopName.value;
+  let check = hasnotAlphabet(e);
+  if (check === true) {
+    Notify.error("Only Alphabets are acceptable ");
+  }
+});
+// number
+let workshopNumber = document.getElementById("workshopNumber");
+workshopNumber.addEventListener("change", (e) => {
+  e = workshopNumber.value;
+  let check = hasNumber(e);
+  if (check === false) {
+    Notify.error("Only number are acceptable ");
+  }
+  if (e.length <= 14 || e.length >= 10) {
+    Notify.error("Only 10 to 15 digits");
+  }
+});
+//timing
+let open1 = document.getElementById("openTiming_hour");
+open1.addEventListener("change", (e) => {
+  e = open1.value;
+  let check = hasNumber(e);
+  if (check == false || e.length > 2) {
+    Notify.error("Only hours should be mentioned within 2 digits");
+  }
+  if (e > 12) {
+    Notify.error("hours should not be more than 12 ");
+  }
+});
+let open2 = document.getElementById("openTiming_min");
+open2.addEventListener("change", (e) => {
+  e = open2.value;
+  let check = hasNumber(e);
+  if (check == false || e.length > 2) {
+    Notify.error("Only hours should be mentioned within 2 digits");
+  }
+  if (e > 60) {
+    Notify.error("not more than 60 ");
+  }
+});
+
+let close1 = document.getElementById("closeTiming_hour");
+close1.addEventListener("change", (e) => {
+  e = close1.value;
+  let check = hasNumber(e);
+  if (check == false || e.length > 2) {
+    Notify.error("Only hours should be mentioned within 2 digits");
+  }
+  if (e > 12) {
+    Notify.error("hours should not be more than 12 ");
+    return;
+  }
+});
+let close2 = document.getElementById("closeTiming_min");
+close2.addEventListener("change", (e) => {
+  e = close2.value;
+  let check = hasNumber(e);
+  if (check == false || e.length > 2) {
+    Notify.error("Only hours should be mentioned within 2 digits");
+  }
+  if (e > 60) {
+    Notify.error("not more than 60 ");
+  }
+});
+//  year
+let workshopyear = document.getElementById("startedOn");
+workshopyear.addEventListener("change", (e) => {
+  e = workshopyear.value;
+  let check = hasNumber(e);
+  let dte = new Date();
+  let year = dte.getFullYear();
+  if (check == false) {
+    Notify.error("Only number are acceptable ");
+  }
+  if (e.length != 4) {
+    Notify.error("year should be in 4 digits");
+  }
+  if (e > year) {
+    Notify.error("Year can't be in future");
+  }
+});

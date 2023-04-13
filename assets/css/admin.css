@@ -87,7 +87,7 @@ img {
   overflow-x: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   z-index: 2;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .sidebar ul {
