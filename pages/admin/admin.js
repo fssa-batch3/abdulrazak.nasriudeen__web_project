@@ -1,9 +1,12 @@
 let cusArray = JSON.parse(localStorage.getItem("users"));
 let cusVehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
 let mechArray = JSON.parse(localStorage.getItem("mechanics"));
+let workshops = JSON.parse(localStorage.getItem("workshops"));
+let mechServices = JSON.parse(localStorage.getItem("mechServices"));
+
 let n = cusArray.length;
 let m = mechArray.length;
-function createCard(ar, id) {
+function createCard(ar, id, funcName) {
   for (let i = 0; i < ar.length; i++) {
     let card = document.createElement("div");
     card.setAttribute("class", "cust");
@@ -20,7 +23,7 @@ function createCard(ar, id) {
     let anchor = document.createElement("a");
     let icon = document.createElement("i");
     icon.setAttribute("class", "material-symbols-outlined");
-    anchor.setAttribute("onclick", "cusDetail(" + ar[i]["user_id"] + ")");
+    anchor.setAttribute("onclick", funcName + "(" + ar[i]["user_id"] + ")");
     anchor.innerText = "view";
     icon.innerText = "visibility";
     anchor.append(icon);
@@ -29,6 +32,29 @@ function createCard(ar, id) {
     app.append(card);
   }
 }
+
+// function openDetail(id) {
+//   let check = checkID(id);
+//   if (check == true) {
+//     cusDetail(id);
+//   }
+//   if (check === false) {
+//     mechDetails(id);
+//   }
+// }
+
+// function checkID(id) {
+//   let selectCustomer = cusArray.find((e) => {
+//     if (id == e["user_id"]) {
+//       return true;
+//     }
+//   });
+//   let selectMechanic = mechArray.find((e) => {
+//     if (e["user_id"] == id) {
+//       return false;
+//     }
+//   });
+// }
 // function to detail page
 function cusDetail(id) {
   let card = document.querySelector(".detailCard");
@@ -87,4 +113,80 @@ function cusDetail(id) {
 function exitDetail() {
   let card = document.querySelector(".detailCard");
   card.style.display = "none";
+}
+
+function mechDetails(id) {
+  try {
+    let card = document.querySelector(".detailCard");
+    card.style.display = "block";
+
+    selectMechanic = mechArray.find((e) => {
+      if (e["user_id"] == id) {
+        return true;
+      }
+    });
+
+    selectWorkshop = workshops.find((e) => {
+      if (id == e["mechanicId"]) {
+        return true;
+      }
+    });
+    selectService = mechServices.find((e) => {
+      if (e["mechanicId"] == id) {
+        return true;
+      }
+    });
+
+    const detailImg = document.getElementById("detailImg");
+    const userId = document.getElementById("userId");
+    const dName = document.getElementById("dName");
+    const dNum = document.getElementById("dNum");
+    const dEmail = document.getElementById("dEmail");
+    const dPass = document.getElementById("dPass");
+    const specialized = document.getElementById("specialized");
+    const experience = document.getElementById("experience");
+    const workshopImage = document.getElementById("WorkshopImage");
+    const workshopId = document.getElementById("workshopId");
+    const workshopName = document.getElementById("workshopName");
+    const workshopNum = document.getElementById("workshopNum");
+    const workshopAddress = document.getElementById("workshopAddress");
+    const city = document.getElementById("city");
+    const open = document.getElementById("open");
+    const close = document.getElementById("close");
+    const start = document.getElementById("start");
+    const type = document.getElementById("type");
+    const serviceId = document.getElementById("serviceId");
+    const generalCost = document.getElementById("generalCost");
+    const standardCost = document.getElementById("standardCost");
+    const premeiumCost = document.getElementById("premeiumCost");
+    const electricCost = document.getElementById("electricCost");
+    const brkdownCost = document.getElementById("brkdownCost");
+
+    detailImg.innerText = selectMechanic["profile_pic"];
+    userId.innerText = selectMechanic["user_id"];
+    dName.innerText = selectMechanic["name"];
+    dNum.innerText = selectMechanic["number"];
+    dEmail.innerText = selectMechanic["email"];
+    dPass.innerText = selectMechanic["password"];
+    specialized.innerText = selectMechanic["specialized"];
+    experience.innerText = selectMechanic["experience"];
+
+    workshopImage.innerText = selectWorkshop["workshopImage"];
+    workshopId.innerText = selectWorkshop["workshopId"];
+    workshopName.innerText = selectWorkshop["workshopName"];
+    workshopNum.innerText = selectWorkshop["workshopNumber"];
+    workshopAddress.innerText = selectWorkshop["workshopAddress"];
+    city.innerText = selectWorkshop["workshopCity"];
+    open.innerText = selectWorkshop["openTiming"];
+    close.innerText = selectWorkshop["closeTiming"];
+    start.innerText = selectWorkshop["startedOn"];
+    type.innerText = selectWorkshop["workshopType"];
+
+    serviceId.innerText = selectService["serviceId"];
+    generalCost.innerText = selectService["generalCost"];
+    standardCost.innerText = selectService["standardCost"];
+    premeiumCost.innerText = selectService["premeiumCost"];
+    electricCost.innerText = selectService["electricCost"];
+    brkdownCost.innerText = selectService["brkdownCost"];
+  } catch (err) {}
 }
