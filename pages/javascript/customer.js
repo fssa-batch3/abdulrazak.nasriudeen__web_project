@@ -101,6 +101,10 @@ function createWorkshop(arr, id) {
       //button
 
       let view = document.createElement("button");
+      view.setAttribute(
+        "onclick",
+        "workshopDetail(" + arr[i]["workshopId"] + ")"
+      );
       let call = document.createElement("button");
       let direction = document.createElement("button");
 
@@ -166,3 +170,79 @@ function delUser() {
 //   e = document.getElementById("settings_dropdown");
 //   e.style.display = "block";
 // });
+
+// const bb = document.getElementsByTagName("body");
+// bb.setAttribute("onload", "shopTime()");
+
+// function onloading() {
+//   shopTime();
+// }
+// function shopTime() {
+//   let time = new Date();
+//   let hour = time.getHours();
+//   let minutes = time.getMinutes();
+//   alert(hour, minutes);
+// }
+
+//details of the workshops
+function workshopDetail(id) {
+  const detailPage = document.querySelector(".workshopDetails");
+  detailPage.style.display = "flex";
+
+  let mechanics = JSON.parse(localStorage.getItem("mechanics"));
+  let services = JSON.parse(localStorage.getItem("mechServices"));
+
+  let selectWorkshop = workshops.find((e) => {
+    if (e["workshopId"] == id) {
+      return true;
+    }
+  });
+  let selectmechanic = mechanics.find((e) => {
+    if (e["WorkshopId"] == id) {
+      return true;
+    }
+  });
+  let selectService = services.find((e) => {
+    if (e["workshopId"] == id) {
+      return true;
+    }
+  });
+
+  // appending workshop
+  const workshopImageDetail = document.getElementById("workshopImageDetail");
+  workshopImageDetail.setAttribute("src", selectWorkshop["workshopImage"]);
+
+  const workName = document.getElementById("workName");
+  workName.innerText = selectWorkshop["workshopName"];
+
+  const Started = document.getElementById("Started");
+  Started.innerText = "Started On " + selectWorkshop["startedOn"];
+
+  const openT = document.getElementById("openT");
+  openT.innerText = "Open @ " + selectWorkshop["openTiming"];
+  const closeT = document.getElementById("closeT");
+  closeT.innerText = "Close @ " + selectWorkshop["closeTiming"];
+
+  const type = document.getElementById("type");
+  type.innerText = selectWorkshop["workshopType"];
+
+  const city = document.getElementById("city");
+  city.innerText = selectWorkshop["workshopCity"];
+
+  // apending mechanic details
+  const mechName = document.getElementById("mechName");
+  mechName.innerText = selectmechanic["name"];
+  const mechPhone = document.getElementById("mechPhone");
+  mechPhone.innerText = selectmechanic["number"];
+  const mechEmail = document.getElementById("mechEmail");
+  mechEmail.innerText = selectmechanic["number"];
+  const mechExperience = document.getElementById("mechExperience");
+  mechExperience.innerText = selectmechanic["number"];
+  const mechSpl = document.getElementById("mechSpl");
+  mechSpl.innerText = selectmechanic["number"];
+}
+
+function exitDetail() {
+  const detailPage = document.querySelector(".workshopDetails");
+  detailPage.style.display = "none";
+}

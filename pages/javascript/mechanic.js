@@ -257,3 +257,23 @@ workshopyear.addEventListener("change", (e) => {
     Notify.error("Year can't be in future");
   }
 });
+
+function validatePrice(x, y) {
+  y = document.getElementById(x);
+  y.addEventListener("change", (e) => {
+    e = y.value;
+    let check = hasNumber(e);
+    if (check === false) {
+      Notify.error("price should not be in alphabets or special characters");
+    }
+    if (e.length > 6) {
+      Notify.error("amount is not more than 100000");
+    }
+  });
+}
+
+validatePrice("generalCost", "generalCost");
+validatePrice("standardCost", "standardCost");
+validatePrice("premeiumCost", "premeiumCost");
+validatePrice("fullbodyCost", "fullbodyCost");
+validatePrice("brkdownCost", "brkdownCost");
