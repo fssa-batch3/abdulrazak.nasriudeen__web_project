@@ -126,7 +126,11 @@ function createWorkshop(arr, id) {
 
       let view_p = document.createElement("p");
       let call_p = document.createElement("p");
-      let direction_p = document.createElement("p");
+      let direction_p = document.createElement("a");
+      direction_p.setAttribute(
+        "href",
+        "https://www.google.com/maps/search/" + arr[i]["workshopAddress"]
+      );
 
       view_p.innerText = "view";
       call_p.innerText = "call";
@@ -230,16 +234,36 @@ function workshopDetail(id) {
   city.innerText = selectWorkshop["workshopCity"];
 
   // apending mechanic details
+  const mechanicImage = document.getElementById("mechanicImage");
+  mechanicImage.setAttribute("src", selectmechanic["profile_pic"]);
   const mechName = document.getElementById("mechName");
   mechName.innerText = selectmechanic["name"];
   const mechPhone = document.getElementById("mechPhone");
   mechPhone.innerText = selectmechanic["number"];
   const mechEmail = document.getElementById("mechEmail");
-  mechEmail.innerText = selectmechanic["number"];
+  mechEmail.innerText = selectmechanic["email"];
   const mechExperience = document.getElementById("mechExperience");
-  mechExperience.innerText = selectmechanic["number"];
+  mechExperience.innerText = selectmechanic["experience"];
   const mechSpl = document.getElementById("mechSpl");
-  mechSpl.innerText = selectmechanic["number"];
+  mechSpl.innerText = selectmechanic["specialized"];
+
+  const direction = document.getElementById("direction");
+  direction.setAttribute(
+    "href",
+    "https://www.google.com/maps/search/" + selectWorkshop["workshopAddress"]
+  );
+
+  const generalCost = document.getElementById("generalCost");
+  generalCost.innerText = "Cost @ " + selectService["generalCost"];
+
+  const standardCost = document.getElementById("standardCost");
+  standardCost.innerText = "Cost @ " + selectService["standardCost"];
+  const premeiumCost = document.getElementById("premeiumCost");
+  premeiumCost.innerText = "Cost @ " + selectService["premeiumCost"];
+  const fullbodyCost = document.getElementById("fullbodyCost");
+  fullbodyCost.innerText = "Cost @ " + selectService["fullbodyCost"];
+  const brkdownCost = document.getElementById("brkdownCost");
+  brkdownCost.innerText = "Cost @ " + selectService["brkdownCost"];
 }
 
 function exitDetail() {
