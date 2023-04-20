@@ -345,8 +345,9 @@ section h2 {
   display: none;
 }
 .workshopDetails {
-  width: 1200px;
-  height: 890px;
+  margin-top: -30px;
+  width: 1100px;
+  height: 825px;
   position: fixed;
   z-index: 6;
   display: none;
@@ -357,6 +358,125 @@ section h2 {
   background-color: white;
   padding-top: 10px;
 }
+.booking {
+  margin-top: -30px;
+  width: 1100px;
+  height: 825px;
+  position: fixed;
+  z-index: 7;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: white;
+  padding-top: 10px;
+}
+select {
+  background-color: black;
+  color: white;
+  width: 40%;
+  border-radius: 30px;
+  height: 30px;
+}
+.selectCont {
+  background-color: white;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  border: 1px solid black;
+  gap: 5%;
+}
+.selectService {
+  background-color: #f5f5f5;
+  width: 95%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+
+  /* border: 1px solid black; */
+  gap: 3%;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+span:hover {
+  cursor: pointer;
+}
+.selectService i {
+  display: none;
+  color: #27e4ac;
+}
+.serviceSelector input,
+.selectCont input {
+  width: 30%;
+  border: none;
+  background-color: #f5f5f5;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+}
+.serviceSelector {
+  width: 75%;
+  background-color: white;
+  border: 1px solid black;
+  height: 60%;
+  overflow-y: scroll;
+  /* background-color: #20c997; */
+}
+#mechImage {
+  width: 40%;
+  height: 80%;
+  /* background-color: #20c997; */
+  border: 1px solid black;
+}
+.c_booking {
+  width: 50%;
+  font-size: 20px;
+  background-color: white;
+  border: 2px solid #27e4ac;
+  color: #27e4ac;
+  height: 40px;
+  margin-bottom: 5px;
+}
+.checkbox {
+  background-color: #27e4ac;
+}
+.c_booking:hover {
+  cursor: pointer;
+  background-color: #27e4ac;
+  color: black;
+  border: 2px solid blACK;
+}
+.bookingContent {
+  width: 95%;
+  height: 42%;
+  background-color: white;
+  display: flex;
+  gap: 4%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+.bookingContent .content {
+  width: 90%;
+  height: 10%;
+}
+.contentLeft {
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+
 .detailHead {
   width: 98%;
   height: 50px;

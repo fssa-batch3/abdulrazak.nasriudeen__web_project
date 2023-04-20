@@ -510,8 +510,12 @@
               </div>
               <div class="buttonCont">
                 <button>
-                  <span class="material-symbols-outlined"> phone_in_talk </span>
-                  Call
+                  <a id="call">
+                    <span class="material-symbols-outlined">
+                      phone_in_talk
+                    </span>
+                    Call</a
+                  >
                 </button>
                 <button>
                   <a id="direction">
@@ -577,9 +581,209 @@
                     </p>
                     <p id="mechSpl"></p>
                   </div>
-                  <button>Book Mechanic</button>
+                  <button onclick="bookMechanic()">Book Mechanic</button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="booking" id="book_div">
+          <div class="detailHead">
+            <h2>Booking Details</h2>
+            <span
+              class="material-symbols-outlined"
+              onclick="exitBookMechanic()"
+            >
+              logout
+            </span>
+          </div>
+          <div class="detailContent">
+            <div class="mechDetail">
+              <h3>Mechanic</h3>
+              <div class="bookingContent">
+                <img id="mechImage" />
+                <div class="contentLeft">
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                </div>
+              </div>
+              <h3>Your Details</h3>
+              <div class="bookingContent">
+                <div class="contentLeft">
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                </div>
+                <div class="contentLeft">
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                  <div class="content">
+                    <p>
+                      <span class="material-symbols-outlined"> badge </span>
+                    </p>
+                    <p id=""></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mechDetail">
+              <h2>Services</h2>
+              <div class="selectCont">
+                <p>
+                  <span class="material-symbols-outlined"> badge </span>
+                </p>
+                <p>Select your service type</p>
+                <select id="">
+                  <option value="">Select your service</option>
+                  <option value="general">
+                    General service
+                    <p id=""></p>
+                  </option>
+                </select>
+              </div>
+              <h4>Please select the services you want</h4>
+              <div class="serviceSelector">
+                <div class="selectService">
+                  <span class="material-symbols-outlined"> bolt </span>
+                  <p>Engine oil change</p>
+                  <input type="num" id="addService" value="200" disabled />
+                  <span
+                    class="material-symbols-outlined"
+                    onclick="toAddService('addService')"
+                    id="addService1"
+                  >
+                    add_task
+                  </span>
+                  <i
+                    id="addService2"
+                    onclick="toRemoveService('addService')"
+                    class="material-symbols-outlined"
+                  >
+                    verified
+                  </i>
+                </div>
+                <div class="selectService">
+                  <span class="material-symbols-outlined"> bolt </span>
+                  <p>Engine oil change</p>
+                  <p>200</p>
+                  <span class="material-symbols-outlined"> add_task </span>
+                </div>
+                <div class="selectService">
+                  <span class="material-symbols-outlined"> bolt </span>
+                  <p>Engine oil change</p>
+                  <p>200</p>
+                  <span class="material-symbols-outlined"> add_task </span>
+                </div>
+                <div class="selectService">
+                  <span class="material-symbols-outlined"> bolt </span>
+                  <p>Engine oil change</p>
+                  <p>200</p>
+                  <span class="material-symbols-outlined"> add_task </span>
+                </div>
+              </div>
+              <div class="selectCont">
+                <p>
+                  <span class="material-symbols-outlined"> view_cozy </span>
+                </p>
+                <p>Total price amount</p>
+                <input id="total" type="number"></input>
+              </div>
+              <button class="c_booking">Confirm Booking</button>
             </div>
           </div>
         </div>

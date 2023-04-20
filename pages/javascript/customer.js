@@ -270,3 +270,36 @@ function exitDetail() {
   const detailPage = document.querySelector(".workshopDetails");
   detailPage.style.display = "none";
 }
+
+function bookMechanic() {
+  const book_div = document.getElementById("book_div");
+  book_div.style.display = "flex";
+}
+function exitBookMechanic() {
+  const book_div = document.getElementById("book_div");
+  book_div.style.display = "none";
+}
+
+function toAddService(id) {
+  let added = document.getElementById(id + 1);
+  added.style.display = "none";
+
+  let add = document.getElementById(id).value;
+  let total = document.getElementById("total");
+  total.value = add;
+
+  let showed = document.getElementById(id + 2);
+  showed.style.display = "flex";
+}
+
+function toRemoveService(id) {
+  let showed = document.getElementById(id + 2);
+  showed.style.display = "none";
+  let total = document.getElementById("total").value;
+  let sub = document.getElementById(id).value;
+  let x = total - sub;
+  total.value = x;
+
+  let remove = document.getElementById(id + 1);
+  remove.style.display = "flex";
+}
