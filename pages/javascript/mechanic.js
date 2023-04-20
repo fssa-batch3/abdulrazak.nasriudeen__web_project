@@ -277,3 +277,18 @@ validatePrice("standardCost", "standardCost");
 validatePrice("premeiumCost", "premeiumCost");
 validatePrice("fullbodyCost", "fullbodyCost");
 validatePrice("brkdownCost", "brkdownCost");
+
+function delUser() {
+  let conform = confirm("Would u like to delete your account");
+  if (conform === true) {
+    let deletedUser = [];
+    if (localStorage.getItem("deletedUser") != null) {
+      deletedUser = JSON.parse(localStorage.getItem("deletedUser"));
+    }
+    deletedUser.push(log_cus);
+    localStorage.setItem("deletedUser", JSON.stringify(deletedUser));
+    mechanics.splice(index, 1);
+    localStorage.setItem("mechanics", JSON.stringify(mechanics));
+    window.location.href = "../../index.html";
+  }
+}
