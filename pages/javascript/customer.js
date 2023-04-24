@@ -264,6 +264,11 @@ function workshopDetail(id) {
   fullbodyCost.innerText = "Cost @ " + selectService["fullbodyCost"];
   const brkdownCost = document.getElementById("brkdownCost");
   brkdownCost.innerText = "Cost @ " + selectService["brkdownCost"];
+  const bookingMechanicBtn = document.getElementById("bookingMechanicBtn");
+  bookingMechanicBtn.setAttribute(
+    "onclick",
+    "bookMechanic(" + log_cus["user_id"] + "," + selectmechanic["user_id"] + ")"
+  );
 }
 
 function exitDetail() {
@@ -271,10 +276,6 @@ function exitDetail() {
   detailPage.style.display = "none";
 }
 
-function bookMechanic() {
-  const book_div = document.getElementById("book_div");
-  book_div.style.display = "flex";
-}
 function exitBookMechanic() {
   const book_div = document.getElementById("book_div");
   book_div.style.display = "none";
@@ -302,4 +303,227 @@ function toRemoveService(id) {
 
   let remove = document.getElementById(id + 1);
   remove.style.display = "flex";
+}
+
+// services
+const maintanceService = [
+  "Oil change",
+  "Brake adjustment",
+  "Tire pressure check",
+  "Battery replacement",
+  "Headlight bulb replacement",
+  "Taillight bulb replacement",
+  "Indicator bulb replacement",
+  "Clutch cable adjustment",
+  "Throttle cable adjustment",
+  "Engine tuning",
+  "Engine oil top-up",
+  "Coolant top-up",
+  "Brake fluid top-up",
+  "Power steering fluid top-up",
+  "Gearbox oil top-up",
+  "Transmission oil top-up",
+  "Fuel filter replacement",
+  "Fuel tank cleaning",
+  "Fuel injector cleaning",
+  "Ignition system check",
+  "Suspension check",
+  "Wheel alignment",
+  "Seat height adjustment",
+  "Air filter replacement",
+  "Spark plug replacement",
+];
+
+const repairService = [
+  "Brake pad replacement",
+  "Brake disc replacement",
+  "Fuel pump replacement",
+  "Fuel tank replacement",
+  "Alternator replacement",
+  "Starter motor replacement",
+  "Radiator replacement",
+  "Coolant hose replacement",
+  "Thermostat replacement",
+  "Fan belt replacement",
+  "Drive belt replacement",
+  "Timing belt replacement",
+  "Timing chain replacement",
+  "Head gasket replacement",
+  "Valve adjustment",
+  "Transmission rebuild",
+  "Brake caliper rebuild",
+  "Steering rack replacement",
+  "Shock absorber replacement",
+  "Suspension bushing replacement",
+  "CV joint replacement",
+  "Drive shaft replacement",
+  "Wheel bearing replacement",
+  "Power steering pump replacement",
+  "Windshield replacement",
+  "Window regulator replacement",
+  "Door lock actuator replacement",
+  "Oxygen sensor replacement",
+  "Mass air flow sensor replacement",
+  "Camshaft position sensor replacement",
+  "Crankshaft position sensor replacement",
+  "Knock sensor replacement",
+  "Fuel pressure regulator replacement",
+];
+
+const upgrade = [
+  "Performance exhaust installation",
+  "High-performance air filter installation",
+  "Performance ECU tuning",
+  "Bigger carburetor installation",
+  "Custom suspension installation",
+  "Aftermarket shock absorber installation",
+  "Big bore kit installation",
+  "Performance camshaft installation",
+  "Custom paint job",
+  "LED lighting upgrade",
+  "Aftermarket seat installation",
+  "Saddlebag installation",
+  "Windshield installation",
+  "Engine guard installation",
+  "High-performance brake upgrade",
+  "Aftermarket wheel installation",
+  "Engine swap",
+  "Handlebar upgrade",
+  "Fender eliminator kit installation",
+  "Upgraded chain and sprocket installation",
+];
+
+const electric = [
+  "Battery replacement",
+  "Alternator replacement",
+  "Starter motor replacement",
+  "Spark plug replacement",
+  "Ignition coil replacement",
+  "Regulator/Rectifier replacement",
+  "Stator replacement",
+  "Headlight bulb replacement",
+  "Taillight bulb replacement",
+  "Indicator bulb replacement",
+  "Turn signal switch replacement",
+  "Ignition switch replacement",
+  "Horn repair or replacement",
+  "Fuel gauge repair or replacement",
+  "Speedometer repair or replacement",
+  "Tachometer repair or replacement",
+  "Wiring harness repair or replacement",
+  "Fuse replacement",
+  "Relay replacement",
+  "ECU replacement or programming",
+];
+
+//function to append the list of services
+function appendList(array, id, cls) {
+  for (let i = 0; i < array.length; i++) {
+    let container = document.createElement("div");
+    container.setAttribute("class", cls);
+    let bolt = document.createElement("span");
+    bolt.setAttribute("class", "material-symbols-outlined");
+    bolt.innerText = "bolt";
+    container.append(bolt);
+    let service = document.createElement("p");
+    service.innerText = array[i];
+    container.append(service);
+    // let tick = document.createElement("span");
+    // tick.setAttribute("class", "material-symbols-outlined");
+    // tick.innerText = "add_task";
+    // container.append(tick);
+
+    let cont_append = document.querySelector(id);
+    cont_append.append(container);
+  }
+}
+
+const bookingService = document.getElementById("book_select_service");
+bookingService.addEventListener("change", (e) => {
+  const options = document.querySelector(".serviceSelector");
+  const price = document.querySelector("#price");
+  while (options.hasChildNodes()) {
+    options.firstChild.remove();
+  }
+  let targetService = e.target.value;
+  if (targetService == "maintance") {
+    appendList(maintanceService, ".serviceSelector", "selectService");
+    price.innerText = selectService["generalCost"];
+  }
+  if (targetService == "Repair") {
+    appendList(repairService, ".serviceSelector", "selectService");
+    price.innerText = selectService["standardCost"];
+  }
+  if (targetService == "Upgrade") {
+    appendList(upgrade, ".serviceSelector", "selectService");
+    price.innerText = selectService["premeiumCost "];
+  }
+  if (targetService == "Electrical") {
+    appendList(electric, ".serviceSelector", "selectService");
+    price.innerText = selectService["generalCost"];
+  }
+});
+
+appendList(electric, "#general", "serviceContent");
+
+// function for booking crud ;
+
+function bookMechanic(customerId, mechanicId) {
+  const book_div = document.getElementById("book_div");
+  book_div.style.display = "flex";
+  let mechanics = JSON.parse(localStorage.getItem("mechanics"));
+  let customers = JSON.parse(localStorage.getItem("users"));
+  let vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
+
+  let bookingUser = customers.find((e) => {
+    if (customerId == e["user_id"]) {
+      return true;
+    }
+  });
+
+  let customerVehicle = vehicles.find((e) => {
+    if (customerId === e["CustomerId"]) {
+      return true;
+    }
+  });
+
+  let bookingMechanic = mechanics.find((e) => {
+    if (mechanicId == e["user_id"]) {
+      return true;
+    }
+  });
+  const mechBookname = document.getElementById("mechBookname");
+  mechBookname.innerText = bookingMechanic["name"];
+  const mechSplIn = document.getElementById("mechSplIn");
+  mechSplIn.innerText = bookingMechanic["specialized"];
+  const mechExp = document.getElementById("mechExp");
+  mechExp.innerText = bookingMechanic["experience"];
+  const mechNum = document.getElementById("mechNum");
+  mechNum.innerText = bookingMechanic["number"];
+  const mechanicEmail = document.getElementById("mechanicEmail");
+  mechanicEmail.innerText = bookingMechanic["email"];
+  const mechImage = document.getElementById("mechImage");
+  mechImage.setAttribute("src", bookingMechanic["profile_pic"]);
+
+  const custName = document.getElementById("custName");
+  custName.innerText = bookingUser["name"];
+  const custNum = document.getElementById("custNum");
+  custNum.innerText = bookingUser["number"];
+  const custEmail = document.getElementById("custEmail");
+  custEmail.innerText = bookingUser["email"];
+  const custAddress = document.getElementById("custAddress");
+  custAddress.innerText = bookingUser["address"];
+  const custCity = document.getElementById("custCity");
+  custCity.innerText = bookingUser["city"];
+
+  const vehicleCompany = document.getElementById("vehicleCompany");
+  vehicleCompany.innerText = customerVehicle["VehicleCompany"];
+  const vehicleModel = document.getElementById("vehicleModel");
+  vehicleModel.innerText = customerVehicle["vehicleModel"];
+  const vehicleYear = document.getElementById("vehicleYear");
+  vehicleYear.innerText = customerVehicle["vehicleYear"];
+  const vehicleNumber = document.getElementById("vehicleNumber");
+  vehicleNumber.innerText = customerVehicle["vehicleNumber"];
+  const vehiclefuel = document.getElementById("vehiclefuel");
+  vehiclefuel.innerText = customerVehicle["fuelType"];
 }
