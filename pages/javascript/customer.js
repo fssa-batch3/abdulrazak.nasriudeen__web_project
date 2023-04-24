@@ -527,3 +527,81 @@ function bookMechanic(customerId, mechanicId) {
   const vehiclefuel = document.getElementById("vehiclefuel");
   vehiclefuel.innerText = customerVehicle["fuelType"];
 }
+
+// function to raise request
+function confirmBookMech(cusId, serId, type) {
+  //confirming booking
+  let con = confirm("Are you sure to book mechanic");
+  if (con == true) {
+    const serviceArr = JSON.parse(localStorage.getItem("mechService"));
+    // finding booked service from customer
+    const bookedSer = serviceArr.find((e) => {
+      if (e["serviceId"] == serId) {
+        return true;
+      }
+    });
+    let activity = [];
+    let customerId = cusId;
+    let serviceId = serId;
+    let bookingId = Date.now();
+    let date = new Date();
+    let request = false;
+
+    let cost = 0;
+    // checking and assigning the cost of service
+    if (type == "maintance") {
+      cost = bookedSer["generalCost"];
+    } else if (type == "Repair") {
+      cost = bookedSer["standardCost"];
+    } else if (type == "Upgrade") {
+      cost = bookedSer["premeiumCost"];
+    } else if (type == "Electrical") {
+      cost = bookedSer["generalCost"];
+    }
+    //assigning as an object
+    let booking = {
+      customerId,
+      serviceId,
+      bookingId,
+      date,
+      cost,
+      type,
+      request,
+    };
+
+    // pushing into activity array
+    let bookings = [];
+    if (JSON.parse(localStorage.getItem("bookings")) != null) {
+      bookings = JSON.parse(localStorage.getItem("bookings"));
+    }
+
+    activity.push(booking);
+    log_cus["activity"] = activity;
+    let index = customers.indexOf(log_cus);
+    customers[index] = log_cus;
+    // last setting into local storage
+    localStorage.setItem("users", JSON.stringify(customers));
+    // sending request to the mechanic
+    mechRequest(booking);
+  } else {
+    return;
+  }
+}
+
+//function to accept request
+function mechRequest(obj) {
+  let mechanics = JSON.parse(localStorage.getItem("mechanics"));
+  let raisedmech = mechanics.find((e) => {
+    if (e["serviceId"] == obj["serviceId"]) {
+      return true;
+    }
+  });
+  // to notify mechanic about the raised request
+  let notification = [];
+  obj["notify"] = true;
+  notification.push(obj);
+  raisedmech["notification"] = notification;
+  let mechIndex = mechanics.indexOf(raisedmech);
+  mechanics[mechIndex] = raisedmech;
+  localStorage.setItem("mechanics", JSON.stringify(raisedmech));
+}
