@@ -1,6 +1,9 @@
 const cus = JSON.parse(localStorage.getItem("oneUser"));
 let customers = JSON.parse(localStorage.getItem("users"));
 const workshops = JSON.parse(localStorage.getItem("workshops"));
+let mechanics = JSON.parse(localStorage.getItem("mechanics"));
+let services = JSON.parse(localStorage.getItem("mechServices"));
+
 let log_cus = customers.find((e) => {
   if (e["user_id"] === cus) {
     return true;
@@ -155,11 +158,12 @@ createWorkshop(workshops, "nearByShops");
 
 function delUser() {
   let conform = confirm("Would u like to delete your account");
-  if (conform === true) {
+  if (conform == true) {
     let deletedUser = [];
     if (localStorage.getItem("deletedUser") != null) {
       deletedUser = JSON.parse(localStorage.getItem("deletedUser"));
     }
+    let index = customers.indexOf(log_cus);
     deletedUser.push(log_cus);
     localStorage.setItem("deletedUser", JSON.stringify(deletedUser));
     customers.splice(index, 1);
@@ -168,33 +172,10 @@ function delUser() {
   }
 }
 
-//dropdown
-// const setting = document.getElementById("settings");
-// setting.addEventListener("mouseover", (e) => {
-//   e = document.getElementById("settings_dropdown");
-//   e.style.display = "block";
-// });
-
-// const bb = document.getElementsByTagName("body");
-// bb.setAttribute("onload", "shopTime()");
-
-// function onloading() {
-//   shopTime();
-// }
-// function shopTime() {
-//   let time = new Date();
-//   let hour = time.getHours();
-//   let minutes = time.getMinutes();
-//   alert(hour, minutes);
-// }
-
 //details of the workshops
 function workshopDetail(id) {
   const detailPage = document.querySelector(".workshopDetails");
   detailPage.style.display = "flex";
-
-  let mechanics = JSON.parse(localStorage.getItem("mechanics"));
-  let services = JSON.parse(localStorage.getItem("mechServices"));
 
   let selectWorkshop = workshops.find((e) => {
     if (e["workshopId"] == id) {
@@ -526,6 +507,16 @@ function bookMechanic(customerId, mechanicId) {
   vehicleNumber.innerText = customerVehicle["vehicleNumber"];
   const vehiclefuel = document.getElementById("vehiclefuel");
   vehiclefuel.innerText = customerVehicle["fuelType"];
+
+  const conBtn = document.getElementById("confirmBtn");
+  conBtn.setAttribute("onclick", "confirmBookingBtn(" + customerId + "," + ")");
+}
+// function to confirm button
+function confirmBookingBtn(custId, servId) {
+  let book_select_service = document.getElementById("book_select_service");
+  let type = book_select_service.value;
+
+  // confirmBookMech(custId, servId,type);
 }
 
 // function to raise request
