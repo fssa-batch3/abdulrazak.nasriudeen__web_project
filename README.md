@@ -76,7 +76,8 @@ Steps:
     2.Click exit button on the top right corner to get out of the page   
 
 Expected result :    
-    details of the customer shown on the customer page 
+    details of the customer shown on the customer page
+   [completed 🎷]    
   
       
       
@@ -117,7 +118,7 @@ Expected Result [Navigated to the mechanic page with success message ]
  [completed 🎷]      
 
 
-Update an account     
+Update an account       
 Scenario 1 :  Updated Successfully     
 Steps :   
        1. Navigated to the profile page 
@@ -126,6 +127,50 @@ Steps :
        4. click "Next" button 
 Expected Result [navigated to the workShop details page ]    
  [completed 🎷]     
+ 
+Delete Mechanic    
+Scenario 1 : deleted successfully     
+Steps :   
+    1. from mechanic home page click delete button  
+    2. confirm your deletion   
+    
+Expected result [Navigated to the index page with an alert ] 
+ [completed 🎷]    
+ 
+ 
+ List Mechanics:   
+Scenario 1   navigated to admin page   
+Steps :  
+  1.From index page click into the login button   
+  2.enter the admin number as 8124311602 and password as 123456 
+  3.Click login button   
+
+
+Expected Result :   
+  navigated to the Admin's page   
+  [completed 🎷]     
+  
+Scenario 2 : Navigated to admin's mechanic page    
+
+Steps:   
+   1.From admin dashboard page Click mechanic from left side nav bar 
+   
+Expected Result :   
+   navigated to the admin's customer page and show the number of customers are present and customers are listed in the page    
+   [completed 🎷]    
+   
+Detail mechanic:  
+Scenario 1 :  View the details of the customers   
+
+Steps:  
+    1.From admin's mechanic list page click the view button in each of the mechnanic's card 
+    2.Click exit button on the top right corner to get out of the page   
+
+Expected result :    
+    details of the mechanic shown on the mechanic page    
+    [completed 🎷] 
+  
+
  
 
 
