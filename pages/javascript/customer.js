@@ -168,6 +168,7 @@ function delUser() {
     localStorage.setItem("deletedUser", JSON.stringify(deletedUser));
     customers.splice(index, 1);
     localStorage.setItem("users", JSON.stringify(customers));
+    alert("your account deleted successfully");
     window.location.href = "../../index.html";
   }
 }

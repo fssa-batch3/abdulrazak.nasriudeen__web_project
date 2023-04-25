@@ -288,6 +288,7 @@ function delUser() {
     deletedUser.push(log_cus);
     localStorage.setItem("deletedUser", JSON.stringify(deletedUser));
     mechanics.splice(index, 1);
+    alert("your account deleted successfully");
     localStorage.setItem("mechanics", JSON.stringify(mechanics));
     window.location.href = "../../index.html";
   }
