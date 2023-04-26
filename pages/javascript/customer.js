@@ -193,6 +193,7 @@ function workshopDetail(id) {
       return true;
     }
   });
+  // console.log(selectService);
 
   // appending workshop
   const workshopImageDetail = document.getElementById("workshopImageDetail");
@@ -263,29 +264,29 @@ function exitBookMechanic() {
   book_div.style.display = "none";
 }
 
-function toAddService(id) {
-  let added = document.getElementById(id + 1);
-  added.style.display = "none";
+// function toAddService(id) {
+//   let added = document.getElementById(id + 1);
+//   added.style.display = "none";
 
-  let add = document.getElementById(id).value;
-  let total = document.getElementById("total");
-  total.value = add;
+//   let add = document.getElementById(id).value;
+//   let total = document.getElementById("total");
+//   total.value = add;
 
-  let showed = document.getElementById(id + 2);
-  showed.style.display = "flex";
-}
+//   let showed = document.getElementById(id + 2);
+//   showed.style.display = "flex";
+// }
 
-function toRemoveService(id) {
-  let showed = document.getElementById(id + 2);
-  showed.style.display = "none";
-  let total = document.getElementById("total").value;
-  let sub = document.getElementById(id).value;
-  let x = total - sub;
-  total.value = x;
+// function toRemoveService(id) {
+//   let showed = document.getElementById(id + 2);
+//   showed.style.display = "none";
+//   let total = document.getElementById("total").value;
+//   let sub = document.getElementById(id).value;
+//   let x = total - sub;
+//   total.value = x;
 
-  let remove = document.getElementById(id + 1);
-  remove.style.display = "flex";
-}
+//   let remove = document.getElementById(id + 1);
+//   remove.style.display = "flex";
+// }
 
 // services
 const maintanceService = [
@@ -430,19 +431,19 @@ bookingService.addEventListener("change", (e) => {
   let targetService = e.target.value;
   if (targetService == "maintance") {
     appendList(maintanceService, ".serviceSelector", "selectService");
-    price.innerText = selectService["generalCost"];
+    // price.innerText = selectService["generalCost"];
   }
   if (targetService == "Repair") {
     appendList(repairService, ".serviceSelector", "selectService");
-    price.innerText = selectService["standardCost"];
+    // price.innerText = selectService["standardCost"];
   }
   if (targetService == "Upgrade") {
     appendList(upgrade, ".serviceSelector", "selectService");
-    price.innerText = selectService["premeiumCost "];
+    // price.innerText = selectService["premeiumCost "];
   }
   if (targetService == "Electrical") {
     appendList(electric, ".serviceSelector", "selectService");
-    price.innerText = selectService["generalCost"];
+    // price.innerText = selectService["generalCost"];
   }
 });
 
@@ -456,6 +457,7 @@ function bookMechanic(customerId, mechanicId) {
   let mechanics = JSON.parse(localStorage.getItem("mechanics"));
   let customers = JSON.parse(localStorage.getItem("users"));
   let vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
+  // let selectService = JSON.parse(localStorage.getItem("mechServices"));
 
   let bookingUser = customers.find((e) => {
     if (customerId == e["user_id"]) {
@@ -510,34 +512,38 @@ function bookMechanic(customerId, mechanicId) {
   vehiclefuel.innerText = customerVehicle["fuelType"];
 
   const conBtn = document.getElementById("confirmBtn");
-  conBtn.setAttribute("onclick", "confirmBookingBtn(" + customerId + "," + ")");
+  conBtn.setAttribute(
+    "onclick",
+    "confirmBookingBtn(" + customerId + "," + mechanicId + ")"
+  );
 }
 // function to confirm button
 function confirmBookingBtn(custId, servId) {
   let book_select_service = document.getElementById("book_select_service");
   let type = book_select_service.value;
 
-  // confirmBookMech(custId, servId,type);
+  confirmBookMech(custId, servId, type);
 }
 
 // function to raise request
-function confirmBookMech(cusId, serId, type) {
+function confirmBookMech(cusId, mechId, type) {
   //confirming booking
   let con = confirm("Are you sure to book mechanic");
   if (con == true) {
-    const serviceArr = JSON.parse(localStorage.getItem("mechService"));
+    const serviceArr = JSON.parse(localStorage.getItem("mechServices"));
     // finding booked service from customer
     const bookedSer = serviceArr.find((e) => {
-      if (e["serviceId"] == serId) {
+      if (e["mechanicId"] == mechId) {
         return true;
       }
     });
     let activity = [];
     let customerId = cusId;
-    let serviceId = serId;
+    let mechanicId = mechId;
     let bookingId = Date.now();
     let date = new Date();
     let request = false;
+    console.log(bookedSer);
 
     let cost = 0;
     // checking and assigning the cost of service
@@ -553,19 +559,22 @@ function confirmBookMech(cusId, serId, type) {
     //assigning as an object
     let booking = {
       customerId,
-      serviceId,
+      mechanicId,
       bookingId,
       date,
       cost,
       type,
       request,
     };
+    alert(booking);
+    console.log(booking);
 
     // pushing into activity array
     let bookings = [];
     if (JSON.parse(localStorage.getItem("bookings")) != null) {
       bookings = JSON.parse(localStorage.getItem("bookings"));
     }
+    bookings.push(booking);
 
     activity.push(booking);
     log_cus["activity"] = activity;
@@ -584,14 +593,14 @@ function confirmBookMech(cusId, serId, type) {
 function mechRequest(obj) {
   let mechanics = JSON.parse(localStorage.getItem("mechanics"));
   let raisedmech = mechanics.find((e) => {
-    if (e["serviceId"] == obj["serviceId"]) {
+    if (e["user_id"] == obj["mechanicId"]) {
       return true;
     }
   });
   // to notify mechanic about the raised request
   let notification = [];
   obj["notify"] = true;
-  notification.push(obj);
+  notification.push(obj["bookingId"]);
   raisedmech["notification"] = notification;
   let mechIndex = mechanics.indexOf(raisedmech);
   mechanics[mechIndex] = raisedmech;
