@@ -293,3 +293,191 @@ function delUser() {
     window.location.href = "../../index.html";
   }
 }
+
+// create notification card function
+function notificationCard(arr) {
+  try {
+    for (let i = 0; i < arr.length; i++) {
+      // outer div
+      let notify = document.createElement("div");
+      notify.setAttribute("class", "notify");
+      //inner div - 1
+      let separate = document.createElement("div");
+      separate.setAttribute("class", "separate");
+      notify.append(separate); //append to outer div
+      //content of inner div
+      let innerImg = document.createElement("img"); //customer img
+      innerImg.setAttribute("src", "ksks");
+      innerImg.setAttribute("alt", "customerProfile");
+      separate.append(innerImg);
+      //details
+      let contentContainer = document.createElement("div"); // detail container
+      contentContainer.setAttribute("class", "container");
+      separate.append(contentContainer);
+      //value contianer for name
+      let nameContainer = document.createElement("div");
+      nameContainer.setAttribute("class", "content");
+      // name icon
+      let nameIcon = document.createElement("span");
+      nameIcon.setAttribute("class", "material-symbols-outlined");
+      nameIcon.innerText = "badge";
+      nameContainer.append(nameIcon);
+      // name
+      let showName = document.createElement("p");
+      showName.innerText = "abd";
+      nameContainer.append(showName);
+      contentContainer.append(nameContainer); //appending to the content div
+      //value contianer for company
+      let companyContainer = document.createElement("div");
+      companyContainer.setAttribute("class", "content");
+      // company icon
+      let companyIcon = document.createElement("span");
+      companyIcon.setAttribute("class", "material-symbols-outlined");
+      companyIcon.innerText = "emoji_transportation";
+      companyContainer.append(companyIcon);
+      // company
+      let showCompany = document.createElement("p");
+      showCompany.innerText = "abd";
+      companyContainer.append(showCompany);
+      contentContainer.append(companyContainer); //appending to the content div
+      //value contianer for model
+      let modelContainer = document.createElement("div");
+      modelContainer.setAttribute("class", "content");
+      // model icon
+      let modelIcon = document.createElement("span");
+      modelIcon.setAttribute("class", "material-symbols-outlined");
+      modelIcon.innerText = "emoji_transportation";
+      modelContainer.append(modelIcon);
+      // model
+      let showmodel = document.createElement("p");
+      showmodel.innerText = "abd";
+      modelContainer.append(showmodel);
+      contentContainer.append(modelContainer); //appending to the content div
+      //value contianer for year
+      let yearContainer = document.createElement("div");
+      yearContainer.setAttribute("class", "content");
+      // year icon
+      let yearIcon = document.createElement("span");
+      yearIcon.setAttribute("class", "material-symbols-outlined");
+      yearIcon.innerText = "calendar_month";
+      yearContainer.append(yearIcon);
+      // year
+      let showyear = document.createElement("p");
+      showyear.innerText = "abd";
+      yearContainer.append(showyear);
+      //fuel icon
+      let fuelIcon = document.createElement("span");
+      fuelIcon.setAttribute("class", "material-symbols-outlined");
+      fuelIcon.innerText = "local_gas_station";
+      //fuel
+      let showFuel = document.createElement("p");
+      showFuel.innertext = "fuel";
+      yearContainer.append(fuelIcon);
+      yearContainer.append(showFuel);
+      contentContainer.append(yearContainer); //appending to the content div
+
+      //inner div -  2
+      let separate2 = document.createElement("div");
+      separate2.setAttribute("class", "separate");
+      // content
+      let contentContainer2 = document.createElement("div");
+      contentContainer2.setAttribute("class", "container");
+
+      //value contianer for number
+      let numberContainer = document.createElement("div");
+      numberContainer.setAttribute("class", "content");
+      // number icon
+      let numberIcon = document.createElement("span");
+      numberIcon.setAttribute("class", "material-symbols-outlined");
+      numberIcon.innerText = "123";
+      numberContainer.append(numberIcon);
+      // number
+      let shownumber = document.createElement("p");
+      shownumber.innerText = "tn090909";
+      numberContainer.append(shownumber);
+      contentContainer2.append(numberContainer); //appending to the content div
+      //value contianer for service
+      let serviceContainer = document.createElement("div");
+      serviceContainer.setAttribute("class", "content");
+      // service
+      let showservice = document.createElement("p");
+      showservice.innerText = "Service :";
+      serviceContainer.append(showservice);
+      contentContainer2.append(serviceContainer); //appending to the content div
+      //value contianer for address
+      let addressContainer = document.createElement("div");
+      addressContainer.setAttribute("class", "content");
+      // address icon
+      let addressIcon = document.createElement("span");
+      addressIcon.setAttribute("class", "material-symbols-outlined");
+      addressIcon.innerText = "123";
+      addressContainer.append(addressIcon);
+      // address
+      let showaddress = document.createElement("p");
+      showaddress.innerText = "3/401";
+      addressContainer.append(showaddress);
+      contentContainer2.append(addressContainer); //appending to the content div
+      //value contianer for city
+      let cityContainer = document.createElement("div");
+      cityContainer.setAttribute("class", "content");
+      // city icon
+      let cityIcon = document.createElement("span");
+      cityIcon.setAttribute("class", "material-symbols-outlined");
+      cityIcon.innerText = "123";
+      cityContainer.append(cityIcon);
+      // city
+      let showcity = document.createElement("p");
+      showcity.innerText = "3/401";
+      cityContainer.append(showcity);
+      contentContainer2.append(cityContainer); //appending to the content div
+      //overall append
+      separate2.append(contentContainer2);
+
+      //vehicle image
+      let vehicleImg = document.createElement("img");
+      vehicleImg.setAttribute("src", "cbejcbujw");
+      vehicleImg.setAttribute("alt", "vehicleimage");
+      separate2.append(vehicleImg);
+      notify.append(separate2);
+
+      //buttoncontainer
+      let buttonContainer = document.createElement("div");
+      buttonContainer.setAttribute("class", "buttonContain");
+      // accept button
+      let acceptButton = document.createElement("button");
+      acceptButton.setAttribute("class", "accept");
+      //currency icon
+      let currency = document.createElement("span");
+      currency.setAttribute("class", "material-symbols-outlined");
+      currency.innerText = "currency_rupee";
+      acceptButton.append(currency);
+      // amount
+      let amount = document.createElement("p");
+      amount.innerText = "20";
+      acceptButton.append(amount);
+      // accpet icon
+      let acceptIcon = document.createElement("span");
+      acceptIcon.setAttribute("class", "material-symbols-outlined");
+      acceptIcon.innerText = "sync_saved_locally";
+      acceptButton.append(acceptIcon);
+      buttonContainer.append(acceptButton);
+      // reject button
+      let rejectButton = document.createElement("button");
+      rejectButton.setAttribute("class", "reject");
+      //reject
+      let reject = document.createElement("p");
+      reject.innerText = "reject";
+      rejectButton.append(reject);
+      // icon
+      let rejectIcon = document.createElement("span");
+      rejectIcon.setAttribute("class", "material-symbols-outlined");
+      rejectIcon.innerText = "cancel";
+      rejectButton.append(rejectIcon);
+      buttonContainer.append(rejectButton);
+      notify.append(buttonContainer);
+
+      let overallAppend = document.getElementById("notification");
+      overallAppend.append(notify);
+    }
+  } catch (err) {}
+}
