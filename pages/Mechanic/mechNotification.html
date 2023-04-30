@@ -33,7 +33,7 @@
         height: 50px;
         align-items: center;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         padding-left: 10px;
         padding-right: 10px;
         background-color: #fe3044;
@@ -49,7 +49,7 @@
       }
 
       h1 {
-        width: 80%;
+        width: 90%;
         display: flex;
         justify-content: center;
       }
@@ -151,6 +151,10 @@
         color: black;
         background-color: white;
       }
+      a {
+        text-decoration: none;
+        color: black;
+      }
       .reject {
         background-color: #f94758;
         color: white;
@@ -169,76 +173,14 @@
     <header>
       <span class="material-symbols-outlined"> widgets </span>
       <h1>Notifications</h1>
-      <span class="material-symbols-outlined"> logout </span>
+      <a href="./mech.html">
+        <span class="material-symbols-outlined"> logout </span></a
+      >
     </header>
-    <section id="notification">
-      <div class="notify">
-        <!-- <h2>Customer wants your help</h2> -->
-        <div class="separate">
-          <img src="" alt="" />
-
-          <div class="container">
-            <div class="content">
-              <span class="material-symbols-outlined"> badge </span>
-
-              <p>Abdul</p>
-            </div>
-            <div class="content">
-              <span class="material-symbols-outlined">
-                emoji_transportation
-              </span>
-              <p>Hero</p>
-            </div>
-            <div class="content">
-              <span class="material-symbols-outlined">
-                emoji_transportation
-              </span>
-              <p>splendor</p>
-            </div>
-            <div class="content">
-              <span class="material-symbols-outlined"> calendar_month </span>
-              <p>year</p>
-              <span class="material-symbols-outlined"> local_gas_station </span>
-              <p>Fuel</p>
-            </div>
-          </div>
-        </div>
-        <div class="separate">
-          <div class="container">
-            <div class="content">
-              <span class="material-symbols-outlined"> 123 </span>
-              <p>number</p>
-            </div>
-            <div class="content">
-              <p>Service :</p>
-            </div>
-            <div class="content">
-              <span class="material-symbols-outlined"> home_pin </span>
-              <p>Address</p>
-            </div>
-            <div class="content">
-              <span class="material-symbols-outlined"> location_city </span>
-              <p>City</p>
-            </div>
-          </div>
-          <img src="" alt="" />
-        </div>
-        <div class="buttonContain">
-          <button class="accept">
-            <span class="material-symbols-outlined"> currency_rupee </span>
-            <p>300</p>
-            <span class="material-symbols-outlined"> sync_saved_locally </span>
-          </button>
-          <button class="reject">
-            <p>Reject</p>
-            <span class="material-symbols-outlined"> cancel </span>
-          </button>
-        </div>
-      </div>
-    </section>
+    <section id="notification"></section>
     <script src="../javascript/mechanic.js"></script>
     <script>
-      let arr = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+      let arr = [1, 1, 2, 5, 8, 19, 6574];
       notificationCard(arr);
     </script>
   </body>

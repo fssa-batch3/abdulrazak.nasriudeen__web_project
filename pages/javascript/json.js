@@ -430,7 +430,7 @@ function log_closePopup() {
 // function to check existing user
 function userCheck(e, n) {
   let customer = e.find((u) => {
-    if (n === u["numberf"]) {
+    if (n === u["number"]) {
       return true;
     }
   });
@@ -569,7 +569,11 @@ function read(num, pass) {
         if (pass === user["password"]) {
           alert(customerName + "! Your account logged in successfully");
           localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
-          window.location.href = "./customer/cus_profile.html";
+          if (user["email"] == undefined) {
+            window.location.href = "./customer/cus_profile.html";
+          } else {
+            window.location.href = "./customer/cust.html";
+          }
 
           return findData;
         }
@@ -579,7 +583,7 @@ function read(num, pass) {
       }
       return findData;
     });
-    if (findData === false) {
+    if (findData != true) {
       const mech = mechanic_data.find(function (user) {
         const mechPhone = user["number"];
         const mechName = user["name"];
@@ -590,7 +594,12 @@ function read(num, pass) {
           if (pass === user["password"]) {
             alert(mechName + "! Your account logged as mechanic  successfully");
             localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
-            window.location.href = "./Mechanic/profile.html";
+            if (user["email"] == undefined) {
+              window.location.href = "./Mechanic/profile.html";
+            } else {
+              window.location.href = "./Mechanic/mech.html";
+            }
+
             return findData;
           }
           Notify.error("Password is incorrect Please check");
@@ -599,7 +608,7 @@ function read(num, pass) {
         return findData;
       });
     }
-    if (findData === false) {
+    if (findData != true) {
       alert("User not found enter correct number or create an account ");
     }
     console.log(select_user);
@@ -641,7 +650,6 @@ function hasnotAlphabet(string) {
     ">",
     "/",
     "?",
-    " ",
   ];
   const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 

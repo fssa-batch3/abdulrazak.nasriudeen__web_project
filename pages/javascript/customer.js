@@ -537,12 +537,12 @@ function confirmBookMech(cusId, mechId, type) {
         return true;
       }
     });
-    let activity = [];
     let customerId = cusId;
     let mechanicId = mechId;
     let bookingId = Date.now();
+    let cusActivityId = bookingId + 1;
     let date = new Date();
-    let request = false;
+    let request = true;
     console.log(bookedSer);
 
     let cost = 0;
@@ -565,25 +565,34 @@ function confirmBookMech(cusId, mechId, type) {
       cost,
       type,
       request,
+      cusActivityId,
     };
-    alert(booking);
-    console.log(booking);
 
     // pushing into activity array
     let bookings = [];
     if (JSON.parse(localStorage.getItem("bookings")) != null) {
       bookings = JSON.parse(localStorage.getItem("bookings"));
     }
+    let custActivity = {
+      bookingId: booking["bookingId"],
+      customerId: booking["customerId"],
+    };
     bookings.push(booking);
+    let customerActivity = {};
+    customerActivity["activity"] = [];
+    customerActivity["notification"] = [];
 
-    activity.push(booking);
-    log_cus["activity"] = activity;
-    let index = customers.indexOf(log_cus);
-    customers[index] = log_cus;
-    // last setting into local storage
-    localStorage.setItem("users", JSON.stringify(customers));
+    if (JSON.parse(localStorage.getItem("customerActivity")) != null) {
+      customerActivity = JSON.parse(localStorage.getItem("customerActivity"));
+    }
+    customerActivity["activity"].push(custActivity);
+
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    localStorage.setItem("customerActivity", JSON.stringify(customerActivity));
+
     // sending request to the mechanic
     mechRequest(booking);
+    bookingSts(booking);
   } else {
     return;
   }
@@ -591,18 +600,85 @@ function confirmBookMech(cusId, mechId, type) {
 
 //function to accept request
 function mechRequest(obj) {
-  let mechanics = JSON.parse(localStorage.getItem("mechanics"));
-  let raisedmech = mechanics.find((e) => {
+  // let mechanics = JSON.parse(localStorage.getItem("mechanics"));
+  // let raisedmech = mechanics.find((e) => {
+  //   if (e["user_id"] == obj["mechanicId"]) {
+  //     return true;
+  //   }
+  // });
+  let notification = {
+    notificationId: obj["cusActivityId"] + 1,
+    notificationType: "booking",
+    raisedStatus: true,
+    raisedMechId: obj["mechanicId"],
+    raisedBookingId: obj["bookingId"],
+    notificationSeen: false,
+    acceptBooking: false,
+  };
+  let mechActivity = {
+    notification: [],
+    activity: [],
+  };
+
+  if (JSON.parse(localStorage.getItem("mechActivity")) != null) {
+    mechActivity = JSON.parse(localStorage.getItem("mechActivity"));
+  }
+  // };
+  // to notify mechanic about the raised request
+
+  mechActivity.notification.push(notification);
+  localStorage.setItem("mechActivity", JSON.stringify(mechActivity));
+}
+
+// dom for booking status
+function bookingSts(obj) {
+  const bookingStatus = document.querySelector(".bookingStatus");
+  bookingStatus.style.display = "flex";
+  const book_div = document.getElementById("book_div");
+  book_div.style.display = "none";
+  const mechs = JSON.parse(localStorage.getItem("mechanics"));
+  const vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
+  let bookMech = mechs.find((e) => {
     if (e["user_id"] == obj["mechanicId"]) {
       return true;
     }
   });
-  // to notify mechanic about the raised request
-  let notification = [];
-  obj["notify"] = true;
-  notification.push(obj["bookingId"]);
-  raisedmech["notification"] = notification;
-  let mechIndex = mechanics.indexOf(raisedmech);
-  mechanics[mechIndex] = raisedmech;
-  localStorage.setItem("mechanics", JSON.stringify(raisedmech));
+  let bookVehicle = vehicles.find((e) => {
+    if (e["CustomerId"] == obj["customerId"]) {
+      return true;
+    }
+  });
+
+  let bookingContainer = document.createElement("div");
+  bookingContainer.setAttribute("class", "bookingStatus-container");
+  let bookingMechDetails = document.createElement("div");
+  bookingMechDetails.setAttribute("class", "mechBooking");
+  bookingContainer.append(bookingMechDetails);
+  let mechImg = document.createElement("img");
+  mechImg.setAttribute("src", bookMech["img"]);
+  mechImg.setAttribute("alt", "mechanic img");
+  bookingMechDetails.append(mechImg);
+
+  let mechName = document.createElement("p");
+  mechName.innerText = bookMech["name"];
+  bookingMechDetails.append(mechName);
+  let vehicleName = document.createElement("p");
+  vehicleName.innerText =
+    bookVehicle["vehicleModel"] + "," + bookVehicle["VehicleCompany"];
+  bookingMechDetails.append(vehicleName);
+  let service = document.createElement("p");
+  service.innerText = "Service: " + obj["type"];
+  bookingMechDetails.append(service);
+  let serviceCost = document.createElement("p");
+  serviceCost.innerText = "Cost: " + obj["cost"];
+  bookingMechDetails.append(serviceCost);
+
+  // cancel button
+  let cancel = document.createElement("button");
+  cancel.innerText = "Cancel Request";
+  bookingMechDetails.append(cancel);
+
+  // appending to outerdiv
+
+  bookingStatus.append(bookingContainer);
 }

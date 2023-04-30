@@ -64,7 +64,7 @@
 
           <input
             type="text"
-            pattern="[A-Za-z]{2,30}"
+            pattern="[A-Za-z ]{2,30}"
             id="name"
             name="name"
             title="Only Alphabets are acceptable"
@@ -145,7 +145,7 @@
             name=""
             required
             title="Only Alphabets are acceptable"
-            pattern="[A-Za-z]{4,30}"
+            pattern="[A-Za-z ]{4,30}"
             id="workshopName"
           />
         </label>
@@ -248,6 +248,7 @@
             name=""
             required
             pattern="[0-9]{2}"
+            title="please enter 2digit value eg:07"
             id="openTiming_hour"
           />:
           <input
@@ -255,6 +256,7 @@
             name=""
             required
             pattern="[0-9]{2}"
+            title="please enter 2digit value eg:07"
             id="openTiming_min"
           />
           <select name="time" required id="openTiming_period">
@@ -269,6 +271,7 @@
             name=""
             required
             pattern="[0-9]{2}"
+            title="please enter 2digit value eg:07"
             id="closeTiming_hour"
           />:
           <input
@@ -276,6 +279,7 @@
             name=""
             required
             pattern="[0-9]{2}"
+            title="please enter 2digit value eg:07"
             id="closeTiming_min"
           />
           <select name="time" required id="closeTiming_period">
