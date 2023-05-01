@@ -95,7 +95,7 @@ function notificationCard(arr) {
       const customerVehicles = JSON.parse(
         localStorage.getItem("Customer_vehicles")
       );
-      for (let i = 0; i < arr.length; i++) {
+      for (let i = arr.length - 1; i >= 0; i--) {
         // outer div
         let bookingId = arr[i]["raisedBookingId"];
         let currentBook = booking.find((e) => {
@@ -259,41 +259,64 @@ function notificationCard(arr) {
         //buttoncontainer
         let buttonContainer = document.createElement("div");
         buttonContainer.setAttribute("class", "buttonContain");
-        // accept button
-        let acceptButton = document.createElement("button");
-        acceptButton.setAttribute("class", "accept");
-        acceptButton.setAttribute(
-          "onclick",
-          "acceptBooking(" + currentBook["bookingId"] + ")"
-        );
-        //currency icon
-        let currency = document.createElement("span");
-        currency.setAttribute("class", "material-symbols-outlined");
-        currency.innerText = "currency_rupee";
-        acceptButton.append(currency);
-        // amount
-        let amount = document.createElement("p");
-        amount.innerText = currentBook["cost"];
-        acceptButton.append(amount);
-        // accpet icon
-        let acceptIcon = document.createElement("span");
-        acceptIcon.setAttribute("class", "material-symbols-outlined");
-        acceptIcon.innerText = "sync_saved_locally";
-        acceptButton.append(acceptIcon);
-        buttonContainer.append(acceptButton);
-        // reject button
-        let rejectButton = document.createElement("button");
-        rejectButton.setAttribute("class", "reject");
-        //reject
-        let reject = document.createElement("p");
-        reject.innerText = "reject";
-        rejectButton.append(reject);
-        // icon
-        let rejectIcon = document.createElement("span");
-        rejectIcon.setAttribute("class", "material-symbols-outlined");
-        rejectIcon.innerText = "cancel";
-        rejectButton.append(rejectIcon);
-        buttonContainer.append(rejectButton);
+        if (currentBook["bookingStatus"] == true) {
+          let buttonAccept = document.createElement("button");
+
+          buttonAccept.innerText =
+            "Booking Accepted on : " + currentBook["date"];
+          buttonContainer.append(buttonAccept);
+          buttonAccept.style.backgroundColor = "aqua";
+          buttonAccept.style.width = "90%";
+        } else if (currentBook["bookingStatus"] == false) {
+          let buttonAccept = document.createElement("button");
+          buttonAccept.innerText =
+            "Booking rejected on : " + currentBook["date"];
+          buttonContainer.append(buttonAccept);
+          buttonAccept.style.backgroundColor = "red";
+          buttonAccept.style.width = "90%";
+          buttonAccept.style.color = "white";
+        } else {
+          // accept button
+          let acceptButton = document.createElement("button");
+          acceptButton.setAttribute("class", "accept");
+          acceptButton.setAttribute(
+            "onclick",
+            "acceptBooking(" + currentBook["bookingId"] + ")"
+          );
+          //currency icon
+          let currency = document.createElement("span");
+          currency.setAttribute("class", "material-symbols-outlined");
+          currency.innerText = "currency_rupee";
+          acceptButton.append(currency);
+          // amount
+          let amount = document.createElement("p");
+          amount.innerText = currentBook["cost"];
+          acceptButton.append(amount);
+          // accpet icon
+          let acceptIcon = document.createElement("span");
+          acceptIcon.setAttribute("class", "material-symbols-outlined");
+          acceptIcon.innerText = "sync_saved_locally";
+          acceptButton.append(acceptIcon);
+          buttonContainer.append(acceptButton);
+          // reject button
+          let rejectButton = document.createElement("button");
+          rejectButton.setAttribute("class", "reject");
+          rejectButton.setAttribute(
+            "onclick",
+            "rejectBooking(" + currentBook["bookingId"] + ")"
+          );
+          //reject
+          let reject = document.createElement("p");
+          reject.innerText = "reject";
+          rejectButton.append(reject);
+          // icon
+          let rejectIcon = document.createElement("span");
+          rejectIcon.setAttribute("class", "material-symbols-outlined");
+          rejectIcon.innerText = "cancel";
+          rejectButton.append(rejectIcon);
+          buttonContainer.append(rejectButton);
+        }
+
         notify.append(buttonContainer);
 
         let overallAppend = document.getElementById("notification");
@@ -340,6 +363,36 @@ function acceptBooking(id) {
     localStorage.setItem("bookings", JSON.stringify(bookings));
     window.location.href =
       "./mechActivity.html?bookingId=" + acceptBooking["bookingId"];
+  }
+}
+
+//function to reject booking
+function rejectBooking(id) {
+  let con = confirm("Are you want to reject this request");
+  let bookings = JSON.parse(localStorage.getItem("bookings"));
+  const rejectBooking = bookings.find((e) => {
+    if (e["bookingId"] === id) {
+      return true;
+    }
+  });
+  if (con == true) {
+    rejectBooking["bookingStatus"] = false;
+    console.log(bookings);
+
+    let index = bookings.indexOf(rejectBooking);
+    console.log(index);
+    bookings[index] = rejectBooking;
+    let cusAct = JSON.parse(localStorage.getItem("customerActivity"));
+    let cusNotification = cusAct["notification"];
+    let obj = {
+      customerId: rejectBooking["customerId"],
+      bookingId: rejectBooking["bookingId"],
+      notificationId: Date.now(),
+    };
+    cusNotification.push(obj);
+    localStorage.setItem("customerActivity", JSON.stringify(cusAct));
+
+    localStorage.setItem("bookings", JSON.stringify(bookings));
   }
 }
 
