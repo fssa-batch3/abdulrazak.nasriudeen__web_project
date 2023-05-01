@@ -324,8 +324,42 @@ function acceptBooking(id) {
   });
   if (con == true) {
     acceptBooking["bookingStatus"] = true;
+    acceptBooking["OTP"] = generateOTP();
     let index = bookings.indexOf(acceptBooking);
     bookings[index] = acceptBooking;
+    let cusAct = JSON.parse(localStorage.getItem("customerActivity"));
+    let cusNotification = cusAct["notification"];
+    let obj = {
+      customerId: acceptBooking["customerId"],
+      bookingId: acceptBooking["bookingId"],
+      notificationId: Date.now(),
+    };
+    cusNotification.push(obj);
+    localStorage.setItem("customerActivity", JSON.stringify(cusAct));
+
     localStorage.setItem("bookings", JSON.stringify(bookings));
+    window.location.href =
+      "./mechActivity.html?bookingId=" + acceptBooking["bookingId"];
   }
 }
+
+// function to generate otp
+function generateOTP() {
+  // Define a string of possible characters for the OTP
+  const possibleChars = "0123456789";
+
+  // Initialize an empty string to store the OTP
+  let OTP = "";
+
+  // Generate a random 4-digit number by picking a random character from the possibleChars string four times
+  for (let i = 0; i < 4; i++) {
+    OTP += possibleChars.charAt(
+      Math.floor(Math.random() * possibleChars.length)
+    );
+  }
+
+  // Return the OTP
+  return OTP;
+}
+
+// Example usage:
