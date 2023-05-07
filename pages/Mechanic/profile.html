@@ -163,7 +163,13 @@
 
         <label for="workshopAddress"
           >Workshop_Address
-          <textarea required id="workshopAddress" required></textarea>
+          <input
+            type="text"
+            pattern="[0-9A-Za-z ,:-]{5-50}"
+            required
+            id="workshopAddress"
+            required
+          />
         </label>
         <label for="city_state"
           >City:
@@ -616,6 +622,16 @@
         }
         if (e.length <= 14 || e.length >= 10) {
           Notify.error("Only 10 to 15 digits");
+        }
+      });
+      // workshopAddress
+      let workshopAddress = document.getElementById("workshopAddress");
+      workshopAddress.addEventListener("change", (e) => {
+        e = document.getElementById("workshopAddress").value;
+        let check = checkAddress(e);
+        if (check === true) {
+          Notify.error("Use , or - or : instead of other symbols ");
+          return;
         }
       });
       //timing

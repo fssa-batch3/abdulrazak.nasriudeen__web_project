@@ -1,5 +1,5 @@
 // home page section 2 div container
-// json for container -----
+// json data section 2 for  container -----
 let sec_2_data = [
   {
     title: "Courteous",
@@ -34,6 +34,7 @@ let sec_2_data = [
 ];
 
 // sec 4 service list
+// json for bike service card
 let bike_service = [
   {
     title: "Tune - up",
@@ -79,6 +80,7 @@ let bike_service = [
   },
 ];
 // bike service end
+// online bike service
 let online_bike_service = [
   "Oil change",
   "Brake adjustment",
@@ -145,7 +147,7 @@ let online_bike_service = [
   "Seat reupholstering",
 ];
 
-// car Service starts
+//  Json for car Service card starts
 let car_service = [
   {
     title: "Oil Change",
@@ -188,6 +190,7 @@ let car_service = [
   },
 ];
 // car ends
+// online car service
 let online_car_service = [
   "Oil change",
   "Brake adjustment",
@@ -256,7 +259,7 @@ let online_car_service = [
   "Fuel pressure regulator replacement",
 ];
 
-// auto starts
+//  Json for auto Service card starts
 let auto_service = [
   {
     title: "",
@@ -289,6 +292,7 @@ let auto_service = [
     image: { src: "", alt: "" },
   },
 ];
+// online auto service
 let online_auto_service = [
   "Oil change",
   "Brake adjustment",
@@ -367,323 +371,64 @@ let online_auto_service = [
   "Window regulator replacement",
 ];
 
+// function createDiv accepts array and id as a parameter
+// append div cards according to the number of elements in an array on the div which passed as an argument
 function createDiv(input, id) {
+  // for loop for creating cards with different data
   for (let i = 0; i < input.length; i++) {
-    let div_container = document.createElement("div");
-    div_container.setAttribute("class", "sec4Container");
-    let cont_img = document.createElement("img");
+    let div_container = document.createElement("div"); // card
+    div_container.setAttribute("class", "sec4Container"); // adding class to the card
+    let cont_img = document.createElement("img"); // card's image
     cont_img.setAttribute("class", "sec4Container_img");
-    cont_img.setAttribute("src", input[i]["image"]["src"]);
+    cont_img.setAttribute("src", input[i]["image"]["src"]); // different source for diffent images
     cont_img.setAttribute("alt", input[i]["image"]["alt"]);
-    div_container.append(cont_img);
-    let h3 = document.createElement("h3");
-    h3.innerText = input[i]["title"];
-    div_container.append(h3);
-    let p = document.createElement("p");
-    p.innerText = input[i]["Description"];
-    div_container.append(p);
-    let append_div = document.getElementById(id);
+    div_container.append(cont_img); // appending the image into the card
+    let h3 = document.createElement("h3"); // Card heading
+    h3.innerText = input[i]["title"]; // Different heading accourding according to the card
+    div_container.append(h3); // append heading below card's image
+    let p = document.createElement("p"); // creates paragraph tag
+    p.innerText = input[i]["Description"]; // differnt content
+    div_container.append(p); // append below heading
+    let append_div = document.getElementById(id); // get the html div's id
+    // finally appending the card into the id
     append_div.append(div_container);
   }
 }
-
+// creating dynamic div's for section 2
 createDiv(sec_2_data, "sec2_bottom");
+// creating dynamic div's for section 4  bike service
 createDiv(bike_service, "bike");
+// creating dynamic div's for section 4  car service
 createDiv(car_service, "car");
+// creating dynamic div's for section 4  auto service
 createDiv(auto_service, "auto");
 
-// function of tab header
+// end
 
+// function of tab header
 function openServices(serviceName, bId) {
+  // Get all elements with class "sec4_container"
   var ser_cont, i, button;
   ser_cont = document.getElementsByClassName("sec4_container");
+
+  // Loop through all elements with class "sec4_container"
   for (i = 0; i < ser_cont.length; i++) {
+    // Hide each element by setting its display to "none"
     ser_cont[i].style.display = "none";
   }
+
+  // Get all elements with class "linkButton"
   button = document.getElementsByClassName("linkButton");
+
+  // Loop through all elements with class "linkButton"
   for (i = 0; i < button.length; i++) {
+    // Remove the background color from each element by setting it to an empty string
     button[i].style.backgroundColor = "";
   }
+
+  // Display the element with the specified ID by setting its display to "flex"
   document.getElementById(serviceName).style.display = "flex";
+
+  // Set the background color of the element with the specified ID to gray
   document.getElementById(bId).style.backgroundColor = "#6c757d";
-  // document.getElementById(bId).style.color = "black";
 }
-
-// open profile
-
-// sign
-function Sign_openPopup() {
-  document.getElementById("sign_popup").style.display = "flex";
-}
-
-function Sign_closePopup() {
-  document.getElementById("sign_popup").style.display = "none";
-}
-function log_openPopup() {
-  document.getElementById("log_popup").style.display = "flex";
-}
-
-function log_closePopup() {
-  document.getElementById("log_popup").style.display = "none";
-}
-
-// function to check existing user
-function userCheck(e, n) {
-  let customer = e.find((u) => {
-    if (n === u["number"]) {
-      return true;
-    }
-  });
-}
-
-// crud
-
-// check user
-function checkUser(obj) {
-  try {
-    let users = [];
-    if (localStorage.getItem("users") != null) {
-      users = JSON.parse(localStorage.getItem("users"));
-    }
-    let mechanics = [];
-    if (localStorage.getItem("mechanics") != null) {
-      mechanics = JSON.parse(localStorage.getItem("mechanics"));
-    }
-    // const mechanics = JSON.parse(localStorage.getItem("mechanics"));
-    let validation = false;
-    const customer = users.find((e) => {
-      if (obj["number"] === e["number"]) {
-        validation = true;
-        Notify.error("User Already present please try to login");
-        container.classList.add("sign-up-mode");
-        return false;
-      }
-      return false;
-    });
-    const mechanic = mechanics.find((e) => {
-      if (obj["number"] === e["number"]) {
-        validation = true;
-        Notify.error("User Already present please try to login ");
-        container.classList.add("sign-up-mode");
-        return false;
-      }
-      return false;
-    });
-    return validation;
-  } catch (error) {}
-}
-
-// Create user function
-function createUser(obj, chck) {
-  try {
-    let users = [];
-    if (localStorage.getItem("users") != null) {
-      users = JSON.parse(localStorage.getItem("users"));
-    }
-    let Customer_vehicles = [];
-    if (localStorage.getItem("Customer_vehicles") != null) {
-      Customer_vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
-    }
-    let vehicleObj = {
-      CustomerId: obj["user_id"],
-      VehicleId: obj["vehicle_id"],
-    };
-    if (chck === false) {
-      users.push(obj);
-      Customer_vehicles.push(vehicleObj);
-      localStorage.setItem("users", JSON.stringify(users));
-      localStorage.setItem(
-        "Customer_vehicles",
-        JSON.stringify(Customer_vehicles)
-      );
-
-      alert("account created successfully...");
-      container.classList.add("sign-up-mode");
-    }
-  } catch (error) {}
-}
-//function to create mechanic
-function createMechanic(obj, chck) {
-  try {
-    let mechanics = [];
-    if (localStorage.getItem("mechanics") != null) {
-      mechanics = JSON.parse(localStorage.getItem("mechanics"));
-    }
-    let workshops = [];
-    if (localStorage.getItem("workshops") != null) {
-      workshops = JSON.parse(localStorage.getItem("workshops"));
-    }
-    let workObj = { mechanicId: obj["user_id"], workshopId: obj["WorkshopId"] };
-    let mechServices = [];
-    if (localStorage.getItem("mechServices") != null) {
-      mechServices = JSON.parse(localStorage.getItem("mechServices"));
-    }
-    let serObj = {
-      mechanicId: obj["user_id"],
-      workshopId: obj["WorkshopId"],
-      serviceId: obj["serviceId"],
-    };
-
-    if (chck === false) {
-      mechanics.push(obj);
-      workshops.push(workObj);
-      mechServices.push(serObj);
-      localStorage.setItem("mechServices", JSON.stringify(mechServices));
-      localStorage.setItem("workshops", JSON.stringify(workshops));
-      localStorage.setItem("mechanics", JSON.stringify(mechanics));
-      console.log(mechanics);
-      alert("account created as mechanic successfully...");
-      container.classList.add("sign-up-mode");
-    }
-  } catch (error) {}
-}
-// admin login
-function adminLogin(num, pass) {
-  try {
-    if (num == 8124311602) {
-      if (pass == 123456) {
-        alert("Welcome back to your company sir");
-        window.location.href = "./admin/dashboard.html";
-        return true;
-      }
-      alert("password is incorrect");
-      return false;
-    } else {
-      return false;
-    }
-  } catch (error) {}
-}
-
-// read user function
-function read(num, pass) {
-  try {
-    let get_data = JSON.parse(localStorage.getItem("users"));
-    let mechanic_data = JSON.parse(localStorage.getItem("mechanics"));
-    let findData = false;
-    const select_user = get_data.find(function (user) {
-      const customerPhone = user["number"];
-      const customerName = user["name"];
-
-      if (num === customerPhone) {
-        findData = true;
-        if (pass === user["password"]) {
-          alert(customerName + "! Your account logged in successfully");
-          localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
-          if (user["email"] == undefined) {
-            window.location.href = "./customer/cus_profile.html";
-          } else {
-            window.location.href = "./customer/cust.html";
-          }
-
-          return findData;
-        }
-        // alert("Password is incorrect Please check");
-        Notify.error("Password is incorrect Please check");
-        return findData;
-      }
-      return findData;
-    });
-    if (findData != true) {
-      const mech = mechanic_data.find(function (user) {
-        const mechPhone = user["number"];
-        const mechName = user["name"];
-
-        if (num === mechPhone) {
-          findData = true;
-
-          if (pass === user["password"]) {
-            alert(mechName + "! Your account logged as mechanic  successfully");
-            localStorage.setItem("oneUser", JSON.stringify(user["user_id"]));
-            if (user["email"] == undefined) {
-              window.location.href = "./Mechanic/profile.html";
-            } else {
-              window.location.href = "./Mechanic/mech.html";
-            }
-
-            return findData;
-          }
-          Notify.error("Password is incorrect Please check");
-          return findData;
-        }
-        return findData;
-      });
-    }
-    if (findData != true) {
-      alert("User not found enter correct number or create an account ");
-    }
-    console.log(select_user);
-  } catch (error) {}
-}
-
-//function to check alphabet
-function hasnotAlphabet(string) {
-  keyboardSymbols = [
-    "`",
-    "~",
-    "!",
-    "@",
-    "#",
-    "$",
-    "%",
-    "^",
-    "&",
-    "*",
-    "(",
-    ")",
-    "-",
-    "_",
-    "=",
-    "+",
-    "[",
-    "{",
-    "]",
-    "}",
-    "\\",
-    "|",
-    ";",
-    ":",
-    "'",
-    '"',
-    ",",
-    "<",
-    ".",
-    ">",
-    "/",
-    "?",
-  ];
-  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  for (let i = 0; i < keyboardSymbols.length; i++) {
-    if (
-      string.includes(keyboardSymbols[i]) ||
-      string.includes(numbersArray[i])
-    ) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// function to check number
-function hasNumber(value) {
-  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  for (let i = 0; i < numbersArray.length; i++) {
-    if (value.includes(numbersArray[i])) {
-      return true;
-    }
-  }
-  return false;
-}
-//function to check uppercase alphabet
-function hasAlp(e) {
-  const alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  for (let i = 0; i < alp.length; i++) {
-    if (e.includes(alp[i])) {
-      return true;
-    }
-  }
-  return false;
-}
-
-//function for creating customer,mechanic card

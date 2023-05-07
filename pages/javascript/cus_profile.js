@@ -25,6 +25,7 @@ let P_password = document.getElementById("password");
 P_name.value = log_cus["name"];
 P_phone.value = log_cus["number"];
 P_password.value = log_cus["password"];
+P_password.setAttribute("disabled", true);
 P_phone.setAttribute("disabled", true);
 // profile page
 
@@ -32,6 +33,18 @@ P_phone.setAttribute("disabled", true);
 let personal_form = document.getElementById("personal_form");
 personal_form.addEventListener("submit", (e) => {
   e.preventDefault();
+  let name = document.getElementById("name").value;
+  let profileName = document.getElementById("name");
+  profileName.addEventListener("change", () => {
+    let check = profileName.value;
+    let alp = hasnotAlphabet(check);
+    if (alp === true) {
+      Notify.error("please enter name without a special character or number ");
+    }
+    if (check.length > 15) {
+      Notify.error("not more than 15 characters ");
+    }
+  });
   let email = document.getElementById("email").value;
   let address = document.getElementById("address").value;
   let city = document.getElementById("city_state").value;
@@ -39,7 +52,7 @@ personal_form.addEventListener("submit", (e) => {
 
   //making as an object
 
-  let object = { email, address, city, image };
+  let object = { name, email, address, city, image };
 
   let updateObj = Object.assign(log_cus, object);
   customers[index] = updateObj;
@@ -48,6 +61,7 @@ personal_form.addEventListener("submit", (e) => {
 
   //disable the account
 });
+
 // personal form ended
 
 //vehicle form
@@ -88,7 +102,6 @@ vehicle_Form.addEventListener("submit", (e) => {
     vehicleNumber,
     vehicleImage,
   };
-
   // pushing to vehicle array
   let update = Object.assign(cus_vehicle, vehicleObject);
   Customer_vehicles[vehicleIndex] = update;
@@ -804,3 +817,98 @@ function openprofile(serviceName, bId) {
 // for (let i = 0; i < className.length; i++) {
 //   className[i].disabled = true;
 // }
+
+// function for notification div
+function showNotification(id) {
+  // create the outer div element with class "notification"
+  const notificationDiv = document.createElement("div");
+  notificationDiv.classList.add("notification");
+
+  // create the "details" div element with class "details"
+  const detailsDiv = document.createElement("div");
+  detailsDiv.classList.add("details");
+
+  // create the "mechDetail" div element with class "mechDetail"
+  const mechDetailDiv = document.createElement("div");
+  mechDetailDiv.classList.add("mechDetail");
+
+  // create the "mech" div element with class "mech"
+  const mechDiv = document.createElement("div");
+  mechDiv.classList.add("mech");
+
+  // create the image element and set its source attribute to an empty string
+  const imgElem = document.createElement("img");
+  imgElem.setAttribute("src", "");
+
+  // create the "distance" span element with class "material-symbols-outlined navigate"
+  const distanceSpan = document.createElement("span");
+  distanceSpan.classList.add("material-symbols-outlined", "navigate");
+  distanceSpan.textContent = " distance ";
+
+  // create the "info" span element with class "material-symbols-outlined"
+  const infoSpan = document.createElement("span");
+  infoSpan.classList.add("material-symbols-outlined");
+  infoSpan.textContent = " info ";
+
+  // append the image and two span elements to the "mech" div element
+  mechDiv.appendChild(imgElem);
+  mechDiv.appendChild(distanceSpan);
+  mechDiv.appendChild(infoSpan);
+
+  // create the "p" element and set its text content to "Your mechanic is arriving soon"
+  const mechP = document.createElement("p");
+  mechP.textContent = "Your mechanic is arriving soon";
+
+  // append the "mech" div and "p" element to the "mechDetail" div
+  mechDetailDiv.appendChild(mechDiv);
+  mechDetailDiv.appendChild(mechP);
+
+  // create the "otp" div element with class "otp"
+  const otpDiv = document.createElement("div");
+  otpDiv.classList.add("otp");
+
+  // create the "h3" element and set its text content to "Your Otp : 3030"
+  const otpH3 = document.createElement("h3");
+  otpH3.textContent = "Your Otp : 3030";
+
+  // create the "p" element and set its text content to "Don't share with anyone"
+  const otpP = document.createElement("p");
+  otpP.textContent = "Don't share with anyone";
+
+  // append the "h3" and "p" elements to the "otp" div
+  otpDiv.appendChild(otpH3);
+  otpDiv.appendChild(otpP);
+
+  // append the "mechDetail" and "otp" divs to the "details" div
+  detailsDiv.appendChild(mechDetailDiv);
+  detailsDiv.appendChild(otpDiv);
+
+  // create the "button" div element with class "button"
+  const buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("button");
+
+  // create the "Call" button element with a "phone_forwarded" icon and "Call" text content
+  const callButton = document.createElement("button");
+  const callIcon = document.createElement("span");
+  callIcon.classList.add("material-symbols-outlined");
+  callIcon.textContent = " phone_forwarded ";
+  callButton.appendChild(callIcon);
+  callButton.appendChild(document.createTextNode("Call"));
+  buttonDiv.append(callButton);
+
+  // create the "Cancel" button element with a "cancel" icon, red background color, and "Cancel" text content
+  const cancelButton = document.createElement("button");
+  const cancelIcon = document.createElement("span");
+  cancelIcon.classList.add("material-symbols-outlined");
+  cancelIcon.innerText = " cancel ";
+  cancelButton.appendChild(cancelIcon);
+  cancelButton.appendChild(document.createTextNode("Cancel"));
+  cancelButton.setAttribute("id", "cancel");
+
+  buttonDiv.append(cancelButton);
+  notificationDiv.append(detailsDiv);
+  notificationDiv.append(buttonDiv);
+
+  let apend = document.querySelector(id);
+  apend.append(notificationDiv);
+}
