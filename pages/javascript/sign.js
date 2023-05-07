@@ -240,66 +240,84 @@ sign_in_btn2.addEventListener("click", () => {
 });
 
 //name validation
-let signUpName = document.getElementById("name");
+let signUpName = document.getElementById("name"); // get the element with the ID "name"
 signUpName.addEventListener("change", () => {
-  let check = signUpName.value;
-  let alp = hasnotAlphabet(check);
+  // add an event listener for when the input changes
+  let check = signUpName.value; // get the value of the input
+  let alp = hasnotAlphabet(check); // check if the input contains any non-alphabetic characters
   if (alp === true) {
+    // if it does, display an error message
     Notify.error("please enter name without a special character or number ");
   }
   if (check.length > 15) {
+    // check if the input is longer than 15 characters
     Notify.error("not more than 15 characters ");
   }
 });
+
 //number validation
-let signUpNum = document.getElementById("number");
+let signUpNum = document.getElementById("number"); // get the element with the ID "number"
 signUpNum.addEventListener("change", () => {
-  let check = signUpNum.value;
-  let number = hasNumber(check);
+  // add an event listener for when the input changes
+  let check = signUpNum.value; // get the value of the input
+  let number = hasNumber(check); // check if the input contains only numeric characters
   if (check.length != 10) {
+    // check if the input is exactly 10 characters long
     Notify.error("number should be in  10 characters");
   }
   if (number === false) {
+    // if it contains non-numeric characters, display an error message
     Notify.error("Number can only accepted");
   }
 });
 
 //password validation
-let signUpPass = document.getElementById("password");
+let signUpPass = document.getElementById("password"); // get the element with the ID "password"
 signUpPass.addEventListener("change", () => {
-  let check = signUpPass.value;
+  // add an event listener for when the input changes
+  let check = signUpPass.value; // get the value of the input
   if (check.length != 6) {
+    // check if the input is exactly 6 characters long
     Notify.error("password should be contain only 6 characters");
   }
 });
+
 //login validation
 //number validation
-let loginNum = document.getElementById("log_num");
+let loginNum = document.getElementById("log_num"); // get the element with the ID "log_num"
 loginNum.addEventListener("change", () => {
-  let check = loginNum.value;
-  let number = hasNumber(check);
+  // add an event listener for when the input changes
+  let check = loginNum.value; // get the value of the input
+  let number = hasNumber(check); // check if the input contains only numeric characters
   if (check.length != 10) {
+    // check if the input is exactly 10 characters long
     Notify.error("number should be in  10 characters");
   }
   if (number === false) {
+    // if it contains non-numeric characters, display an error message
     Notify.error("Number can only accepted");
   }
 });
 
 //password validation
-let loginPass = document.getElementById("log_pass");
+let loginPass = document.getElementById("log_pass"); // get the element with the ID "log_pass"
 loginPass.addEventListener("change", () => {
-  let check = loginPass.value;
+  // add an event listener for when the input changes
+  let check = loginPass.value; // get the value of the input
   if (check.length != 6) {
+    // check if the input is exactly 6 characters long
     Notify.error("password should be contain only 6 characters");
   }
 });
-
-// sign_up
+// Get the sign up form element
 const sign_up = document.getElementById("sign_up_form");
+
+// Add an event listener for when the form is submitted
 sign_up.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const user_id = Date.now();
+  e.preventDefault(); // Prevent the form from submitting normally
+
+  // Get form data
+  const user_id = Date.now(); // Generate a unique user ID using the current timestamp
   const name = document.getElementById("name").value;
   const number = document.getElementById("number").value;
   const password = document.getElementById("password").value;
@@ -307,37 +325,48 @@ sign_up.addEventListener("submit", (e) => {
   const customerRadio = document.getElementById("customerRadio").checked;
   const mechanicRadio = document.getElementById("mechanicRadio").checked;
 
-  // checking password
+  // Check if passwords match
   if (password != c_password) {
     Notify.error("confirm password is incorrect please check");
-
-    return false;
+    return false; // Stop form submission
   }
+
+  // Create user object
   const user = { user_id, name, number, password };
+
+  // Check if user already exists
   let sign = checkUser(user);
 
+  // Create new user based on radio button selection
   if (customerRadio === true) {
-    user.check = "customer";
-    user.vehicle_id = user_id + 2;
-    createUser(user, sign);
+    // If customer radio button is checked
+    user.check = "customer"; // Add a "check" property with value "customer"
+    user.vehicle_id = user_id + 2; // Generate a unique vehicle ID for the user
+    createUser(user, sign); // Create the user
   } else if (mechanicRadio === true) {
-    user.check = "mechanic";
-    user.WorkshopId = user_id + 2;
-    user.serviceId = user_id + 4;
-    createMechanic(user, sign);
+    // If mechanic radio button is checked
+    user.check = "mechanic"; // Add a "check" property with value "mechanic"
+    user.WorkshopId = user_id + 2; // Generate a unique workshop ID for the mechanic
+    user.serviceId = user_id + 4; // Generate a unique service ID for the mechanic
+    createMechanic(user, sign); // Create the mechanic
   }
 });
 
-//login
+// Get the login form element
 const login = document.getElementById("login_form");
+
+// Add an event listener for when the form is submitted
 login.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); // Prevent the form from submitting normally
+
+  // Get form data
   const num = document.getElementById("log_num").value;
   const pass = document.getElementById("log_pass").value;
+
+  // Check if user is an admin
   let admin = adminLogin(num, pass);
   if (admin == false) {
-    read(num, pass);
+    // If user is not an admin
+    read(num, pass); // Check if user exists and log them in
   }
-  //
-  //
 });
