@@ -1,4 +1,5 @@
 // checking the existing user
+
 function checkUser(obj) {
   try {
     // Initialize empty arrays for users and mechanics

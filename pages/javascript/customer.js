@@ -773,11 +773,12 @@ function bookingSts(obj) {
   bookingMechDetails.setAttribute("class", "mechBooking");
   // append bookingMechDetails to bookingContainer
   bookingContainer.append(bookingMechDetails);
+  // showing mechanic image
   let mechImg = document.createElement("img");
   mechImg.setAttribute("src", bookMech["img"]);
   mechImg.setAttribute("alt", "mechanic img");
-  bookingMechDetails.append(mechImg);
-
+  bookingMechDetails.append(mechImg); // appending mechanic image
+  // Creating mechanic details  and appending to the html
   let mechName = document.createElement("p");
   mechName.innerText = bookMech["name"];
   bookingMechDetails.append(mechName);

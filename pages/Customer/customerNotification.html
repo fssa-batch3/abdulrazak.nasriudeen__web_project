@@ -142,36 +142,11 @@
     <header>
       <span class="material-symbols-outlined"> grid_view </span>
       <h1>Notification</h1>
-      <span class="material-symbols-outlined"> logout </span>
+      <a href="./cust.html">
+        <span class="material-symbols-outlined"> logout </span>
+      </a>
     </header>
-    <section id="notificationContainer">
-      <div class="notification">
-        <div class="details">
-          <div class="mechDetail">
-            <div class="mech">
-              <img src="" alt="mech" />
-              <span class="material-symbols-outlined navigate"> distance </span>
-              <span class="material-symbols-outlined"> info </span>
-            </div>
-            <p>Your mechanic is arriving soon</p>
-          </div>
-          <div class="otp">
-            <h3>Your Otp : 3030</h3>
-            <p>Don't share with anyone</p>
-          </div>
-        </div>
-        <div class="button">
-          <button>
-            <span class="material-symbols-outlined"> phone_forwarded </span>
-            Call
-          </button>
-          <button id="cancel">
-            <span class="material-symbols-outlined"> cancel </span>
-            Cancel
-          </button>
-        </div>
-      </div>
-    </section>
+    <section id="notificationContainer"></section>
     <script src="../javascript/cus_profile.js"></script>
     <script>
       const logUser = JSON.parse(localStorage.getItem("oneUser"));
@@ -183,10 +158,19 @@
         }
       });
 
-      // console.log(notify);
-      console.log(notifications);
+      console.log(notify);
+      let bookings = JSON.parse(localStorage.getItem("bookings"));
+      let currentBooking = bookings.find((e) => {
+        if (e["bookingId"] == notify[0]["bookingId"]) {
+          return true;
+        }
+      });
+      if (currentBooking["bookingStatus"] == true) {
+        showNotification("#notificationContainer", currentBooking);
+      }
+
       console.log(logUser);
-      showNotification("#notificationContainer");
+      console.log(currentBooking);
     </script>
   </body>
 </html>

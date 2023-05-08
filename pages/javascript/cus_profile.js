@@ -1,11 +1,16 @@
+// geting the logged user data
 const cus = JSON.parse(localStorage.getItem("oneUser"));
+// getting customer data from local storage
 let customers = JSON.parse(localStorage.getItem("users"));
+// getting workshop data from local storage
 const workshops = JSON.parse(localStorage.getItem("workshops"));
+// finding the logged user data
 let log_cus = customers.find((e) => {
   if (e["user_id"] === cus) {
     return true;
   }
 });
+// finding the logged user's vehicle data
 Customer_vehicles = JSON.parse(localStorage.getItem("Customer_vehicles"));
 let cus_vehicle = Customer_vehicles.find((e) => {
   if (e["CustomerId"] === cus) {
@@ -13,15 +18,22 @@ let cus_vehicle = Customer_vehicles.find((e) => {
   }
 });
 
+// finding the index of the user data
 let index = customers.indexOf(log_cus);
+// finding the index of the user's vehicle data
 let vehicleIndex = Customer_vehicles.indexOf(cus_vehicle);
 
-let profileName = document.getElementById("h_name");
+// getting the html tag with the help of an id and assign a value
+let profileName = document.getElementById("h_name"); // user's name
+// user's Image
 let profileImage = document.getElementById("C_profile");
+// assigning a value into the variable
 profileName.innerText = "Hi ! " + log_cus["name"];
+// to show the user name in the profile editting page
 let P_name = document.getElementById("name");
 let P_phone = document.getElementById("phone");
 let P_password = document.getElementById("password");
+// assinging a value for those variable
 P_name.value = log_cus["name"];
 P_phone.value = log_cus["number"];
 P_password.value = log_cus["password"];
@@ -30,21 +42,25 @@ P_phone.setAttribute("disabled", true);
 // profile page
 
 //personal form ;
+// getting an id from a personal form
 let personal_form = document.getElementById("personal_form");
+// adding the event listener to listen submit event
 personal_form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let name = document.getElementById("name").value;
-  let profileName = document.getElementById("name");
+  e.preventDefault(); // prevent default actions  of form
+  let profileName = document.getElementById("name"); // getting html element of name
   profileName.addEventListener("change", () => {
-    let check = profileName.value;
-    let alp = hasnotAlphabet(check);
+    // added event listener to listen an event of change
+    let check = profileName.value; // getting value when it changed
+    let alp = hasnotAlphabet(check); // checking the value has alphabet
     if (alp === true) {
-      Notify.error("please enter name without a special character or number ");
+      Notify.error("please enter name without a special character or number "); // if alphabet has contain numbers or special characters give an alert
     }
     if (check.length > 15) {
-      Notify.error("not more than 15 characters ");
+      Notify.error("not more than 15 characters "); // if the number of characters is more than 15 gives an alert
     }
   });
+  // getting the data from the form
+  let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let address = document.getElementById("address").value;
   let city = document.getElementById("city_state").value;
@@ -54,9 +70,13 @@ personal_form.addEventListener("submit", (e) => {
 
   let object = { name, email, address, city, image };
 
+  // updating data with the previous data
   let updateObj = Object.assign(log_cus, object);
+  // updating the data
   customers[index] = updateObj;
+  // setting into local storage
   localStorage.setItem("users", JSON.stringify(customers));
+  // redirect to vehicle form
   openprofile("Vehicle", "W_pro");
 
   //disable the account
@@ -66,8 +86,10 @@ personal_form.addEventListener("submit", (e) => {
 
 //vehicle form
 const vehicle_Form = document.getElementById("vehicle_Form");
+// to listen submit event
 vehicle_Form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); // prevent default actions
+  // getting value from the form
   let vehicleType = document.getElementById("v_type").value;
   let fuelType = document.getElementById("f_type").value;
   let VehicleCompany = document.getElementById("v_company").value;
@@ -102,7 +124,9 @@ vehicle_Form.addEventListener("submit", (e) => {
     vehicleNumber,
     vehicleImage,
   };
+
   // pushing to vehicle array
+  // Assigning to existing data
   let update = Object.assign(cus_vehicle, vehicleObject);
   Customer_vehicles[vehicleIndex] = update;
   localStorage.setItem("Customer_vehicles", JSON.stringify(Customer_vehicles));
@@ -745,10 +769,11 @@ const four_wheeler_company = [
 ];
 
 // function to create company options
-
+// function  allow user to create company for the users
 function createCompany(array, id) {
   const options = document.getElementById(id);
   while (options.hasChildNodes()) {
+    // remove existing child elements
     options.firstChild.remove();
   }
 
@@ -763,13 +788,15 @@ function createCompany(array, id) {
 // function to create vehicles option
 
 function createVehicle(array, id, model) {
+  // function to append the  models of the vehicle according to the comapnay selected
   const options = document.getElementById(id);
   while (options.hasChildNodes()) {
-    options.firstChild.remove();
+    options.firstChild.remove(); // remove child elements
   }
-  let finded = array.find((F) => F.company === model);
+  let finded = array.find((F) => F.company === model); // finding the comapany
 
   for (let i = 0; i < finded["vehicles"].length; i++) {
+    // appending the model options
     let option = document.createElement("option");
     option.setAttribute("value", finded["vehicles"][i]);
     option.innerText = finded["vehicles"][i];
@@ -778,6 +805,7 @@ function createVehicle(array, id, model) {
 }
 //open profile
 function openprofile(serviceName, bId) {
+  // function enables user to open  the selected form
   var ser_cont, i, button;
   ser_cont = document.getElementsByClassName("container");
   for (i = 0; i < ser_cont.length; i++) {
@@ -819,7 +847,13 @@ function openprofile(serviceName, bId) {
 // }
 
 // function for notification div
-function showNotification(id) {
+function showNotification(id, obj) {
+  let mechanics = JSON.parse(localStorage.getItem("mechanics"));
+  let bookMech = mechanics.find((e) => {
+    if (e["user_id"] == obj["mechanicId"]) {
+      return true;
+    }
+  });
   // create the outer div element with class "notification"
   const notificationDiv = document.createElement("div");
   notificationDiv.classList.add("notification");
@@ -838,7 +872,7 @@ function showNotification(id) {
 
   // create the image element and set its source attribute to an empty string
   const imgElem = document.createElement("img");
-  imgElem.setAttribute("src", "");
+  imgElem.setAttribute("src", bookMech["profile_pic"]);
 
   // create the "distance" span element with class "material-symbols-outlined navigate"
   const distanceSpan = document.createElement("span");
@@ -869,7 +903,7 @@ function showNotification(id) {
 
   // create the "h3" element and set its text content to "Your Otp : 3030"
   const otpH3 = document.createElement("h3");
-  otpH3.textContent = "Your Otp : 3030";
+  otpH3.textContent = "Your Otp : " + obj["OTP"];
 
   // create the "p" element and set its text content to "Don't share with anyone"
   const otpP = document.createElement("p");
@@ -893,7 +927,11 @@ function showNotification(id) {
   callIcon.classList.add("material-symbols-outlined");
   callIcon.textContent = " phone_forwarded ";
   callButton.appendChild(callIcon);
-  callButton.appendChild(document.createTextNode("Call"));
+  const call = document.createElement("a");
+  call.setAttribute("href", "tel:" + bookMech["number"]);
+  call.innerText = "Call";
+
+  callButton.appendChild(call);
   buttonDiv.append(callButton);
 
   // create the "Cancel" button element with a "cancel" icon, red background color, and "Cancel" text content

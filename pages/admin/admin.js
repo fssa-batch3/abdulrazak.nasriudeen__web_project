@@ -70,6 +70,7 @@ function cusDetail(id) {
       return true;
     }
   });
+  console.log(selectVehicle);
 
   const profileImg = document.getElementById("pDetail_img");
   profileImg.setAttribute("src", selectCustomer["image"]);
@@ -82,7 +83,7 @@ function cusDetail(id) {
   const city = document.getElementById("dCity");
 
   // vehicle details
-  const vehicleId = document.getElementById("VehicleId");
+  const vehicleId = document.getElementById("vehicleId");
   const vehicleImage = document.getElementById("vehicleDetail_img");
   const type = document.getElementById("vehicleType");
   const fuel = document.getElementById("fuel");
@@ -100,7 +101,7 @@ function cusDetail(id) {
   city.innerText = selectCustomer["city"];
   // alert(id);
   // append value
-  vehicleId.innerText = selectVehicle["vehicleId"];
+  vehicleId.innerText = selectVehicle["VehicleId"];
   vehicleImage.setAttribute("src", selectVehicle["vehicleImage"]);
   type.innerText = selectVehicle["vehicleType"];
   fuel.innerText = selectVehicle["fuelType"];
