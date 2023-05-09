@@ -35,7 +35,7 @@ function createWorkshop(arr, id) {
       card.setAttribute("class", "shopDiv");
       // Creating work shop card's image
       let card_image = document.createElement("img");
-      card_image.setAttribute("src", arr[i]["w_img_1"]);
+      card_image.setAttribute("src", arr[i]["workshopImage"]);
       card_image.setAttribute("alt", "workshopImage");
       // appending image to the card
       card.append(card_image);

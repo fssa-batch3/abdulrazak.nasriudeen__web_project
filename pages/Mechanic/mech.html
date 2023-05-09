@@ -129,8 +129,8 @@
     <script src="../javascript/mechanic.js"></script>
     <script>
       const token = document.getElementById("tok");
-      token.addEventListener("mouseover", (e) => {
-        e = document.querySelector(".tokenDesc");
+      token.addEventListener("mouseover", () => {
+        let e = document.querySelector(".tokenDesc");
         e.style.display = "flex";
       });
 
