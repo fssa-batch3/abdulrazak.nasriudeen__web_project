@@ -482,10 +482,10 @@ bookingService.addEventListener("change", (e) => {
 });
 // appending the service
 appendList(electric, "#general", "serviceContent");
+appendList(maintanceService, "#brkdown", "serviceContent");
 appendList(repairService, "#standard", "serviceContent");
 appendList(upgrade, "#premieum", "serviceContent");
 appendList(electric, "#full", "serviceContent");
-appendList(maintanceService, "#brkdown", "serviceContent");
 
 // function for booking mechanic  ;
 
