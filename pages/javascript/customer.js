@@ -236,7 +236,7 @@ function workshopDetail(id) {
       return true;
     }
   });
-
+  console.log(selectmechanic);
   // using the found data showing to the user respectively
   // appending workshop
   // image
