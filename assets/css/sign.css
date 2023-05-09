@@ -1,12 +1,13 @@
 :root {
   --pink: #6610f2;
-  --red: #e83e8c;
-  --teal: #007bff;
+  --red: #fe3044;
+  --teal: #20c997;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
   --light: #f8f9fa;
   --dark: #343a40;
+  --red_2: #ff0019;
 }
 * {
   margin: 0px;
@@ -20,7 +21,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: black;
+  background-color: var(--dark);
 }
 section {
   position: relative;
@@ -77,7 +78,7 @@ form.sign-in-form {
 }
 .title {
   font-size: 35px;
-  color: var(--red);
+  color: var(--dark);
   margin-bottom: 10px;
 }
 .input-feild {
@@ -126,8 +127,9 @@ button {
   height: 50px;
   border: none;
   border-radius: 30px;
-  background-color: var(--red);
-  color: var(--white);
+  background-color: rgb(160, 160, 160);
+  color: black;
+  border: 3px solid black;
   font-weight: 600;
   font-size: 15px;
   margin: 10px 0;

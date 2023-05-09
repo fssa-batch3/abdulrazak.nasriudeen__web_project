@@ -131,7 +131,6 @@ section h2 {
   /* margin-left: 40%; */
   background-color: black;
   outline: none;
-  border: none;
   color: #fff;
   border: none;
 }
@@ -170,7 +169,7 @@ section h2 {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-image: url("../images/customer/breakdown].png");
+  background-image: url("../images/customer/breakdown.png");
   background-size: cover;
   /* background-repeat: no-repeat; */
   background-position: center;
