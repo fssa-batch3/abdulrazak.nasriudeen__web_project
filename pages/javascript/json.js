@@ -5,31 +5,31 @@ let sec_2_data = [
     title: "Courteous",
     Description:
       "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/home/sec2_image1.jpg", alt: "cont" },
+    image: { src: "./assets/images/home/sec2_image1.jpg", alt: "Courteous" },
   },
   {
-    title: "Courteous",
+    title: "Trust Worthy",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Connect with certified mechanics who provide expert and trustworthy car repairs and maintenance services through our online mechanic app.",
+    image: { src: "./assets/images/home/trust.jpg", alt: "cont" },
   },
   {
-    title: "Courteous",
+    title: "Affordable",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Access a range of maintenance services, Get quality car repairs and maintenance services at a fair price with our Reparo.",
+    image: { src: "./assets/images/home/affordable.png", alt: "cont" },
   },
   {
-    title: "Courteous",
+    title: "Expert Mechanics",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Our app connects you with highly skilled mechanics who have the knowledge and experience to diagnose and repair any issue with your vehicle. ",
+    image: { src: "./assets/images/home/expert mechanic.jpg", alt: "cont" },
   },
   {
-    title: "Courteous",
+    title: "Convenient ",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Our app makes it easy to get the car repairs and maintenance services you need. Simply book an appointment, and our mechanics will provide quality service at a fair price.",
+    image: { src: "./assets/images/home/convinient.jpg", alt: "cont" },
   },
 ];
 

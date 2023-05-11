@@ -43,7 +43,9 @@ function checkUser(obj) {
 
     // Return validation variable
     return validation;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // function to create User

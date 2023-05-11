@@ -24,6 +24,18 @@ let cus_vehicle = Customer_vehicles.find((e) => {
     return true;
   }
 });
+// selected vehicle type workshops
+let workshopVehicleType = workshops.filter((e) => {
+  if (cus_vehicle["vehicleType"] == e["workshopType"]) {
+    return true;
+  }
+});
+// selected workshop location
+let workshopLocation = workshopVehicleType.filter((e) => {
+  if (log_cus["city"] == e["workshopCity"]) {
+    return true;
+  }
+});
 
 // creates workshop card to show to users
 function createWorkshop(arr, id) {
@@ -183,7 +195,7 @@ function createWorkshop(arr, id) {
   } catch (error) {}
 }
 
-createWorkshop(workshops, "nearByShops"); // creating workshops cards
+createWorkshop(workshopLocation, "nearByShops"); // creating workshops cards
 
 // this function allows the user to delete their account
 function delUser() {

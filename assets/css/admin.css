@@ -72,7 +72,7 @@ img {
 }
 .a_pro {
   border-radius: 30px;
-  border: 3px solid #ff4154;
+  border: 3px solid #fe3044;
   width: 100%;
 }
 
@@ -83,7 +83,7 @@ img {
   top: 60px;
   width: 260px;
   height: calc(100% - 60px);
-  background: #ff4154;
+  background: #fe3044;
   overflow-x: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   z-index: 2;
