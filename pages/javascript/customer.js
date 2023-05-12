@@ -172,7 +172,7 @@ function createWorkshop(arr, id) {
         "https://www.google.com/maps/search/" +
           arr[i]["workshopAddress"] +
           "," +
-          arr[i]["city"]
+          arr[i]["workshopCity"]
       );
 
       view_p.innerText = "view";
@@ -302,7 +302,7 @@ function workshopDetail(id) {
     "https://www.google.com/maps/search/" +
       selectWorkshop["workshopAddress"] +
       "," +
-      selectWorkshop["city"]
+      selectWorkshop["workshopCity"]
   );
   // showing the service data to the customer
   const generalCost = document.getElementById("generalCost");
