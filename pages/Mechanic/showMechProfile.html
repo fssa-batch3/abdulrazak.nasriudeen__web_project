@@ -182,12 +182,12 @@
             <p id="showpassword"></p>
           </label>
           <label class="detail">
-            <h3>Address :</h3>
-            <p id="showaddress"></p>
+            <h3>Experience :</h3>
+            <p id="showexperience"></p>
           </label>
           <label class="detail">
-            <h3>City :</h3>
-            <p id="showcity"></p>
+            <h3>Specialized in</h3>
+            <p id="showSpl"></p>
           </label>
         </div>
         <div>
@@ -267,8 +267,8 @@
         const sNum = document.getElementById("showphone");
         const semail = document.getElementById("showemail");
         const spassword = document.getElementById("showpassword");
-        const saddress = document.getElementById("showaddress");
-        const scity = document.getElementById("showcity");
+        const sexp = document.getElementById("showexperience");
+        const sspl = document.getElementById("showSpl");
         const workShopImage = document.getElementById("workShopImage");
         const showWorkName = document.getElementById("showWorkName");
         const showWorkNum = document.getElementById("showWorkNum");
@@ -294,8 +294,8 @@
         sNum.innerText = log_cus["number"];
         semail.innerText = log_cus["email"];
         spassword.innerText = "# # # # # #";
-        saddress.innerText = log_cus["address"];
-        scity.innerText = log_cus["city"];
+        sexp.innerText = log_cus["experience"];
+        sspl.innerText = log_cus["experience"];
         sImage.setAttribute("src", log_cus["image"]);
 
         workShopImage.setAttribute("src", mechWorkshop["workshopImage"]);
