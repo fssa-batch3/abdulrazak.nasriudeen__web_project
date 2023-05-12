@@ -216,7 +216,9 @@
       const getLink = window.location.search;
       const url = new URLSearchParams(getLink);
       const bookingId = url.get("bookingId");
-      createBookingOtp(bookingId);
+      localStorage.setItem("mechBookingId",JSON.stringify(bookingId);
+       let bookId = JSON.parse(localStorage.getItem("mechBookingId"));
+      createBookingOtp(bookId);
     </script>
   </body>
 </html>
