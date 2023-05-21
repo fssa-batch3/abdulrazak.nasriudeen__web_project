@@ -48,6 +48,112 @@
         justify-content: center;
         gap: 4%;
       }
+
+      .section {
+        width: 1100px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 3%;
+      }
+      .notify {
+        width: 480px;
+        height: 450px;
+        margin-top: 30px;
+        background-color: rgb(209, 234, 255);
+        display: flex;
+        flex-direction: column;
+        gap: 3%;
+        border-radius: 30px;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+      }
+      .separate {
+        width: 450px;
+        height: 170px;
+        border-radius: 20px;
+        display: flex;
+        gap: 4%;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+      }
+      .buttonContain {
+        width: 95%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5%;
+      }
+      .buttonContain button {
+        width: 40%;
+        height: 100%;
+        border-radius: 50px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3%;
+      }
+      .buttonContain button p {
+        font-size: 18px;
+      }
+      .separate img {
+        width: 30%;
+        height: 90%;
+        background-color: white;
+        border-radius: 10px;
+      }
+      .container {
+        width: 60%;
+        height: 90%;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .content {
+        width: 95%;
+        height: 30px;
+        margin-top: 6.5px;
+        background-color: aliceblue;
+        border-radius: 5px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding-left: 5px;
+        gap: 3%;
+      }
+      /* accept button
+       */
+      .accept {
+        background-color: rgb(12, 255, 142);
+        color: white;
+      }
+      .accept:hover {
+        cursor: pointer;
+        background-color: white;
+        border: 2px solid rgb(12, 255, 142);
+        color: black;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .reject {
+        background-color: #f94758;
+        color: white;
+      }
+      .reject:hover {
+        cursor: pointer;
+        background-color: white;
+        border: 2px solid #f94758;
+        color: black;
+      }
       .bookingOtp {
         width: 300px;
         height: 500px;
@@ -153,6 +259,12 @@
         border-radius: 20px;
         border: 1px solid black;
       }
+      a {
+        color: white;
+      }
+      a span:hover {
+        color: red;
+      }
     </style>
   </head>
 
@@ -160,7 +272,9 @@
     <header>
       <span class="material-symbols-outlined"> activity_zone </span>
       <h1>Activity</h1>
-      <span class="material-symbols-outlined"> logout </span>
+      <a href="./mech.html">
+        <span class="material-symbols-outlined"> logout </span>
+      </a>
     </header>
     <section id="otpValidation">
       <!-- <div class="bookingOtp">
@@ -210,13 +324,53 @@
         </div>
       </div> -->
     </section>
+    <div class="section" id="notification"></div>
+
+    <button id="location">click</button>
     <script src="../javascript/mechanicCard.js"></script>
     <script src="../javascript/mechanic.js"></script>
     <script>
-      const getLink = window.location.search;
-      const url = new URLSearchParams(getLink);
-      const bookingId = url.get("bookingId");
-      createBookingOtp(bookingId);
+      // const getLink = window.location.search;
+      // const url = new URLSearchParams(getLink);
+      // const bookingId = url.get("bookingId");
+
+      notificationCard(logMechActivities);
+    </script>
+    <script>
+      let input_location = document.getElementById("location");
+      input_location.addEventListener("click", () => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        } else {
+          alert("Your browser is not supported");
+        }
+      });
+
+      function onSuccess(position) {
+        let { latitude, longitude } = position.coords;
+        console.log(latitude, longitude);
+        fetch(
+          `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=e7e715b41e75420e97ab4ff7d89a802a`
+        )
+          .then((Response) => Response.json())
+          .then((result) => {
+            let allDetails = result.results[0].components;
+            let { city_district } = allDetails;
+            console.log(result);
+            console.log(allDetails);
+            // input_location.value = `${city_district}`;
+          });
+      }
+
+      function onError(error) {
+        if (error.code == 1) {
+          alert("You denied the location request");
+        } else if (error.code == 2) {
+          alert("Location not availale");
+        } else {
+          alert("Something went wrong");
+        }
+      }
     </script>
   </body>
 </html>

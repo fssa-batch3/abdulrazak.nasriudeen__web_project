@@ -65,6 +65,115 @@
     <!-- header ends ---------------------------------------- -->
     <!-- section 1  -->
     <section style="margin-top: 100px; flex-direction: row">
+      <form action="" id="signUpForm">
+        <h2>
+          Sign Up
+          <span class="material-symbols-outlined" id="signLogOut">
+            exit_to_app
+          </span>
+        </h2>
+        <div class="inputContainer">
+          <span class="material-symbols-outlined"> badge </span>
+          <input
+            required
+            type="text"
+            name=""
+            id="name"
+            pattern="[A-Za-z ]{3,20}"
+            placeholder="Enter your Name "
+          />
+        </div>
+        <div class="inputContainer">
+          <span class="material-symbols-outlined"> call </span>
+          <input
+            required
+            type="text"
+            name=""
+            id="number"
+            pattern="[0-9]{10}"
+            placeholder="Enter your Number "
+          />
+        </div>
+        <div class="inputContainer">
+          <span class="material-symbols-outlined"> key </span>
+          <input
+            required
+            type="text"
+            name=""
+            id="password"
+            pattern="[A-Za-z0-9]{3,6}"
+            placeholder="Enter a password "
+          />
+        </div>
+        <div class="inputContainer">
+          <span class="material-symbols-outlined"> key </span>
+          <input
+            required
+            pattern="[A-Za-z0-9]{3,6}"
+            type="text"
+            name=""
+            id="confirmPassword"
+            placeholder="Confirm  password "
+          />
+        </div>
+
+        <button type="submit">Verify number</button>
+        <h4>Already have an account ?</h4>
+        <h5><span class="material-symbols-outlined"> api </span>login here</h5>
+      </form>
+      <form action="" id="otpVerify">
+        <h1>Number Verification</h1>
+        <p>Please enter the OTP send to your number</p>
+        <h4>
+          <p id="otpNumber"></p>
+          <p><span class="material-symbols-outlined"> edit </span>Edit</p>
+        </h4>
+        <div class="inputContainer">
+          <span class="material-symbols-outlined"> tag </span>
+          <input
+            type="text"
+            required
+            pattern="[0-Z]{4}"
+            name=""
+            id="otpValue"
+            placeholder="Enter OTP "
+          />
+        </div>
+        <button type="submit">Verfiy OTP</button>
+        <p>Haven't receive Your OTP ?</p>
+        <p>Click below to resend</p>
+        <h5>
+          <span class="material-symbols-outlined">
+            settings_backup_restore
+          </span>
+          resend Otp
+        </h5>
+      </form>
+      <form action="" id="loginForm">
+        <h1>Login</h1>
+        <div class="inputContainer">
+          <span class="material-symbols-outlined"> call </span>
+          <input
+            type="text"
+            name=""
+            id="loginNumber"
+            placeholder="Enter Your Number "
+          />
+        </div>
+        <div class="inputContainer">
+          <span class="material-symbols-outlined"> key </span>
+          <input
+            type="text"
+            name=""
+            id="loginPassword"
+            placeholder="Enter Your password "
+          />
+        </div>
+        <button type="submit">Login</button>
+        <h4>Forget your password ?</h4>
+        <h4>login with</h4>
+        <h5>OTP</h5>
+      </form>
       <div class="hero_left">
         <div class="upper">
           <img src="./assets/images/home/mechanic-holding-spanner.png" alt="" />
@@ -78,152 +187,14 @@
           Find amazing service for your vehicle<br />
           Handily connects you with the amazing professional Mechanic
         </p>
-        <a class="button" href="./pages/sign.html">
-          <span class="button-content">Sign Up</span>
-        </a>
+        <button id="signButton">Sign Up</button>
       </div>
+
       <!-- <img
         src="./assets/images/hero wallpaper (2).png"
         class="wallpaper"
         alt="hero wallpaper"
       /> -->
-      <div id="sign_popup" class="signup">
-        <div class="sign_h">
-          <h2>Sign-up</h2>
-          <span
-            onclick="Sign_closePopup() "
-            style="color: red"
-            class="material-symbols-outlined"
-          >
-            logout</span
-          >
-        </div>
-        <form class="sign_m" id="sign_form">
-          <div class="input-group">
-            <input
-              required=""
-              type="text"
-              autocomplete="off"
-              pattern="[A-Za-z]{1,32}"
-              class="input"
-              id="userName"
-              title="doesnt get space"
-            />
-            <label class="user-label"> Name</label>
-          </div>
-          <div class="input-group">
-            <input
-              required="true"
-              type="email"
-              autocomplete="off"
-              class="input"
-              id="userEmail"
-            />
-            <label class="user-label">Email-id</label>
-          </div>
-          <div class="input-group">
-            <input
-              required="true"
-              type="number"
-              pattern="[0-9]{1,10}"
-              autocomplete="off"
-              class="input"
-              id="userPhone"
-              title="doesnt get space"
-            />
-            <label class="user-label">Phone-Number</label>
-          </div>
-          <div class="input-group">
-            <input
-              required=""
-              type="password"
-              autocomplete="off"
-              class="input"
-              id="userPassword"
-            />
-            <label class="user-label">create-password</label>
-          </div>
-          <div class="input-group">
-            <input
-              required=""
-              type="password"
-              autocomplete="off"
-              class="input"
-              id="confirmPassword"
-            />
-            <label class="user-label">confirm-password</label>
-          </div>
-          <div class="radioContainer" style="display: flex">
-            <label for="Customercheck"
-              >Customer
-              <input
-                type="radio"
-                id="Customercheck"
-                name="select"
-                value="customer"
-              />
-            </label>
-            <label for="MechanicCheck"
-              >Mechanic
-              <input
-                type="radio"
-                id="MechanicCheck"
-                name="select"
-                value="mechanic"
-              />
-            </label>
-          </div>
-
-          <button onclick="" type="submit" class="button" id="submit">
-            <span class="button-content">Create account</span>
-          </button>
-        </form>
-        <p>Or</p>
-        <button style="background-color: var(--pink)" class="button">
-          <span class="button-content">Continue with Google </span>
-        </button>
-      </div>
-      <!-- login -->
-      <div id="log_popup" class="signup">
-        <div class="sign_h">
-          <h2>Login</h2>
-          <span
-            onclick="log_closePopup()"
-            style="color: red"
-            class="material-symbols-outlined"
-          >
-            logout</span
-          >
-        </div>
-        <form class="sign_m" id="Log_form">
-          <div class="input-group">
-            <input
-              required=""
-              type="number"
-              name="text"
-              autocomplete="off"
-              class="input"
-              id="Number"
-            />
-            <label class="user-label">Phone-Number</label>
-          </div>
-          <div class="input-group">
-            <input
-              required=""
-              type="password"
-              name="text"
-              autocomplete="off"
-              class="input"
-              id="Pass"
-            />
-            <label class="user-label">password</label>
-          </div>
-
-          <button class="button" type="submit">
-            <span class="button-content">login</span>
-          </button>
-        </form>
-      </div>
     </section>
     <!-- section 1 ended -->
     <!-- section 2 started -->
@@ -341,23 +312,44 @@
         <button class="button">learn more</button>
       </div>
     </section>
-    <section class="sec6">
-      <div class="msg">
-        <img src="./assets/images/home/Messages-pana.png" alt="Message" />
-        <h2>Send us Message</h2>
-        <p>Email us with a simple form and we'll respond within 5 to 6 days</p>
-        <button class="button">Send message</button>
+    <!-- workshop's div  -->
+    <div class="workShopContainer">
+      <h2>If you have a workshop</h2>
+      <h3>we are here to connect you to our customer</h3>
+      <div class="workshopCont">
+        <img
+          src="./assets/images/home/workshop/car-repair.png"
+          alt="repair car"
+        />
+        <img src="./assets/images/home/workshop/right.png" alt="right" />
+        <img
+          src="./assets/images/home/workshop/smartphone (1).png"
+          alt="mobile"
+        />
+        <img src="./assets/images/home/workshop/right.png" alt="right" />
+        <div class="workShopSignUp">
+          <img
+            src="./assets/images/home/workshop/mechanics.png"
+            alt="workshop img"
+          />
+        </div>
       </div>
-      <div class="complaint">
-        <img src="./assets/images/home/complaint.jpg" alt="COMPLAINT" />
-        <h2>Make a Complaint</h2>
+      <h2>
+        More than 2000 Workshop Registered <br />and getting beniffitted daily
+        through our application
+      </h2>
+      <div class="workShopBottom">
         <p>
-          If You're not happy with the service which you got from our company,
-          call us or send us an email and let us know
+          "Looking to start a career in the automotive industry? Our online
+          vehicle workshop service offers a convenient pathway to success. Join
+          our program, acquire hands-on experience, and unlock job opportunities
+          in the automotive sector."
         </p>
-        <button class="button">Make a Complaint</button>
+        <a href="./pages/workShopSignUp.html">
+          <button>Register Your workshop</button>
+        </a>
       </div>
-    </section>
+    </div>
     <section class="reviewSection">
       <h2>Our Reviews</h2>
       <div class="reviewButton">
@@ -449,6 +441,24 @@
         </div>
       </div>
     </section>
+    <section class="sec6">
+      <div class="msg">
+        <img src="./assets/images/home/Messages-pana.png" alt="Message" />
+        <h2>Send us Message</h2>
+        <p>Email us with a simple form and we'll respond within 5 to 6 days</p>
+        <button class="button">Send message</button>
+      </div>
+      <div class="complaint">
+        <img src="./assets/images/home/complaint.jpg" alt="COMPLAINT" />
+        <h2>Make a Complaint</h2>
+        <p>
+          If You're not happy with the service which you got from our company,
+          call us or send us an email and let us know
+        </p>
+        <button class="button">Make a Complaint</button>
+      </div>
+    </section>
+
     <footer>
       <div class="contact">
         <h2>Contact Us</h2>
@@ -469,7 +479,10 @@
         </div>
       </div>
     </footer>
+    <!-- <script src="./assets/javascript/firebase.js" type="module"></script> -->
 
+    <script type="module" src="./assets/javascript/index.js"></script>
+    <script src="./assets/javascript/buildedfunction.js"></script>
     <script src="./pages/javascript/json.js"></script>
   </body>
 </html>

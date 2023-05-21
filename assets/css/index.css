@@ -829,3 +829,169 @@ footer {
 .social-icons a:hover i {
   color: #333333;
 }
+.workShopContainer {
+  height: 700px;
+  width: 100%;
+  gap: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #dcdcdc;
+}
+.workShopContainer h2 {
+  font-size: 40px;
+  width: 95%;
+  margin-top: 20px;
+}
+.workShopContainer h1 {
+  margin-top: 50px;
+  width: 100%;
+  margin-left: 30px;
+}
+.workShopContainer h3 {
+  /* margin-left: 30px; */
+  /* width: 100%; */
+  font-size: 20px;
+  width: 95%;
+}
+.workShopSignUp {
+  position: relative;
+}
+.workShopBottom button {
+  /* position: absolute; */
+  /* top: 18%; */
+  width: 200px;
+  height: 60px;
+  font-size: 16px;
+  /* left: 21%; */
+  border-radius: 20px;
+  border: 2px solid black;
+  background-color: black;
+  color: #f2f5ff;
+}
+.workShopBottom button:hover {
+  cursor: pointer;
+  background-color: #f2f5ff;
+  color: black;
+}
+.workshopCont {
+  margin-top: 60px;
+  display: flex;
+  gap: 5%;
+  width: 90%;
+  align-items: center;
+  /* border-bottom: 2px solid black; */
+  /* padding-bottom: 35px; */
+}
+.workShopBottom {
+  display: flex;
+  gap: 20%;
+  justify-content: start;
+  width: 100%;
+}
+.workShopBottom p {
+  width: 60%;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+#signUpForm,
+#otpVerify,
+#loginForm {
+  width: 400px;
+  margin-top: -100px;
+  height: 550px;
+  position: fixed;
+  background-color: var(--light);
+  border: 2px solid black;
+  border-radius: 30px;
+  display: none;
+  align-items: center;
+  padding-top: 10px;
+  gap: 5%;
+
+  flex-direction: column;
+}
+span {
+  color: black;
+}
+#otpVerify,
+#loginForm {
+  height: 350px;
+  width: 350px;
+  gap: 4%;
+}
+
+#otpVerify h4 {
+  width: 100%;
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+#otpVerify h4 p {
+  display: flex;
+  align-items: center;
+  color: var(--red);
+}
+.inputContainer {
+  width: 90%;
+  height: 50px;
+  background-color: white;
+  border-radius: 20px;
+  gap: 5%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputContainer span {
+  color: black;
+  font-size: 2.5pc;
+}
+.inputContainer input {
+  width: 80%;
+  height: 90%;
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: black;
+}
+.inputContainer input::placeholder {
+  color: black;
+}
+form button {
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+}
+h2 span {
+  color: red;
+  padding-right: 20px;
+  font-size: 2pc;
+}
+form h2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 30%;
+}
+form h5 {
+  display: flex;
+  align-items: center;
+  color: black;
+  width: 25%;
+  justify-self: center;
+  gap: 5%;
+  color: #20c997;
+  border-bottom: 1px solid black;
+}
+h5 span {
+  color: black;
+  font-size: 20px;
+}

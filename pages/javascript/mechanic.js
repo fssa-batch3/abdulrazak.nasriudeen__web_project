@@ -334,7 +334,7 @@ let logMechActivities = mechNotifications.filter((e) => {
   }
 });
 
-notificationCard(logMechActivities);
+// notificationCard(logMechActivities);
 
 // function to accept booking
 function acceptBooking(id) {
@@ -348,8 +348,10 @@ function acceptBooking(id) {
   if (con == true) {
     acceptBooking["bookingStatus"] = true;
     acceptBooking["OTP"] = generateOTP();
+    acceptBooking["otpStatus"] = false;
     let index = bookings.indexOf(acceptBooking);
     bookings[index] = acceptBooking;
+    // customer Notification
     let cusAct = JSON.parse(localStorage.getItem("customerActivity"));
     let cusNotification = cusAct["notification"];
     let obj = {
@@ -358,8 +360,18 @@ function acceptBooking(id) {
       notificationId: Date.now(),
     };
     cusNotification.push(obj);
-    localStorage.setItem("customerActivity", JSON.stringify(cusAct));
 
+    localStorage.setItem("customerActivity", JSON.stringify(cusAct));
+    //mechanic activity
+    let mechActivity = JSON.parse(localStorage.getItem("mechActivity"));
+    let mechanicAct = mechActivity["activity"];
+    let mechanicActObj = {
+      bookingId: acceptBooking["bookingId"],
+      mechId: acceptBooking["mechanicId"],
+    };
+    mechanicAct.push(mechanicActObj);
+    localStorage.setItem("mechActivity", JSON.stringify(mechActivity));
+    // mechanic activity
     localStorage.setItem("bookings", JSON.stringify(bookings));
     window.location.href =
       "./mechActivity.html?bookingId=" + acceptBooking["bookingId"];
