@@ -330,6 +330,7 @@
     <script src="../javascript/mechanicCard.js"></script>
     <script src="../javascript/mechanic.js"></script>
     <script>
+<<<<<<< HEAD
       // const getLink = window.location.search;
       // const url = new URLSearchParams(getLink);
       // const bookingId = url.get("bookingId");
@@ -371,6 +372,14 @@
           alert("Something went wrong");
         }
       }
+=======
+      const getLink = window.location.search;
+      const url = new URLSearchParams(getLink);
+      const bookingId = url.get("bookingId");
+      localStorage.setItem("mechBookingId",bookingId);
+       let bookId = localStorage.getItem("mechBookingId");
+      createBookingOtp(bookId);
+>>>>>>> 511971f43a15c32226a9aabc0a7c80613cf75acd
     </script>
   </body>
 </html>
