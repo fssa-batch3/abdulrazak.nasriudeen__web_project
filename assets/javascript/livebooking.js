@@ -21,6 +21,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 let db = getDatabase();
+const starCountRef = ref(db, "bookings/");
+onValue(starCountRef, (snapshot) => {
+  let bookings = snapshot.val();
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+});
 
 const liveBooking = document.getElementById("liveBooking");
 liveBooking.addEventListener("submit", (e) => {
@@ -57,9 +62,28 @@ liveBooking.addEventListener("submit", (e) => {
     vehicleNumber,
     vehicleProblem,
   };
-  bookings.push(bookObj);
-  localStorage.setItem("bookings", JSON.stringify(bookings));
-  set(ref(db, "bookings/"), bookings);
+  let alreadyRaised = false;
+
+  let check = bookings.find((e) => {
+    if (e["customer_id"] == customer_id) {
+      if (e["raisedStatus"] == true) {
+        alreadyRaised = true;
+        return true;
+      }
+    }
+  });
+  if (alreadyRaised == true) {
+    alert("You already raised a booking cancel that to book another ");
+    window.location.href = "./customerActivity.html";
+    return;
+  } else {
+    bookings.push(bookObj);
+    set(ref(db, "bookings/"), bookings);
+    window.location.href = "./customerActivity.html";
+  }
+  // bookings.push(bookObj);
+  // localStorage.setItem("bookings", JSON.stringify(bookings));
+  //
 
   // let checkBookingCustomerArr = bookings.find((e) => {
   //   if (e["customer_id"] == customer_id && e["raisedStatus"] == true) {
