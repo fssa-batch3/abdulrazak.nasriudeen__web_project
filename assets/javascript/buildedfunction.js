@@ -47,49 +47,66 @@ function generateOTP() {
 }
 
 // function to check existing user
-function checkUser(obj) {
-  try {
-    // Initialize empty arrays for users and mechanics
-    let users = [];
-    if (localStorage.getItem("users") != null) {
-      // If users exist in localStorage, parse and assign to users array
-      users = JSON.parse(localStorage.getItem("users"));
-    }
-    let workshops = [];
-    if (localStorage.getItem("workshops") != null) {
-      // If mechanics exist in localStorage, parse and assign to mechanics array
-      workshops = JSON.parse(localStorage.getItem("workshops"));
-    }
+// function checkUser(obj) {
+//   try {
+//     // Initialize empty arrays for users and mechanics
+//     let users = [];
+//     if (localStorage.getItem("users") != null) {
+//       // If users exist in localStorage, parse and assign to users array
+//       users = JSON.parse(localStorage.getItem("users"));
+//     }
+//     let workshops = [];
+//     if (localStorage.getItem("workshops") != null) {
+//       // If mechanics exist in localStorage, parse and assign to mechanics array
+//       workshops = JSON.parse(localStorage.getItem("workshops"));
+//     }
 
-    // Initialize validation variable to false
-    let validation = false;
+//     // Initialize validation variable to false
+//     let validation = false;
 
-    // Check if user with given phone number already exists
-    const customer = users.find((e) => {
-      if (obj["number"] === e["number"]) {
-        // If user already exists, set validation to true and display error message
-        validation = true;
-        Notify.error("User Already present please try to login");
-        // container.classList.add("sign-up-mode");
-        return true;
-      }
+//     // Check if user with given phone number already exists
+//     const customer = users.find((e) => {
+//       alert("check");
+//       console.log(users);
+//       if (obj["number"] == e["number"]) {
+//         alert("exists");
+//         // If user already exists, set validation to true and display error message
+//         // container.classList.add("sign-up-mode");
+//         return true;
+//       }
+//       return true;
+//     });
+
+//     console.log(obj["number"]);
+//     console.log(customer);
+
+//     // Check if mechanic with given phone number already exists
+//     const workshop = workshops.find((e) => {
+//       if (obj["ownerNumber"] === e["ownerNumber"]) {
+//         // If mechanic already exists, set validation to true and display error message
+//         validation = true;
+//         Notify.error("User Already present please try to login ");
+//         return true;
+//       }
+//       return true;
+//     });
+
+//     // Return validation variable
+//     return validation;
+//   } catch (error) {}
+// }
+// function to check existing users
+function checkUserFunction(obj) {
+  let validation = false;
+  let users = JSON.parse(localStorage.getItem("users"));
+  let checkUser = users.find((e) => {
+    if (obj["number"] == e["number"]) {
+      alert("exists");
+      validation = true;
       return true;
-    });
-
-    // Check if mechanic with given phone number already exists
-    const workshop = workshops.find((e) => {
-      if (obj["ownerNumber"] === e["ownerNumber"]) {
-        // If mechanic already exists, set validation to true and display error message
-        validation = true;
-        Notify.error("User Already present please try to login ");
-        return true;
-      }
-      return true;
-    });
-
-    // Return validation variable
-    return validation;
-  } catch (error) {}
+    }
+  });
+  return validation;
 }
 
 // login
@@ -111,6 +128,7 @@ function read(num, pass) {
         //if password matches
         if (pass === user["password"]) {
           //show success message and store the user id in localstorage
+          window.location.href = "./pages/customer/cust.html";
           alert(customerName + "! Your account logged in successfully");
           localStorage.setItem("LogUser", JSON.stringify(user["user_id"]));
           //if email not provided, redirect to profile page

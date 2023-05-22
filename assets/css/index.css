@@ -895,10 +895,8 @@ footer {
   font-size: 20px;
 }
 
-#signUpForm,
-#otpVerify,
-#loginForm {
-  width: 400px;
+form {
+  width: 350px;
   margin-top: -100px;
   height: 550px;
   position: fixed;
@@ -920,6 +918,12 @@ span {
   height: 350px;
   width: 350px;
   gap: 4%;
+}
+#loginForm {
+  display: none;
+  /* z-index: ; */
+  position: absolute;
+  left: 30%;
 }
 
 #otpVerify h4 {

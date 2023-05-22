@@ -28,970 +28,257 @@
       rel="stylesheet"
     />
 
-    <title>Customer page</title>
-    <link rel="stylesheet" href="../../assets/css/admin.css" />
-    <link rel="stylesheet" href="../../assets/css/cust.css" />
+    <title>Customer Dashboard</title>
+    <!-- <link rel="stylesheet" href="../../assets/css/admin.css" /> -->
+    <link rel="stylesheet" href="../../assets/css/customer.css" />
   </head>
 
   <body>
-    <div class="container">
-      <div class="sidebar">
-        <img src="../../assets/images/logo.png" alt="" />
+    <nav>
+      <img src="../../assets/images/logo.png" alt="logo" />
+      <ul>
+        <li>
+          <a href="./cust.html" style="background-color: white; color: #fe3044">
+            <i class="material-symbols-outlined"> dashboard </i>
+            <p>Home</p>
+          </a>
+        </li>
 
-        <ul>
-          <li>
-            <a href="./cust.html">
-              <i class="material-symbols-outlined"> dashboard </i>
-              <div>Home</div>
-            </a>
-          </li>
+        <li>
+          <a href="./customerActivity.html">
+            <i class="material-symbols-outlined"> activity_zone </i>
+            <p>Your Activity</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="material-symbols-outlined"> shopping_cart </i>
+            <p>Our Products</p>
+          </a>
+        </li>
+        <li>
+          <a href="./showprofile.html">
+            <i class="material-symbols-outlined"> account_circle </i>
+            <p>Profile</p>
+          </a>
+        </li>
+        <li>
+          <a href="./customerNotification.html">
+            <i class="material-symbols-outlined"> notifications </i>
+            <p>Notifications</p>
+          </a>
+        </li>
+        <li>
+          <a href="" id="settings">
+            <i class="material-symbols-outlined"> settings </i>
+            <p>Settings</p>
+          </a>
+        </li>
+        <!-- <li>
+          <a onclick="delUser()">
+            <i class="material-symbols-outlined"> delete </i>
+            <div>Delete Account</div>
+          </a>
+        </li> -->
 
-          <li>
-            <a href="">
-              <i class="material-symbols-outlined"> activity_zone </i>
-              <div>Your Activity</div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="material-symbols-outlined"> shopping_cart </i>
-              <div>Our Products</div>
-            </a>
-          </li>
-          <li>
-            <a href="./showprofile.html">
-              <i class="material-symbols-outlined"> account_circle </i>
-              <div>Profile</div>
-            </a>
-          </li>
-          <li>
-            <a href="./customerNotification.html">
-              <i class="material-symbols-outlined"> notifications </i>
-              <div>Notifications</div>
-            </a>
-          </li>
-          <li>
-            <a href="" id="settings">
-              <i class="material-symbols-outlined"> settings </i>
-              <div>Settings</div>
-            </a>
-          </li>
-          <li>
-            <a onclick="delUser()">
-              <i class="material-symbols-outlined"> delete </i>
-              <div>Delete Account</div>
-            </a>
-          </li>
-          <li>
-            <a href="../../index.html">
-              <i class="material-symbols-outlined"> logout </i>
-              <div>log Out</div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="material-symbols-outlined"> contact_support </i>
-              <div>Help</div>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <!-- <div class="main">
-        <div class="bookingStatus">
-          <div class="bookingStatus-container">
-            <span class="material-symbols-outlined locationIcon">
-              sensors
-            </span>
-            <h3>
-              Request sent
-              <span class="material-symbols-outlined"> done_outline </span>
-            </h3>
-            <p>Waiting for the mechanic to accept</p>
+        <!-- <li>
+          <a href="#">
+            <i class="material-symbols-outlined"> contact_support </i>
+            <div>Help</div>
+          </a>
+        </li> -->
+        <li>
+          <a href="../../index.html">
+            <i class="material-symbols-outlined"> logout </i>
+            <div>log Out</div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="section">
+      <h1 id="userName"></h1>
+      <p>
+        Stuck on the road? <br />
+        Don't fret, our expert mechanics fix your vehicle.
+      </p>
+      <h1>Please fill the details to contact you !</h1>
+      <form class="sectionForm" id="liveBooking">
+        <div class="form">
+          <h3>Enter Location and vehicle details</h3>
+          <div class="inputFeild">
+            <h5>Select Country:</h5>
+            <select name="Country" id="countries" required>
+              <option value="">Select Your country</option>
+            </select>
+            <span class="material-symbols-outlined"> flag </span>
           </div>
+          <div class="inputFeild">
+            <h5>Select State:</h5>
+            <select name="State" id="state" required>
+              <option value="">Select Your State</option>
+            </select>
+            <span class="material-symbols-outlined"> domain </span>
+          </div>
+          <div class="inputFeild">
+            <h5>Select District:</h5>
+            <select name="district" id="district" required>
+              <option value="">Select Your district</option>
+            </select>
+            <span class="material-symbols-outlined"> location_city </span>
+          </div>
+          <div class="inputAddressFeild">
+            <h4>Enter Address</h4>
+            <input type="text" id="address" required />
+          </div>
+          <button>
+            <span class="material-symbols-outlined"> distance </span>Get
+            location
+          </button>
         </div>
-        <div class="workshopDetails">
-          <div class="detailHead">
-            <h2>Workshop Details</h2>
-            <span class="material-symbols-outlined" onclick="exitDetail()">
-              logout
+        <div class="form">
+          <div class="inputFeild">
+            <h5>Select vehicle :</h5>
+            <select name="vehicle" required id="vehicleType">
+              <option value="">Select Your vehicle</option>
+              <option value="2 wheelers">2 wheelers</option>
+              <option value="3 wheelers">3 wheelers</option>
+              <option value="4 wheelers">4 wheelers</option>
+            </select>
+            <span class="material-symbols-outlined">
+              emoji_transportation
             </span>
           </div>
-          <div class="detailContent">
-            <div class="workDetail">
-              <div class="shop">
-                <div class="leftShop">
-                  <img id="workshopImageDetail" src="" alt="" />
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> store </span>
-                    </p>
-                    <p id="workName"></p>
-                  </div>
-                </div>
-                <div class="rightShop">
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        text_select_jump_to_beginning
-                      </span>
-                    </p>
-                    <p id="Started"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> blinds </span>
-                    </p>
-                    <p id="openT"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        event_busy
-                      </span>
-                    </p>
-                    <p id="closeT"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        directions_car
-                      </span>
-                    </p>
-                    <p id="type"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> pin_drop </span>
-                    </p>
-                    <p id="city"></p>
-                  </div>
-                </div>
-              </div>
-              <div class="service">
-                <h3>Service Provided</h3>
-                <div class="workServiceContainer">
-                  <div class="WorkserviceCont">
-                    <div class="leftService">
-                      <img
-                        src="../../assets/images/home/service uncvkle.jpg"
-                        alt="General Service"
-                      />
-                      <div class="serviceContent">
-                        <h3>General Services</h3>
-                        <h5 id="generalCost"></h5>
-                      </div>
-                    </div>
-                    <div class="rightService" id="general">
-                      <h4>Services Included</h4>
-                    </div>
-                  </div>
-                  <div class="WorkserviceCont">
-                    <div class="leftService">
-                      <img
-                        src="../../assets/images/home/service uncvkle.jpg"
-                        alt="General Service"
-                      />
-                      <div class="serviceContent">
-                        <h3>Standard Services</h3>
-                        <h5 id="standardCost"></h5>
-                      </div>
-                    </div>
-                    <div class="rightService" id="standard">
-                      <h4>Services Included</h4>
-
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                    </div>
-                  </div>
-                  <div class="WorkserviceCont">
-                    <div class="leftService">
-                      <img
-                        src="../../assets/images/home/service uncvkle.jpg"
-                        alt="General Service"
-                      />
-                      <div class="serviceContent">
-                        <h3>Premeium Services</h3>
-                        <h5 id="premeiumCost"></h5>
-                      </div>
-                    </div>
-                    <div class="rightService" id="premieum">
-                      <h4>Services Included</h4>
-
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                    </div>
-                  </div>
-                  <div class="WorkserviceCont">
-                    <div class="leftService">
-                      <img
-                        src="../../assets/images/home/service uncvkle.jpg"
-                        alt="General Service"
-                      />
-                      <div class="serviceContent">
-                        <h3>Full body Services</h3>
-                        <h5 id="fullbodyCost"></h5>
-                      </div>
-                    </div>
-                    <div class="rightService" id="full">
-                      <h4>Services Included</h4>
-
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                    </div>
-                  </div>
-                  <div class="WorkserviceCont">
-                    <div class="leftService">
-                      <img
-                        src="../../assets/images/home/service uncvkle.jpg"
-                        alt="General Service"
-                      />
-                      <div class="serviceContent">
-                        <h3>BreakDown Services</h3>
-                        <h5 id="brkdownCost">Cost @ 2000</h5>
-                      </div>
-                    </div>
-                    <div class="rightService" id="brkdown">
-                      <h4>Services Included</h4>
-
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                      <div class="serviceContent">
-                        <span class="material-symbols-outlined">
-                          add_task
-                        </span>
-                        aba
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="buttonCont">
-                <button>
-                  <a id="call">
-                    <span class="material-symbols-outlined">
-                      phone_in_talk
-                    </span>
-                    Call</a
-                  >
-                </button>
-                <button>
-                  <a id="direction">
+          <div class="inputFeild">
+            <h5>Select company:</h5>
+            <select name="company" required id="vehicleCompany">
+              <option value="sample">Select Your company</option>
+              <option value="tcs">tcs</option>
+            </select>
+            <span class="material-symbols-outlined">
+              emoji_transportation
+            </span>
+          </div>
+          <div class="inputFeild">
+            <h5>Select Model:</h5>
+            <select name="model" id="vehicleModel" required>
+              <option value="sample">Select Your model</option>
+              <option value="tcs">skdnw</option>
+            </select>
+            <span class="material-symbols-outlined">
+              emoji_transportation
+            </span>
+          </div>
+          <div class="inputFeild">
+            <h5>Enter Vehicle number:</h5>
+            <input type="text" required id="vehicleNumber" />
+            <span class="material-symbols-outlined">
+              emoji_transportation
+            </span>
+          </div>
+          <div class="inputAddressFeild">
+            <h4>Describe your problem</h4>
+            <input type="text" required id="vehicleProblem" />
+          </div>
+          <button type="submit">
+            <span class="material-symbols-outlined"> wifi_tethering </span>Find
+            workshop
+          </button>
+        </div>
+      </form>
+      <div class="workShopOuterContainer">
+        <h1>Find the WorkShop which suits you !!</h1>
+        <div class="workshopContainer">
+          <div class="workshopNav">
+            <div class="search">
+              <input
+                type="search"
+                name=""
+                id=""
+                placeholder="Search for the service center"
+              />
+              <span class="material-symbols-outlined"> search </span>
+            </div>
+            <button id="filter" class="filter">
+              <span class="material-symbols-outlined"> filter_alt </span>Filter
+            </button>
+          </div>
+          <div class="workshops">
+            <div class="filterTop">
+              <div class="extendFilter">
+                <div id="locationInp" class="locationInput">
+                  <select name="state" id="">
+                    <option value="">Select state</option>
+                  </select>
+                  <select name="City" id="">
+                    <option value="">Select City</option>
+                  </select>
+                  <button>
                     <span class="material-symbols-outlined"> pin_drop </span>
-                    Direction
-                  </a>
+                    Get location
+                  </button>
+                </div>
+                <div id="vehicleInp" class="locationInput">
+                  <button>
+                    <span class="material-symbols-outlined"> two_wheeler </span
+                    >2 wheelers
+                  </button>
+                  <button>
+                    <span class="material-symbols-outlined">
+                      electric_rickshaw </span
+                    >3 wheelers
+                  </button>
+                  <button>
+                    <span class="material-symbols-outlined">
+                      directions_car </span
+                    >4 wheelers
+                  </button>
+                </div>
+              </div>
+              <div id="filterButtons" class="filterOptions">
+                <button id="locationFil">
+                  <span class="material-symbols-outlined"> pin_drop </span
+                  >Location
                 </button>
-              </div>
-            </div>
-            <div class="mechDetail">
-              <div class="ratings">
-                <p>Ratings</p>
-                <h2>4.5</h2>
-                <p>⭐⭐⭐⭐</p>
-                <div class="noOfRating">
-                  <p>People rated 5 ⭐ <span>200</span></p>
-                  <p>People rated 4 ⭐ <span>200</span></p>
-                  <p>People rated less than 3 ⭐ <span>200</span></p>
-                </div>
-                <div class="save">
-                  <span class="material-symbols-outlined"> bookmark </span>
-                </div>
-              </div>
-              <div class="comments">
-                <h3>Comments</h3>
-                <div class="commentCont"></div>
-              </div>
-              <div class="mechanic">
-                <div class="leftMech">
-                  <h3>Mechanic Details</h3>
-                  <img id="mechanicImage" alt="mechanic Image" />
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> badge </span>
-                    </p>
-                    <p id="mechName"></p>
-                  </div>
-                </div>
-                <div class="rightMech">
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        phone_iphone
-                      </span>
-                    </p>
-                    <p id="mechPhone"></p>
-                  </div>
-                  <div class="content">
-                    <p><span class="material-symbols-outlined"> mail </span></p>
-                    <p id="mechEmail"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        home_repair_service
-                      </span>
-                    </p>
-                    <p id="mechExperience"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> stars </span>
-                    </p>
-                    <p id="mechSpl"></p>
-                  </div>
-                  <button id="bookingMechanicBtn">Book Mechanic</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="booking" id="book_div">
-          <div class="detailHead">
-            <h2>Booking Details</h2>
-            <span
-              class="material-symbols-outlined"
-              onclick="exitBookMechanic()"
-            >
-              logout
-            </span>
-          </div>
-          <div class="detailContent">
-            <div class="mechDetail">
-              <h3>Mechanic</h3>
-              <div class="bookingContent">
-                <img id="mechImage" alt="mechanic Image" />
-                <div class="contentLeft">
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> badge </span>
-                    </p>
-                    <p id="mechBookname"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> stars </span>
-                    </p>
-                    <p id="mechSplIn"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        home_repair_service
-                      </span>
-                    </p>
-                    <p id="mechExp"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        phone_iphone
-                      </span>
-                    </p>
-                    <p id="mechNum"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> mail </span>
-                    </p>
-                    <p id="mechanicEmail"></p>
-                  </div>
-                </div>
-              </div>
-              <h3>Your Details</h3>
-              <div class="bookingContent">
-                <div class="contentLeft">
-                  <h3>Personal</h3>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> badge </span>
-                    </p>
-                    <p id="custName"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        phone_iphone
-                      </span>
-                    </p>
-                    <p id="custNum"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> mail </span>
-                    </p>
-                    <p id="custEmail"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined"> pin_drop </span>
-                    </p>
-                    <p id="custAddress"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        location_city
-                      </span>
-                    </p>
-                    <p id="custCity"></p>
-                  </div>
-                </div>
-                <div class="contentLeft">
-                  <h3>Vehicle</h3>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        electric_bolt
-                      </span>
-                    </p>
-                    <p id="vehicleCompany"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        electric_bolt
-                      </span>
-                    </p>
-                    <p id="vehicleModel"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        electric_bolt
-                      </span>
-                    </p>
-                    <p id="vehiclefuel"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        electric_bolt
-                      </span>
-                    </p>
-                    <p>VehicleYr:</p>
-                    <p id="vehicleYear"></p>
-                  </div>
-                  <div class="content">
-                    <p>
-                      <span class="material-symbols-outlined">
-                        electric_bolt
-                      </span>
-                    </p>
-                    <p>VehicleNo:</p>
-                    <p id="vehicleNumber"></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="mechDetail">
-              <h2>Services</h2>
-              <div class="selectCont">
-                <p>
-                  <span class="material-symbols-outlined"> badge </span>
-                </p>
-                <p>Select your service type</p>
-                <select id="book_select_service">
-                  <option value="">Select your service</option>
-                  <option value="maintance">Maintance Service</option>
-                  <option value="Repair">Repair / Replacement Service</option>
-                  <option value="Upgrade">Upgrade and modify services</option>
-                  <option value="Electrical">Electrical Services</option>
-                </select>
-              </div>
-              <h4>Please select the services you want</h4>
-              <div class="serviceSelector">
-                <div class="selectService">
-                  <span class="material-symbols-outlined"> bolt </span>
-                  <p>Engine oil change</p>
-
-                  <span class="material-symbols-outlined"> add_task </span>
-                </div>
-                <div class="selectService">
-                  <span class="material-symbols-outlined"> bolt </span>
-                  <p>Engine oil change</p>
-                  <p>200</p>
-                  <span class="material-symbols-outlined"> add_task </span>
-                </div>
-                <div class="selectService">
-                  <span class="material-symbols-outlined"> bolt </span>
-                  <p>Engine oil change</p>
-                  <p>200</p>
-                  <span class="material-symbols-outlined"> add_task </span>
-                </div>
-                <div class="selectService">
-                  <span class="material-symbols-outlined"> bolt </span>
-                  <p>Engine oil change</p>
-                  <p>200</p>
-                  <span class="material-symbols-outlined"> add_task </span>
-                </div>
-              </div>
-<!--               <div class="selectCont">
-                <p>
-                  <span class="material-symbols-outlined"> view_cozy </span>
-                </p>
-                <p>Total price amount</p>
-                <p id="price"></p>
-              </div> -->
-              <button id="confirmBtn" class="c_booking">Confirm Booking</button>
-            </div>
-          </div>
-        </div>
-        <div class="heading">
-          <h1 id="head"></h1>
-          <h2>let's see the workshops near you</h2>
-          <h3 id="cityName"></h3>
-        </div>
-        <div id="nearByShops" class="nearShop">
-          <div class="shopDiv">
-            <img src="../../assets/images/home/ktm bike.jpg" alt="" />
-            <div class="desc">
-              <div class="desc_top">
-                <h3>workshopName</h3>
-                <button>
-                  <i class="material-symbols-outlined">bookmark</i>
-                </button>
-              </div>
-              <div class="descContainer">
-                <div class="desc_left">
-                  <p>Ratings</p>
-                  <p>⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="desc_right">
-                  <p>location : <span> Chennai </span></p>
-                  <div class="rightO_C">
-                    <p>Open</p>
-                    <p>/</p>
-                    <p>Closed</p>
-                  </div>
-                </div>
-              </div>
-              <div class="desc_bottom">
-                <button>
-                  <i class="material-symbols-outlined">visibility</i>
-                  view
-                </button>
-                <button>
-                  <i class="material-symbols-outlined">call</i>
-                  <p>call</p>
-                </button>
-
-                <button>
-                  <i class="material-symbols-outlined">pin_drop</i>
-                  <p>direction</p>
+                <button id="vehicleFil">
+                  <span class="material-symbols-outlined"> directions_car </span
+                  >Vehicle
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <section>
-          <h2>Door Step Services for your vehicle</h2>
-          <div class="nearShop serviceContainer">
-            <div class="serviceCont">
-              <div class="Service_card_box">
-                <span></span>
-                <img
-                  src="../../assets/images/home/ktm bike.jpg"
-                  alt="serviceimage"
-                />
-                <div class="description">
-                  <div>
-                    <h3>General services</h3>
-                    <p style="font-size: 11px">Avg.Price</p>
-                    <p>starts @300</p>
-                  </div>
-                  <div>
-                    <div class="likes">
-                      <i class="material-symbols-outlined"> thumb_up </i>
-                      <p>200</p>
-                      <i class="material-symbols-outlined"> thumb_down </i>
-                      <p>2</p>
-                    </div>
-                    <button>Book Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="serviceCont">
-              <div class="Service_card_box">
-                <span></span>
-                <img
-                  src="../../assets/images/home/ktm bike.jpg"
-                  alt="serviceimage"
-                />
-                <div class="description">
-                  <div>
-                    <h3>General services</h3>
-                    <p style="font-size: 11px">Avg.Price</p>
-                    <p>starts @300</p>
-                  </div>
-                  <div>
-                    <div class="likes">
-                      <i class="material-symbols-outlined"> thumb_up </i>
-                      <p>200</p>
-                      <i class="material-symbols-outlined"> thumb_down </i>
-                      <p>2</p>
-                    </div>
-                    <button>Book Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="serviceCont">
-              <div class="Service_card_box">
-                <span></span>
-                <img
-                  src="../../assets/images/home/ktm bike.jpg"
-                  alt="serviceimage"
-                />
-                <div class="description">
-                  <div>
-                    <h3>General services</h3>
-                    <p style="font-size: 11px">Avg.Price</p>
-                    <p>starts @300</p>
-                  </div>
-                  <div>
-                    <div class="likes">
-                      <i class="material-symbols-outlined"> thumb_up </i>
-                      <p>200</p>
-                      <i class="material-symbols-outlined"> thumb_down </i>
-                      <p>2</p>
-                    </div>
-
-                    <button>Book Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="serviceCont">
-              <div class="Service_card_box">
-                <span></span>
-                <img
-                  src="../../assets/images/home/ktm bike.jpg"
-                  alt="serviceimage"
-                />
-                <div class="description">
-                  <div>
-                    <h3>General services</h3>
-                    <p style="font-size: 11px">Avg.Price</p>
-                    <p>starts @300</p>
-                  </div>
-                  <div>
-                    <div class="likes">
-                      <i class="material-symbols-outlined"> thumb_up </i>
-                      <p>200</p>
-                      <i class="material-symbols-outlined"> thumb_down </i>
-                      <p>2</p>
-                    </div>
-                    <button>Book Now</button>
-                  </div>
-                </div>
-              </div>
+      </div>
+      <div class="serviceOuterContainer">
+        <h1>Book the Best service For your vehicle !</h1>
+        <div class="serviceContainer">
+          <div class="container">
+            <div class="card_box">
+              <span></span>
             </div>
           </div>
-        </section>
-        <section>
-          <div class="first_row">
-            <h1>If your vehicle gets breakdown</h1>
-            <h3>We are here for you</h3>
+          <div class="container">
+            <div class="card_box">
+              <span></span>
+            </div>
           </div>
-          <div class="secondRow">
-            <form id="personal_form">
-              <label class="break_label" for="address"
-                >Describe your problem
-
-                <textarea id="address" name="address" required></textarea>
-              </label>
-              <label class="break_label" for="address"
-                >Current location
-
-                <textarea id="address" name="address" required></textarea>
-              </label>
-
-              <label for="city_state"
-                >City:
-                <select id="city_state" name="city" required>
-                  <option value="">--Select city--</option>
-                  <option value="Chennai,TamilNadu">Chennai,TamilNadu</option>
-                  <option value="Coimbatore,TamilNadu">
-                    Coimbatore,TamilNadu
-                  </option>
-                  <option value="Salem,TamilNadu">Salem,TamilNadu</option>
-                  <option value="Madurai,TamilNadu">Madurai,TamilNadu</option>
-                  <option value="Tiruchirappalli,TamilNadu">
-                    Tiruchirappalli,TamilNadu
-                  </option>
-                  <option value="Thoothukudi,TamilNadu">
-                    Thoothukudi,TamilNadu
-                  </option>
-                  <option value="Vellore,TamilNadu">Vellore,TamilNadu</option>
-                  <option value="Dindigul,TamilNadu">Dindigul,TamilNadu</option>
-                  <option value="Tirunelveli,TamilNadu">
-                    Tirunelveli,TamilNadu
-                  </option>
-                  <option value="Tiruppur,TamilNadu">Tiruppur,TamilNadu</option>
-                  <option value="Cuddalore,TamilNadu">
-                    Cuddalore,TamilNadu
-                  </option>
-                  <option value="Karur,TamilNadu">Karur,TamilNadu</option>
-                  <option value="Kanchipuram,TamilNadu">
-                    Kanchipuram,TamilNadu
-                  </option>
-                  <option value="Nagapattinam,TamilNadu">
-                    Nagapattinam,TamilNadu
-                  </option>
-                  <option value="Pudukkottai,TamilNadu">
-                    Pudukkottai,TamilNadu
-                  </option>
-                  <option value="Sivaganga,TamilNadu">
-                    Sivaganga,TamilNadu
-                  </option>
-                  <option value="Kumbakonam,TamilNadu">
-                    Kumbakonam,TamilNadu
-                  </option>
-                  <option value="Karaikudi,TamilNadu">
-                    Karaikudi,TamilNadu
-                  </option>
-                  <option value="Hosur,TamilNadu">Hosur,TamilNadu</option>
-                  <option value="Ooty,TamilNadu">Ooty,TamilNadu</option>
-                  <option value="Ambur,TamilNadu">Ambur,TamilNadu</option>
-                  <option value="Gudiyatham,TamilNadu">
-                    Gudiyatham,TamilNadu
-                  </option>
-                  <option value="Pollachi,TamilNadu">Pollachi,TamilNadu</option>
-                  <option value="Sivakasi,TamilNadu">Sivakasi,TamilNadu</option>
-                  <option value="Komarapalayam,TamilNadu">
-                    Komarapalayam,TamilNadu
-                  </option>
-                  <option value="Neyveli,TamilNadu">Neyveli,TamilNadu</option>
-                  <option value="Rajapalayam,TamilNadu">
-                    Rajapalayam,TamilNadu
-                  </option>
-                  <option value="Vaniyambadi,TamilNadu">
-                    Vaniyambadi,TamilNadu
-                  </option>
-                  <option value="Nagercoil,TamilNadu">
-                    Nagercoil,TamilNadu
-                  </option>
-                  <option value="Ramanathapuram,TamilNadu">
-                    Ramanathapuram,TamilNadu
-                  </option>
-                  <option value="Viluppuram,TamilNadu">
-                    Viluppuram,TamilNadu
-                  </option>
-                  <option value="Namakkal,TamilNadu">Namakkal,TamilNadu</option>
-                  <option value="Thiruvarur,TamilNadu">
-                    Thiruvarur,TamilNadu
-                  </option>
-                  <option value="Dharmapuri,TamilNadu">
-                    Dharmapuri,TamilNadu
-                  </option>
-                  <option value="Krishnagiri,TamilNadu">
-                    Krishnagiri,TamilNadu
-                  </option>
-                  <option value="Thiruvallur,TamilNadu">
-                    Thiruvallur,TamilNadu
-                  </option>
-                  <option value="Theni,TamilNadu">Theni,TamilNadu</option>
-                  <option value="Ariyalur,TamilNadu">Ariyalur,TamilNadu</option>
-                  <option value="Perambalur,TamilNadu">
-                    Perambalur,TamilNadu
-                  </option>
-                  <option value="Virudhunagar,TamilNadu">
-                    Virudhunagar,TamilNadu
-                  </option>
-                  <option value="Ranipet,TamilNadu">Ranipet,TamilNadu</option>
-                  <option value="Kancheepuram,TamilNadu">
-                    Kancheepuram,TamilNadu
-                  </option>
-                  <option value="Kanyakumari,TamilNadu">
-                    Kanyakumari,TamilNadu
-                  </option>
-                  <option value="Kallakurichi,TamilNadu">
-                    Kallakurichi,TamilNadu
-                  </option>
-                  <option value="Chengalpattu,TamilNadu">
-                    Chengalpattu,TamilNadu
-                  </option>
-                  <option value="Mayiladuthurai,TamilNadu">
-                    Mayiladuthurai,TamilNadu
-                  </option>
-                  <option value="Kodaikanal,TamilNadu">
-                    Kodaikanal,TamilNadu
-                  </option>
-                  <option value="Maduranthakam,TamilNadu">
-                    Maduranthakam,TamilNadu
-                  </option>
-                  <option value="Gudalur,TamilNadu">Gudalur,TamilNadu</option>
-                </select>
-              </label>
-
-              <button type="submit">Confirm</button>
-            </form>
+          <div class="container">
+            <div class="card_box">
+              <span></span>
+            </div>
           </div>
-        </section>
-      </div> -->
+          <div class="container">
+            <div class="card_box">
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- <script src="../javascript/customer.js"></script> -->
 
-    <script>
-      const h1 = document.getElementById("head");
-      const h3 = document.getElementById("cityName");
-      h1.innerText = "Hi  " + log_cus["name"] + "..!";
-      h3.innerText = log_cus["city"] + ".";
-    </script>
     <script></script>
+    <script src="../../assets/javascript/buildedfunction.js"></script>
+    <script type="module" src="../../assets/javascript/livebooking.js"></script>
+    <script src="../../assets/javascript/customer.js"></script>
+    <script src="../../assets/javascript/customer_function.js"></script>
   </body>
 </html>
