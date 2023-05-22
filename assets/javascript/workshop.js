@@ -81,7 +81,7 @@ stateArr.addEventListener("change", async () => {
     districtArr.appendChild(option);
   }
 });
-let oneWorkshop = 0;
+let oneWorkshop = {};
 // number registration
 const numberForm = document.getElementById("numberForm");
 numberForm.addEventListener("submit", (e) => {
@@ -104,35 +104,101 @@ numberForm.addEventListener("submit", (e) => {
     password,
     otp,
   };
-  let check = checkUser(work);
-  if (check == false) {
-    workshops.push(work);
-    oneWorkshop = workshopId;
-    alert(otp + "," + check);
-    localStorage.setItem("workshops", JSON.stringify(workshops));
+  // let check = checkUser(work);
+  // if (check == false) {
 
-    openDiv("#otpForm", "#numberForm");
-  }
+  // }
+  oneWorkshop = work;
+
+  alert(otp + ",");
+  openDiv("#otpForm", "#numberForm");
 });
 
 //otp
 const otpForm = document.getElementById("otpForm");
 otpForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  let workOtp = workshops.find((e) => {
-    if (e.workshopId == oneWorkshop) {
-      return true;
-    }
-  });
+  // let workOtp = workshops.find((e) => {
+  //   if (e.workshopId == oneWorkshop) {
+  //     return true;
+  //   }
+  // });
   let otpValue = document.getElementById("otpValue").value;
-  if (workOtp["otp"] == otpValue) {
+  if (oneWorkshop["otp"] == otpValue) {
     alert("phone number verified");
+    let name = document.getElementById("ownerName");
+    name.value = oneWorkshop["name"];
+    let number = document.getElementById("ownerNumber");
+    number.value = oneWorkshop["number"];
 
     openDiv("#workshopForm", "#otpForm");
   } else {
     alert("otp is incorrect");
     return;
   }
+});
+
+console.log(oneWorkshop);
+const workshopForm = document.getElementById("workshopForm");
+workshopForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let name = document.getElementById("ownerName").value;
+  let number = document.getElementById("ownerNumber").value;
+
+  let pickupService = false;
+  let breakdownService = false;
+
+  // let ownerEmail = document.getElementById("ownerEmail").value;
+  let workshopName = document.getElementById("workshopName").value;
+  let workshopCountry = document.getElementById("countries").value;
+  let workshopState = document.getElementById("state").value;
+  let workshopCity = document.getElementById("district").value;
+  let workshopAddress = document.getElementById("address").value;
+  // let workshopStarted = document.getElementById("started").value;
+  let workshopType = document.getElementById("vehicleType").value;
+  let openTime = document.getElementById("openTime").value;
+  let closeTime = document.getElementById("closeTime").value;
+  let GeneralCost = document.getElementById("GeneralCost").value;
+  let engineCost = document.getElementById("engineCost").value;
+  let electricCost = document.getElementById("electricCost").value;
+  let SuspensionCost = document.getElementById("SuspensionCost").value;
+  let pickupCheck = document.getElementById("pickupService").checked;
+  let breakdownCheck = document.getElementById("breakdownService").checked;
+  if (pickupCheck == true) {
+    pickupService = true;
+  }
+  if (breakdownCheck == true) {
+    breakdownService = true;
+  }
+  let workshops = [];
+  if (JSON.parse(localStorage.getItem("workshops")) != null) {
+    workshops = JSON.parse(localStorage.getItem("workshops"));
+  }
+  let workshopObj = {
+    workshopId,
+    name,
+    number,
+    workshopName,
+    workshopCountry,
+    workshopState,
+    workshopCity,
+    workshopAddress,
+    // workshopStarted,
+    workshopType,
+    openTime,
+    closeTime,
+    GeneralCost,
+    engineCost,
+    electricCost,
+    SuspensionCost,
+    pickupService,
+    breakdownService,
+  };
+  workshops.push(workshopObj);
+  set(ref(db, "workshop/"), workshops);
+
+  localStorage.setItem("workshops", JSON.stringify(workshops));
+  alert("success");
 });
 
 // workshop registration
