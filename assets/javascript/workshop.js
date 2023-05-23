@@ -228,7 +228,7 @@ workshopForm.addEventListener("submit", (e) => {
   set(ref(db, "workshop/"), workshops);
 
   Notify.success("Thank you for registering your workShop");
-  openDiv("#loginForm", "#workshopForm");
+  openDiv("#workshopLoginForm", "#workshopForm");
 });
 
 //login
