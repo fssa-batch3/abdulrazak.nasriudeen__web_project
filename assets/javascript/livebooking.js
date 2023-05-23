@@ -26,14 +26,12 @@ onValue(starCountRef, (snapshot) => {
   let bookings = snapshot.val();
   localStorage.setItem("bookings", JSON.stringify(bookings));
 });
-
+let bookings = JSON.parse(localStorage.getItem("bookings"));
+let workshops = JSON.parse(localStorage.getItem("workshops"));
 const liveBooking = document.getElementById("liveBooking");
 liveBooking.addEventListener("submit", (e) => {
   e.preventDefault();
-  let bookings = [];
-  if (JSON.parse(localStorage.getItem("bookings")) != null) {
-    bookings = JSON.parse(localStorage.getItem("bookings"));
-  }
+
   let booking_id = Date.now();
   let customer_id = localStorage.getItem("LogUser");
   let raisedStatus = true;

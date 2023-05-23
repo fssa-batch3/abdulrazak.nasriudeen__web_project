@@ -164,7 +164,7 @@ function read(num, pass, Page) {
           if (pass === user["password"]) {
             //show success message and store the mechanic id in localstorage
             alert(mechName + "! Your account logged as mechanic  successfully");
-            localStorage.setItem("LogUser", JSON.stringify(user["user_id"]));
+            localStorage.setItem("LogUser", JSON.stringify(user["workShopID"]));
             if (Page == 0) {
               window.location.href = "./workshop/workshop.html";
             } else {

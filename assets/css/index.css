@@ -915,6 +915,7 @@ span {
 }
 #otpVerify,
 #loginForm {
+  position: fixed;
   height: 350px;
   width: 350px;
   gap: 4%;
@@ -922,7 +923,7 @@ span {
 #loginForm {
   display: none;
   /* z-index: ; */
-  position: absolute;
+  /* position: absolute; */
   left: 30%;
 }
 
