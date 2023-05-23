@@ -85,6 +85,7 @@ function rejectBooking(id) {
     }
     bookings[index] = bookObj;
     set(ref(db, "bookings/"), bookings);
+    location.reload();
   } else {
     return;
   }
