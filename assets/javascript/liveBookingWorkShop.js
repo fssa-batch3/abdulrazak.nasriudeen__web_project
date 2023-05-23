@@ -26,6 +26,16 @@ onValue(starCountRef, (snapshot) => {
   let bookings = snapshot.val();
   localStorage.setItem("bookings", JSON.stringify(bookings));
 });
+const starWorkRef = ref(db, "workshop/");
+onValue(starWorkRef, (snapshot) => {
+  let workshops = snapshot.val();
+  localStorage.setItem("workshops", JSON.stringify(workshops));
+});
+const starUsersRef = ref(db, "users/");
+onValue(starUsersRef, (snapshot) => {
+  let users = snapshot.val();
+  localStorage.setItem("users", JSON.stringify(users));
+});
 let bookings = JSON.parse(localStorage.getItem("bookings"));
 let workshops = JSON.parse(localStorage.getItem("workshops"));
 let users = JSON.parse(localStorage.getItem("users"));
@@ -46,16 +56,20 @@ let near = bookings.filter((e) => {
 console.log(near);
 for (let i = 0; i < near.length; i++) {
   let arr = near[i]["rejectWorkshop"];
-  let checkReject = arr.find((e) => {
-    if (e == loggedWorkShopId) {
-      return true;
-    }
-  });
+  let checkReject;
+  if (arr != undefined) {
+    checkReject = arr.find((e) => {
+      if (e == loggedWorkShopId) {
+        return true;
+      }
+    });
+  }
   let liveUser = users.find((e) => {
     if (e["user_id"] == near[i]["customer_id"]) {
       return true;
     }
   });
+  console.log(liveUser);
   if (checkReject == undefined || arr == undefined) {
     alert("check");
 
