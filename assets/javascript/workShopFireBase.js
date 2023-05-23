@@ -29,3 +29,12 @@ onValue(starCountRef, (snapshot) => {
   workShops = snapshot.val();
   localStorage.setItem("workshops", JSON.stringify(workShops));
 });
+
+let loginBtn = document.getElementById("loginBtn");
+loginBtn.addEventListener("click", () => {
+  openDiv("#workshopLoginForm", "#numberForm");
+});
+let signBtn = document.getElementById("signBtn");
+signBtn.addEventListener("click", () => {
+  openDiv("#numberForm", "#workshopLoginForm");
+});

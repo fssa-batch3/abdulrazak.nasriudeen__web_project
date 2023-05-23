@@ -1,7 +1,34 @@
-let workshops = [];
-if (JSON.parse(localStorage.getItem("workshops")) != null) {
-  workshops = JSON.parse(localStorage.getItem("workshops"));
-}
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  set,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD2heEjfk-ZZFgHKLbyQ1rCaXKAAQi8Qm4",
+  authDomain: "reparo-c2273.firebaseapp.com",
+  databaseURL: "https://reparo-c2273-default-rtdb.firebaseio.com",
+  projectId: "reparo-c2273",
+  storageBucket: "reparo-c2273.appspot.com",
+  messagingSenderId: "199284904929",
+  appId: "1:199284904929:web:e6bda7e3b41bb3e079f8a0",
+  measurementId: "G-B8QVYWWTE9",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+let db = getDatabase();
+console.log(db);
+let workShops = [];
+
+const starCountRef = ref(db, "workshop/");
+onValue(starCountRef, (snapshot) => {
+  workShops = snapshot.val();
+  localStorage.setItem("workshops", JSON.stringify(workShops));
+});
 
 let countryArr = document.getElementById("countries");
 let stateArr = document.getElementById("state");
@@ -82,6 +109,7 @@ stateArr.addEventListener("change", async () => {
   }
 });
 let oneWorkshop = {};
+let workshops = JSON.parse(localStorage.getItem("workshops"));
 // number registration
 const numberForm = document.getElementById("numberForm");
 numberForm.addEventListener("submit", (e) => {
@@ -104,14 +132,14 @@ numberForm.addEventListener("submit", (e) => {
     password,
     otp,
   };
-  // let check = checkUser(work);
-  // if (check == false) {
-
-  // }
-  oneWorkshop = work;
-
-  alert(otp + ",");
-  openDiv("#otpForm", "#numberForm");
+  let check = checkUserFunction(work);
+  if (check == false) {
+    let phoneNumber = document.getElementById("phoneNumber");
+    phoneNumber.innerText = work["number"];
+    oneWorkshop = work;
+    alert(otp + ",");
+    openDiv("#otpForm", "#numberForm");
+  }
 });
 
 //otp
@@ -144,6 +172,8 @@ workshopForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let name = document.getElementById("ownerName").value;
   let number = document.getElementById("ownerNumber").value;
+  let password = oneWorkshop["password"];
+  let workShopID = oneWorkshop["workshopId"];
 
   let pickupService = false;
   let breakdownService = false;
@@ -170,20 +200,20 @@ workshopForm.addEventListener("submit", (e) => {
   if (breakdownCheck == true) {
     breakdownService = true;
   }
-  let workshops = [];
-  if (JSON.parse(localStorage.getItem("workshops")) != null) {
-    workshops = JSON.parse(localStorage.getItem("workshops"));
-  }
+
+  // if (JSON.parse(localStorage.getItem("workshops")) != null) {
+  //   workshops = JSON.parse(localStorage.getItem("workshops"));
+  // }
   let workshopObj = {
-    workshopId,
     name,
     number,
+    password,
+    workShopID,
     workshopName,
     workshopCountry,
     workshopState,
     workshopCity,
     workshopAddress,
-    // workshopStarted,
     workshopType,
     openTime,
     closeTime,
@@ -197,8 +227,18 @@ workshopForm.addEventListener("submit", (e) => {
   workshops.push(workshopObj);
   set(ref(db, "workshop/"), workshops);
 
-  localStorage.setItem("workshops", JSON.stringify(workshops));
-  alert("success");
+  Notify.success("Thank you for registering your workShop");
+  openDiv("#loginForm", "#workshopForm");
+});
+
+//login
+let loginForm = document.getElementById("workshopLoginForm");
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let loginNumber = document.getElementById("loginNumber").value;
+  let loginPassword = document.getElementById("loginPassword").value;
+  alert(loginNumber);
+  read(loginNumber, loginPassword, 0);
 });
 
 // workshop registration

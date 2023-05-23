@@ -99,9 +99,17 @@ function generateOTP() {
 function checkUserFunction(obj) {
   let validation = false;
   let users = JSON.parse(localStorage.getItem("users"));
+  let workshops = JSON.parse(localStorage.getItem("workshops"));
   let checkUser = users.find((e) => {
     if (obj["number"] == e["number"]) {
-      alert("exists");
+      Notify.error("User Already present Try to login ");
+      validation = true;
+      return true;
+    }
+  });
+  let checkWorkshop = workshops.find((e) => {
+    if (obj["number"] == e["number"]) {
+      Notify.error("User Already present Try to login ");
       validation = true;
       return true;
     }
@@ -110,7 +118,7 @@ function checkUserFunction(obj) {
 }
 
 // login
-function read(num, pass) {
+function read(num, pass, Page) {
   try {
     //get user data from localstorage
     let get_data = JSON.parse(localStorage.getItem("users"));
@@ -128,10 +136,13 @@ function read(num, pass) {
         //if password matches
         if (pass === user["password"]) {
           //show success message and store the user id in localstorage
-          window.location.href = "./pages/customer/cust.html";
           alert(customerName + "! Your account logged in successfully");
           localStorage.setItem("LogUser", JSON.stringify(user["user_id"]));
-          //if email not provided, redirect to profile page
+          if (Page == 0) {
+            window.location.href = "./customer/cust.html";
+          } else {
+            window.location.href = "./pages/customer/cust.html";
+          }
 
           return findData;
         }
@@ -154,7 +165,11 @@ function read(num, pass) {
             //show success message and store the mechanic id in localstorage
             alert(mechName + "! Your account logged as mechanic  successfully");
             localStorage.setItem("LogUser", JSON.stringify(user["user_id"]));
-            window.location.href = "./pages/Mechanic/";
+            if (Page == 0) {
+              window.location.href = "./workshop/workshop.html";
+            } else {
+              window.location.href = "./pages/workshop/workshop.html";
+            }
 
             return findData;
           }

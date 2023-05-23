@@ -117,7 +117,7 @@ loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let logNumber = document.getElementById("loginNumber").value;
   let logPassword = document.getElementById("loginPassword").value;
-  read(logNumber, logPassword);
+  read(logNumber, logPassword, 1);
 });
 
 const LoginExit = document.getElementById("LoginExit");

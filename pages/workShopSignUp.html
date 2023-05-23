@@ -233,8 +233,8 @@
         color: black;
       }
       .createAccountDiv {
-        width: 400px;
-        height: 350px;
+        width: 350px;
+        height: 400px;
         background-color: white;
         border: 1px solid black;
         border-radius: 20px;
@@ -245,7 +245,8 @@
         box-shadow: 2px 2px black;
       }
       .createAccountDiv button,
-      .otp button {
+      .otp button,
+      #workshopLoginForm button {
         width: 60%;
         height: 50px;
         border-radius: 20px;
@@ -258,9 +259,10 @@
       .otp div {
         background-color: var(--white);
       }
-      .otp {
+      .otp,
+      #workshopLoginForm {
         box-shadow: 2px 2px black;
-        width: 400px;
+        width: 350px;
         height: 250px;
         border-radius: 20px;
         border: 1px solid black;
@@ -275,10 +277,7 @@
   </head>
   <body>
     <h1>Welcome To Reparo's Workshop Sector</h1>
-    <h2>
-      please fill up your details
-      <span>Already have an account ?<button>login</button> </span>
-    </h2>
+    <h3>please fill up your details</h3>
     <form action="" id="workshopForm">
       <div class="leftForm">
         <h4>Enter your Details</h4>
@@ -476,6 +475,7 @@
     </form>
 
     <form class="createAccountDiv" id="numberForm">
+      <h3>Sign up</h3>
       <div class="inputCont">
         <span class="material-symbols-outlined"> badge </span>
         <input
@@ -519,10 +519,14 @@
         />
       </div>
       <button>Verify phone number</button>
+      <p>
+        Already have an account ?
+        <span style="color: blue" id="loginBtn"> Login </span>
+      </p>
     </form>
     <form class="otp" id="otpForm">
       <h4>Please enter the OTP send to your number</h4>
-      <h5>0909090909</h5>
+      <h5 id="phoneNumber"></h5>
       <div class="inputCont">
         <span class="material-symbols-outlined"> dialpad </span>
         <input type="text" placeholder="Enter OTP" id="otpValue" required />
@@ -531,11 +535,39 @@
       <h6>Haven't get your OTP</h6>
       <h5>Resend - it</h5>
     </form>
+    <form action="" id="workshopLoginForm">
+      <h3>Login</h3>
+      <div class="inputCont">
+        <span class="material-symbols-outlined"> call </span>
+        <input
+          pattern="[0-9]{10}"
+          type="text"
+          placeholder="Enter Mobile Number"
+          id="loginNumber"
+          required
+        />
+      </div>
+      <div class="inputCont">
+        <span class="material-symbols-outlined"> key </span>
+        <input
+          pattern="[0-9]{3,6}"
+          type="password"
+          placeholder="Enter your password "
+          id="loginPassword"
+          required
+        />
+      </div>
+      <button type="submit">Login</button>
+      <p>
+        Don't have an account ?
+        <span id="signBtn" style="color: blue"> Sign up </span>
+      </p>
+    </form>
     <script
       type="module"
       src="../assets/javascript/workShopFireBase.js"
     ></script>
-    <script src="../assets/javascript/workshop.js"></script>
+    <script type="module" src="../assets/javascript/workshop.js"></script>
     <script src="../assets/javascript/JSON.js"></script>
     <script src="../assets/javascript/buildedfunction.js"></script>
     <script src="../assets/javascript/validation.js"></script>
