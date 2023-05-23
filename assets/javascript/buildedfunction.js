@@ -137,7 +137,7 @@ function read(num, pass, Page) {
         if (pass === user["password"]) {
           //show success message and store the user id in localstorage
           alert(customerName + "! Your account logged in successfully");
-          localStorage.setItem("LogUser", JSON.stringify(user["user_id"]));
+          localStorage.setItem("LoginUser", JSON.stringify(user["user_id"]));
           if (Page == 0) {
             window.location.href = "./customer/cust.html";
           } else {
@@ -164,7 +164,10 @@ function read(num, pass, Page) {
           if (pass === user["password"]) {
             //show success message and store the mechanic id in localstorage
             alert(mechName + "! Your account logged as mechanic  successfully");
-            localStorage.setItem("LogUser", JSON.stringify(user["workShopID"]));
+            localStorage.setItem(
+              "loginWorkShop",
+              JSON.stringify(user["workShopID"])
+            );
             if (Page == 0) {
               window.location.href = "./workshop/workshop.html";
             } else {

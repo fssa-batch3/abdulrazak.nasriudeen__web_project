@@ -40,7 +40,7 @@ let bookings = JSON.parse(localStorage.getItem("bookings"));
 let workshops = JSON.parse(localStorage.getItem("workshops"));
 let users = JSON.parse(localStorage.getItem("users"));
 
-let loggedWorkShopId = localStorage.getItem("LogUser");
+let loggedWorkShopId = localStorage.getItem("loginWorkShop");
 let loggedWorkShop = workshops.find((e) => {
   if (loggedWorkShopId == e["workShopID"]) {
     return true;

@@ -33,7 +33,7 @@ liveBooking.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let booking_id = Date.now();
-  let customer_id = localStorage.getItem("LogUser");
+  let customer_id = localStorage.getItem("LoginUser");
   let raisedStatus = true;
   let acceptBooking = false;
   let country = document.getElementById("countries").value;
