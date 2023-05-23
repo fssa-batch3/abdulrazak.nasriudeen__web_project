@@ -1000,3 +1000,18 @@ h5 span {
   color: black;
   font-size: 20px;
 }
+#signButton {
+  width: 200px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  outline: none;
+  border-radius: 20px;
+  border: none;
+}
+#signButton:hover {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+}

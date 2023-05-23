@@ -109,6 +109,12 @@ h1 {
   gap: 5%;
   justify-content: center;
 }
+.form button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+}
 /* input feild  */
 .inputFeild {
   width: 90%;
@@ -177,7 +183,7 @@ h1 {
   flex-direction: column;
 }
 .workshopContainer {
-  width: 90%;
+  width: 95%;
   height: auto;
   border-radius: 30px;
   background-color: white;
@@ -185,6 +191,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding-bottom: 10px;
+  border: 1px solid black;
 }
 .workshopNav,
 .workshops {
@@ -255,6 +262,7 @@ button {
   width: 98%;
   height: 100px;
   display: flex;
+  z-index: 4;
   justify-content: flex-end;
   /* align-items: center; */
   /* background-color: var(--white); */
@@ -418,4 +426,81 @@ button {
   z-index: -1;
   box-shadow: 140px -140px black;
   background-color: black;
+}
+.workshopCont {
+  width: 98%;
+  height: 95%;
+  /* position: absolute; */
+  margin-top: -100px;
+  overflow-y: scroll;
+  display: flex;
+  gap: 3%;
+  flex-wrap: wrap;
+}
+
+.workShopCard {
+  width: 300px;
+  height: 450px;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1%; */
+  padding-top: 10px;
+  align-items: center;
+  border: 1px solid black;
+}
+.workShopCard img {
+  border: 1px solid black;
+  width: 90%;
+  height: 50%;
+  border-radius: 20px;
+}
+.cardMid {
+  width: 90%;
+  height: 110px;
+  background-color: var(--white);
+  border-radius: 20px;
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.workShopCard button {
+  width: 90%;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: black;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.workShopCard button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.workShopCard button span {
+  font-size: 25px;
+}
+
+.content {
+  width: 95%;
+  height: 30px;
+  background-color: white;
+  margin-top: 5px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+.content h5 {
+  font-size: 20px;
+  color: black;
 }
