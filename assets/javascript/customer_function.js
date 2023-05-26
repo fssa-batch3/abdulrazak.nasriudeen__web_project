@@ -59,3 +59,35 @@ searchbar.addEventListener("input", () => {
     }
   }
 });
+
+function createCompany(array, id) {
+  const options = document.getElementById(id);
+  while (options.hasChildNodes()) {
+    // remove existing child elements
+    options.firstChild.remove();
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    let option = document.createElement("option");
+    option.setAttribute("value", array[i]["company"]);
+    option.innerText = array[i]["company"];
+    options.append(option);
+  }
+}
+
+function createVehicle(array, id, model) {
+  // function to append the  models of the vehicle according to the comapnay selected
+  const options = document.getElementById(id);
+  while (options.hasChildNodes()) {
+    options.firstChild.remove(); // remove child elements
+  }
+  let finded = array.find((F) => F.company === model); // finding the comapany
+
+  for (let i = 0; i < finded["vehicles"].length; i++) {
+    // appending the model options
+    let option = document.createElement("option");
+    option.setAttribute("value", finded["vehicles"][i]);
+    option.innerText = finded["vehicles"][i];
+    options.append(option);
+  }
+}

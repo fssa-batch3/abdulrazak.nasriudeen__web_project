@@ -121,8 +121,8 @@
         </li>
       </ul>
     </nav>
-    <div class="section">
-      <section id="finding_workshop">
+    <div class="section" id="activitySection">
+      <!-- <section id="finding_workshop">
         <img src="../../assets/images/customer/way.gif" alt="finding" />
         <h2>
           Finding Workshops near you
@@ -134,7 +134,7 @@
           <span id="seconds">00</span>
         </div>
         <button class="cancel">Cancel Request</button>
-      </section>
+      </section> -->
       <section id="notFind">
         <img
           src="../../assets/images/customer/speech-bubble.gif"
@@ -147,17 +147,17 @@
         >
           Start again
         </button>
+        <button id="CancelnotfindCard">cancel Request</button>
       </section>
     </div>
     <script>
-      let notFind = document.getElementById("notFind");
-      let finding = document.getElementById("finding_workshop");
-      let timer;
-
       let minutes = 0;
       let seconds = 0;
 
       function startTimer() {
+        let notFind = document.getElementById("notFind");
+        let finding = document.getElementById("finding_workshop");
+        let timer;
         timer = setInterval(function () {
           seconds++;
           if (minutes === 1) {
@@ -192,11 +192,9 @@
       function padZero(num) {
         return num.toString().padStart(2, "0");
       }
-      startTimer();
 
       function startFinding() {
-        notFind.style.display = "none";
-        finding.style.display = "flex";
+        window.location.reload();
         minutes = 0;
         seconds = 0;
       }
@@ -204,6 +202,10 @@
       //   document.getElementById("startBtn").addEventListener("click", startTimer);
       //   document.getElementById("stopBtn").addEventListener("click", stopTimer);
     </script>
-    <script type="module" src="../../assets/javascript/livebooking.js"></script>
+
+    <script
+      type="module"
+      src="../../assets/javascript/customerActivity.js"
+    ></script>
   </body>
 </html>

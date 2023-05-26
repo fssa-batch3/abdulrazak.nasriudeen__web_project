@@ -31,74 +31,59 @@ let workshops = JSON.parse(localStorage.getItem("workshops"));
 const liveBooking = document.getElementById("liveBooking");
 liveBooking.addEventListener("submit", (e) => {
   e.preventDefault();
+  let chk = confirm("Are you sure want to find worshop near you ?");
+  if (chk == true) {
+    let booking_id = Date.now();
+    let time = new Date();
+    let customer_id = localStorage.getItem("LoginUser");
+    let raisedStatus = true;
+    let acceptBooking = false;
+    let country = document.getElementById("countries").value;
+    let state = document.getElementById("state").value;
+    let city = document.getElementById("district").value;
+    let address = document.getElementById("address").value;
+    let vehicleType = document.getElementById("vehicleType").value;
+    let vehicleCompany = document.getElementById("vehicleCompany").value;
+    let vehicleModel = document.getElementById("vehicleModel").value;
+    let vehicleProblem = document.getElementById("vehicleProblem").value;
+    let bookObj = {
+      time,
+      booking_id,
+      customer_id,
+      raisedStatus,
+      acceptBooking,
+      country,
+      state,
+      city,
+      address,
+      vehicleType,
+      vehicleCompany,
+      vehicleModel,
 
-  let booking_id = Date.now();
-  let customer_id = localStorage.getItem("LoginUser");
-  let raisedStatus = true;
-  let acceptBooking = false;
-  let country = document.getElementById("countries").value;
-  let state = document.getElementById("state").value;
-  let city = document.getElementById("district").value;
-  let address = document.getElementById("address").value;
-  let vehicleType = document.getElementById("vehicleType").value;
-  let vehicleCompany = document.getElementById("vehicleCompany").value;
-  let vehicleModel = document.getElementById("vehicleModel").value;
-  let vehicleNumber = document.getElementById("vehicleNumber").value;
-  let vehicleProblem = document.getElementById("vehicleProblem").value;
-  let bookObj = {
-    booking_id,
-    customer_id,
-    raisedStatus,
-    acceptBooking,
-    country,
-    state,
-    city,
-    address,
-    vehicleType,
-    vehicleCompany,
-    vehicleModel,
-    vehicleNumber,
-    vehicleProblem,
-  };
-  let alreadyRaised = false;
+      vehicleProblem,
+    };
+    let alreadyRaised = false;
 
-  let check = bookings.find((e) => {
-    if (e["customer_id"] == customer_id) {
-      if (e["raisedStatus"] == true) {
-        alreadyRaised = true;
-        return true;
+    let check = bookings.find((e) => {
+      if (e["customer_id"] == customer_id) {
+        if (e["raisedStatus"] == true) {
+          alreadyRaised = true;
+          return true;
+        }
       }
-    }
-  });
-  if (alreadyRaised == true) {
-    alert("You already raised a booking cancel that to book another ");
-    window.location.href = "./customerActivity.html";
-    return;
-  } else {
-    bookings.push(bookObj);
-    set(ref(db, "bookings/"), bookings);
-    window.location.href = "./customerActivity.html";
-  }
-  // bookings.push(bookObj);
-  // localStorage.setItem("bookings", JSON.stringify(bookings));
-  //
+    });
+    if (alreadyRaised == true) {
+      alert("You already raised a booking cancel that to book another ");
+      window.location.href = "./customerActivity.html";
 
-  // let checkBookingCustomerArr = bookings.find((e) => {
-  //   if (e["customer_id"] == customer_id && e["raisedStatus"] == true) {
-  //     return true;
-  //   }
-  // });
-  // //   let checkBookingStatus = checkBookingCustomerArr.find((e) => {
-  // //     if (e["raisedStatus"] == true) {
-  // //       return true;
-  // //     }
-  // //   });
-  // if (checkBookingCustomerArr == null || undefined) {
-  //   bookings.push(bookObj);
-  //   localStorage.setItem("bookings", JSON.stringify(bookings));
-  // } else {
-  //   alert("your already raised a request please cancel that to raise another");
-  // }
-  // console.log(checkBookingCustomerArr);
-  //   console.log(checkBookingStatus);
+      return;
+    } else {
+      bookings.push(bookObj);
+      set(ref(db, "bookings/"), bookings);
+
+      window.location.href = "./customerActivity.html";
+    }
+  } else {
+    return;
+  }
 });
