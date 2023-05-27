@@ -64,15 +64,15 @@ for (let i = 0; i < near.length; i++) {
       }
     });
   }
+  console.log(near[i]["customer_id"]);
   let liveUser = users.find((e) => {
     if (e["user_id"] == near[i]["customer_id"]) {
       return true;
     }
   });
+  console.log(users);
   console.log(liveUser);
   if (checkReject == undefined || arr == undefined) {
-    alert("check");
-
     if (near[i]["raisedStatus"] == true && near[i]["acceptBooking"] == false) {
       bookingWorkshopDiv(near[i], liveUser, ".workshopSection", true);
     }
