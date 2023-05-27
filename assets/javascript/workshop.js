@@ -174,17 +174,14 @@ workshopForm.addEventListener("submit", (e) => {
   let number = document.getElementById("ownerNumber").value;
   let password = oneWorkshop["password"];
   let workShopID = oneWorkshop["workshopId"];
-
   let pickupService = false;
   let breakdownService = false;
-
-  // let ownerEmail = document.getElementById("ownerEmail").value;
+  let image = document.getElementById("image").value;
   let workshopName = document.getElementById("workshopName").value;
   let workshopCountry = document.getElementById("countries").value;
   let workshopState = document.getElementById("state").value;
   let workshopCity = document.getElementById("district").value;
   let workshopAddress = document.getElementById("address").value;
-  // let workshopStarted = document.getElementById("started").value;
   let workshopType = document.getElementById("vehicleType").value;
   let openTime = document.getElementById("openTime").value;
   let closeTime = document.getElementById("closeTime").value;
@@ -223,6 +220,7 @@ workshopForm.addEventListener("submit", (e) => {
     SuspensionCost,
     pickupService,
     breakdownService,
+    image,
   };
   workshops.push(workshopObj);
   set(ref(db, "workshop/"), workshops);

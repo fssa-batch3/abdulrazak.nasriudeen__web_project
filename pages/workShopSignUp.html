@@ -260,7 +260,7 @@
         background-color: var(--white);
       }
       .otp,
-      #loginForm {
+      #workshopLoginForm {
         box-shadow: 2px 2px black;
         width: 350px;
         height: 250px;
@@ -321,6 +321,17 @@
           />
         </div>
         <div class="inputCont">
+          <span class="material-symbols-outlined"> photo_camera </span>
+          <!-- <h5>Upload workshop Photo</h5> -->
+          <input
+            type="text"
+            name=""
+            placeholder="Enter your image url"
+            required
+            id="image"
+          />
+        </div>
+        <div class="inputCont">
           <span class="material-symbols-outlined"> flag_circle </span>
           <select name="workShop Country" id="countries">
             <option value="">Select country</option>
@@ -342,6 +353,8 @@
           <h5>Enter Workshop's address</h5>
           <input type="text" name="" id="address" />
         </div>
+      </div>
+      <div class="rightForm">
         <div class="inputCont">
           <span class="material-symbols-outlined"> bike_scooter </span>
           <select name="workShop type" id="vehicleType">
@@ -351,8 +364,6 @@
             <option value="4 wheelers">4 wheelers</option>
           </select>
         </div>
-      </div>
-      <div class="rightForm">
         <div class="inputCont">
           <span class="material-symbols-outlined"> schedule </span>
           <p>Opening time :</p>
@@ -404,22 +415,6 @@
             />
           </h6>
         </div>
-        <div class="serviceContainer">
-          <h5>Engine and Transmission Services</h5>
-          <div class="serviceCont" id="engine"></div>
-          <h6>
-            Enter average amount expected
-            <span class="material-symbols-outlined"> currency_rupee </span>
-
-            <input
-              type="tel"
-              required
-              name=""
-              id="engineCost"
-              placeholder="RS:"
-            />
-          </h6>
-        </div>
       </div>
       <div class="lastForm">
         <div class="serviceContainer">
@@ -450,6 +445,22 @@
               required
               name=""
               id="SuspensionCost"
+              placeholder="RS:"
+            />
+          </h6>
+        </div>
+        <div class="serviceContainer">
+          <h5>Engine and Transmission Services</h5>
+          <div class="serviceCont" id="engine"></div>
+          <h6>
+            Enter average amount expected
+            <span class="material-symbols-outlined"> currency_rupee </span>
+
+            <input
+              type="tel"
+              required
+              name=""
+              id="engineCost"
               placeholder="RS:"
             />
           </h6>
