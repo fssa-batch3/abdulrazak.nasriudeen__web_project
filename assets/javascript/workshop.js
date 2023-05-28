@@ -238,6 +238,14 @@ loginForm.addEventListener("submit", (e) => {
   alert(loginNumber);
   read(loginNumber, loginPassword, 0);
 });
+let loginBtn = document.getElementById("loginBtn");
+loginBtn.addEventListener("click", () => {
+  openDiv("#workshopLoginForm", "#numberForm");
+});
+let signBtn = document.getElementById("signBtn");
+signBtn.addEventListener("click", () => {
+  openDiv("#numberForm", "#workshopLoginForm");
+});
 
 // workshop registration
 

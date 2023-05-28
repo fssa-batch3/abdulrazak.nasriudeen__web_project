@@ -4,6 +4,8 @@ function createWorkshop(obj, id) {
   div.classList.add("workShopCard");
 
   const img = document.createElement("img");
+  img.setAttribute("src", obj["image"]);
+  img.setAttribute("alt", "workshop image");
 
   const h3 = document.createElement("h3");
   h3.textContent = obj["workshopName"];
