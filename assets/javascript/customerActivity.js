@@ -130,7 +130,10 @@ function otpVerifyFunc(obj, wrk, id) {
   // Create h5 element for workshop name
   const workshopName = document.createElement("h5");
   workshopName.textContent = "WorkShop Name : " + wrk["workshopName"];
+  const workshopNum = document.createElement("div");
+  workshopNum.textContent = "WorkShopNumber : " + wrk["number"];
   section.appendChild(workshopName);
+  section.appendChild(workshopNum);
 
   // Create h5 element for mechanic contact message
   const contactMessage = document.createElement("h5");
@@ -142,12 +145,22 @@ function otpVerifyFunc(obj, wrk, id) {
   buttonContainer.classList.add("button");
 
   // Create Call button
-  const callButton = document.createElement("button");
+  const callButton = document.createElement("a");
   callButton.textContent = "Call";
+
   buttonContainer.appendChild(callButton);
 
   // Create Direction button
-  const directionButton = document.createElement("button");
+  const directionButton = document.createElement("a");
+  directionButton.addEventListener("click", () => {
+    directionButton.href =
+      "https://www.google.com/maps/search/" +
+      wrk["workshopAddress"] +
+      "," +
+      wrk["workshopCity"] +
+      "," +
+      wrk["workshopState"];
+  });
   directionButton.textContent = "Direction";
   buttonContainer.appendChild(directionButton);
 
@@ -401,5 +414,6 @@ if (livObj != undefined) {
     document.getElementById("activitySection").appendChild(h2);
   }
 }
+otpVerifyFunc(livObj, bookedWorkshop, "activitySection");
 
 // feed back

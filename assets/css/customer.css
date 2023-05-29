@@ -550,12 +550,16 @@ button {
   justify-content: center;
   gap: 3%;
 }
-.button button {
+.button a {
   width: 45%;
   height: 40px;
   border: 2px solid white;
   font-size: 18px;
   color: black;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: aliceblue;
 }
 .button > :first-child {
