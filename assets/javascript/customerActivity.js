@@ -147,6 +147,9 @@ function otpVerifyFunc(obj, wrk, id) {
   // Create Call button
   const callButton = document.createElement("a");
   callButton.textContent = "Call";
+  callButton.addEventListener("click", () => {
+    callButton.href = "tel:" + wrk["number"];
+  });
 
   buttonContainer.appendChild(callButton);
 

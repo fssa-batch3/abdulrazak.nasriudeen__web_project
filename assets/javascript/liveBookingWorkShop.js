@@ -88,8 +88,10 @@ for (let i = 0; i < near.length; i++) {
       near[i]["serviceList"] == undefined
     ) {
       serviceList(near[i], ".workshopSection");
-    } else if (near[i]["serviceAccept"] == false) {
+    } else if (near[i]["serviceAccept"] == undefined) {
       waiting(liveUser, ".workshopSection");
+    } else if (near[i]["serviceAccept"] == true) {
+      accept(liveUser, ".workshopSection");
     }
   } else {
     bookingWorkshopDiv(near[i], liveUser, ".workshopSection", false);
@@ -542,6 +544,53 @@ function waiting(obj, cls) {
 
   // Append the img, h3, and a elements to the main container div
   waitingResponseDiv.appendChild(imgElement);
+  waitingResponseDiv.appendChild(h3Element);
+  waitingResponseDiv.appendChild(aElement);
+
+  // Append the main container div to the document body
+  document.querySelector(cls).appendChild(waitingResponseDiv);
+}
+function accept(obj, cls) {
+  // Create the main container div element
+  var waitingResponseDiv = document.createElement("div");
+  waitingResponseDiv.className = "waitingResponse";
+
+  // Create the img element
+  var imgElement = document.createElement("img");
+  imgElement.src = "../../assets/images/workshop/wait.gif";
+  imgElement.alt = "waitingResponse";
+
+  // Create the h3 element
+  var h3Element = document.createElement("h3");
+  h3Element.textContent = "customer Accepted you service ";
+
+  // Create the a element
+  var aElement = document.createElement("a");
+  aElement.addEventListener("click", () => {
+    aElement.href =
+      "https://www.google.com/maps/search/" +
+      wrk["address"] +
+      "," +
+      wrk["city"] +
+      "," +
+      wrk["state"];
+  });
+  // aElement.setAttribute("href", "tel:" + obj["number"]);
+
+  // Create the span element
+  var spanElement = document.createElement("span");
+  spanElement.className = "material-symbols-outlined";
+  spanElement.textContent = "pin";
+
+  // Create the text node for "Call"
+  var callText = document.createTextNode(" direction");
+
+  // Append the span and text node to the a element
+  aElement.appendChild(spanElement);
+  aElement.appendChild(callText);
+
+  // Append the img, h3, and a elements to the main container div
+  // waitingResponseDiv.appendChild(imgElement);
   waitingResponseDiv.appendChild(h3Element);
   waitingResponseDiv.appendChild(aElement);
 
