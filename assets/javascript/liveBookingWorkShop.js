@@ -75,7 +75,11 @@ for (let i = 0; i < near.length; i++) {
   });
   console.log(users);
   console.log(checkReject);
-  if (checkReject == undefined || arr == undefined) {
+  if (
+    checkReject == undefined ||
+    near[i]["acceptBooking"] == false ||
+    near[i]["acceptBooking"] != loggedWorkShopId
+  ) {
     if (near[i]["raisedStatus"] == true && near[i]["acceptBooking"] == false) {
       bookingWorkshopDiv(near[i], liveUser, ".workshopSection", true);
     } else if (
@@ -92,12 +96,12 @@ for (let i = 0; i < near.length; i++) {
       waiting(liveUser, ".workshopSection");
     } else if (
       near[i]["serviceAccept"] === true &&
-      near[i]["serviceAccept"] != undefined
+      near[i]["acceptBooking"] == loggedWorkShopId
     ) {
       bookingAccepted(near[i], ".workshopSection");
     } else if (
       near[i]["serviceAccept"] === false &&
-      near[i]["serviceAccept"] != undefined
+      near[i]["acceptBooking"] == loggedWorkShopId
     ) {
       bookingRejected(near[i], ".workshopSection");
     }
