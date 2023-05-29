@@ -90,11 +90,6 @@ for (let i = 0; i < near.length; i++) {
       serviceList(near[i], ".workshopSection");
     } else if (near[i]["serviceAccept"] == undefined) {
       waiting(liveUser, ".workshopSection");
-    } else if (
-      near[i]["serviceAccept"] != undefined &&
-      near[i]["serviceAccept"] == true
-    ) {
-      accept(liveUser, ".workshopSection");
     }
   } else {
     bookingWorkshopDiv(near[i], liveUser, ".workshopSection", false);
