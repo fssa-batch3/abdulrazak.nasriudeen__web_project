@@ -395,7 +395,6 @@ function serviceList(obj, cls) {
     let check = confirm("Are you want to send the list to the customer");
     if (check == true) {
       obj["serviceList"] = arr;
-      obj["serviceAccept"] = false;
       let index = bookings.indexOf(obj);
       bookings[index] = obj;
       set(ref(db, "bookings/"), bookings);

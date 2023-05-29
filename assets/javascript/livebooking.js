@@ -63,6 +63,9 @@ liveBooking.addEventListener("submit", (e) => {
       vehicleProblem,
     };
     let alreadyRaised = false;
+    bookings.push(bookObj);
+    set(ref(db, "bookings/"), bookings);
+    alert("ceck");
 
     let check = bookings.find((e) => {
       if (e["customer_id"] == customer_id) {

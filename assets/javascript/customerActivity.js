@@ -26,6 +26,12 @@ onValue(starCountRef, (snapshot) => {
   let bookings = snapshot.val();
   localStorage.setItem("bookings", JSON.stringify(bookings));
 });
+const starWorkshopRef = ref(db, "workshop/");
+onValue(starWorkshopRef, (snapshot) => {
+  let workshops = snapshot.val();
+  localStorage.setItem("workshops", JSON.stringify(workshops));
+});
+
 function cancelRequest(obj) {
   let check = confirm("Are you Want to cancel this request");
   if (check == true) {
@@ -98,7 +104,251 @@ function liveBookingCard(obj, id) {
   appId.append(section);
 }
 
+// function for otp verification
+function otpVerifyFunc(obj, wrk, id) {
+  // Create section element
+  const section = document.createElement("section");
+  section.classList.add("OtpConfirmation");
+
+  // Create h5 element for OTP message
+  const otpMessage = document.createElement("h5");
+  otpMessage.textContent = "Share the OTP to get your service";
+  section.appendChild(otpMessage);
+
+  // Create h3 element for OTP code
+  const otpCode = document.createElement("h3");
+  otpCode.id = "otpH3";
+  otpCode.textContent = "OTP : " + obj["OTP"];
+  section.appendChild(otpCode);
+
+  // Create img element for workshop image
+  const workshopImage = document.createElement("img");
+  workshopImage.src = wrk["image"];
+  workshopImage.alt = "workshop";
+  section.appendChild(workshopImage);
+
+  // Create h5 element for workshop name
+  const workshopName = document.createElement("h5");
+  workshopName.textContent = "WorkShop Name : " + wrk["workshopName"];
+  section.appendChild(workshopName);
+
+  // Create h5 element for mechanic contact message
+  const contactMessage = document.createElement("h5");
+  contactMessage.textContent = wrk["name"] + " will contact you shortly";
+  section.appendChild(contactMessage);
+
+  // Create button container
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button");
+
+  // Create Call button
+  const callButton = document.createElement("button");
+  callButton.textContent = "Call";
+  buttonContainer.appendChild(callButton);
+
+  // Create Direction button
+  const directionButton = document.createElement("button");
+  directionButton.textContent = "Direction";
+  buttonContainer.appendChild(directionButton);
+
+  section.appendChild(buttonContainer);
+
+  // Append the section to the document body or any desired container
+  document.getElementById(id).append(section);
+}
+
+// function for waiting card
+function waitingCard(obj, id) {
+  alert(
+    "Thanks for cunsulting our mechanic kindly wait for some time to get your service list and amount  "
+  );
+  // Create the elements
+  const section = document.createElement("section");
+  section.setAttribute("class", "waitingCard");
+
+  const img = document.createElement("img");
+  img.setAttribute("src", "../../assets/images/workshop/wait.gif");
+  img.setAttribute("alt", "waiting");
+
+  const h2 = document.createElement("h3");
+  h2.textContent = "Waiting For Your service list";
+
+  let timer = document.createElement("div");
+  timer.className = "timer";
+  timer.style.width = "100px";
+
+  const minutesSpan = document.createElement("span");
+  minutesSpan.setAttribute("id", "minutes");
+  minutesSpan.textContent = "00";
+  const p = document.createElement("p");
+  p.innerText = ":";
+  const secondsSpan = document.createElement("span");
+  secondsSpan.setAttribute("id", "seconds");
+  secondsSpan.textContent = "00";
+  startTimer();
+  timer.append(minutesSpan);
+  timer.append(p);
+  timer.append(secondsSpan);
+
+  const button = document.createElement("button");
+  button.textContent = "Cancel";
+
+  // Append the elements to the section
+  section.appendChild(img);
+  section.appendChild(h2);
+  section.appendChild(timer);
+  section.appendChild(button);
+
+  // Add the section to the document body or any other parent element
+  document.getElementById(id).appendChild(section);
+}
+
+// function for service list
+function oneService(obj, id) {
+  // Create a div element with class "serviceContainer"
+  const div = document.createElement("div");
+  div.className = "serviceContainerList";
+
+  // Create a span element with class "material-symbols-outlined" and text content "settings_suggest"
+  const span = document.createElement("span");
+  span.className = "material-symbols-outlined";
+  span.textContent = "settings_suggest";
+
+  // Create an h4 element with the text content "Service Name"
+  const h4 = document.createElement("h4");
+  h4.textContent = obj["serviceName"];
+
+  // Create an i element with class "material-symbols-outlined" and text content "currency_rupee"
+  const i = document.createElement("i");
+  i.className = "material-symbols-outlined";
+  i.textContent = "currency_rupee";
+
+  // Create an input element with type "tel"
+  const input = document.createElement("input");
+  input.setAttribute("id", "serviceNo:" + obj["eachServiceId"]);
+  input.type = "tel";
+  input.value = obj["serviceAmount"];
+  input.disabled = true;
+
+  // Append the span, h4, i, and input elements to the div element
+  div.appendChild(span);
+  div.appendChild(h4);
+  div.appendChild(i);
+  div.appendChild(input);
+
+  if (obj["serviceName"] && obj["serviceAmount"] != null) {
+    id.appendChild(div);
+  }
+
+  // Append the div element to the document body or any other desired parent element
+}
+function serviceList(obj, cls) {
+  // obj["serviceList"] = [];
+  const arr = obj["serviceList"];
+  // Create the main div element
+  const div = document.createElement("div");
+  div.className = "serviceList";
+
+  // Create the h2 element
+  const h2 = document.createElement("h2");
+  h2.textContent = "Your Expected  Services";
+
+  // Append the h2 to the main div
+  div.appendChild(h2);
+
+  // Create the div element with class 'serviceListContainer'
+  const serviceListContainer = document.createElement("div");
+  serviceListContainer.className = "serviceListContainer";
+  serviceListContainer.id = "prependService";
+
+  // Append the serviceListContainer to the main div
+  div.appendChild(serviceListContainer);
+
+  // Create the h3 element
+  const h3 = document.createElement("h3");
+
+  // Create the first span inside h3
+  const totalAmountSpan = document.createElement("span");
+  totalAmountSpan.textContent = "Total Amount : ";
+
+  // Create the second span inside h3
+  const currencySpan = document.createElement("span");
+  currencySpan.className = "material-symbols-outlined";
+  currencySpan.textContent = " currency_rupee ";
+
+  // Create the input element inside h3
+  const totalInput = document.createElement("input");
+  totalInput.type = "tel";
+  totalInput.id = "total";
+  totalInput.value = "00";
+  totalInput.required = true;
+  totalInput.disabled = true;
+
+  let total = 0;
+  // adding service
+
+  arr.forEach((element) => {
+    oneService(element, serviceListContainer);
+    total += parseInt(element.serviceAmount);
+  });
+  totalInput.value = total;
+
+  // Append the spans and input to the h3
+  h3.appendChild(totalAmountSpan);
+  h3.appendChild(currencySpan);
+  h3.appendChild(totalInput);
+
+  // Append the h3 to the main div
+  div.appendChild(h3);
+
+  let buttonContainer = document.createElement("div");
+  buttonContainer.className = "btnContainer";
+  div.appendChild(buttonContainer);
+  let acceptBtn = document.createElement("button");
+  acceptBtn.style.backgroundColor = "green";
+  acceptBtn.innerText = "Accept";
+  acceptBtn.addEventListener("click", () => {
+    let check = confirm("Confirm your service");
+    if (check == true) {
+      obj["serviceAccept"] = true;
+      let index = bookings.indexOf(obj);
+      bookings[index] = obj;
+      set(ref(db, "bookings/"), bookings);
+      window.location.reload();
+    }
+  });
+
+  buttonContainer.append(acceptBtn);
+  let rejectBtn = document.createElement("button");
+  rejectBtn.addEventListener("click", () => {
+    let check = confirm("Are you want to reject this service ");
+    let reason = prompt("Kindly enter the reason for your cancellation");
+    if (check == true) {
+      obj["serviceAccept"] = false;
+      obj["rejectReason"] = reason;
+      let index = bookings.indexOf(obj);
+      bookings[index] = obj;
+      set(ref(db, "bookings/"), bookings);
+      alert("Thanks For the feed back");
+      window.location.href = "./cust.html";
+    }
+  });
+  rejectBtn.style.backgroundColor = "red";
+  rejectBtn.innerText = "Cancel";
+  buttonContainer.append(rejectBtn);
+  let cancelBtn = document.createElement("button");
+
+  cancelBtn.id = "cancelBtn";
+  cancelBtn.innerText = "Contact workshop";
+  div.append(cancelBtn);
+
+  document.querySelector(cls).appendChild(div);
+
+  // Now you can append the 'div' element to your desired container in the document.
+}
+
 let bookings = JSON.parse(localStorage.getItem("bookings"));
+let workshops = JSON.parse(localStorage.getItem("workshops"));
 let customerId = localStorage.getItem("LoginUser");
 let liveArr = bookings.filter((e) => {
   if (e["customer_id"] == customerId) {
@@ -107,15 +357,45 @@ let liveArr = bookings.filter((e) => {
 });
 let livObj = liveArr.find((e) => {
   if (e["raisedStatus"] == true) {
-    liveBookingCard(e, "activitySection");
-    startTimer();
-    let cancelButton = document.getElementById("CancelnotfindCard");
-    cancelButton.addEventListener("click", () => {
-      cancelRequest(e);
-    });
-
     return true;
   }
 });
+console.log(livObj);
+let bookedWorkshop;
+if (livObj["acceptBooking"] != false) {
+  bookedWorkshop = workshops.find((e) => {
+    if (e["workShopID"] == livObj["acceptBooking"]) {
+      return true;
+    }
+  });
+}
+console.log(bookedWorkshop);
+
+if (livObj != undefined) {
+  if (livObj["raisedStatus"] == true && livObj["acceptBooking"] == false) {
+    liveBookingCard(livObj, "activitySection");
+    startTimer();
+    let cancelButton = document.getElementById("CancelnotfindCard");
+    cancelButton.addEventListener("click", () => {
+      cancelRequest(livObj);
+    });
+  } else if (
+    livObj["acceptBooking"] != false &&
+    livObj["otpVerify"] == undefined
+  ) {
+    alert("We found a workshop for you !!");
+    otpVerifyFunc(livObj, bookedWorkshop, "activitySection");
+  } else if (
+    livObj["otpVerify"] == true &&
+    livObj["serviceList"] == undefined
+  ) {
+    waitingCard(livObj, "activitySection");
+  } else if (
+    livObj["serviceList"] != undefined &&
+    livObj["serviceAccept"] == undefined
+  ) {
+    serviceList(livObj, "#activitySection");
+  }
+}
 
 // feed back

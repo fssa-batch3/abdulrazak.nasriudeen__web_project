@@ -38,6 +38,7 @@
         border: 3px solid black;
         background-color: #fe3044;
         color: white;
+        /* margin-top: 10px; */
         font-size: 20px;
       }
       .timer {
@@ -56,6 +57,9 @@
       }
       #notFind {
         display: none;
+      }
+      #notFind button {
+        margin-top: 20px;
       }
     </style>
   </head>
@@ -122,19 +126,6 @@
       </ul>
     </nav>
     <div class="section" id="activitySection">
-      <!-- <section id="finding_workshop">
-        <img src="../../assets/images/customer/way.gif" alt="finding" />
-        <h2>
-          Finding Workshops near you
-          <span class="material-symbols-outlined"> pin_drop </span>
-        </h2>
-        <div class="timer">
-          estimated Time 1 min
-          <span id="minutes">00</span> :
-          <span id="seconds">00</span>
-        </div>
-        <button class="cancel">Cancel Request</button>
-      </section> -->
       <section id="notFind">
         <img
           src="../../assets/images/customer/speech-bubble.gif"
@@ -149,6 +140,11 @@
         </button>
         <button id="CancelnotfindCard">cancel Request</button>
       </section>
+      <!-- <section class="waitingCard">
+        <img src="../../assets/images/workshop/wait.gif" alt="waiting" />
+        <h2>Waiting For Your service</h2>
+        <button>Cancel</button>
+      </section> -->
     </div>
     <script>
       let minutes = 0;
