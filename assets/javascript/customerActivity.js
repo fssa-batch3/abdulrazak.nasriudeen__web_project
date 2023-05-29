@@ -312,9 +312,9 @@ function serviceList(obj, cls) {
     if (check == true) {
       obj["serviceAccept"] = true;
       let index = bookings.indexOf(obj);
+      alert("Thanks for using our website  mechanic will arrive shortly ");
       bookings[index] = obj;
       set(ref(db, "bookings/"), bookings);
-      window.location.reload();
     }
   });
 
@@ -395,6 +395,10 @@ if (livObj != undefined) {
     livObj["serviceAccept"] == undefined
   ) {
     serviceList(livObj, "#activitySection");
+  } else if (livObj["serviceAccept"] == true) {
+    let h2 = document.createElement("h2");
+    h2.innerText = "Our mechanic Will contact you shortly";
+    document.getElementById("activitySection").appendChild(h2);
   }
 }
 
