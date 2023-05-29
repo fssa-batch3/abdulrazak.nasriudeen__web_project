@@ -90,6 +90,16 @@ for (let i = 0; i < near.length; i++) {
       serviceList(near[i], ".workshopSection");
     } else if (near[i]["serviceAccept"] == undefined) {
       waiting(liveUser, ".workshopSection");
+    } else if (
+      near[i]["serviceAccept"] === true &&
+      near[i]["serviceAccept"] != undefined
+    ) {
+      bookingAccepted(near[i], ".workshopSection");
+    } else if (
+      near[i]["serviceAccept"] === false &&
+      near[i]["serviceAccept"] != undefined
+    ) {
+      bookingRejected(near[i], ".workshopSection");
     }
   } else {
     bookingWorkshopDiv(near[i], liveUser, ".workshopSection", false);
@@ -547,4 +557,49 @@ function waiting(obj, cls) {
 
   // Append the main container div to the document body
   document.querySelector(cls).appendChild(waitingResponseDiv);
+}
+
+function bookingAccepted(obj, cls) {
+  // Create the main div element
+  var divElement = document.createElement("div");
+  divElement.setAttribute("class", "acceptService");
+
+  // Create the h2 element
+  var h2Element = document.createElement("h2");
+  var h2Text = document.createTextNode("Customer accept your services");
+  h2Element.appendChild(h2Text);
+
+  // Create the button element
+  var buttonElement = document.createElement("button");
+  var buttonText = document.createTextNode("location");
+  buttonElement.appendChild(buttonText);
+
+  // Append the h2 and button elements to the div element
+  divElement.appendChild(h2Element);
+  divElement.appendChild(buttonElement);
+  document.querySelector(cls).append(divElement);
+}
+function bookingRejected(obj, cls) {
+  // Create the main div element
+  var divElement = document.createElement("div");
+  divElement.setAttribute("class", "acceptService");
+
+  // Create the h2 element
+  var h2Element = document.createElement("h2");
+  var h2Text = document.createTextNode("Customer rejected your services");
+  h2Element.appendChild(h2Text);
+  var h3Element = document.createElement("h3");
+  var h3Text = document.createTextNode("Reason : " + obj["rejectReason"]);
+  h3Element.appendChild(h3Text);
+
+  // Create the button element
+  var buttonElement = document.createElement("button");
+  var buttonText = document.createTextNode("okay");
+  buttonElement.appendChild(buttonText);
+
+  // Append the h2 and button elements to the div element
+  divElement.appendChild(h2Element);
+  divElement.appendChild(h3Element);
+  // divElement.appendChild(buttonElement);
+  document.querySelector(cls).append(divElement);
 }
