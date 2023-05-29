@@ -1,39 +1,40 @@
 // home page section 2 div container
-// json for container -----
+// json data section 2 for  container -----
 let sec_2_data = [
   {
     title: "Courteous",
     Description:
       "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/home/sec2_image1.jpg", alt: "cont" },
+    image: { src: "./assets/images/home/sec2_image1.jpg", alt: "Courteous" },
   },
   {
-    title: "Courteous",
+    title: "Trust Worthy",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Connect with certified mechanics who provide expert and trustworthy car repairs and maintenance services through our online mechanic app.",
+    image: { src: "./assets/images/home/trust.jpg", alt: "cont" },
   },
   {
-    title: "Courteous",
+    title: "Affordable",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Access a range of maintenance services, Get quality car repairs and maintenance services at a fair price with our Reparo.",
+    image: { src: "./assets/images/home/affordable.png", alt: "cont" },
   },
   {
-    title: "Courteous",
+    title: "Expert Mechanics",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Our app connects you with highly skilled mechanics who have the knowledge and experience to diagnose and repair any issue with your vehicle. ",
+    image: { src: "./assets/images/home/expert mechanic.jpg", alt: "cont" },
   },
   {
-    title: "Courteous",
+    title: "Convenient ",
     Description:
-      "We see this as an Oppurtunity to save our customer's time energy and frustration. Our customer also appretiate for the timely communication we provide regarding their questions and concerns",
-    image: { src: "./assets/images/hero wallpaper (2).png", alt: "cont" },
+      "Our app makes it easy to get the car repairs and maintenance services you need. Simply book an appointment, and our mechanics will provide quality service at a fair price.",
+    image: { src: "./assets/images/home/convinient.jpg", alt: "cont" },
   },
 ];
 
 // sec 4 service list
+// json for bike service card
 let bike_service = [
   {
     title: "Tune - up",
@@ -79,7 +80,74 @@ let bike_service = [
   },
 ];
 // bike service end
-// car Service starts
+// online bike service
+let online_bike_service = [
+  "Oil change",
+  "Brake adjustment",
+  "Chain tightening",
+  "Chain lubrication",
+  "Air filter replacement",
+  "Spark plug replacement",
+  "Tire pressure check",
+  "Tire replacement",
+  "Battery replacement",
+  "Headlight bulb replacement",
+  "Taillight bulb replacement",
+  "Indicator bulb replacement",
+  "Clutch cable adjustment",
+  "Throttle cable adjustment",
+  "Engine tuning",
+  "Engine oil top-up",
+  "Coolant top-up",
+  "Brake fluid top-up",
+  "Power steering fluid top-up",
+  "Gearbox oil top-up",
+  "Transmission oil top-up",
+  "Fuel filter replacement",
+  "Fuel tank cleaning",
+  "Carburetor cleaning",
+  "Throttle body cleaning",
+  "Exhaust system cleaning",
+  "Radiator cleaning",
+  "Chain cleaning",
+  "Fuel injector cleaning",
+  "Ignition system check",
+  "Suspension check",
+  "Wheel alignment",
+  "Handlebar adjustment",
+  "Seat height adjustment",
+  "Exhaust system replacement",
+  "Carburetor replacement",
+  "Fuel pump replacement",
+  "Fuel tank replacement",
+  "Speedometer cable replacement",
+  "Drive belt replacement",
+  "Wheel bearing replacement",
+  "Shock absorber replacement",
+  "Fork oil replacement",
+  "Brake pad replacement",
+  "Brake disc replacement",
+  "Clutch plate replacement",
+  "Engine rebuild",
+  "Carburetor rebuild",
+  "Transmission rebuild",
+  "Brake caliper rebuild",
+  "Fork rebuild",
+  "Radiator replacement",
+  "Coolant hose replacement",
+  "Thermostat replacement",
+  "Starter motor replacement",
+  "Alternator replacement",
+  "CDI unit replacement",
+  "Regulator rectifier replacement",
+  "Wiring harness replacement",
+  "Fuel tank rust removal",
+  "Custom paint job",
+  "Bodywork repairs",
+  "Seat reupholstering",
+];
+
+//  Json for car Service card starts
 let car_service = [
   {
     title: "Oil Change",
@@ -122,10 +190,79 @@ let car_service = [
   },
 ];
 // car ends
-// auto starts
+// online car service
+let online_car_service = [
+  "Oil change",
+  "Brake adjustment",
+  "Brake pad replacement",
+  "Brake disc replacement",
+  "Tire pressure check",
+  "Tire replacement",
+  "Battery replacement",
+  "Headlight bulb replacement",
+  "Taillight bulb replacement",
+  "Indicator bulb replacement",
+  "Clutch cable adjustment",
+  "Throttle cable adjustment",
+  "Engine tuning",
+  "Engine oil top-up",
+  "Coolant top-up",
+  "Brake fluid top-up",
+  "Power steering fluid top-up",
+  "Gearbox oil top-up",
+  "Transmission oil top-up",
+  "Fuel filter replacement",
+  "Fuel tank cleaning",
+  "Fuel pump replacement",
+  "Fuel tank replacement",
+  "Fuel injector cleaning",
+  "Ignition system check",
+  "Suspension check",
+  "Wheel alignment",
+  "Handlebar adjustment",
+  "Seat height adjustment",
+  "Exhaust system replacement",
+  "Catalytic converter replacement",
+  "Muffler replacement",
+  "Air filter replacement",
+  "Spark plug replacement",
+  "Alternator replacement",
+  "Starter motor replacement",
+  "Radiator replacement",
+  "Coolant hose replacement",
+  "Thermostat replacement",
+  "Fan belt replacement",
+  "Drive belt replacement",
+  "Timing belt replacement",
+  "Timing chain replacement",
+  "Head gasket replacement",
+  "Valve adjustment",
+  "Engine rebuild",
+  "Transmission rebuild",
+  "Brake caliper rebuild",
+  "Steering rack replacement",
+  "Shock absorber replacement",
+  "Suspension bushing replacement",
+  "CV joint replacement",
+  "Drive shaft replacement",
+  "Wheel bearing replacement",
+  "Power steering pump replacement",
+  "Windshield replacement",
+  "Window regulator replacement",
+  "Door lock actuator replacement",
+  "Battery cable replacement",
+  "Oxygen sensor replacement",
+  "Mass air flow sensor replacement",
+  "Camshaft position sensor replacement",
+  "Crankshaft position sensor replacement",
+  "Knock sensor replacement",
+  "Fuel pressure regulator replacement",
+];
+
+//  Json for auto Service card starts
 let auto_service = [
   {
-    title: "Engine oil change",
+    title: "",
     Description:
       "The engine oil in a 3-wheeler auto needs to be changed regularly to ensure smooth engine operation and to prevent damage to engine components. This is typically done every 3,000-5,000 km, depending on the manufacturer's recommendations.",
     image: { src: "", alt: "" },
@@ -155,233 +292,143 @@ let auto_service = [
     image: { src: "", alt: "" },
   },
 ];
+// online auto service
+let online_auto_service = [
+  "Oil change",
+  "Brake adjustment",
+  "Chain tightening",
+  "Chain lubrication",
+  "Air filter replacement",
+  "Spark plug replacement",
+  "Tire pressure check",
+  "Tire replacement",
+  "Battery replacement",
+  "Headlight bulb replacement",
+  "Taillight bulb replacement",
+  "Indicator bulb replacement",
+  "Clutch cable adjustment",
+  "Throttle cable adjustment",
+  "Engine tuning",
+  "Engine oil top-up",
+  "Coolant top-up",
+  "Brake fluid top-up",
+  "Power steering fluid top-up",
+  "Gearbox oil top-up",
+  "Transmission oil top-up",
+  "Fuel filter replacement",
+  "Fuel tank cleaning",
+  "Carburetor cleaning",
+  "Throttle body cleaning",
+  "Exhaust system cleaning",
+  "Radiator cleaning",
+  "Chain cleaning",
+  "Fuel injector cleaning",
+  "Ignition system check",
+  "Suspension check",
+  "Wheel alignment",
+  "Handlebar adjustment",
+  "Seat height adjustment",
+  "Exhaust system replacement",
+  "Carburetor replacement",
+  "Fuel pump replacement",
+  "Fuel tank replacement",
+  "Speedometer cable replacement",
+  "Drive belt replacement",
+  "Wheel bearing replacement",
+  "Shock absorber replacement",
+  "Fork oil replacement",
+  "Brake pad replacement",
+  "Brake disc replacement",
+  "Clutch plate replacement",
+  "Engine rebuild",
+  "Carburetor rebuild",
+  "Transmission rebuild",
+  "Brake caliper rebuild",
+  "Fork rebuild",
+  "Radiator replacement",
+  "Coolant hose replacement",
+  "Thermostat replacement",
+  "Starter motor replacement",
+  "Alternator replacement",
+  "CDI unit replacement",
+  "Regulator rectifier replacement",
+  "Wiring harness replacement",
+  "Fuel tank rust removal",
+  "Custom paint job",
+  "Bodywork repairs",
+  "Seat reupholstering",
+  "Steering column adjustment",
+  "Rear axle replacement",
+  "Wheel balance check",
+  "CV joint replacement",
+  "Drive shaft replacement",
+  "Engine mount replacement",
+  "Fuel injector replacement",
+  "Suspension bushing replacement",
+  "Brake master cylinder replacement",
+  "Power steering pump replacement",
+  "Windshield replacement",
+  "Window regulator replacement",
+];
 
+// function createDiv accepts array and id as a parameter
+// append div cards according to the number of elements in an array on the div which passed as an argument
 function createDiv(input, id) {
+  // for loop for creating cards with different data
   for (let i = 0; i < input.length; i++) {
-    let div_container = document.createElement("div");
-    div_container.setAttribute("class", "sec4Container");
-    let cont_img = document.createElement("img");
+    let div_container = document.createElement("div"); // card
+    div_container.setAttribute("class", "sec4Container"); // adding class to the card
+    let cont_img = document.createElement("img"); // card's image
     cont_img.setAttribute("class", "sec4Container_img");
-    cont_img.setAttribute("src", input[i]["image"]["src"]);
+    cont_img.setAttribute("src", input[i]["image"]["src"]); // different source for diffent images
     cont_img.setAttribute("alt", input[i]["image"]["alt"]);
-    div_container.append(cont_img);
-    let h3 = document.createElement("h3");
-    h3.innerText = input[i]["title"];
-    div_container.append(h3);
-    let p = document.createElement("p");
-    p.innerText = input[i]["Description"];
-    div_container.append(p);
-    let append_div = document.getElementById(id);
+    div_container.append(cont_img); // appending the image into the card
+    let h3 = document.createElement("h3"); // Card heading
+    h3.innerText = input[i]["title"]; // Different heading accourding according to the card
+    div_container.append(h3); // append heading below card's image
+    let p = document.createElement("p"); // creates paragraph tag
+    p.innerText = input[i]["Description"]; // differnt content
+    div_container.append(p); // append below heading
+    let append_div = document.getElementById(id); // get the html div's id
+    // finally appending the card into the id
     append_div.append(div_container);
   }
 }
-
+// creating dynamic div's for section 2
 createDiv(sec_2_data, "sec2_bottom");
+// creating dynamic div's for section 4  bike service
 createDiv(bike_service, "bike");
+// creating dynamic div's for section 4  car service
 createDiv(car_service, "car");
+// creating dynamic div's for section 4  auto service
 createDiv(auto_service, "auto");
 
-// function of tab header
+// end
 
+// function of tab header
 function openServices(serviceName, bId) {
+  // Get all elements with class "sec4_container"
   var ser_cont, i, button;
   ser_cont = document.getElementsByClassName("sec4_container");
+
+  // Loop through all elements with class "sec4_container"
   for (i = 0; i < ser_cont.length; i++) {
+    // Hide each element by setting its display to "none"
     ser_cont[i].style.display = "none";
   }
+
+  // Get all elements with class "linkButton"
   button = document.getElementsByClassName("linkButton");
+
+  // Loop through all elements with class "linkButton"
   for (i = 0; i < button.length; i++) {
+    // Remove the background color from each element by setting it to an empty string
     button[i].style.backgroundColor = "";
   }
+
+  // Display the element with the specified ID by setting its display to "flex"
   document.getElementById(serviceName).style.display = "flex";
+
+  // Set the background color of the element with the specified ID to gray
   document.getElementById(bId).style.backgroundColor = "#6c757d";
-  // document.getElementById(bId).style.color = "black";
 }
-
-// open profile
-
-// sign
-function Sign_openPopup() {
-  document.getElementById("sign_popup").style.display = "flex";
-}
-
-function Sign_closePopup() {
-  document.getElementById("sign_popup").style.display = "none";
-}
-function log_openPopup() {
-  document.getElementById("log_popup").style.display = "flex";
-}
-
-function log_closePopup() {
-  document.getElementById("log_popup").style.display = "none";
-}
-
-// crud
-
-// Create user function
-function createUser(obj) {
-  try {
-    let users = [];
-    let validation_error = false;
-    // alert("hi");
-
-    if (localStorage.getItem("users") != null) {
-      users = JSON.parse(localStorage.getItem("users"));
-    }
-    console.log(users);
-    const select_user = users.find(function (user) {
-      const customerEmail = user["userEmail"];
-      if (obj["userEmail"] === customerEmail) {
-        validation_error = true;
-        alert("user & already use this account, please change your email");
-        return false;
-      }
-      return false;
-    });
-    if (!validation_error) {
-      users.push(obj);
-      localStorage.setItem("users", JSON.stringify(users));
-      console.log(users);
-      alert("account created successfully...");
-    }
-  } catch (error) {}
-}
-//function to create mechanic
-function createMechanic(obj) {
-  try {
-    let mechanics = [];
-    let validation_error = false;
-    // alert("hi");
-
-    if (localStorage.getItem("mechanics") != null) {
-      mechanics = JSON.parse(localStorage.getItem("mechanics"));
-    }
-    console.log(mechanics);
-    const select_user = mechanics.find(function (user) {
-      const customerEmail = user["userEmail"];
-      if (obj["userEmail"] === customerEmail) {
-        validation_error = true;
-        alert("user & already use this account, please change your email");
-        return false;
-      }
-      return false;
-    });
-    if (!validation_error) {
-      mechanics.push(obj);
-      localStorage.setItem("mechanics", JSON.stringify(mechanics));
-      console.log(mechanics);
-      alert("account created as mechanic successfully...");
-    }
-  } catch (error) {}
-}
-
-// read user function
-function read(num, pass) {
-  try {
-    let get_data = JSON.parse(localStorage.getItem("users"));
-    let mechanic_data = JSON.parse(localStorage.getItem("mechanics"));
-    let findData = false;
-    const select_user = get_data.find(function (user) {
-      const customerPhone = user["userNumber"];
-      const customerName = user["userName"];
-
-      if (num === customerPhone) {
-        findData = true;
-        if (pass === user["userPassword"]) {
-          alert(customerName + "! Your account logged in successfully");
-          localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
-          window.location.href = "./pages/customer/profile.html";
-
-          return findData;
-        }
-        alert("Password is incorrect Please check");
-        return findData;
-      }
-      return findData;
-    });
-    if (findData === false) {
-      const mech = mechanic_data.find(function (user) {
-        const mechPhone = user["userNumber"];
-        const mechName = user["userName"];
-
-        if (num === mechPhone) {
-          findData = true;
-          if (pass === user["userPassword"]) {
-            alert(mechName + "! Your account logged as mechanic  successfully");
-            localStorage.setItem("oneUser", JSON.stringify(user["u_id"]));
-            window.location.href = "../pages/Mechanic/profile.html";
-            return findData;
-          }
-          alert("Password is incorrect Please check");
-          return findData;
-        }
-        return findData;
-      });
-    }
-    if (findData === false) {
-      alert(
-        "Number is not available please signup or enter valid phone number"
-      );
-    }
-    console.log(select_user);
-  } catch (error) {}
-}
-
-// function findcustomer(arr) {
-//   const select_user = arr.find(function (user) {
-//     const customerPhone = user["userNumber"];
-//     const customerName = user["userName"];
-
-//     if (num === customerPhone) {
-//       findData = true;
-//       check = true;
-//       if (pass === user["userPassword"]) {
-//         alert(customerName + "! Your account logged in successfully");
-//         localStorage.setItem("oneUser", JSON.stringify(number));
-//         // window.location.href = "./pages/Customer/Customer.html";
-//         return findData;
-//       }
-// alert("Password is incorrect Please check");
-//       return findData;
-//     }
-//     return findData;
-//   });
-// // }
-// function findCnum(arr, num, pass) {
-//   const select_user = arr.find(function (user) {
-//     const customerPhone = user["userNumber"];
-//     const customerName = user["userName"];
-
-//     if (num === customerPhone) {
-//       findData = true;
-//       if (pass === user["userPassword"]) {
-//         alert(customerName + "! Your account logged in successfully");
-//         localStorage.setItem("oneUser", JSON.stringify(number));
-
-//         return findData;
-//       }
-//       alert("Password is incorrect Please check");
-//       return findData;
-//     }
-//     return (findData = true);
-//   });
-// }
-// function findMnum(arr, num, pass) {
-//   const select_user = arr.find(function (user) {
-//     const Phone = user["userNumber"];
-//     const Name = user["userName"];
-
-//     if (num === Phone) {
-//       findData = true;
-//       if (pass === user["userPassword"]) {
-//         alert(Name + "! Your account logged in successfully");
-//         localStorage.setItem("oneUser", JSON.stringify(number));
-
-//         return findData;
-//       }
-//       alert("Password is incorrect Please check");
-//       return findData;
-//     }
-//     return (findData = true);
-//   });
-// }

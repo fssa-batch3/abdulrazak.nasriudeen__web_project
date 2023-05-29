@@ -3,7 +3,7 @@ body {
   color: white;
   font-family: Arial, sans-serif;
   display: flex;
-  gap: 2%;
+  gap: 1%;
   align-items: center;
   justify-content: center;
   height: 800px;
@@ -17,8 +17,9 @@ body {
   gap: 3%;
   margin: 0 auto;
   padding: 20px;
-  background-color: white;
-  color: #111;
+  background: linear-gradient(-45deg, #e83e8c, #6610f2);
+  color: white;
+  border: 2px solid white;
   height: 90%;
   display: none;
   flex-direction: column;
@@ -41,10 +42,12 @@ body {
 .container button {
   align-self: center;
   /* margin-left: 30%; */
-  background-color: #20c997;
+  background-color: #6610f2;
   width: 40%;
   height: 5%;
   border-radius: 10px;
+  color: white;
+  border: 1px solid white;
 }
 
 h1 {
@@ -65,7 +68,8 @@ h2 img {
 form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  /* gap: 10%; */
 }
 form button {
   width: 50%;
@@ -105,7 +109,7 @@ label {
   align-items: center;
   width: 100%;
   gap: 2%;
-  color: #111;
+  color: white;
 }
 
 input[type="submit"] {
@@ -191,3 +195,9 @@ input[type="submit"]:hover {
 .serviceList {
   display: none;
 }
+#service {
+  gap: 5%;
+}
+/* .vehicleDis {
+  padding-left: 20px;
+} */
