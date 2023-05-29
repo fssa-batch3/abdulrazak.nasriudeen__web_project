@@ -32,14 +32,16 @@ onValue(starCountRef, (snapshot) => {
   let workShops = snapshot.val();
   localStorage.setItem("workshops", JSON.stringify(workShops));
 });
+const starBookingRef = ref(db, "bookings/");
+onValue(starBookingRef, (snapshot) => {
+  let bookings = snapshot.val();
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+});
 
 const signUpForm = document.getElementById("signUpForm");
 const otpForm = document.getElementById("otpVerify");
 const loginForm = document.getElementById("loginForm");
-let users = [];
-if (JSON.parse(localStorage.getItem("users")) != null) {
-  users = JSON.parse(localStorage.getItem("users"));
-}
+let users = JSON.parse(localStorage.getItem("users"));
 
 const signUpButton = document.getElementById("signButton");
 signUpButton.addEventListener("click", () => {

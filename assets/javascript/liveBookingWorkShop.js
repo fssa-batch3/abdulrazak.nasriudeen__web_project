@@ -74,8 +74,11 @@ for (let i = 0; i < near.length; i++) {
     }
   });
   console.log(users);
-  console.log(checkReject);
+  console.log(liveUser);
+  console.log(near[i]);
+
   if (
+    near[i]["raisedStatus"] == true ||
     checkReject == undefined ||
     near[i]["acceptBooking"] == false ||
     near[i]["acceptBooking"] != loggedWorkShopId
@@ -92,7 +95,10 @@ for (let i = 0; i < near.length; i++) {
       near[i]["serviceList"] == undefined
     ) {
       serviceList(near[i], ".workshopSection");
-    } else if (near[i]["serviceAccept"] == undefined) {
+    } else if (
+      near[i]["serviceAccept"] == undefined &&
+      near[i]["raisedStatus"] == true
+    ) {
       waiting(liveUser, ".workshopSection");
     } else if (
       near[i]["serviceAccept"] === true &&
@@ -246,13 +252,18 @@ function bookingWorkshopDiv(obj, customerObj, classID, status) {
   locationButton.classList.add("direction");
 
   // Create the span element for the symbol in the Location button
-  const locationSymbolSpan = document.createElement("span");
-  locationSymbolSpan.classList.add("material-symbols-outlined");
-  locationSymbolSpan.innerText = "near_me";
+  const location = document.createElement("a");
+  location.setAttribute(
+    "href",
+    "https://www.google.com/maps/search/" + obj["address"] + "," + obj["state"]
+  );
+  location.innerText = "location";
+  location.style.color = "white";
+  location.style.textDecoration = "none";
 
   // Append the symbol span to the Location button
-  locationButton.appendChild(locationSymbolSpan);
-  locationButton.textContent = "Location";
+  locationButton.append(location);
+  // locationButton.textContent = "";
 
   // Append the Location button to the second button container
   buttonContainer2.appendChild(locationButton);
@@ -575,8 +586,17 @@ function bookingAccepted(obj, cls) {
 
   // Create the button element
   var buttonElement = document.createElement("button");
-  var buttonText = document.createTextNode("location");
-  buttonElement.appendChild(buttonText);
+  var buttonElement = document.createElement("button");
+  const location = document.createElement("a");
+  location.setAttribute(
+    "href",
+    "https://www.google.com/maps/search/" + obj["address"] + "," + obj["state"]
+  );
+  location.innerText = "location";
+  location.style.color = "white";
+  location.style.textDecoration = "none";
+  // var buttonText = document.createTextNode("okay");
+  buttonElement.appendChild(location);
 
   // Append the h2 and button elements to the div element
   divElement.appendChild(h2Element);
@@ -597,9 +617,6 @@ function bookingRejected(obj, cls) {
   h3Element.appendChild(h3Text);
 
   // Create the button element
-  var buttonElement = document.createElement("button");
-  var buttonText = document.createTextNode("okay");
-  buttonElement.appendChild(buttonText);
 
   // Append the h2 and button elements to the div element
   divElement.appendChild(h2Element);
