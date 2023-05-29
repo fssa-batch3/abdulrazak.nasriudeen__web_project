@@ -417,6 +417,5 @@ if (livObj != undefined) {
     document.getElementById("activitySection").appendChild(h2);
   }
 }
-otpVerifyFunc(livObj, bookedWorkshop, "activitySection");
 
 // feed back
